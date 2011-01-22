@@ -201,6 +201,7 @@ namespace OpenGraph_Net
             return metaTag.Attributes["content"].Value;
         }
 
+
         #region IDictionary<string,string> Members
 
         public void Add(string key, string value)
@@ -237,6 +238,7 @@ namespace OpenGraph_Net
         {
             get
             {
+                if (!OpenGraphData.ContainsKey(key)) return string.Empty;
                 return OpenGraphData[key];
             }
             set
@@ -247,6 +249,7 @@ namespace OpenGraph_Net
 
         #endregion
 
+        
         #region ICollection<KeyValuePair<string,string>> Members
 
         public void Add(KeyValuePair<string, string> item)
@@ -302,9 +305,7 @@ namespace OpenGraph_Net
             return ((System.Collections.IEnumerable)OpenGraphData).GetEnumerator();
         }
 
-        #endregion
-
-        
+        #endregion     
     }
 
  
