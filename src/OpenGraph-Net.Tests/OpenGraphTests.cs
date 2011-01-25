@@ -48,6 +48,15 @@ namespace OpenGraph_Net.Tests
 <body>
 </body>
 </html>";
+
+        private string _invalidMissingAllMeta = @"<!DOCTYPE HTML>
+<html>
+<head>
+    <title>some title</title>
+</head>
+<body>
+</body>
+</html>";
         [Test]
         public void TestValidGraphParsing()
         {
@@ -78,6 +87,12 @@ namespace OpenGraph_Net.Tests
         public void TestInvaidGraphParsing()
         {
             OpenGraph graph = OpenGraph.ParseHtml(_invalidSampleContent, true);
+        }
+
+        [Test, ExpectedException(typeof(InvalidSpecificationException))]
+        public void TestInvaidGraphParsingMissingAllMeta()
+        {
+            OpenGraph graph = OpenGraph.ParseHtml(_invalidMissingAllMeta, true);
         }
 
         [Test]

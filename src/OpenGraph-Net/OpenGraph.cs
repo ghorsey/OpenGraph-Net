@@ -140,7 +140,7 @@ namespace OpenGraph_Net
             
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
 
-            var ogMetaTags = from meta in allMeta
+            var ogMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
                              where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
                              (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
                              select meta;
