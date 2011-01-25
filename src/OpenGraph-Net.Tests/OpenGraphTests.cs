@@ -37,6 +37,17 @@ namespace OpenGraph_Net.Tests
 </body>
 </html>";
 
+        private string _invalidMissingRequiredUrls = @"<!DOCTYPE HTML>
+<html>
+<head>
+    <meta property=""og:type"" content=""product"" />
+    <meta property=""og:title"" cOntent=""Product Title"" />
+    <meta property=""og:description"" content=""My Description""/>
+    <meta property=""og:site_Name"" content=""Test Site"">
+</head>
+<body>
+</body>
+</html>";
         [Test]
         public void TestValidGraphParsing()
         {
@@ -46,6 +57,19 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("Product Title", graph.Title);
             Assert.AreEqual("http://www.test.com/test.png", graph.Image.ToString());
             Assert.AreEqual("http://www.test.com/", graph.Url.ToString());
+            Assert.AreEqual("My Description", graph["description"]);
+            Assert.AreEqual("Test Site", graph["site_name"]);
+        }
+
+        [Test]
+        public void TestHtmlMissingUrls()
+        {
+            OpenGraph graph = OpenGraph.ParseHtml(_invalidMissingRequiredUrls, false);
+
+            Assert.AreEqual("product", graph.Type);
+            Assert.AreEqual("Product Title", graph.Title);
+            Assert.IsNull(graph.Image);
+            Assert.IsNull(graph.Url);
             Assert.AreEqual("My Description", graph["description"]);
             Assert.AreEqual("Test Site", graph["site_name"]);
         }

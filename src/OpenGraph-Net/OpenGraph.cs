@@ -161,14 +161,36 @@ namespace OpenGraph_Net
             result.OpenGraphData.TryGetValue("title", out title);
             result.Title = title ?? string.Empty;
 
-            string image="";
-            result.OpenGraphData.TryGetValue("image", out image);
-            result.Image = new Uri(image);
+            try
+            {
+                string image = "";
+                result.OpenGraphData.TryGetValue("image", out image);
+                result.Image = new Uri(image);
+            }
+            catch (UriFormatException)
+            {
+                // do nothing
+            }
+            catch (ArgumentException)
+            {
+                // do nothing
+            }
 
-            string url = "";
-            result.OpenGraphData.TryGetValue("url", out url);
-            result.Url = new Uri(url);
+            try
+            {
 
+                string url = "";
+                result.OpenGraphData.TryGetValue("url", out url);
+                result.Url = new Uri(url);
+            }
+            catch (UriFormatException)
+            {
+                // do nothing
+            }
+            catch (ArgumentException)
+            {
+                // do nothing
+            }
 
             if( validateSpecification )
                 foreach (string required in RequiredMeta)
@@ -248,7 +270,6 @@ namespace OpenGraph_Net
         }
 
         #endregion
-
         
         #region ICollection<KeyValuePair<string,string>> Members
 
