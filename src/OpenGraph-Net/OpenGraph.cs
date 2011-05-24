@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Web;
 using System.Net;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace OpenGraph_Net
 {
@@ -126,16 +127,12 @@ namespace OpenGraph_Net
         
         private static OpenGraph ParseHtml(OpenGraph result, string content, bool validateSpecification = false)
         {
-         
-
-            int indexOfClosingHead = content.IndexOf("</head>");
-            string toParse = content.Substring(0, indexOfClosingHead + 7);
+            int indexOfClosingHead = Regex.Match(content, "</head>").Index;
+            string toParse =  content.Substring(0, indexOfClosingHead + 7);
 
             toParse = toParse + "<body></body></html>\r\n";
 
             HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(toParse);
-            
             document.LoadHtml(toParse);
             
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
@@ -148,9 +145,11 @@ namespace OpenGraph_Net
             foreach (HtmlNode metaTag in ogMetaTags)
             {
                 string value = GetOpenGraphValue(metaTag);
+                string property = GetOpenGraphKey(metaTag);
                 if (string.IsNullOrWhiteSpace(value)) continue;
+                if( result.OpenGraphData.ContainsKey(property)) continue;
 
-                result.OpenGraphData.Add(GetOpenGraphKey(metaTag), GetOpenGraphValue(metaTag));
+                result.OpenGraphData.Add(property, value);
             }
 
             string type = "";
