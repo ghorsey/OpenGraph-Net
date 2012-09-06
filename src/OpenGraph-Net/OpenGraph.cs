@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HtmlAgilityPack;
 using System.Globalization;
-using System.Web;
-using System.Net;
 using System.IO;
+using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
+using HtmlAgilityPack;
 
 namespace OpenGraph_Net
 {
@@ -40,6 +38,7 @@ namespace OpenGraph_Net
         };
 
         private IDictionary<string, string> OpenGraphData;
+        private IList<string> LocalAlternatives;
         /// <summary>
         /// Gets the type.
         /// </summary>
@@ -70,9 +69,67 @@ namespace OpenGraph_Net
         private OpenGraph()
         {
             OpenGraphData = new Dictionary<string, string>();
+            LocalAlternatives = new List<string>();
         }
 
 
+        public static OpenGraph MakeGraph(string title, string type, string image, string url, 
+            string description = "", string siteName = "", string audio = "", string video = "", string locale = "", 
+            IList<string> localeAlternate = null, string determiner = "")
+        {
+            var graph = new OpenGraph
+            {
+                Title = title,
+                Type = type,
+                Image = new Uri(image,  UriKind.Absolute),
+                Url = new Uri(url, UriKind.Absolute)
+            };
+
+            graph.OpenGraphData.Add("title", title);
+            graph.OpenGraphData.Add("type", type);
+            graph.OpenGraphData.Add("image", image);
+            graph.OpenGraphData.Add("url", url);
+
+            if (!string.IsNullOrWhiteSpace(description))
+                graph.OpenGraphData.Add("description", description);
+            if (!string.IsNullOrWhiteSpace(siteName))
+                graph.OpenGraphData.Add("site_name", siteName);
+            if (!string.IsNullOrWhiteSpace(audio))
+                graph.OpenGraphData.Add("audio", audio);
+            if (!string.IsNullOrWhiteSpace(video))
+                graph.OpenGraphData.Add("video", video);
+            if (!string.IsNullOrWhiteSpace(locale))
+                graph.OpenGraphData.Add("locale", locale);
+            if (!string.IsNullOrWhiteSpace(determiner))
+                graph.OpenGraphData.Add("determiner", determiner);
+
+            if (localeAlternate != null)
+                graph.LocalAlternatives = localeAlternate;
+            return graph;
+        }
+
+        public override string ToString()
+        {
+            var doc = new HtmlDocument();
+
+            foreach (var itm in OpenGraphData)
+            {
+                var meta = doc.CreateElement("meta");
+                meta.Attributes.Add("property", "og:" + itm.Key);
+                meta.Attributes.Add("content", itm.Value);
+                doc.DocumentNode.AppendChild(meta);
+            }
+
+            foreach (var itm in LocalAlternatives)
+            {
+                var meta = doc.CreateElement("meta");
+                meta.Attributes.Add("property", "og:locale:alternate");
+                meta.Attributes.Add("content", itm);
+                doc.DocumentNode.AppendChild(meta);
+            }
+
+            return doc.DocumentNode.InnerHtml;
+        }
         /// <summary>
         /// Downloads the HTML of the specified URL and parses it for open graph content.
         /// </summary>

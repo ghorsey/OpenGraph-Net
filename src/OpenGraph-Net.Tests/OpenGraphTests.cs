@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace OpenGraph_Net.Tests
 {
@@ -57,8 +53,35 @@ namespace OpenGraph_Net.Tests
 <body>
 </body>
 </html>";
+
+        public void MakeOpenGraph_Test()
+        {
+            var title = "some title";
+            var type = "website";
+            var image = "http://www.go.com/someimg.jpg";
+            var url = "http://www.go.com/";
+            var description = "some description";
+            var siteName = "my site";
+            var graph = OpenGraph.MakeGraph(title, type, image, url, description, siteName);
+
+            Assert.AreEqual(title, graph.Title);
+            Assert.AreEqual(type, graph.Type);
+            Assert.AreEqual(image, graph.Image.ToString());
+            Assert.AreEqual(url, graph.Url.ToString());
+            Assert.AreEqual(description, graph["description"]);
+            Assert.AreEqual(siteName, graph["site_name"]);
+
+            var expected = "<meta property=\"og:title\" content=\"some title\">" +
+                "<meta property=\"og:type\" content=\"website\">" +
+                "<meta property=\"og:image\" content=\"http://www.go.com/someimg.jpg\">" +
+                "<meta property=\"og:url\" content=\"http://www.go.com/\">" +
+                "<meta property=\"og:description\" content=\"some description\">" +
+                "<meta property=\"og:site_name\" content=\"my site\">";
+            Assert.AreEqual(expected, graph.ToString());
+           
+        }
         [Test]
-        public void TestValidGraphParsing()
+        public void ParseHtml_ValidGraphParsing_Test()
         {
             OpenGraph graph = OpenGraph.ParseHtml(_validSampleContent, true);
 
@@ -71,7 +94,7 @@ namespace OpenGraph_Net.Tests
         }
 
         [Test]
-        public void TestHtmlMissingUrls()
+        public void ParseHtml_HtmlMissingUrls_Test()
         {
             OpenGraph graph = OpenGraph.ParseHtml(_invalidMissingRequiredUrls, false);
 
@@ -84,19 +107,19 @@ namespace OpenGraph_Net.Tests
         }
 
         [Test, ExpectedException(typeof(InvalidSpecificationException))]
-        public void TestInvaidGraphParsing()
+        public void ParseHtml_InvaidGraphParsing_Test()
         {
             OpenGraph graph = OpenGraph.ParseHtml(_invalidSampleContent, true);
         }
 
         [Test, ExpectedException(typeof(InvalidSpecificationException))]
-        public void TestInvaidGraphParsingMissingAllMeta()
+        public void ParseHtml_InvaidGraphParsingMissingAllMeta_Test()
         {
             OpenGraph graph = OpenGraph.ParseHtml(_invalidMissingAllMeta, true);
         }
 
         [Test]
-        public void TestInvalidGraphParsingWithoutCheck()
+        public void ParseHtml_InvalidGraphParsingWithoutCheck_Test()
         {
             OpenGraph graph = OpenGraph.ParseHtml(_invalidSampleContent);
 
@@ -110,7 +133,7 @@ namespace OpenGraph_Net.Tests
         }
 
         [Test]
-        public void TestAmazonUrl()
+        public void ParseUrl_AmazonUrl_Test()
         {
             OpenGraph graph = OpenGraph.ParseUrl("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
 
