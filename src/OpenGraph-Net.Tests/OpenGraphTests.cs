@@ -139,7 +139,7 @@ namespace OpenGraph_Net.Tests
 
             Assert.AreEqual("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
             Assert.AreEqual("Spaced: The Complete Series", graph.Title);
-            Assert.IsTrue(graph["description"].StartsWith("Before &quot;Shaun of the Dead,&quot; Simon Pegg and Edgar Wright"));
+            Assert.IsTrue(graph["description"].Contains("Spaced"));
             Assert.AreEqual("http://ecx.images-amazon.com/images/I/51sWMo4CBcL._SL160_.jpg", graph.Image.ToString());
             Assert.AreEqual("movie", graph.Type);
             Assert.AreEqual("Amazon.com", graph["site_name"]);
