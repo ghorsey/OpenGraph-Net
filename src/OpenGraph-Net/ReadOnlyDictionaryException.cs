@@ -1,16 +1,16 @@
-﻿using System;
+﻿// <copyright file="ReadOnlyDictionaryException.cs" company="SHHH Innovations LLC">
+// Copyright SHHH Innovations LLC
+// </copyright>
 
 namespace OpenGraph_Net
 {
+    using System;
+
+    /// <summary>
+    /// Read-only dictionary exception
+    /// </summary>
     [Serializable]
     public class ReadOnlyDictionaryException : NotSupportedException
     {
-        public ReadOnlyDictionaryException() : this( "This is a read-only dictionary") { }
-        public ReadOnlyDictionaryException(string message) : base(message) { }
-        public ReadOnlyDictionaryException(string message, Exception inner) : base(message, inner) { }
-        protected ReadOnlyDictionaryException(
-          System.Runtime.Serialization.SerializationInfo info,
-          System.Runtime.Serialization.StreamingContext context)
-            : base(info, context) { }
     }
 }

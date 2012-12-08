@@ -1,16 +1,24 @@
-﻿using System;
+﻿// <copyright file="InvalidSpecificationException.cs" company="SHHH Innovations LLC">
+// Copyright SHHH Innovations LLC
+// </copyright>
 
 namespace OpenGraph_Net
 {
+    using System;
+
+    /// <summary>
+    /// An invalid specification exception
+    /// </summary>
     [Serializable]
     public class InvalidSpecificationException : Exception
     {
-        public InvalidSpecificationException() { }
-        public InvalidSpecificationException(string message) : base(message) { }
-        public InvalidSpecificationException(string message, Exception inner) : base(message, inner) { }
-        protected InvalidSpecificationException(
-          System.Runtime.Serialization.SerializationInfo info,
-          System.Runtime.Serialization.StreamingContext context)
-            : base(info, context) { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InvalidSpecificationException" /> class.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        public InvalidSpecificationException(string message)
+            : base(message)
+        {
+        }
     }
 }

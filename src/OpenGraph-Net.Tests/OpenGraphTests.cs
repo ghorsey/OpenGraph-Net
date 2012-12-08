@@ -1,11 +1,21 @@
-﻿using NUnit.Framework;
+﻿// <copyright file="OpenGraphTests.cs" company="SHHH Innovations LLC">
+// Copyright SHHH Innovations LLC
+// </copyright>
 
 namespace OpenGraph_Net.Tests
 {
+    using NUnit.Framework;
+
+    /// <summary>
+    /// The open graph test fixture
+    /// </summary>
     [TestFixture]
     public class OpenGraphTests
     {
-        private string _validSampleContent = @"<!DOCTYPE HTML>
+        /// <summary>
+        /// The valid sample content
+        /// </summary>
+        private string validSampleContent = @"<!DOCTYPE HTML>
 <html>
 <head>
     <meta property=""og:type"" content=""product"" />
@@ -19,7 +29,10 @@ namespace OpenGraph_Net.Tests
 </body>
 </html>";
 
-        private string _invalidSampleContent = @"<!DOCTYPE HTML>
+        /// <summary>
+        /// The invalid sample content
+        /// </summary>
+        private string invalidSampleContent = @"<!DOCTYPE HTML>
 <html>
 <head>
     <meta property=""og:title"" cOntent=""Product Title"" />
@@ -33,7 +46,10 @@ namespace OpenGraph_Net.Tests
 </body>
 </html>";
 
-        private string _invalidMissingRequiredUrls = @"<!DOCTYPE HTML>
+        /// <summary>
+        /// The invalid missing required URLs
+        /// </summary>
+        private string invalidMissingRequiredUrls = @"<!DOCTYPE HTML>
 <html>
 <head>
     <meta property=""og:type"" content=""product"" />
@@ -45,7 +61,10 @@ namespace OpenGraph_Net.Tests
 </body>
 </html>";
 
-        private string _invalidMissingAllMeta = @"<!DOCTYPE HTML>
+        /// <summary>
+        /// The invalid missing all meta
+        /// </summary>
+        private string invalidMissingAllMeta = @"<!DOCTYPE HTML>
 <html>
 <head>
     <title>some title</title>
@@ -54,6 +73,9 @@ namespace OpenGraph_Net.Tests
 </body>
 </html>";
 
+        /// <summary>
+        /// Tests calling <c>MakeOpenGraph</c> method
+        /// </summary>
         public void MakeOpenGraph_Test()
         {
             var title = "some title";
@@ -78,12 +100,15 @@ namespace OpenGraph_Net.Tests
                 "<meta property=\"og:description\" content=\"some description\">" +
                 "<meta property=\"og:site_name\" content=\"my site\">";
             Assert.AreEqual(expected, graph.ToString());
-           
         }
+
+        /// <summary>
+        /// Tests parsing the HTML
+        /// </summary>
         [Test]
         public void ParseHtml_ValidGraphParsing_Test()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(_validSampleContent, true);
+            OpenGraph graph = OpenGraph.ParseHtml(this.validSampleContent, true);
 
             Assert.AreEqual("product", graph.Type);
             Assert.AreEqual("Product Title", graph.Title);
@@ -93,10 +118,13 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("Test Site", graph["site_name"]);
         }
 
+        /// <summary>
+        /// Tests parsing the HTML that is missing URLs
+        /// </summary>
         [Test]
         public void ParseHtml_HtmlMissingUrls_Test()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(_invalidMissingRequiredUrls, false);
+            OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingRequiredUrls, false);
 
             Assert.AreEqual("product", graph.Type);
             Assert.AreEqual("Product Title", graph.Title);
@@ -106,24 +134,33 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("Test Site", graph["site_name"]);
         }
 
+        /// <summary>
+        /// Test that parsing the HTML with invalid graph specification throws an exception
+        /// </summary>
         [Test, ExpectedException(typeof(InvalidSpecificationException))]
         public void ParseHtml_InvaidGraphParsing_Test()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(_invalidSampleContent, true);
+            OpenGraph graph = OpenGraph.ParseHtml(this.invalidSampleContent, true);
         }
 
+        /// <summary>
+        /// Test that parsing the HTML with invalid graph specification throws an exception
+        /// </summary>
         [Test, ExpectedException(typeof(InvalidSpecificationException))]
         public void ParseHtml_InvaidGraphParsingMissingAllMeta_Test()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(_invalidMissingAllMeta, true);
+            OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingAllMeta, true);
         }
 
+        /// <summary>
+        /// Test that parsing the HTML with invalid graph specification passes when validate specification boolean is off
+        /// </summary>
         [Test]
         public void ParseHtml_InvalidGraphParsingWithoutCheck_Test()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(_invalidSampleContent);
+            OpenGraph graph = OpenGraph.ParseHtml(this.invalidSampleContent);
 
-            Assert.AreEqual("", graph.Type);
+            Assert.AreEqual(string.Empty, graph.Type);
             Assert.IsFalse(graph.ContainsKey("mistake"));
             Assert.AreEqual("Product Title", graph.Title);
             Assert.AreEqual("http://www.test.com/test.png", graph.Image.ToString());
@@ -132,6 +169,9 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("Test Site", graph["site_name"]);
         }
 
+        /// <summary>
+        /// Test parsing a URL
+        /// </summary>
         [Test]
         public void ParseUrl_AmazonUrl_Test()
         {
