@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/ghorsey/OpenGraph-Net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial puglication of this package</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>OpenGraph</tags>
+    <dependencies>
+      <dependency id="HtmlAgilityPack" version="1.4.6" />
+    </dependencies>
+  </metadata>
+</package>
