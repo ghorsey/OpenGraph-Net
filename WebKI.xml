@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+
+  <HelpKINode Title="Add method" Url="html/b2f4975d-5525-c4b5-d6c7-d18ce9234ab8.htm" />
+  <HelpKINode Title="Clear method" Url="html/078e4d6e-943f-b86b-1832-e1aaa71dd276.htm" />
+  <HelpKINode Title="Contains method" Url="html/e86ebc63-c221-b839-507b-9f3a2e94ce02.htm" />
+  <HelpKINode Title="ContainsKey method" Url="html/c027e2de-40ad-77c3-5465-600e4bab4913.htm" />
+  <HelpKINode Title="CopyTo method" Url="html/34767648-0410-4fa0-1f22-e9812ffd325d.htm" />
+  <HelpKINode Title="Count property" Url="html/9c91607b-ef22-f990-278f-7d573fe18022.htm" />
+  <HelpKINode Title="GetEnumerator method" Url="html/fc868e6d-8959-0bf9-751f-20e2b6d56f3f.htm" />
+  <HelpKINode Title="Image property" Url="html/1edb1398-5a64-091b-c1de-7ba6d05ba3b3.htm" />
+  <HelpKINode Title="InvalidSpecificationException class" Url="html/57a84ea8-c2e6-9843-5008-c7e04d3dd17c.htm" />
+  <HelpKINode Title="InvalidSpecificationException class" Url="html/d4a9cac7-ec6b-9bd1-a295-d313c64ef7d9.htm" />
+  <HelpKINode Title="InvalidSpecificationException class">
+    <HelpKINode Title="about InvalidSpecificationException class" Url="html/57a84ea8-c2e6-9843-5008-c7e04d3dd17c.htm" />
+    <HelpKINode Title="all members" Url="html/d4a9cac7-ec6b-9bd1-a295-d313c64ef7d9.htm" />
+    <HelpKINode Title="constructor" Url="html/ac1da1ce-4cf3-b9f8-3430-f35f913fbb41.htm" />
+    <HelpKINode Title="events" Url="html/3ac223e7-91b8-7a9c-0f7e-41bc7c53b463.htm" />
+    <HelpKINode Title="methods" Url="html/271e5322-056b-dcd3-06b9-4692560065a8.htm" />
+    <HelpKINode Title="properties" Url="html/33118322-9eda-4eea-5206-275c6bc1eab8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InvalidSpecificationException.InvalidSpecificationException constructor" Url="html/ac1da1ce-4cf3-b9f8-3430-f35f913fbb41.htm" />
+  <HelpKINode Title="IsReadOnly property" Url="html/4b0056da-0134-6a2a-56ce-5c3d64e3ab73.htm" />
+  <HelpKINode Title="Item property" Url="html/c1779df8-7eb5-e6f9-55a6-e270024c4c2d.htm" />
+  <HelpKINode Title="Keys property" Url="html/d8f658d4-14f8-45a6-bf05-8f50b011bfb5.htm" />
+  <HelpKINode Title="MakeGraph method" Url="html/93eb5e5a-8d34-f136-ee33-4382532a9f73.htm" />
+  <HelpKINode Title="OpenGraph class" Url="html/54aa297a-de88-6006-f3c4-eb712a9bd44f.htm" />
+  <HelpKINode Title="OpenGraph class" Url="html/f4800b30-9ab9-cda2-edf4-598982dc20ca.htm" />
+  <HelpKINode Title="OpenGraph class">
+    <HelpKINode Title="about OpenGraph class" Url="html/54aa297a-de88-6006-f3c4-eb712a9bd44f.htm" />
+    <HelpKINode Title="all members" Url="html/f4800b30-9ab9-cda2-edf4-598982dc20ca.htm" />
+    <HelpKINode Title="methods" Url="html/9d5fc71a-5ec6-2447-680a-23d72365cc7b.htm" />
+    <HelpKINode Title="properties" Url="html/62846ca5-4950-6d65-dc99-5bf99edd3cf3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OpenGraph.Add method" Url="html/b2f4975d-5525-c4b5-d6c7-d18ce9234ab8.htm" />
+  <HelpKINode Title="OpenGraph.Clear method" Url="html/078e4d6e-943f-b86b-1832-e1aaa71dd276.htm" />
+  <HelpKINode Title="OpenGraph.Contains method" Url="html/e86ebc63-c221-b839-507b-9f3a2e94ce02.htm" />
+  <HelpKINode Title="OpenGraph.ContainsKey method" Url="html/c027e2de-40ad-77c3-5465-600e4bab4913.htm" />
+  <HelpKINode Title="OpenGraph.CopyTo method" Url="html/34767648-0410-4fa0-1f22-e9812ffd325d.htm" />
+  <HelpKINode Title="OpenGraph.Count property" Url="html/9c91607b-ef22-f990-278f-7d573fe18022.htm" />
+  <HelpKINode Title="OpenGraph.GetEnumerator method" Url="html/fc868e6d-8959-0bf9-751f-20e2b6d56f3f.htm" />
+  <HelpKINode Title="OpenGraph.Image property" Url="html/1edb1398-5a64-091b-c1de-7ba6d05ba3b3.htm" />
+  <HelpKINode Title="OpenGraph.IsReadOnly property" Url="html/4b0056da-0134-6a2a-56ce-5c3d64e3ab73.htm" />
+  <HelpKINode Title="OpenGraph.Item property" Url="html/c1779df8-7eb5-e6f9-55a6-e270024c4c2d.htm" />
+  <HelpKINode Title="OpenGraph.Keys property" Url="html/d8f658d4-14f8-45a6-bf05-8f50b011bfb5.htm" />
+  <HelpKINode Title="OpenGraph.MakeGraph method" Url="html/93eb5e5a-8d34-f136-ee33-4382532a9f73.htm" />
+  <HelpKINode Title="OpenGraph.OriginalUrl property" Url="html/ffc62f0a-28cd-9841-a5c8-64f03659e5c4.htm" />
+  <HelpKINode Title="OpenGraph.ParseHtml method" Url="html/52c783b1-ee7e-5626-10fa-009486216645.htm" />
+  <HelpKINode Title="OpenGraph.ParseUrl method" Url="html/b5a2503a-8b39-9be8-dbd3-53e9485f59d5.htm" />
+  <HelpKINode Title="OpenGraph.Remove method" Url="html/03c22ff1-41a7-33ca-361b-b42737819cce.htm" />
+  <HelpKINode Title="OpenGraph.Title property" Url="html/bb45d1d2-a2ab-571c-a132-65e63a8499b3.htm" />
+  <HelpKINode Title="OpenGraph.ToString method" Url="html/341d732a-5d8f-c19c-61b4-4cd5819fa074.htm" />
+  <HelpKINode Title="OpenGraph.TryGetValue method" Url="html/bae0fa20-bfcd-75ee-6ad8-8897a58f3cf6.htm" />
+  <HelpKINode Title="OpenGraph.Type property" Url="html/3c0360e4-8588-ee53-6396-b9274e44b001.htm" />
+  <HelpKINode Title="OpenGraph.Url property" Url="html/194aa8ec-5ca9-4933-3549-975b1790754b.htm" />
+  <HelpKINode Title="OpenGraph.Values property" Url="html/ff81eec9-1e79-370b-5d40-a1740298b361.htm" />
+  <HelpKINode Title="OpenGraph_Net namespace" Url="html/56b6d2f5-ad89-825f-400c-fdb73704c08e.htm" />
+  <HelpKINode Title="OpenGraph_Net.InvalidSpecificationException class" Url="html/57a84ea8-c2e6-9843-5008-c7e04d3dd17c.htm" />
+  <HelpKINode Title="OpenGraph_Net.InvalidSpecificationException class" Url="html/d4a9cac7-ec6b-9bd1-a295-d313c64ef7d9.htm" />
+  <HelpKINode Title="OpenGraph_Net.OpenGraph class" Url="html/54aa297a-de88-6006-f3c4-eb712a9bd44f.htm" />
+  <HelpKINode Title="OpenGraph_Net.OpenGraph class" Url="html/f4800b30-9ab9-cda2-edf4-598982dc20ca.htm" />
+  <HelpKINode Title="OpenGraph_Net.ReadOnlyDictionaryException class" Url="html/0cea56a1-b377-1cb9-2ff6-d62eb6140ce3.htm" />
+  <HelpKINode Title="OpenGraph_Net.ReadOnlyDictionaryException class" Url="html/69921226-5b71-b13b-52f0-7e349eec8406.htm" />
+  <HelpKINode Title="OriginalUrl property" Url="html/ffc62f0a-28cd-9841-a5c8-64f03659e5c4.htm" />
+  <HelpKINode Title="ParseHtml method" Url="html/52c783b1-ee7e-5626-10fa-009486216645.htm" />
+  <HelpKINode Title="ParseUrl method" Url="html/b5a2503a-8b39-9be8-dbd3-53e9485f59d5.htm" />
+  <HelpKINode Title="ReadOnlyDictionaryException class" Url="html/0cea56a1-b377-1cb9-2ff6-d62eb6140ce3.htm" />
+  <HelpKINode Title="ReadOnlyDictionaryException class" Url="html/69921226-5b71-b13b-52f0-7e349eec8406.htm" />
+  <HelpKINode Title="ReadOnlyDictionaryException class">
+    <HelpKINode Title="about ReadOnlyDictionaryException class" Url="html/0cea56a1-b377-1cb9-2ff6-d62eb6140ce3.htm" />
+    <HelpKINode Title="all members" Url="html/69921226-5b71-b13b-52f0-7e349eec8406.htm" />
+    <HelpKINode Title="constructor" Url="html/fb9078ad-44c3-011f-4bf9-e0d5fa89f05b.htm" />
+    <HelpKINode Title="events" Url="html/8cdfa0c6-1bc0-9811-2c55-bc8af6a8fe97.htm" />
+    <HelpKINode Title="methods" Url="html/9d050642-ffa7-529c-4395-1b18ace5d516.htm" />
+    <HelpKINode Title="properties" Url="html/06215ae8-a9c8-1f02-788d-3c969b28f642.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ReadOnlyDictionaryException.ReadOnlyDictionaryException constructor" Url="html/fb9078ad-44c3-011f-4bf9-e0d5fa89f05b.htm" />
+  <HelpKINode Title="Remove method" Url="html/03c22ff1-41a7-33ca-361b-b42737819cce.htm" />
+  <HelpKINode Title="Title property" Url="html/bb45d1d2-a2ab-571c-a132-65e63a8499b3.htm" />
+  <HelpKINode Title="ToString method" Url="html/341d732a-5d8f-c19c-61b4-4cd5819fa074.htm" />
+  <HelpKINode Title="TryGetValue method" Url="html/bae0fa20-bfcd-75ee-6ad8-8897a58f3cf6.htm" />
+  <HelpKINode Title="Type property" Url="html/3c0360e4-8588-ee53-6396-b9274e44b001.htm" />
+  <HelpKINode Title="Url property" Url="html/194aa8ec-5ca9-4933-3549-975b1790754b.htm" />
+  <HelpKINode Title="Values property" Url="html/ff81eec9-1e79-370b-5d40-a1740298b361.htm" />
+</HelpKI>
