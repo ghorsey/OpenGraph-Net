@@ -1,0 +1,9 @@
+NuGet = ..\.nuget\NuGet.exe
+SPEC:
+	 $(NuGet) spec OpenGraph-Net.csproj
+
+PACK: SPEC
+	$(NuGet) pack OpenGraph-Net.csproj -Prop Configuration=Release
+
+PUSH: PACK
+	$(NuGet) push OpenGraph-Net.*.nupkg
