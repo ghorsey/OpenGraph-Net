@@ -1,9 +1,18 @@
 NuGet = ..\.nuget\NuGet.exe
-SPEC:
-	 $(NuGet) spec OpenGraph-Net.csproj
+Name = OpenGraph-Net.
 
-PACK: SPEC
-	$(NuGet) pack OpenGraph-Net.csproj -Prop Configuration=Release
+SPEC:
+	@ECHO CREATING SPEC...
+	 $(NuGet) spec $(Name)csproj
+
+PACK: SPEC CLEAN
+	@ECHO CREATING PACK...
+	$(NuGet) pack $(Name)csproj -Prop Configuration=Release
 
 PUSH: PACK
-	$(NuGet) push OpenGraph-Net.*.nupkg
+	@ECHO PUSHING PACK...
+	$(NuGet) push $(Name)*.nupkg
+
+CLEAN:
+	@ECHO CLEANING PACKS...
+	del $(Name)*.nupkg
