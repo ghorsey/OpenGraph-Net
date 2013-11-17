@@ -3,6 +3,7 @@
 // </copyright>
 
 using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
 
 [module: SuppressMessage("Microsoft.StyleCop.CSharp.OrderingRules", "*", Justification = "Reviewed.")]
 
@@ -223,10 +224,10 @@ namespace OpenGraph_Net
         /// <returns>
         ///   <see cref="OpenGraph" />
         /// </returns>
-        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
+        public async static Task<OpenGraph> ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
         {
             Uri uri = new Uri(url);
-            return ParseUrl(uri, userAgent, validateSpecifiction);
+            return await ParseUrl(uri, userAgent, validateSpecifiction);
         }
 
         /// <summary>
@@ -236,7 +237,7 @@ namespace OpenGraph_Net
         /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
         /// <param name="validateSpecification">if set to <c>true</c> verify that the document meets the required attributes of the open graph specification.</param>
         /// <returns><see cref="OpenGraph"/></returns>
-        public static OpenGraph ParseUrl(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
+        public async static Task<OpenGraph> ParseUrl(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
             OpenGraph result = new OpenGraph();
 
@@ -244,8 +245,8 @@ namespace OpenGraph_Net
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.UserAgent = userAgent;
 
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
+            HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();;
+          
             string html = string.Empty;
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
