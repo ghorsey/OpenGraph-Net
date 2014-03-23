@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InvalidSpecificationException.cs" />
+    <Compile Include="IParsingStrategy.cs" />
+    <Compile Include="OpenGraphMetaTagParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OpenGraph.cs" />
     <Compile Include="ReadOnlyDictionaryException.cs" />

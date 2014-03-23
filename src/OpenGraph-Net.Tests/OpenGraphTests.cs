@@ -2,6 +2,10 @@
 // Copyright SHHH Innovations LLC
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using HtmlAgilityPack;
+
 namespace OpenGraph_Net.Tests
 {
     using NUnit.Framework;
@@ -72,6 +76,26 @@ namespace OpenGraph_Net.Tests
 <body>
 </body>
 </html>";
+
+
+        /// <summary>
+        /// Sample content with a link tag for the image
+        /// </summary>
+        private string linkTagForImage = @"<!DOCTYPE HTML>
+<html>
+<head>
+    <meta property=""og:type"" content=""product"" />
+    <meta property=""og:title"" cOntent=""Product Title"" />
+    <meta propErty=""og:uRl"" content=""http://www.test.com"" />
+    <meta property=""og:description"" content=""My Description""/>
+    <meta property=""og:site_Name"" content=""Test Site"">
+    <link rel=""image_src"" href=""http://www.test.com/test.png""/>
+
+</head>
+<body>
+</body>
+</html>";
+
 
         /// <summary>
         /// Tests calling <c>MakeOpenGraph</c> method
@@ -180,9 +204,45 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
             Assert.AreEqual("Spaced: The Complete Series", graph.Title);
             Assert.IsTrue(graph["description"].Contains("Spaced"));
-            Assert.AreEqual("http://ecx.images-amazon.com/images/I/51sWMo4CBcL._SL160_.jpg", graph.Image.ToString());
+            Assert.AreEqual("http://ecx.images-amazon.com/images/I/51sWMo4CBcL._SS500_.jpg", graph.Image.ToString());
             Assert.AreEqual("movie", graph.Type);
             Assert.AreEqual("Amazon.com", graph["site_name"]);
         }
+
+
+        [Test]
+        public void ParseHtml_FindLinkRelImageWithAdditionalStrategy_Test()
+        {
+            OpenGraph.ParsingStrategies.Add(new LinkRelImageParser());
+            OpenGraph graph = OpenGraph.ParseHtml(this.linkTagForImage);
+            Assert.AreEqual("http://www.test.com/test.png", graph.Image.ToString());
+
+        }
+
+        public class LinkRelImageParser : IParsingStrategy
+        {
+            public void Parse(IDictionary<string, string> openGraphData, HtmlDocument document)
+            {
+                string image;
+                openGraphData.TryGetValue("image", out image);
+                if (!string.IsNullOrEmpty(image))
+                    return;
+
+
+                var linkTags = document.DocumentNode.SelectNodes("//link");
+
+                var linkTag = (from link in linkTags ?? new HtmlNodeCollection(null)
+                    where link.Attributes.Contains("rel") && link.Attributes["rel"].Value == "image_src"
+                    select link).FirstOrDefault();
+
+                if (linkTag != null && linkTag.Attributes.Contains("href"))
+                    image = linkTag.Attributes["href"].Value;
+
+                openGraphData["image"] = image;
+
+
+            }
+        }
+        
     }
 }
