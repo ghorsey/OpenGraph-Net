@@ -5,6 +5,6 @@ namespace OpenGraph_Net
 {
     public interface IParsingStrategy
     {
-        void Parse(IDictionary<string, string> result, HtmlDocument document);
+        void Parse(IDictionary<string, string> openGraphData, HtmlDocument document);
     }
 }
