@@ -22,6 +22,9 @@ namespace OpenGraph_Net
     /// </summary>
     public class OpenGraph : IDictionary<string, string>
     {
+
+        public static IList<IParsingStrategy> ParsingStrategies = new List<IParsingStrategy>{ new OpenGraphMetaTagParser()};
+
         /// <summary>
         /// The required meta
         /// </summary>
@@ -284,42 +287,24 @@ namespace OpenGraph_Net
 
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(toParse);
-            
-            HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
 
-            var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
-                             where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
-                             (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
-                             select meta;
-
-            foreach (HtmlNode metaTag in openGraphMetaTags)
+            foreach (var parser in ParsingStrategies)
             {
-                string value = GetOpenGraphValue(metaTag);
-                string property = GetOpenGraphKey(metaTag);
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    continue;
-                }
-
-                if (result.openGraphData.ContainsKey(property))
-                {
-                    continue;
-                }
-
-                result.openGraphData.Add(property, value);
+                parser.Parse(result.openGraphData, document);
             }
 
-            string type = string.Empty;
-            result.openGraphData.TryGetValue("type", out type);
-            result.Type = type ?? string.Empty;
 
-            string title = string.Empty;
+            string type = String.Empty;
+            result.openGraphData.TryGetValue("type", out type);
+            result.Type = type ?? String.Empty;
+
+            string title = String.Empty;
             result.openGraphData.TryGetValue("title", out title);
-            result.Title = title ?? string.Empty;
+            result.Title = title ?? String.Empty;
 
             try
             {
-                string image = string.Empty;
+                string image = String.Empty;
                 result.openGraphData.TryGetValue("image", out image);
                 result.Image = new Uri(image);
             }
@@ -334,7 +319,7 @@ namespace OpenGraph_Net
 
             try
             {
-                string url = string.Empty;
+                string url = String.Empty;
                 result.openGraphData.TryGetValue("url", out url);
                 result.Url = new Uri(url);
             }
@@ -346,6 +331,7 @@ namespace OpenGraph_Net
             {
                 // do nothing
             }
+
 
             if (validateSpecification)
             {
@@ -361,47 +347,9 @@ namespace OpenGraph_Net
             return result;
         }
 
-        /// <summary>
-        /// Gets the open graph key.
-        /// </summary>
-        /// <param name="metaTag">The meta tag.</param>
-        /// <returns>Returns the key stored from the meta tag</returns>
-        private static string GetOpenGraphKey(HtmlNode metaTag)
-        {
-            if (metaTag.Attributes.Contains("property"))
-            {
-                return CleanOpenGraphKey(metaTag.Attributes["property"].Value);
-            }
-            else
-            {
-                return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
-            }
-        }
+        
 
-        /// <summary>
-        /// Cleans the open graph key.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>strips the <c>og:</c> namespace from the value</returns>
-        private static string CleanOpenGraphKey(string value)
-        {
-            return value.Replace("og:", string.Empty).ToLower(CultureInfo.InvariantCulture);
-        }
 
-        /// <summary>
-        /// Gets the open graph value.
-        /// </summary>
-        /// <param name="metaTag">The meta tag.</param>
-        /// <returns>Returns the value from the meta tag</returns>
-        private static string GetOpenGraphValue(HtmlNode metaTag)
-        {
-            if (!metaTag.Attributes.Contains("content"))
-            {
-                return string.Empty;
-            }
-
-            return metaTag.Attributes["content"].Value;
-        }
 
         #region IDictionary<string,string> Members
 
@@ -594,6 +542,6 @@ namespace OpenGraph_Net
             return ((System.Collections.IEnumerable)this.openGraphData).GetEnumerator();
         }
 
-        #endregion     
+        #endregion
     }
 }
