@@ -16,6 +16,10 @@ namespace OpenGraph_Net
     using System.Net;
     using System.Text.RegularExpressions;
     using HtmlAgilityPack;
+    using System.Text;
+    using System.Collections.Specialized;
+
+
 
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
@@ -30,29 +34,29 @@ namespace OpenGraph_Net
         /// <summary>
         /// The base types
         /// </summary>
-        private static readonly string[] BaseTypes = new string[] 
+        private static readonly string[] BaseTypes = new string[]
         {
             // activities
             "activity", "sport",
 
             // business
             "bar", "company", "cafe", "hotel", "restaurant",
-            
+
             // groups
             "cause", "sports_league", "sports_team",
-            
+
             // organizations
             "band", "government", "non_profit", "school", "university",
-            
+
             // people
             "actor", "athelete", "author", "director", "musician", "politician", "profile", "public_figure",
-            
+
             // places
             "city", "country", "landmark", "state_province",
-            
+
             // products
             "album", "book", "drink", "food", "game", "movie", "product", "song", "tv_show",
-            
+
             // website
             "article", "blog", "website"
         };
@@ -66,25 +70,25 @@ namespace OpenGraph_Net
         /// The local alternatives
         /// </summary>
         private IList<string> localAlternatives;
-        
+
         /// <summary>
         /// Gets the type.
         /// </summary>
         /// <value>The type of open graph document.</value>
         public string Type { get; private set; }
-        
+
         /// <summary>
         /// Gets the title of the open graph document.
         /// </summary>
         /// <value>The title.</value>
         public string Title { get; private set; }
-        
+
         /// <summary>
         /// Gets the image for the open graph document.
         /// </summary>
         /// <value>The image.</value>
         public Uri Image { get; private set; }
-        
+
         /// <summary>
         /// Gets the URL for the open graph document
         /// </summary>
@@ -122,23 +126,23 @@ namespace OpenGraph_Net
         /// <param name="determiner">The determiner.</param>
         /// <returns><see cref="OpenGraph"/></returns>
         public static OpenGraph MakeGraph(
-            string title, 
-            string type, 
-            string image, 
-            string url, 
-            string description = "", 
-            string siteName = "", 
-            string audio = "", 
-            string video = "", 
-            string locale = "", 
-            IList<string> localeAlternate = null, 
+            string title,
+            string type,
+            string image,
+            string url,
+            string description = "",
+            string siteName = "",
+            string audio = "",
+            string video = "",
+            string locale = "",
+            IList<string> localeAlternate = null,
             string determiner = "")
         {
             var graph = new OpenGraph
             {
                 Title = title,
                 Type = type,
-                Image = new Uri(image,  UriKind.Absolute),
+                Image = new Uri(image, UriKind.Absolute),
                 Url = new Uri(url, UriKind.Absolute)
             };
 
@@ -241,16 +245,10 @@ namespace OpenGraph_Net
             OpenGraph result = new OpenGraph();
 
             result.OriginalUrl = url;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.UserAgent = userAgent;
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             string html = string.Empty;
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
-            {
-                html = reader.ReadToEnd();
-            }
+            HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
+            html = downloader.GetPage();
 
             return ParseHtml(result, html, validateSpecification);
         }
@@ -284,13 +282,13 @@ namespace OpenGraph_Net
 
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(toParse);
-            
+
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
 
             var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
-                             where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
-                             (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
-                             select meta;
+                                    where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
+                                    (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
+                                    select meta;
 
             foreach (HtmlNode metaTag in openGraphMetaTags)
             {
@@ -493,7 +491,7 @@ namespace OpenGraph_Net
         }
 
         #endregion
-        
+
         #region ICollection<KeyValuePair<string,string>> Members
 
         /// <summary>
