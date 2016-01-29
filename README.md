@@ -1,5 +1,6 @@
 OpenGraph-Net
 =============
+[![AppVeyor](https://img.shields.io/appveyor/ci/GeoffHorsey/opengraph-net.svg)](https://ci.appveyor.com/project/GeoffHorsey/opengraph-net)
 [![Nuget](https://img.shields.io/nuget/dt/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![Nuget](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://raw.githubusercontent.com/ghorsey/OpenGraph-Net/master/LICENSE)
