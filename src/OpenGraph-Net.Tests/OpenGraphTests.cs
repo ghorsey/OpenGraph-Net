@@ -1,5 +1,5 @@
-﻿// <copyright file="OpenGraphTests.cs" company="SHHH Innovations LLC">
-// Copyright SHHH Innovations LLC
+﻿// <copyright file="OpenGraphTests.cs">
+// Geoff Horsey
 // </copyright>
 
 namespace OpenGraph_Net.Tests
@@ -76,7 +76,7 @@ namespace OpenGraph_Net.Tests
         /// <summary>
         /// Tests calling <c>MakeOpenGraph</c> method
         /// </summary>
-        public void MakeOpenGraph_Test()
+        public void MakeOpenGraphTest()
         {
             var title = "some title";
             var type = "website";
@@ -106,7 +106,7 @@ namespace OpenGraph_Net.Tests
         /// Tests parsing the HTML
         /// </summary>
         [Test]
-        public void ParseHtml_ValidGraphParsing_Test()
+        public void ParseHtmlValidGraphParsingTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.validSampleContent, true);
 
@@ -122,9 +122,9 @@ namespace OpenGraph_Net.Tests
         /// Tests parsing the HTML that is missing URLs
         /// </summary>
         [Test]
-        public void ParseHtml_HtmlMissingUrls_Test()
+        public void ParseHtmlHtmlMissingUrlsTest()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingRequiredUrls, false);
+            OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingRequiredUrls);
 
             Assert.AreEqual("product", graph.Type);
             Assert.AreEqual("Product Title", graph.Title);
@@ -137,26 +137,26 @@ namespace OpenGraph_Net.Tests
         /// <summary>
         /// Test that parsing the HTML with invalid graph specification throws an exception
         /// </summary>
-        [Test, ExpectedException(typeof(InvalidSpecificationException))]
-        public void ParseHtml_InvaidGraphParsing_Test()
+        [Test]
+        public void ParseHtmlInvalidGraphParsingTest()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(this.invalidSampleContent, true);
+            Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidSampleContent, true));
         }
 
         /// <summary>
         /// Test that parsing the HTML with invalid graph specification throws an exception
         /// </summary>
-        [Test, ExpectedException(typeof(InvalidSpecificationException))]
-        public void ParseHtml_InvaidGraphParsingMissingAllMeta_Test()
+        [Test]
+        public void ParseHtmlInvalidGraphParsingMissingAllMetaTest()
         {
-            OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingAllMeta, true);
+            Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidMissingAllMeta, true));
         }
 
         /// <summary>
         /// Test that parsing the HTML with invalid graph specification passes when validate specification boolean is off
         /// </summary>
         [Test]
-        public void ParseHtml_InvalidGraphParsingWithoutCheck_Test()
+        public void ParseHtmlInvalidGraphParsingWithoutCheckTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.invalidSampleContent);
 
@@ -173,14 +173,14 @@ namespace OpenGraph_Net.Tests
         /// Test parsing a URL
         /// </summary>
         [Test]
-        public void ParseUrl_AmazonUrl_Test()
+        public void ParseUrlAmazonUrlTest()
         {
             OpenGraph graph = OpenGraph.ParseUrl("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
 
             Assert.AreEqual("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
             Assert.IsTrue(graph.Title.StartsWith("Spaced: The Complete Series"));
             Assert.IsTrue(graph["description"].Contains("Spaced"));
-            Assert.IsTrue(graph.Image.ToString().StartsWith("http://ecx.images-amazon.com/images/I"));
+            Assert.IsTrue(graph.Image.ToString().Contains("images-amazon"));
             Assert.AreEqual("movie", graph.Type);
             Assert.AreEqual("Amazon.com", graph["site_name"]);
         }
