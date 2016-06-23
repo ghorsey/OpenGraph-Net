@@ -1,60 +1,112 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
+﻿
 namespace OpenGraph_Net
 {
-    // http://stackoverflow.com/a/2700707
+    using System;
+    using System.IO;
+    using System.IO.Compression;
+    using System.Net;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
+    // 
+    /// <summary>
+    /// Http Downloader
+    /// </summary>
+    /// <remarks>
+    /// http://stackoverflow.com/a/2700707
+    /// </remarks>
     public class HttpDownloader
     {
-        private readonly string _referer;
-        private readonly string _userAgent;
+        private readonly string referer;
+        private readonly string userAgent;
 
+        /// <summary>
+        /// Gets or sets the encoding.
+        /// </summary>
+        /// <value>
+        /// The encoding.
+        /// </value>
         public Encoding Encoding { get; set; }
+
+        /// <summary>
+        /// Gets or sets the headers.
+        /// </summary>
+        /// <value>
+        /// The headers.
+        /// </value>
         public WebHeaderCollection Headers { get; set; }
+
+        /// <summary>
+        /// Gets or sets the URL.
+        /// </summary>
+        /// <value>
+        /// The URL.
+        /// </value>
         public Uri Url { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="referer">The referer.</param>
+        /// <param name="userAgent">The user agent.</param>
         public HttpDownloader(Uri url, string referer, string userAgent)
         {
-            Encoding = Encoding.GetEncoding("ISO-8859-1");
-            Url = url;
-            _userAgent = userAgent;
-            _referer = referer;
+            this.Encoding = Encoding.GetEncoding("ISO-8859-1");
+            this.Url = url;
+            this.userAgent = userAgent;
+            this.referer = referer;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="referer">The referer.</param>
+        /// <param name="userAgent">The user agent.</param>
         public HttpDownloader(string url, string referer, string userAgent) : this(new Uri(url), referer, userAgent)
         {
         }
 
+        /// <summary>
+        /// Gets the page.
+        /// </summary>
+        /// <returns>The content of the page</returns>
         public string GetPage()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
-            if (!string.IsNullOrEmpty(_referer))
-                request.Referer = _referer;
-            if (!string.IsNullOrEmpty(_userAgent))
-                request.UserAgent = _userAgent;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
+            if (!string.IsNullOrEmpty(this.referer))
+                request.Referer = this.referer;
+            if (!string.IsNullOrEmpty(this.userAgent))
+                request.UserAgent = this.userAgent;
 
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                Headers = response.Headers;
-                Url = response.ResponseUri;
-                return ProcessContent(response);
+                this.Headers = response.Headers;
+                this.Url = response.ResponseUri;
+                return this.ProcessContent(response);
             }
 
         }
 
+        /// <summary>
+        /// Processes the content.
+        /// </summary>
+        /// <param name="response">The response.</param>
+        /// <returns></returns>
         private string ProcessContent(HttpWebResponse response)
         {
-            SetEncodingFromHeader(response);
+            this.SetEncodingFromHeader(response);
 
             Stream s = response.GetResponseStream();
+
+            if (s == null)
+            {
+                throw new InvalidOperationException("Response stream came back as null");
+            }
+
             if (response.ContentEncoding.ToLower().Contains("gzip"))
                 s = new GZipStream(s, CompressionMode.Decompress);
             else if (response.ContentEncoding.ToLower().Contains("deflate"))
@@ -70,15 +122,19 @@ namespace OpenGraph_Net
             s.Close();
             string html;
             memStream.Position = 0;
-            using (StreamReader r = new StreamReader(memStream, Encoding))
+            using (StreamReader r = new StreamReader(memStream, this.Encoding))
             {
                 html = r.ReadToEnd().Trim();
-                html = CheckMetaCharSetAndReEncode(memStream, html);
+                html = this.CheckMetaCharSetAndReEncode(memStream, html);
             }
 
             return html;
         }
 
+        /// <summary>
+        /// Sets the encoding from header.
+        /// </summary>
+        /// <param name="response">The response.</param>
         private void SetEncodingFromHeader(HttpWebResponse response)
         {
             string charset = null;
@@ -87,7 +143,7 @@ namespace OpenGraph_Net
                 Match m = Regex.Match(response.ContentType, @";\s*charset\s*=\s*(?<charset>.*)", RegexOptions.IgnoreCase);
                 if (m.Success)
                 {
-                    charset = m.Groups["charset"].Value.Trim(new[] { '\'', '"' });
+                    charset = m.Groups["charset"].Value.Trim('\'', '"');
                 }
             }
             else
@@ -98,20 +154,27 @@ namespace OpenGraph_Net
             {
                 try
                 {
-                    Encoding = Encoding.GetEncoding(charset);
+                    this.Encoding = Encoding.GetEncoding(charset);
                 }
+                // ReSharper disable once UncatchableException
                 catch (ArgumentException)
                 {
                 }
             }
         }
 
+        /// <summary>
+        /// Checks the meta character set and re encode.
+        /// </summary>
+        /// <param name="memStream">The memory stream.</param>
+        /// <param name="html">The HTML.</param>
+        /// <returns></returns>
         private string CheckMetaCharSetAndReEncode(Stream memStream, string html)
         {
             Match m = new Regex(@"<meta\s+.*?charset\s*=\s*(?<charset>[A-Za-z0-9_-]+)", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
             if (m.Success)
             {
-                string charset = m.Groups["charset"].Value.ToLower() ?? "iso-8859-1";
+                string charset = m.Groups["charset"].Value.ToLower();
                 if ((charset == "unicode") || (charset == "utf-16"))
                 {
                     charset = "utf-8";
@@ -120,7 +183,7 @@ namespace OpenGraph_Net
                 try
                 {
                     Encoding metaEncoding = Encoding.GetEncoding(charset);
-                    if (Encoding != metaEncoding)
+                    if (this.Encoding.Equals(metaEncoding))
                     {
                         memStream.Position = 0L;
                         StreamReader recodeReader = new StreamReader(memStream, metaEncoding);
@@ -128,6 +191,7 @@ namespace OpenGraph_Net
                         recodeReader.Close();
                     }
                 }
+                // ReSharper disable once UncatchableException
                 catch (ArgumentException)
                 {
                 }
