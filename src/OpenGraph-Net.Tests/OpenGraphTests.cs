@@ -184,5 +184,15 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("movie", graph.Type);
             Assert.AreEqual("Amazon.com", graph["site_name"]);
         }
+
+        [Test]
+        public void ParseUrlValidateEncodingIsCorrect()
+        {
+            var expectedContent =
+                "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame&amp;#33; -&amp;gt; http://ubi.li/u8w9n";
+            var tags = OpenGraph.ParseUrl("https://vk.com/wall-41600377_66756");
+
+            Assert.That(tags["description"], Is.EqualTo(expectedContent));
+        }
     }
 }
