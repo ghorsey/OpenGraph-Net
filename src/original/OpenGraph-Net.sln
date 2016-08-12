@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGraph-Net", "OpenGraph-Net\OpenGraph-Net.csproj", "{83B06B28-41D2-45A3-B559-92DB0C9685E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGraph-Net.Tests", "OpenGraph-Net.Tests\OpenGraph-Net.Tests.csproj", "{6E30D29D-FF7F-46D7-A238-C44055AA4498}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{E5616E4D-C0BC-4FEE-BAD4-728A25F4F833}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "OpenGraph_Documentation", "OpenGraph_Documentation\OpenGraph_Documentation.shfbproj", "{CB23A608-13B9-43FB-BC2A-760454F314D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EFEDB92-DD10-4D9E-96BD-1536FFA613F0}"
+	ProjectSection(SolutionItems) = preProject
+		OpenGraph-Net\OpenGraph-Net.nuspec = OpenGraph-Net\OpenGraph-Net.nuspec
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83B06B28-41D2-45A3-B559-92DB0C9685E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83B06B28-41D2-45A3-B559-92DB0C9685E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83B06B28-41D2-45A3-B559-92DB0C9685E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83B06B28-41D2-45A3-B559-92DB0C9685E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E30D29D-FF7F-46D7-A238-C44055AA4498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E30D29D-FF7F-46D7-A238-C44055AA4498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E30D29D-FF7F-46D7-A238-C44055AA4498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E30D29D-FF7F-46D7-A238-C44055AA4498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB23A608-13B9-43FB-BC2A-760454F314D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB23A608-13B9-43FB-BC2A-760454F314D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB23A608-13B9-43FB-BC2A-760454F314D3} = {E5616E4D-C0BC-4FEE-BAD4-728A25F4F833}
+	EndGlobalSection
+EndGlobal
