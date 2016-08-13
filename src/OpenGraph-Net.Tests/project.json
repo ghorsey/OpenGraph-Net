@@ -8,6 +8,16 @@
     "dotnet-test-nunit": "3.4.0-beta-2",
     "OpenGraph-Net": "1.3.1-*"
   },
+  "packOptions": {
+    "releaseNotes": "Updating to new .net core project structure",
+    "tags": [ "OpenGraph" ],
+    "licenseUrl": "http://opensource.org/licenses/MIT",
+    "owners": ["ghorsey"], 
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ghorsey/OpenGraph-Net"
+    }
+  },
   "testRunner":  "nunit", 
   "frameworks": {
     "net451": {},
