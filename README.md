@@ -4,7 +4,7 @@ OpenGraph-Net
 [![Nuget](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://raw.githubusercontent.com/ghorsey/OpenGraph-Net/master/LICENSE)
 
-A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet.
+A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. For the full library see http://ogp.me.
 
 Usage
 =====
@@ -14,12 +14,12 @@ Usage
 You can access each open graph value by passing in value key to the open graph dictionary.  For example:
 `graph["Description"]` will return the description.
 
-The required Open Graph properties are available view properties on the OpenGraph object as a convenience.
+The four required Open Graph properties for all pages are available as direct properties on the OpenGraph object.
 
 * graph.Type
 * graph.Title
 * graph.Image
 * graph.Url
 
-The original url used to generate the OpenGraph data is available from the OriginalUrl property
-graph.OriginalUrl
+The original url used to generate the OpenGraph data is available from the `OriginalUrl` property
+`graph.OriginalUrl`.
