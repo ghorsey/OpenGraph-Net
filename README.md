@@ -11,7 +11,7 @@ Usage
 
     OpenGraph graph = OpenGraph.ParseUrl("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
 
-You can access each open graph value by passing in arguments to the results.  For example:
+You can access each open graph value by passing in value key to the open graph dictionary.  For example:
 `graph["Description"]` will return the description.
 
 The required Open Graph properties are available view properties on the OpenGraph object as a convenience.
