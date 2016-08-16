@@ -5,7 +5,7 @@ OpenGraph-Net
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://raw.githubusercontent.com/ghorsey/OpenGraph-Net/master/LICENSE)
 
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the
-Open Graph protocal @ http://ogp.me.
+Open Graph protocol @ http://ogp.me.
 
 Usage
 =====
