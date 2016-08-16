@@ -1,8 +1,4 @@
-﻿// <copyright file="InvalidSpecificationException.cs" company="SHHH Innovations LLC">
-// Copyright SHHH Innovations LLC
-// </copyright>
-
-namespace OpenGraph_Net
+﻿namespace OpenGraph_Net
 {
     using System;
 

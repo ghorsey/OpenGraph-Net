@@ -1,11 +1,4 @@
-﻿// <copyright file="OpenGraph.cs" company="SHHH Innovations LLC">
-// Copyright SHHH Innovations LLC
-// </copyright>
-
-using System.Diagnostics.CodeAnalysis;
-
-[module: SuppressMessage("Microsoft.StyleCop.CSharp.OrderingRules", "*", Justification = "Reviewed.")]
-
+﻿
 namespace OpenGraph_Net
 {
     using System;
