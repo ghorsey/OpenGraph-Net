@@ -11,15 +11,9 @@ namespace OpenGraph_Net
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.IO;
     using System.Linq;
-    using System.Net;
     using System.Text.RegularExpressions;
     using HtmlAgilityPack;
-    using System.Text;
-    using System.Collections.Specialized;
-
-
 
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
@@ -29,42 +23,12 @@ namespace OpenGraph_Net
         /// <summary>
         /// The required meta
         /// </summary>
-        private static readonly string[] RequiredMeta = new string[] { "title", "type", "image", "url" };
-
-        /// <summary>
-        /// The base types
-        /// </summary>
-        private static readonly string[] BaseTypes = new string[]
-        {
-            // activities
-            "activity", "sport",
-
-            // business
-            "bar", "company", "cafe", "hotel", "restaurant",
-
-            // groups
-            "cause", "sports_league", "sports_team",
-
-            // organizations
-            "band", "government", "non_profit", "school", "university",
-
-            // people
-            "actor", "athelete", "author", "director", "musician", "politician", "profile", "public_figure",
-
-            // places
-            "city", "country", "landmark", "state_province",
-
-            // products
-            "album", "book", "drink", "food", "game", "movie", "product", "song", "tv_show",
-
-            // website
-            "article", "blog", "website"
-        };
+        private static readonly string[] RequiredMeta = { "title", "type", "image", "url" };
 
         /// <summary>
         /// The open graph data
         /// </summary>
-        private IDictionary<string, string> openGraphData;
+        private readonly IDictionary<string, string> openGraphData;
 
         /// <summary>
         /// The local alternatives
@@ -242,13 +206,10 @@ namespace OpenGraph_Net
         /// <returns><see cref="OpenGraph"/></returns>
         public static OpenGraph ParseUrl(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
-            OpenGraph result = new OpenGraph();
+            OpenGraph result = new OpenGraph { OriginalUrl = url };
 
-            result.OriginalUrl = url;
-
-            string html = string.Empty;
             HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
-            html = downloader.GetPage();
+            string html = downloader.GetPage();
 
             return ParseHtml(result, html, validateSpecification);
         }
@@ -332,9 +293,9 @@ namespace OpenGraph_Net
 
             try
             {
-                string url = string.Empty;
+                string url;
                 result.openGraphData.TryGetValue("url", out url);
-                result.Url = new Uri(url);
+                result.Url = new Uri(url ?? string.Empty);
             }
             catch (UriFormatException)
             {
@@ -370,10 +331,8 @@ namespace OpenGraph_Net
             {
                 return CleanOpenGraphKey(metaTag.Attributes["property"].Value);
             }
-            else
-            {
-                return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
-            }
+
+            return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
         }
 
         /// <summary>
@@ -430,10 +389,7 @@ namespace OpenGraph_Net
         /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Keys
-        {
-            get { return this.openGraphData.Keys; }
-        }
+        public ICollection<string> Keys => this.openGraphData.Keys;
 
         /// <summary>
         /// Removes the specified key.
@@ -461,10 +417,7 @@ namespace OpenGraph_Net
         /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Values
-        {
-            get { return this.openGraphData.Values; }
-        }
+        public ICollection<string> Values => this.openGraphData.Values;
 
         /// <summary>
         /// Gets or sets the element with the specified key.
@@ -539,19 +492,13 @@ namespace OpenGraph_Net
         /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        public int Count
-        {
-            get { return this.openGraphData.Count; }
-        }
+        public int Count => this.openGraphData.Count;
 
         /// <summary>
         /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
         /// </summary>
         /// <returns>true</returns>
-        public bool IsReadOnly
-        {
-            get { return true; }
-        }
+        public bool IsReadOnly => true;
 
         /// <summary>
         /// Removes the specified item.
