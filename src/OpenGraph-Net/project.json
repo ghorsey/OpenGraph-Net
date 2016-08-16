@@ -23,10 +23,26 @@
     }
   },
   "frameworks": {
-    "net45": {},
-    "net451": {},
-    "net46": {},
-    "net461":  {} 
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Xml":  "4.0.0" 
+      }
+    },
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Xml":  "4.0.0" 
+      }
+    },
+    "net46": {
+      "frameworkAssemblies": {
+        "System.Xml":  "4.0.0" 
+      }
+    },
+    "net461": {
+      "frameworkAssemblies": {
+        "System.Xml":  "4.0.0" 
+      }
+    }
     ////"netstandard1.6": {
     ////  "dependencies": {
     ////    "NETStandard.Library": "1.6.0"
