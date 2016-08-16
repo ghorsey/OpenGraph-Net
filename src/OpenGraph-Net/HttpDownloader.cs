@@ -171,7 +171,8 @@ namespace OpenGraph_Net
         /// <returns></returns>
         private string CheckMetaCharSetAndReEncode(Stream memStream, string html)
         {
-            Match m = new Regex(@"<meta\s+.*?charset\s*=\s*(?<charset>[A-Za-z0-9_-]+)", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
+            Match m = new Regex(@"<meta\s+.*?charset\s*=\s*?""?(?<charset>[A-Za-z0-9_-]+?)""", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
+            ////Match m = new Regex(@"<meta\s+.*?charset\s*=\s*(?<charset>[A-Za-z0-9_-]+)", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
             if (m.Success)
             {
                 string charset = m.Groups["charset"].Value.ToLower();
@@ -183,7 +184,7 @@ namespace OpenGraph_Net
                 try
                 {
                     Encoding metaEncoding = Encoding.GetEncoding(charset);
-                    if (this.Encoding.Equals(metaEncoding))
+                    if (!this.Encoding.Equals(metaEncoding))
                     {
                         memStream.Position = 0L;
                         StreamReader recodeReader = new StreamReader(memStream, metaEncoding);

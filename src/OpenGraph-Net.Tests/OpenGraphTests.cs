@@ -197,5 +197,21 @@ namespace OpenGraph_Net.Tests
 
             Assert.That(tags["description"], Is.EqualTo(expectedContent));
         }
+
+        /// <summary>
+        /// Tests the meta charset parses correctly.
+        /// </summary>
+        [Test]
+        public void TestMetaCharsetParsesCorrectly()
+        {
+            var expectedTitle = "Réalité virtuelle : 360° de bonheur à améliorer";
+            var expectedDescription =
+                "Le cinéma à 360° a désormais son festival. Organisé par le Forum des images, le premier Paris Virtual Film Festival a donc vu le jour....";
+
+            var ogs = OpenGraph.ParseUrl("http://www.telerama.fr/cinema/realite-virtuelle-360-de-bonheur-a-ameliorer,144339.php?utm_medium=Social&utm_source=Twitter&utm_campaign=Echobox&utm_term=Autofeed#link_time=1466595239");
+
+            Assert.AreEqual(expectedTitle, ogs["title"]);
+            Assert.AreEqual(expectedDescription, ogs["description"]);
+        }
     }
 }
