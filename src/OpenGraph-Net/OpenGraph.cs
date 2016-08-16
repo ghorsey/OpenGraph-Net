@@ -1,25 +1,12 @@
-﻿// <copyright file="OpenGraph.cs" company="SHHH Innovations LLC">
-// Copyright SHHH Innovations LLC
-// </copyright>
-
-using System.Diagnostics.CodeAnalysis;
-
-[module: SuppressMessage("Microsoft.StyleCop.CSharp.OrderingRules", "*", Justification = "Reviewed.")]
-
+﻿
 namespace OpenGraph_Net
 {
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.IO;
     using System.Linq;
-    using System.Net;
     using System.Text.RegularExpressions;
     using HtmlAgilityPack;
-    using System.Text;
-    using System.Collections.Specialized;
-
-
 
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
@@ -29,42 +16,12 @@ namespace OpenGraph_Net
         /// <summary>
         /// The required meta
         /// </summary>
-        private static readonly string[] RequiredMeta = new string[] { "title", "type", "image", "url" };
-
-        /// <summary>
-        /// The base types
-        /// </summary>
-        private static readonly string[] BaseTypes = new string[]
-        {
-            // activities
-            "activity", "sport",
-
-            // business
-            "bar", "company", "cafe", "hotel", "restaurant",
-
-            // groups
-            "cause", "sports_league", "sports_team",
-
-            // organizations
-            "band", "government", "non_profit", "school", "university",
-
-            // people
-            "actor", "athelete", "author", "director", "musician", "politician", "profile", "public_figure",
-
-            // places
-            "city", "country", "landmark", "state_province",
-
-            // products
-            "album", "book", "drink", "food", "game", "movie", "product", "song", "tv_show",
-
-            // website
-            "article", "blog", "website"
-        };
+        private static readonly string[] RequiredMeta = { "title", "type", "image", "url" };
 
         /// <summary>
         /// The open graph data
         /// </summary>
-        private IDictionary<string, string> openGraphData;
+        private readonly IDictionary<string, string> openGraphData;
 
         /// <summary>
         /// The local alternatives
@@ -242,13 +199,10 @@ namespace OpenGraph_Net
         /// <returns><see cref="OpenGraph"/></returns>
         public static OpenGraph ParseUrl(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
-            OpenGraph result = new OpenGraph();
+            OpenGraph result = new OpenGraph { OriginalUrl = url };
 
-            result.OriginalUrl = url;
-
-            string html = string.Empty;
             HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
-            html = downloader.GetPage();
+            string html = downloader.GetPage();
 
             return ParseHtml(result, html, validateSpecification);
         }
@@ -284,7 +238,7 @@ namespace OpenGraph_Net
             document.LoadHtml(toParse);
 
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
-
+            var urlPropertyPatterns = new[] { "image", "url^"};
             var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
                                     where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
                                     (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
@@ -304,22 +258,30 @@ namespace OpenGraph_Net
                     continue;
                 }
 
+                foreach (var urlPropertyPattern in urlPropertyPatterns)
+                {
+                    if (Regex.IsMatch(property, urlPropertyPattern))
+                    {
+                        value = HtmlDecodeUrl(value);
+                        break;
+                    }
+                }
                 result.openGraphData.Add(property, value);
             }
 
-            string type = string.Empty;
+            string type;
             result.openGraphData.TryGetValue("type", out type);
             result.Type = type ?? string.Empty;
 
-            string title = string.Empty;
+            string title;
             result.openGraphData.TryGetValue("title", out title);
             result.Title = title ?? string.Empty;
 
             try
             {
-                string image = string.Empty;
+                string image;
                 result.openGraphData.TryGetValue("image", out image);
-                result.Image = new Uri(image);
+                result.Image = new Uri(image ?? string.Empty);
             }
             catch (UriFormatException)
             {
@@ -332,9 +294,9 @@ namespace OpenGraph_Net
 
             try
             {
-                string url = string.Empty;
+                string url;
                 result.openGraphData.TryGetValue("url", out url);
-                result.Url = new Uri(url);
+                result.Url = new Uri(url ?? string.Empty);
             }
             catch (UriFormatException)
             {
@@ -360,6 +322,33 @@ namespace OpenGraph_Net
         }
 
         /// <summary>
+        /// Safes the HTML decode URL.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The string</returns>
+        private static string HtmlDecodeUrl(string value)
+        {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
+            // naive attempt
+            var patterns = new Dictionary<string, string>
+            {
+                ["&amp;"] = "&",
+            };
+
+
+            foreach (var key in patterns)
+            {
+                value = value.Replace(key.Key, key.Value);
+            }
+
+            return value;
+
+        }
+        /// <summary>
         /// Gets the open graph key.
         /// </summary>
         /// <param name="metaTag">The meta tag.</param>
@@ -370,10 +359,8 @@ namespace OpenGraph_Net
             {
                 return CleanOpenGraphKey(metaTag.Attributes["property"].Value);
             }
-            else
-            {
-                return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
-            }
+
+            return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
         }
 
         /// <summary>
@@ -430,10 +417,7 @@ namespace OpenGraph_Net
         /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Keys
-        {
-            get { return this.openGraphData.Keys; }
-        }
+        public ICollection<string> Keys => this.openGraphData.Keys;
 
         /// <summary>
         /// Removes the specified key.
@@ -461,10 +445,7 @@ namespace OpenGraph_Net
         /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Values
-        {
-            get { return this.openGraphData.Values; }
-        }
+        public ICollection<string> Values => this.openGraphData.Values;
 
         /// <summary>
         /// Gets or sets the element with the specified key.
@@ -539,19 +520,13 @@ namespace OpenGraph_Net
         /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        public int Count
-        {
-            get { return this.openGraphData.Count; }
-        }
+        public int Count => this.openGraphData.Count;
 
         /// <summary>
         /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
         /// </summary>
         /// <returns>true</returns>
-        public bool IsReadOnly
-        {
-            get { return true; }
-        }
+        public bool IsReadOnly => true;
 
         /// <summary>
         /// Removes the specified item.
