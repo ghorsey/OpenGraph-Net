@@ -213,5 +213,17 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual(expectedTitle, ogs["title"]);
             Assert.AreEqual(expectedDescription, ogs["description"]);
         }
+
+
+        [Test]
+        public void TestUrlDecodingUrlValues()
+        {
+            var expectedUrl =
+                "https://tn.periscope.tv/lXc5gSh6UPaWdc37LtVCb3UdtSfvj2QNutojPK2du5YWrNchfI4wXpwwHKTyfDhmfT2ibsBZV4doQeWlhSvI4A==/chunk_314.jpg?Expires=1781852253&Signature=U5OY3Y2HRb4ETmakQAPwMcv~bqu6KygIxriooa41rk64RcDfjww~qpVgMR-T1iX4S9NxfvXHLMT3pEckBDEOicsNO7oUAo4NieH9GRB2Sv0EA7swxLojD~Zn98ThNWTF5fSzv6SSPjyvctsqBiRmvAN6x7fmMH6l3vzx8ePSCgdEm8-31lUAz7lReBNZQjYSi~C8AwqZVI0Mx6y8lNKklL~m0e6RTGdvr~-KIDewU3wpjSdX7AgpaXXjahk4x-ceUUKcH3T1j--ZjaY7nqPO9fbMZFNPs502A32mrcmaZCzvaD~AuoH~u3y44mJVjzHRrpTxHIBklqHxAgc7dzverg__&Key-Pair-Id=APKAIHCXHHQVRTVSFRWQ";
+            var og = OpenGraph.ParseUrl("https://www.periscope.tv/w/1DXxyZZZVykKM");
+
+
+            Assert.AreEqual(expectedUrl, og["image"]);
+        }
     }
 }

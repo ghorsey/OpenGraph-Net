@@ -245,7 +245,7 @@ namespace OpenGraph_Net
             document.LoadHtml(toParse);
 
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
-
+            var urlPropertyPatterns = new[] { "image", "url^"};
             var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
                                     where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
                                     (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
@@ -265,22 +265,30 @@ namespace OpenGraph_Net
                     continue;
                 }
 
+                foreach (var urlPropertyPattern in urlPropertyPatterns)
+                {
+                    if (Regex.IsMatch(property, urlPropertyPattern))
+                    {
+                        value = HtmlDecodeUrl(value);
+                        break;
+                    }
+                }
                 result.openGraphData.Add(property, value);
             }
 
-            string type = string.Empty;
+            string type;
             result.openGraphData.TryGetValue("type", out type);
             result.Type = type ?? string.Empty;
 
-            string title = string.Empty;
+            string title;
             result.openGraphData.TryGetValue("title", out title);
             result.Title = title ?? string.Empty;
 
             try
             {
-                string image = string.Empty;
+                string image;
                 result.openGraphData.TryGetValue("image", out image);
-                result.Image = new Uri(image);
+                result.Image = new Uri(image ?? string.Empty);
             }
             catch (UriFormatException)
             {
@@ -320,6 +328,33 @@ namespace OpenGraph_Net
             return result;
         }
 
+        /// <summary>
+        /// Safes the HTML decode URL.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The string</returns>
+        private static string HtmlDecodeUrl(string value)
+        {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
+            // naive attempt
+            var patterns = new Dictionary<string, string>
+            {
+                ["&amp;"] = "&",
+            };
+
+
+            foreach (var key in patterns)
+            {
+                value = value.Replace(key.Key, key.Value);
+            }
+
+            return value;
+
+        }
         /// <summary>
         /// Gets the open graph key.
         /// </summary>
