@@ -76,7 +76,7 @@ namespace OpenGraph_Net.Tests
         /// <summary>
         /// Tests calling <c>MakeOpenGraph</c> method
         /// </summary>
-        public void MakeOpenGraphTest()
+        public void TestMakingOpenGraphMetaTags()
         {
             var title = "some title";
             var type = "website";
@@ -106,7 +106,7 @@ namespace OpenGraph_Net.Tests
         /// Tests parsing the HTML
         /// </summary>
         [Test]
-        public void ParseHtmlValidGraphParsingTest()
+        public void TestParsingHtmlValidGraphParsingTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.validSampleContent, true);
 
@@ -122,7 +122,7 @@ namespace OpenGraph_Net.Tests
         /// Tests parsing the HTML that is missing URLs
         /// </summary>
         [Test]
-        public void ParseHtmlHtmlMissingUrlsTest()
+        public void TestParsingHtmlHtmlMissingUrlsTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingRequiredUrls);
 
@@ -138,7 +138,7 @@ namespace OpenGraph_Net.Tests
         /// Test that parsing the HTML with invalid graph specification throws an exception
         /// </summary>
         [Test]
-        public void ParseHtmlInvalidGraphParsingTest()
+        public void TestParsingHtmlInvalidGraphParsingTest()
         {
             Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidSampleContent, true));
         }
@@ -147,7 +147,7 @@ namespace OpenGraph_Net.Tests
         /// Test that parsing the HTML with invalid graph specification throws an exception
         /// </summary>
         [Test]
-        public void ParseHtmlInvalidGraphParsingMissingAllMetaTest()
+        public void TestParsingHtmlInvalidGraphParsingMissingAllMetaTest()
         {
             Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidMissingAllMeta, true));
         }
@@ -156,7 +156,7 @@ namespace OpenGraph_Net.Tests
         /// Test that parsing the HTML with invalid graph specification passes when validate specification boolean is off
         /// </summary>
         [Test]
-        public void ParseHtmlInvalidGraphParsingWithoutCheckTest()
+        public void TestParsingHtmlInvalidGraphParsingWithoutCheckTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.invalidSampleContent);
 
@@ -173,7 +173,7 @@ namespace OpenGraph_Net.Tests
         /// Test parsing a URL
         /// </summary>
         [Test]
-        public void ParseUrlAmazonUrlTest()
+        public void TestParsingAmazonUrlTest()
         {
             OpenGraph graph = OpenGraph.ParseUrl("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
 
@@ -185,8 +185,11 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("Amazon.com", graph["site_name"]);
         }
 
+        /// <summary>
+        /// Tests the parsing URL validate encoding is correct.
+        /// </summary>
         [Test]
-        public void ParseUrlValidateEncodingIsCorrect()
+        public void TestParsingUrlValidateEncodingIsCorrect()
         {
             var expectedContent =
                 "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame&amp;#33; -&amp;gt; http://ubi.li/u8w9n";
