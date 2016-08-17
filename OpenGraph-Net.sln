@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenGraph-Net", "OpenGraph-Net\OpenGraph-Net.xproj", "{0E3F9347-B906-490A-A697-D49B99A8048F}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenGraph-Net.Tests", "OpenGraph-Net.Tests\OpenGraph-Net.Tests.xproj", "{BEEBE37E-BE2C-4652-907A-1628B5C39AFA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{145CD81F-FBB5-4877-B6ED-75DE5A530D7A}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenGraph-Net", "src\OpenGraph-Net\OpenGraph-Net.xproj", "{0E3F9347-B906-490A-A697-D49B99A8048F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenGraph-Net.Tests", "tests\OpenGraph-Net.Tests\OpenGraph-Net.Tests.xproj", "{BEEBE37E-BE2C-4652-907A-1628B5C39AFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
