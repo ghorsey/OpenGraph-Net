@@ -7,6 +7,7 @@ namespace OpenGraph_Net
     using System.Net;
     using System.Text;
     using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
 
     // 
     /// <summary>
@@ -76,9 +77,13 @@ namespace OpenGraph_Net
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
             if (!string.IsNullOrEmpty(this.referer))
+            {
                 request.Referer = this.referer;
+            }
             if (!string.IsNullOrEmpty(this.userAgent))
+            {
                 request.UserAgent = this.userAgent;
+            }
 
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
@@ -88,9 +93,35 @@ namespace OpenGraph_Net
                 this.Url = response.ResponseUri;
                 return this.ProcessContent(response);
             }
-
         }
 
+        /// <summary>
+        /// Gets the page asynchronosly
+        /// </summary>
+        /// <returns>
+        /// The content of the page
+        /// </returns>
+        public async Task<string> GetPageAsync()
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
+            if (!string.IsNullOrEmpty(this.referer))
+            {
+                request.Referer = this.referer;
+            }
+            if (!string.IsNullOrEmpty(this.userAgent))
+            {
+                request.UserAgent = this.userAgent;
+            }
+
+            request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
+
+            using (HttpWebResponse response = (HttpWebResponse)(await request.GetResponseAsync()))
+            {
+                this.Headers = response.Headers;
+                this.Url = response.ResponseUri;
+                return this.ProcessContent(response);
+            }
+        }
         /// <summary>
         /// Processes the content.
         /// </summary>
@@ -108,9 +139,13 @@ namespace OpenGraph_Net
             }
 
             if (response.ContentEncoding.ToLower().Contains("gzip"))
+            {
                 s = new GZipStream(s, CompressionMode.Decompress);
+            }
             else if (response.ContentEncoding.ToLower().Contains("deflate"))
+            {
                 s = new DeflateStream(s, CompressionMode.Decompress);
+            }
 
             MemoryStream memStream = new MemoryStream();
             int bytesRead;
