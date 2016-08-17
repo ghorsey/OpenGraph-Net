@@ -6,7 +6,7 @@
   "dependencies": {
     "NUnit": "3.4.1",
     "dotnet-test-nunit": "3.4.0-beta-2",
-    "OpenGraph-Net": "1.3.3"
+    "OpenGraph-Net": "1.3.4"
   },
   "testRunner":  "nunit", 
   "frameworks": {
