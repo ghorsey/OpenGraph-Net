@@ -4,6 +4,7 @@
 
 namespace OpenGraph_Net.Tests
 {
+    using System.Threading.Tasks;
     using NUnit.Framework;
 
     /// <summary>
@@ -169,6 +170,34 @@ namespace OpenGraph_Net.Tests
             Assert.AreEqual("Test Site", graph["site_name"]);
         }
 
+        /// <summary>
+        /// Tests the parsing amazon URL asynchronous test.
+        /// </summary>
+        [Test]
+        public async Task TestParsingAmazonUrlAsyncTest()
+        {
+            OpenGraph graph = await OpenGraph.ParseUrlAsync("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
+
+            Assert.AreEqual("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
+            Assert.IsTrue(graph.Title.StartsWith("Spaced: The Complete Series"));
+            Assert.IsTrue(graph["description"].Contains("Spaced"));
+            Assert.IsTrue(graph.Image.ToString().Contains("images-amazon"));
+            Assert.AreEqual("movie", graph.Type);
+            Assert.AreEqual("Amazon.com", graph["site_name"]);
+        }
+
+        /// <summary>
+        /// Tests the parsing URL asynchronous validate encoding is correct.
+        /// </summary>
+        [Test]
+        public async Task TestParsingUrlAsyncValidateEncodingIsCorrect()
+        {
+            var expectedContent =
+                "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame&amp;#33; -&amp;gt; http://ubi.li/u8w9n";
+            var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756");
+
+            Assert.That(tags["description"], Is.EqualTo(expectedContent));
+        }
         /// <summary>
         /// Test parsing a URL
         /// </summary>

@@ -6,6 +6,7 @@ namespace OpenGraph_Net
     using System.Globalization;
     using System.Linq;
     using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
     using HtmlAgilityPack;
 
     /// <summary>
@@ -188,6 +189,37 @@ namespace OpenGraph_Net
         {
             Uri uri = new Uri(url);
             return ParseUrl(uri, userAgent, validateSpecifiction);
+        }
+
+
+        /// <summary>
+        /// Parses the URL asynchronous.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="userAgent">The user agent.</param>
+        /// <param name="validateSpecifiction">if set to <c>true</c> [validate specifiction].</param>
+        /// <returns><see cref="Task{OpenGraph}"/></returns>
+        public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
+        {
+            Uri uri = new Uri(url);
+            return ParseUrlAsync(uri, userAgent, validateSpecifiction);
+        }
+
+        /// <summary>
+        /// Parses the URL asynchronous.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="userAgent">The user agent.</param>
+        /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
+        /// <returns><see cref="Task{OpenGraph}"/></returns>
+        public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
+        {
+            OpenGraph result = new OpenGraph { OriginalUrl = url };
+
+            HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
+            string html = await downloader.GetPageAsync();
+
+            return ParseHtml(result, html, validateSpecification);
         }
 
         /// <summary>
