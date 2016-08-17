@@ -9,8 +9,13 @@ Open Graph protocol @ http://ogp.me.
 
 Usage
 =====
+Synchronosly parse a url:
 
     OpenGraph graph = OpenGraph.ParseUrl("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
+
+Use `async/await` to parse a url:
+
+    OpenGraph graph = await OpenGraph.ParseUrlAsync("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
 
 You can access each open graph value by passing in value key to the open graph dictionary.  For example:
 `graph["Description"]` will return the description.
