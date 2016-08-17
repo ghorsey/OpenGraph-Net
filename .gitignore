@@ -2,6 +2,8 @@
 [Bb]in/
 [Oo]bj/
 project.lock.json
+*~
+*.swp
 
 # mstest test results
 TestResults
