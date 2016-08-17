@@ -13,8 +13,8 @@
   "authors": [ "ghorsey" ], 
   "packOptions": {
     "projectUrl": "https://github.com/ghorsey/OpenGraph-Net",
-    "summary": "A simple parser for http://ogp.me",
-    "releaseNotes": "Updating to new .net core project structure",
+    "summary": "A simple parser for the OpenGraph protocol (http://ogp.me)",
+    "releaseNotes": "Added async parse url methods",
     "tags": [ "OpenGraph" ],
     "licenseUrl": "http://opensource.org/licenses/MIT",
     "owners": [ "ghorsey" ],
