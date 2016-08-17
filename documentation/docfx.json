@@ -9,7 +9,7 @@
           "exclude": [
             "**/obj/**",
             "**/bin/**",
-            "_site/**"
+	    "../../documentation/opengraph-net",
           ],
           "cwd": "../src"
         }
@@ -34,7 +34,7 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+	  "../../documentation/opengraph-net",
         ]
       }
     ],
@@ -45,7 +45,7 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+	  "../../documentation/opengraph-net",
         ]
       }
     ],
@@ -56,7 +56,7 @@
         ],
         "exclude": [
           "obj/**",
-          "_site/**"
+	  "../../documentation/opengraph-net",
         ]
       }
     ],
