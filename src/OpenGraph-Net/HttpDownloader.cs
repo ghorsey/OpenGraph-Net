@@ -69,6 +69,7 @@ namespace OpenGraph_Net
         {
         }
 
+#if !NETSTANDARD16
         /// <summary>
         /// Gets the page.
         /// </summary>
@@ -94,6 +95,7 @@ namespace OpenGraph_Net
                 return this.ProcessContent(response);
             }
         }
+#endif
 
         /// <summary>
         /// Gets the page asynchronosly
@@ -106,15 +108,26 @@ namespace OpenGraph_Net
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
             if (!string.IsNullOrEmpty(this.referer))
             {
+#if !NETSTANDARD16
                 request.Referer = this.referer;
+#else
+                request.Headers[HttpRequestHeader.Referer] = this.referer;
+#endif
             }
             if (!string.IsNullOrEmpty(this.userAgent))
             {
+#if !NETSTANDARD16
                 request.UserAgent = this.userAgent;
+#else
+                request.Headers[HttpRequestHeader.UserAgent] = this.userAgent;
+#endif
             }
 
+#if !NETSTANDARD16
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
-
+#else
+            request.Headers[HttpRequestHeader.AcceptEncoding] = "gzip,deflate";
+#endif
             using (HttpWebResponse response = (HttpWebResponse)(await request.GetResponseAsync()))
             {
                 this.Headers = response.Headers;
@@ -122,6 +135,7 @@ namespace OpenGraph_Net
                 return this.ProcessContent(response);
             }
         }
+
         /// <summary>
         /// Processes the content.
         /// </summary>
