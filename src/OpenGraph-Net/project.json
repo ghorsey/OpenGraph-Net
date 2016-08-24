@@ -6,7 +6,7 @@
     "xmlDoc": true
   },
   "dependencies": {
-    "HtmlAgilityPack": "1.4.9.5"
+    "HtmlAgilityPack": "1.4.9.5",
   },
   "copyright": "Copyright © 2016",
   "title":  "OpenGraph.Net", 
@@ -51,10 +51,8 @@
         ]
       },
       "dependencies": {
-        "System.IO": "4.1.0",
+        "NETStandard.Library": "1.6.0",
         "System.IO.Compression": "4.1.0",
-        "System.Text.Encoding": "4.0.11",
-        "System.Text.RegularExpressions": "4.1.0",
         "System.Net.Http": "4.1.0",
         "System.Runtime.Serialization.Formatters": "4.0.0-rc3-24212-01",
         "System.Runtime.InteropServices": "4.1.0",

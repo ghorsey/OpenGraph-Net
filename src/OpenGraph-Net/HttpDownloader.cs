@@ -152,11 +152,11 @@ namespace OpenGraph_Net
                 throw new InvalidOperationException("Response stream came back as null");
             }
 
-            if (response.ContentEncoding.ToLower().Contains("gzip"))
+            if (response.Headers[HttpRequestHeader.ContentEncoding].ToLowerInvariant().Contains("gzip"))
             {
                 s = new GZipStream(s, CompressionMode.Decompress);
             }
-            else if (response.ContentEncoding.ToLower().Contains("deflate"))
+            else if (response.Headers[HttpRequestHeader.ContentEncoding].ToLowerInvariant().Contains("deflate"))
             {
                 s = new DeflateStream(s, CompressionMode.Decompress);
             }
@@ -168,7 +168,7 @@ namespace OpenGraph_Net
             {
                 memStream.Write(buffer, 0, bytesRead);
             }
-            s.Close();
+            s.Dispose();
             string html;
             memStream.Position = 0;
             using (StreamReader r = new StreamReader(memStream, this.Encoding))
@@ -187,7 +187,7 @@ namespace OpenGraph_Net
         private void SetEncodingFromHeader(HttpWebResponse response)
         {
             string charset = null;
-            if (string.IsNullOrEmpty(response.CharacterSet))
+            if (string.IsNullOrEmpty(response.Headers[HttpRequestHeader.AcceptCharset]))
             {
                 Match m = Regex.Match(response.ContentType, @";\s*charset\s*=\s*(?<charset>.*)", RegexOptions.IgnoreCase);
                 if (m.Success)
@@ -197,7 +197,7 @@ namespace OpenGraph_Net
             }
             else
             {
-                charset = response.CharacterSet;
+                charset = response.Headers[HttpRequestHeader.AcceptCharset];
             }
             if (!string.IsNullOrEmpty(charset))
             {
@@ -238,7 +238,7 @@ namespace OpenGraph_Net
                         memStream.Position = 0L;
                         StreamReader recodeReader = new StreamReader(memStream, metaEncoding);
                         html = recodeReader.ReadToEnd().Trim();
-                        recodeReader.Close();
+                        recodeReader.Dispose();
                     }
                 }
                 // ReSharper disable once UncatchableException

@@ -7,6 +7,7 @@ namespace OpenGraph_Net
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+    using System.Xml;
     using HtmlAgilityPack;
 
     /// <summary>
@@ -177,22 +178,6 @@ namespace OpenGraph_Net
         }
 
         /// <summary>
-        /// Downloads the HTML of the specified URL and parses it for open graph content.
-        /// </summary>
-        /// <param name="url">The URL to download the HTML from.</param>
-        /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
-        /// <param name="validateSpecifiction">if set to <c>true</c> <see cref="OpenGraph"/> will validate against the specification.</param>
-        /// <returns>
-        ///   <see cref="OpenGraph" />
-        /// </returns>
-        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
-        {
-            Uri uri = new Uri(url);
-            return ParseUrl(uri, userAgent, validateSpecifiction);
-        }
-
-
-        /// <summary>
         /// Parses the URL asynchronous.
         /// </summary>
         /// <param name="url">The URL.</param>
@@ -222,6 +207,23 @@ namespace OpenGraph_Net
             return ParseHtml(result, html, validateSpecification);
         }
 
+#if !NETSTANDARD16
+        
+        /// <summary>
+        /// Downloads the HTML of the specified URL and parses it for open graph content.
+        /// </summary>
+        /// <param name="url">The URL to download the HTML from.</param>
+        /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
+        /// <param name="validateSpecifiction">if set to <c>true</c> <see cref="OpenGraph"/> will validate against the specification.</param>
+        /// <returns>
+        ///   <see cref="OpenGraph" />
+        /// </returns>
+        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
+        {
+            Uri uri = new Uri(url);
+            return ParseUrl(uri, userAgent, validateSpecifiction);
+        }
+
         /// <summary>
         /// Downloads the HTML of the specified URL and parses it for open graph content.
         /// </summary>
@@ -238,7 +240,7 @@ namespace OpenGraph_Net
 
             return ParseHtml(result, html, validateSpecification);
         }
-
+#endif
         /// <summary>
         /// Parses the HTML for open graph content.
         /// </summary>
@@ -402,7 +404,7 @@ namespace OpenGraph_Net
         /// <returns>strips the <c>og:</c> namespace from the value</returns>
         private static string CleanOpenGraphKey(string value)
         {
-            return value.Replace("og:", string.Empty).ToLower(CultureInfo.InvariantCulture);
+            return value.Replace("og:", string.Empty).ToLowerInvariant();
         }
 
         /// <summary>
@@ -420,7 +422,7 @@ namespace OpenGraph_Net
             return metaTag.Attributes["content"].Value;
         }
 
-        #region IDictionary<string,string> Members
+#region IDictionary<string,string> Members
 
         /// <summary>
         /// Adds the specified key.
@@ -503,9 +505,9 @@ namespace OpenGraph_Net
             }
         }
 
-        #endregion
+#endregion
 
-        #region ICollection<KeyValuePair<string,string>> Members
+#region ICollection<KeyValuePair<string,string>> Members
 
         /// <summary>
         /// Adds the specified item.
@@ -571,9 +573,9 @@ namespace OpenGraph_Net
             throw new ReadOnlyDictionaryException();
         }
 
-        #endregion
+#endregion
 
-        #region IEnumerable<KeyValuePair<string,string>> Members
+#region IEnumerable<KeyValuePair<string,string>> Members
 
         /// <summary>
         /// Gets the enumerator.
@@ -584,9 +586,9 @@ namespace OpenGraph_Net
             return this.openGraphData.GetEnumerator();
         }
 
-        #endregion
+#endregion
 
-        #region IEnumerable Members
+#region IEnumerable Members
 
         /// <summary>
         /// Returns an enumerator that iterates through a collection.
@@ -599,6 +601,6 @@ namespace OpenGraph_Net
             return ((System.Collections.IEnumerable)this.openGraphData).GetEnumerator();
         }
 
-        #endregion     
+#endregion
     }
 }
