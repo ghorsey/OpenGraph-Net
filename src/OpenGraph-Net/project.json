@@ -6,7 +6,7 @@
     "xmlDoc": true
   },
   "dependencies": {
-    "HtmlAgilityPack": "1.4.9.5",
+    "HtmlAgilityPack": "1.4.9.5"
   },
   "copyright": "Copyright © 2016",
   "title":  "OpenGraph.Net", 
