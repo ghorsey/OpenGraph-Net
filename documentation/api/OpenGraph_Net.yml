@@ -1,0 +1,41 @@
+items:
+- uid: OpenGraph_Net
+  commentId: N:OpenGraph_Net
+  id: OpenGraph_Net
+  children:
+  - OpenGraph_Net.HttpDownloader
+  - OpenGraph_Net.InvalidSpecificationException
+  - OpenGraph_Net.OpenGraph
+  - OpenGraph_Net.ReadOnlyDictionaryException
+  langs:
+  - csharp
+  - vb
+  name: OpenGraph_Net
+  fullName: OpenGraph_Net
+  type: Namespace
+  assemblies:
+  - OpenGraph-Net
+  packages:
+  - OpenGraph-Net(1.3.4)
+references:
+- uid: OpenGraph_Net.HttpDownloader
+  isExternal: false
+  name: HttpDownloader
+  fullName: OpenGraph_Net.HttpDownloader
+- uid: OpenGraph_Net.InvalidSpecificationException
+  isExternal: false
+  name: InvalidSpecificationException
+  fullName: OpenGraph_Net.InvalidSpecificationException
+- uid: OpenGraph_Net.OpenGraph
+  parent: OpenGraph_Net
+  isExternal: false
+  name: OpenGraph
+  fullName: OpenGraph_Net.OpenGraph
+- uid: OpenGraph_Net.ReadOnlyDictionaryException
+  isExternal: false
+  name: ReadOnlyDictionaryException
+  fullName: OpenGraph_Net.ReadOnlyDictionaryException
+- uid: OpenGraph_Net
+  isExternal: false
+  name: OpenGraph_Net
+  fullName: OpenGraph_Net
