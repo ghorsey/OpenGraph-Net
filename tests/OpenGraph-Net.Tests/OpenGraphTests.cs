@@ -233,9 +233,9 @@ namespace OpenGraph_Net.Tests
         [Test]
         public void TestMetaCharsetParsesCorrectly()
         {
-            var expectedTitle = "Réalité virtuelle : 360° de bonheur à améliorer";
+            var expectedTitle = "Réalité virtuelle : 360° de bonheur à améliorer - Cinéma - Télérama.fr";
             var expectedDescription =
-                "Le cinéma à 360° a désormais son festival. Organisé par le Forum des images, le premier Paris Virtual Film Festival a donc vu le jour....";
+                "Le cinéma à 360° a désormais son festival. Organisé par le Forum des images, le premier Paris Virtual Film Festival a donc vu le jour. Narration, réalisation, montage… une révolution balbutiante est en marche. Tour d&#039;horizon.";
 
             var ogs = OpenGraph.ParseUrl("http://www.telerama.fr/cinema/realite-virtuelle-360-de-bonheur-a-ameliorer,144339.php?utm_medium=Social&utm_source=Twitter&utm_campaign=Echobox&utm_term=Autofeed#link_time=1466595239");
 
