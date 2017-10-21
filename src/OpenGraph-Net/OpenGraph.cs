@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 namespace OpenGraph_Net
 {
     using System;
@@ -67,6 +69,11 @@ namespace OpenGraph_Net
         {
             this.openGraphData = new Dictionary<string, string>();
             this.localAlternatives = new List<string>();
+
+#if NETSTANDARD16
+            // add support for more encodings
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+#endif
         }
 
         /// <summary>
