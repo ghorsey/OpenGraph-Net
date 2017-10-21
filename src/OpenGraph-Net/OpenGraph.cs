@@ -206,8 +206,6 @@ namespace OpenGraph_Net
 
             return ParseHtml(result, html, validateSpecification);
         }
-
-#if !NETSTANDARD16
         
         /// <summary>
         /// Downloads the HTML of the specified URL and parses it for open graph content.
@@ -240,7 +238,7 @@ namespace OpenGraph_Net
 
             return ParseHtml(result, html, validateSpecification);
         }
-#endif
+
         /// <summary>
         /// Parses the HTML for open graph content.
         /// </summary>
