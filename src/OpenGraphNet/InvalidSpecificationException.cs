@@ -1,4 +1,4 @@
-﻿namespace OpenGraph_Net
+﻿namespace OpenGraphNet
 {
     using System;
 

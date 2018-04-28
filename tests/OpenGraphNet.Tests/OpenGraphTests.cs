@@ -1,16 +1,12 @@
-﻿// <copyright file="OpenGraphTests.cs">
-// Geoff Horsey
-// </copyright>
-
-namespace OpenGraph_Net.Tests
+﻿namespace OpenGraphNet.Tests
 {
+    using OpenGraphNet;
     using System.Threading.Tasks;
-    using NUnit.Framework;
-
+    using Xunit;
+    
     /// <summary>
     /// The open graph test fixture
     /// </summary>
-    [TestFixture]
     public class OpenGraphTests
     {
         /// <summary>
@@ -77,6 +73,7 @@ namespace OpenGraph_Net.Tests
         /// <summary>
         /// Tests calling <c>MakeOpenGraph</c> method
         /// </summary>
+        [Fact]
         public void TestMakingOpenGraphMetaTags()
         {
             var title = "some title";
@@ -87,12 +84,12 @@ namespace OpenGraph_Net.Tests
             var siteName = "my site";
             var graph = OpenGraph.MakeGraph(title, type, image, url, description, siteName);
 
-            Assert.AreEqual(title, graph.Title);
-            Assert.AreEqual(type, graph.Type);
-            Assert.AreEqual(image, graph.Image.ToString());
-            Assert.AreEqual(url, graph.Url.ToString());
-            Assert.AreEqual(description, graph["description"]);
-            Assert.AreEqual(siteName, graph["site_name"]);
+            Assert.Equal(title, graph.Title);
+            Assert.Equal(type, graph.Type);
+            Assert.Equal(image, graph.Image.ToString());
+            Assert.Equal(url, graph.Url.ToString());
+            Assert.Equal(description, graph["description"]);
+            Assert.Equal(siteName, graph["site_name"]);
 
             var expected = "<meta property=\"og:title\" content=\"some title\">" +
                 "<meta property=\"og:type\" content=\"website\">" +
@@ -100,54 +97,54 @@ namespace OpenGraph_Net.Tests
                 "<meta property=\"og:url\" content=\"http://www.go.com/\">" +
                 "<meta property=\"og:description\" content=\"some description\">" +
                 "<meta property=\"og:site_name\" content=\"my site\">";
-            Assert.AreEqual(expected, graph.ToString());
+            Assert.Equal(expected, graph.ToString());
         }
 
         /// <summary>
         /// Tests parsing the HTML
         /// </summary>
-        [Test]
+        [Fact]
         public void TestParsingHtmlValidGraphParsingTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.validSampleContent, true);
 
-            Assert.AreEqual("product", graph.Type);
-            Assert.AreEqual("Product Title", graph.Title);
-            Assert.AreEqual("http://www.test.com/test.png", graph.Image.ToString());
-            Assert.AreEqual("http://www.test.com/", graph.Url.ToString());
-            Assert.AreEqual("My Description", graph["description"]);
-            Assert.AreEqual("Test Site", graph["site_name"]);
+            Assert.Equal("product", graph.Type);
+            Assert.Equal("Product Title", graph.Title);
+            Assert.Equal("http://www.test.com/test.png", graph.Image.ToString());
+            Assert.Equal("http://www.test.com/", graph.Url.ToString());
+            Assert.Equal("My Description", graph["description"]);
+            Assert.Equal("Test Site", graph["site_name"]);
         }
 
         /// <summary>
         /// Tests parsing the HTML that is missing URLs
         /// </summary>
-        [Test]
+        [Fact]
         public void TestParsingHtmlHtmlMissingUrlsTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingRequiredUrls);
 
-            Assert.AreEqual("product", graph.Type);
-            Assert.AreEqual("Product Title", graph.Title);
-            Assert.IsNull(graph.Image);
-            Assert.IsNull(graph.Url);
-            Assert.AreEqual("My Description", graph["description"]);
-            Assert.AreEqual("Test Site", graph["site_name"]);
+            Assert.Equal("product", graph.Type);
+            Assert.Equal("Product Title", graph.Title);
+            Assert.Null(graph.Image);
+            Assert.Null(graph.Url);
+            Assert.Equal("My Description", graph["description"]);
+            Assert.Equal("Test Site", graph["site_name"]);
         }
 
         /// <summary>
         /// Test that parsing the HTML with invalid graph specification throws an exception
         /// </summary>
-        [Test]
+        [Fact]
         public void TestParsingHtmlInvalidGraphParsingTest()
         {
-            Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidSampleContent, true));
+                Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidSampleContent, true));
         }
 
         /// <summary>
         /// Test that parsing the HTML with invalid graph specification throws an exception
         /// </summary>
-        [Test]
+        [Fact]
         public void TestParsingHtmlInvalidGraphParsingMissingAllMetaTest()
         {
             Assert.Throws<InvalidSpecificationException>(() => OpenGraph.ParseHtml(this.invalidMissingAllMeta, true));
@@ -156,81 +153,80 @@ namespace OpenGraph_Net.Tests
         /// <summary>
         /// Test that parsing the HTML with invalid graph specification passes when validate specification boolean is off
         /// </summary>
-        [Test]
+        [Fact]
         public void TestParsingHtmlInvalidGraphParsingWithoutCheckTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.invalidSampleContent);
 
-            Assert.AreEqual(string.Empty, graph.Type);
-            Assert.IsFalse(graph.ContainsKey("mistake"));
-            Assert.AreEqual("Product Title", graph.Title);
-            Assert.AreEqual("http://www.test.com/test.png", graph.Image.ToString());
-            Assert.AreEqual("http://www.test.com/", graph.Url.ToString());
-            Assert.AreEqual("My Description", graph["description"]);
-            Assert.AreEqual("Test Site", graph["site_name"]);
+            Assert.Equal(string.Empty, graph.Type);
+            Assert.False(graph.ContainsKey("mistake"));
+            Assert.Equal("Product Title", graph.Title);
+            Assert.Equal("http://www.test.com/test.png", graph.Image.ToString());
+            Assert.Equal("http://www.test.com/", graph.Url.ToString());
+            Assert.Equal("My Description", graph["description"]);
+            Assert.Equal("Test Site", graph["site_name"]);
         }
 
         /// <summary>
         /// Tests the parsing amazon URL asynchronous test.
         /// </summary>
-        [Test]
+        [Fact]
         public async Task TestParsingAmazonUrlAsyncTest()
         {
-            OpenGraph graph = await OpenGraph.ParseUrlAsync("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
+            OpenGraph graph = await OpenGraph.ParseUrlAsync("https://www.amazon.com/Spaced-Complete-Various/dp/B0019MFY3Q/ref=sr_1_2");
 
-            Assert.AreEqual("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
-            Assert.IsTrue(graph.Title.StartsWith("Spaced: The Complete Series"));
-            Assert.IsTrue(graph["description"].Contains("Spaced"));
-            Assert.IsTrue(graph.Image.ToString().Contains("images-amazon"));
-            Assert.AreEqual("movie", graph.Type);
-            Assert.AreEqual("Amazon.com", graph["site_name"]);
+            Assert.Equal("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
+            Assert.StartsWith("Spaced: The Complete Series", graph.Title);
+            Assert.Contains("Spaced", graph["description"]);
+            Assert.Contains("images-amazon", graph.Image.ToString());
+            Assert.Equal("movie", graph.Type);
+            Assert.Equal("Amazon.com", graph["site_name"]);
         }
 
         /// <summary>
+        /// Test parsing a URL
+        /// </summary>
+        [Fact]
+        public void TestParsingAmazonUrlTest()
+        {
+            OpenGraph graph = OpenGraph.ParseUrl("https://www.amazon.com/Spaced-Complete-Various/dp/B0019MFY3Q/ref=sr_1_2");
+
+            Assert.Equal("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
+            Assert.StartsWith("Spaced: The Complete Series", graph.Title);
+            Assert.Contains("Spaced", graph["description"]);
+            Assert.Contains("images-amazon", graph.Image.ToString());
+            Assert.Equal("movie", graph.Type);
+            Assert.Equal("Amazon.com", graph["site_name"]);
+        }
+        
+        /// <summary>
         /// Tests the parsing URL asynchronous validate encoding is correct.
         /// </summary>
-        [Test]
+        [Fact]
         public async Task TestParsingUrlAsyncValidateEncodingIsCorrect()
         {
             var expectedContent =
                 "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame&amp;#33; -&amp;gt; http://ubi.li/u8w9n";
             var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756");
-
-            Assert.That(tags["description"], Is.EqualTo(expectedContent));
+            Assert.Equal(expectedContent, tags["description"]);
         }
-        /// <summary>
-        /// Test parsing a URL
-        /// </summary>
-        [Test]
-        public void TestParsingAmazonUrlTest()
-        {
-            OpenGraph graph = OpenGraph.ParseUrl("http://www.amazon.com/Spaced-Complete-Simon-Pegg/dp/B0019MFY3Q");
-
-            Assert.AreEqual("http://www.amazon.com/dp/B0019MFY3Q/ref=tsm_1_fb_lk", graph.Url.ToString());
-            Assert.IsTrue(graph.Title.StartsWith("Spaced: The Complete Series"));
-            Assert.IsTrue(graph["description"].Contains("Spaced"));
-            Assert.IsTrue(graph.Image.ToString().Contains("images-amazon"));
-            Assert.AreEqual("movie", graph.Type);
-            Assert.AreEqual("Amazon.com", graph["site_name"]);
-        }
-
+        
         /// <summary>
         /// Tests the parsing URL validate encoding is correct.
         /// </summary>
-        [Test]
+        [Fact]
         public void TestParsingUrlValidateEncodingIsCorrect()
         {
             var expectedContent =
                 "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame&amp;#33; -&amp;gt; http://ubi.li/u8w9n";
             var tags = OpenGraph.ParseUrl("https://vk.com/wall-41600377_66756");
-
-            Assert.That(tags["description"], Is.EqualTo(expectedContent));
+            Assert.Equal(expectedContent, tags["description"]);
         }
 
         /// <summary>
         /// Tests the meta charset parses correctly.
         /// </summary>
-        [Test]
+        [Fact]
         public void TestMetaCharsetParsesCorrectly()
         {
             var expectedTitle = "Réalité virtuelle : 360° de bonheur à améliorer";
@@ -239,12 +235,12 @@ namespace OpenGraph_Net.Tests
 
             var ogs = OpenGraph.ParseUrl("http://www.telerama.fr/cinema/realite-virtuelle-360-de-bonheur-a-ameliorer,144339.php?utm_medium=Social&utm_source=Twitter&utm_campaign=Echobox&utm_term=Autofeed#link_time=1466595239");
 
-            Assert.AreEqual(expectedTitle, ogs["title"]);
-            Assert.AreEqual(expectedDescription, ogs["description"]);
+            Assert.Equal(expectedTitle, ogs["title"]);
+            Assert.Equal(expectedDescription, ogs["description"]);
         }
 
 
-        [Test]
+        [Fact]
         public void TestUrlDecodingUrlValues()
         {
             var expectedUrl =
@@ -252,7 +248,7 @@ namespace OpenGraph_Net.Tests
             var og = OpenGraph.ParseUrl("https://www.periscope.tv/w/1DXxyZZZVykKM");
 
 
-            Assert.AreEqual(expectedUrl, og["image"]);
+            Assert.Equal(expectedUrl, og["image"]);
         }
     }
 }

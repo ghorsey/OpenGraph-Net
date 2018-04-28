@@ -1,5 +1,5 @@
 ﻿
-namespace OpenGraph_Net
+namespace OpenGraphNet
 {
     using System;
     using System.IO;
