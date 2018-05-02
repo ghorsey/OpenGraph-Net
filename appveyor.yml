@@ -1,10 +1,11 @@
 version: 1.0.{build}
 
 before_build:
-- cmd: dotnet build
+- cmd: dotnet restore
 
-build:
-  verbosity: minimal
+build_script:
+- cmd: dotnet --info
+- cmd: dotnet build
   
 test_script:
 - cmd: dotnet test tests\OpenGraphNet.Tests.csproj
