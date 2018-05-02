@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 2.0.{build}
 
 before_build:
 - cmd: dotnet restore
@@ -8,4 +8,4 @@ build_script:
 - cmd: dotnet build
   
 test_script:
-- cmd: dotnet test tests\OpenGraphNet.Tests.csproj
+- cmd: dotnet test .\tests\OpenGraphNet.Tests\OpenGraphNet.Tests.csproj
