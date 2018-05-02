@@ -18,7 +18,7 @@
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ghorsey/OpenGraph-Net</PackageProjectUrl>
     <PackageReleaseNotes>Added netstandard2.0 support</PackageReleaseNotes>
-    <PackageTags>OpenGraph; OGP; Open Graph; Open Graph Protocol</PackageTags>
+    <PackageTags>OpenGraph</PackageTags>
     <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
   </PropertyGroup>
 
