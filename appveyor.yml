@@ -1,10 +1,10 @@
 version: 1.0.{build}
 
 before_build:
-- cmd: nuget restore OpenGraph-Net.sln
+- cmd: dotnet build
 
 build:
   verbosity: minimal
   
 test_script:
-- cmd: dotnet test tests\OpenGraph-Net.Tests
+- cmd: dotnet test tests\OpenGraphNet.Tests.csproj
