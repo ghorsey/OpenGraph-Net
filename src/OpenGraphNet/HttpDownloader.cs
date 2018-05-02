@@ -1,5 +1,5 @@
 ﻿
-namespace OpenGraph_Net
+namespace OpenGraphNet
 {
     using System;
     using System.IO;
@@ -189,6 +189,7 @@ namespace OpenGraph_Net
             {
                 try
                 {
+                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                     this.Encoding = Encoding.GetEncoding(charset);
                 }
                 // ReSharper disable once UncatchableException
