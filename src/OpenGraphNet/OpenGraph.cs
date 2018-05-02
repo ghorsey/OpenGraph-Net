@@ -258,7 +258,7 @@ namespace OpenGraphNet
         /// <param name="content">The content.</param>
         /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
         /// <returns><see cref="OpenGraph"/></returns>
-        /// <exception cref="OpenGraph_Net.InvalidSpecificationException">The parsed HTML does not meet the open graph specification</exception>
+        /// <exception cref="OpenGraphNet.InvalidSpecificationException">The parsed HTML does not meet the open graph specification</exception>
         private static OpenGraph ParseHtml(OpenGraph result, string content, bool validateSpecification = false)
         {
             int indexOfClosingHead = Regex.Match(content, "</head>").Index;
@@ -427,7 +427,7 @@ namespace OpenGraphNet
         /// </summary>
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
-        /// <exception cref="OpenGraph_Net.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         public void Add(string key, string value)
         {
             throw new ReadOnlyDictionaryException();
@@ -456,7 +456,7 @@ namespace OpenGraphNet
         /// </summary>
         /// <param name="key">The key.</param>
         /// <returns><c>false</c></returns>
-        /// <exception cref="OpenGraph_Net.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         public bool Remove(string key)
         {
             throw new ReadOnlyDictionaryException();
@@ -484,7 +484,7 @@ namespace OpenGraphNet
         /// </summary>
         /// <param name="key">The key.</param>
         /// <returns>returns the open graph value at the specified key</returns>
-        /// <exception cref="OpenGraph_Net.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
         public string this[string key]
         {
             get
@@ -511,7 +511,7 @@ namespace OpenGraphNet
         /// Adds the specified item.
         /// </summary>
         /// <param name="item">The item.</param>
-        /// <exception cref="OpenGraph_Net.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         public void Add(KeyValuePair<string, string> item)
         {
             throw new ReadOnlyDictionaryException();
@@ -520,7 +520,7 @@ namespace OpenGraphNet
         /// <summary>
         /// Clears this instance.
         /// </summary>
-        /// <exception cref="OpenGraph_Net.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         public void Clear()
         {
             throw new ReadOnlyDictionaryException();
@@ -565,7 +565,7 @@ namespace OpenGraphNet
         /// </summary>
         /// <param name="item">The item.</param>
         /// <returns>Returns false</returns>
-        /// <exception cref="OpenGraph_Net.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         public bool Remove(KeyValuePair<string, string> item)
         {
             throw new ReadOnlyDictionaryException();
