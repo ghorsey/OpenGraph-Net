@@ -6,6 +6,20 @@
     <VersionSuffix></VersionSuffix>
   </PropertyGroup>
 
+  <!-- nuget -->
+  <PropertyGroup>
+    <PackageId>OpenGraph-Net</PackageId>
+    <Title>OpenGraph.Net</Title>
+    <Authors>ghorsey</Authors>
+    <Description>A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the Open Graph protocol @ http://ogp.me.</Description>
+    <Copyright>Copyright © 2018</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ghorsey/OpenGraph-Net</PackageProjectUrl>
+    <PackageReleaseNotes>Added netstandard2.0 support</PackageReleaseNotes>
+    <PackageTags>OpenGraph; OGP; Open Graph; Open Graph Protocol</PackageTags>
+    <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.8.1" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.4.0" />
