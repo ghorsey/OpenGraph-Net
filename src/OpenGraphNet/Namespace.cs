@@ -42,6 +42,5 @@
         /// The schema URI.
         /// </value>
         public Uri SchemaUri { get; }
-
     }
 }
