@@ -14,7 +14,7 @@
         /// </summary>
         private string validSampleContent = @"<!DOCTYPE HTML>
 <html>
-<head>
+<head prefix=""og: http://opg.me/ns# product: http://ogp.me/ns/product#"">
     <meta property=""og:type"" content=""product"" />
     <meta property=""og:title"" cOntent=""Product Title"" />
     <meta name=""og:image"" content=""http://www.test.com/test.png""/>
