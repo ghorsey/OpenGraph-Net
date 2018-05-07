@@ -8,6 +8,7 @@ namespace OpenGraphNet
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using HtmlAgilityPack;
+    using OpenGraphNet.Namespaces;
 
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
@@ -108,7 +109,7 @@ namespace OpenGraphNet
                 Url = new Uri(url, UriKind.Absolute),
             };
 
-            graph.Namespaces.Add(SchemaRegistry.SchemaRegistry.Instance.Schemas["og"]);
+            graph.Namespaces.Add(NamespaceRegistry.Instance.Schemas["og"]);
             graph.openGraphData.Add("title", title);
             graph.openGraphData.Add("type", type);
             graph.openGraphData.Add("image", image);
