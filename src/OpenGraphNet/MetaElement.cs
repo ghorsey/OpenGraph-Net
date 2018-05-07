@@ -19,7 +19,7 @@ namespace OpenGraphNet
 
         public static implicit operator string(MetaElement element) 
         {
-            return string.Join( ", ", this.Values);
+            return string.Join( ", ", element.Values);
         }
 
         public override string ToString() 

@@ -2,6 +2,7 @@
 {
     using OpenGraphNet;
     using System.Threading.Tasks;
+    using System.Linq;
     using Xunit;
     
     /// <summary>
@@ -84,6 +85,9 @@
             var siteName = "my site";
             var graph = OpenGraph.MakeGraph(title, type, image, url, description, siteName);
 
+            Assert.Equal("og", graph.Namespaces.First().Prefix);
+            Assert.Equal("http://opg.me/ns#", graph.Namespaces.First().SchemaUri.ToString());
+            
             Assert.Equal(title, graph.Title);
             Assert.Equal(type, graph.Type);
             Assert.Equal(image, graph.Image.ToString());

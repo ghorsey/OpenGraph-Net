@@ -29,6 +29,8 @@ namespace OpenGraphNet
         /// </summary>
         private IList<string> localAlternatives;
 
+        public IList<Namespace> Namespaces { get; set; }
+
         /// <summary>
         /// Gets the type.
         /// </summary>
@@ -66,6 +68,7 @@ namespace OpenGraphNet
         {
             this.openGraphData = new Dictionary<string, string>();
             this.localAlternatives = new List<string>();
+            this.Namespaces = new List<Namespace>();
         }
 
         /// <summary>
@@ -96,14 +99,16 @@ namespace OpenGraphNet
             IList<string> localeAlternate = null,
             string determiner = "")
         {
+            
             var graph = new OpenGraph
             {
                 Title = title,
                 Type = type,
                 Image = new Uri(image, UriKind.Absolute),
-                Url = new Uri(url, UriKind.Absolute)
+                Url = new Uri(url, UriKind.Absolute),
             };
 
+            graph.Namespaces.Add(SchemaRegistry.SchemaRegistry.Instance.Schemas["og"]);
             graph.openGraphData.Add("title", title);
             graph.openGraphData.Add("type", type);
             graph.openGraphData.Add("image", image);
@@ -380,6 +385,7 @@ namespace OpenGraphNet
             return value;
 
         }
+
         /// <summary>
         /// Gets the open graph key.
         /// </summary>
