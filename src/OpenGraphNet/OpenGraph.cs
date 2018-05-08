@@ -415,6 +415,17 @@
         }
 
         /// <summary>
+        /// Returns an enumerator that iterates through a collection.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+        /// </returns>
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return ((System.Collections.IEnumerable)this.openGraphData).GetEnumerator();
+        }
+
+        /// <summary>
         /// Safes the HTML decode URL.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -582,17 +593,6 @@
             }
 
             return result;
-        }
-
-        /// <summary>
-        /// Returns an enumerator that iterates through a collection.
-        /// </summary>
-        /// <returns>
-        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-        /// </returns>
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return ((System.Collections.IEnumerable)this.openGraphData).GetEnumerator();
         }
     }
 }
