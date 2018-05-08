@@ -30,6 +30,12 @@ namespace OpenGraphNet
         /// </summary>
         private IList<string> localAlternatives;
 
+        /// <summary>
+        /// Gets or sets the namespaces.
+        /// </summary>
+        /// <value>
+        /// The namespaces.
+        /// </value>
         public IList<Namespace> Namespaces { get; set; }
 
         /// <summary>

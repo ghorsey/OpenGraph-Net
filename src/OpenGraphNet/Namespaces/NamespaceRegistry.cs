@@ -2,31 +2,20 @@ namespace OpenGraphNet.Namespaces
 {
     using System.Collections.Generic;
 
-    public sealed partial class NamespaceRegistry
+    /// <summary>
+    /// A singleton to define supported namespaces
+    /// </summary>
+    public sealed class NamespaceRegistry
     {
-        private static NamespaceRegistry instance;
+        /// <summary>
+        /// The synchronization lock
+        /// </summary>
+        private static readonly object SynchronizationLock = new object();
 
-        private static object lck = new object();
-
-        public IDictionary<string, RegistryNamespace> Schemas{ get; }
-
-        public static NamespaceRegistry Instance
-        { 
-            get
-            {
-                if(instance == null)
-                {
-                    lock(lck)
-                    {
-                        if(instance == null) {
-                            instance = new NamespaceRegistry();
-                        }
-                    }
-                }
-
-                return instance;
-            }
-        }
+        /// <summary>
+        /// The instance
+        /// </summary>
+        private static NamespaceRegistry internalInstance;
 
         private NamespaceRegistry() 
         {
@@ -35,9 +24,42 @@ namespace OpenGraphNet.Namespaces
             this.RegisterSchemas();
         }
 
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <value>
+        /// The instance.
+        /// </value>
+        public static NamespaceRegistry Instance
+        { 
+            get
+            {
+                if (internalInstance == null)
+                {
+                    lock (SynchronizationLock)
+                    {
+                        if (internalInstance == null)
+                        {
+                            internalInstance = new NamespaceRegistry();
+                        }
+                    }
+                }
+
+                return internalInstance;
+            }
+        }
+
+        /// <summary>
+        /// Gets the schemas.
+        /// </summary>
+        /// <value>
+        /// The schemas.
+        /// </value>
+        public IDictionary<string, RegistryNamespace> Schemas { get; }
+
         private void RegisterSchemas()
         {
-            this.Schemas.Add("og", new RegistryNamespace("og", "http://opg.me/ns#", "title", "type", "image", "url"));;
+            this.Schemas.Add("og", new RegistryNamespace("og", "http://opg.me/ns#", "title", "type", "image", "url"));
         }
     }
 }
