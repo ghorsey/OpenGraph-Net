@@ -1,5 +1,4 @@
-﻿
-namespace OpenGraphNet
+﻿namespace OpenGraphNet
 {
     using System;
     using System.Collections.Generic;
@@ -29,6 +28,16 @@ namespace OpenGraphNet
         /// The local alternatives
         /// </summary>
         private IList<string> localAlternatives;
+
+        /// <summary>
+        /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
+        /// </summary>
+        private OpenGraph()
+        {
+            this.openGraphData = new Dictionary<string, string>();
+            this.localAlternatives = new List<string>();
+            this.Namespaces = new List<Namespace>();
+        }
 
         /// <summary>
         /// Gets or sets the namespaces.
@@ -69,13 +78,51 @@ namespace OpenGraphNet
         public Uri OriginalUrl { get; private set; }
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
+        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
-        private OpenGraph()
+        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+        public ICollection<string> Keys => this.openGraphData.Keys;
+
+        /// <summary>
+        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
+        /// </summary>
+        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+        public ICollection<string> Values => this.openGraphData.Values;
+
+        /// <summary>
+        /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
+        /// </summary>
+        /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
+        public int Count => this.openGraphData.Count;
+
+        /// <summary>
+        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+        /// </summary>
+        /// <returns>true</returns>
+        public bool IsReadOnly => true;
+
+        /// <summary>
+        /// Gets or sets the element with the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns>returns the open graph value at the specified key</returns>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
+        public string this[string key]
         {
-            this.openGraphData = new Dictionary<string, string>();
-            this.localAlternatives = new List<string>();
-            this.Namespaces = new List<Namespace>();
+            get
+            {
+                if (!this.openGraphData.ContainsKey(key))
+                {
+                    return string.Empty;
+                }
+
+                return this.openGraphData[key];
+            }
+
+            set
+            {
+                throw new ReadOnlyDictionaryException();
+            }
         }
 
         /// <summary>
@@ -106,7 +153,6 @@ namespace OpenGraphNet
             IList<string> localeAlternate = null,
             string determiner = "")
         {
-            
             var graph = new OpenGraph
             {
                 Title = title,
@@ -160,35 +206,6 @@ namespace OpenGraphNet
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            var doc = new HtmlDocument();
-
-            foreach (var itm in this.openGraphData)
-            {
-                var meta = doc.CreateElement("meta");
-                meta.Attributes.Add("property", "og:" + itm.Key);
-                meta.Attributes.Add("content", itm.Value);
-                doc.DocumentNode.AppendChild(meta);
-            }
-
-            foreach (var itm in this.localAlternatives)
-            {
-                var meta = doc.CreateElement("meta");
-                meta.Attributes.Add("property", "og:locale:alternate");
-                meta.Attributes.Add("content", itm);
-                doc.DocumentNode.AppendChild(meta);
-            }
-
-            return doc.DocumentNode.InnerHtml;
-        }
-
-        /// <summary>
         /// Downloads the HTML of the specified URL and parses it for open graph content.
         /// </summary>
         /// <param name="url">The URL to download the HTML from.</param>
@@ -202,7 +219,6 @@ namespace OpenGraphNet
             Uri uri = new Uri(url);
             return ParseUrl(uri, userAgent, validateSpecifiction);
         }
-
 
         /// <summary>
         /// Parses the URL asynchronous.
@@ -264,6 +280,207 @@ namespace OpenGraphNet
         }
 
         /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            var doc = new HtmlDocument();
+
+            foreach (var itm in this.openGraphData)
+            {
+                var meta = doc.CreateElement("meta");
+                meta.Attributes.Add("property", "og:" + itm.Key);
+                meta.Attributes.Add("content", itm.Value);
+                doc.DocumentNode.AppendChild(meta);
+            }
+
+            foreach (var itm in this.localAlternatives)
+            {
+                var meta = doc.CreateElement("meta");
+                meta.Attributes.Add("property", "og:locale:alternate");
+                meta.Attributes.Add("content", itm);
+                doc.DocumentNode.AppendChild(meta);
+            }
+
+            return doc.DocumentNode.InnerHtml;
+        }
+
+        /// <summary>
+        /// Adds the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        public void Add(string key, string value)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Determines whether the specified key contains key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified key contains key; otherwise, <c>false</c>.
+        /// </returns>
+        public bool ContainsKey(string key)
+        {
+            return this.openGraphData.ContainsKey(key);
+        }
+
+        /// <summary>
+        /// Removes the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns><c>false</c></returns>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        public bool Remove(string key)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Tries the get value.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>true if the value was successfully set; otherwise false</returns>
+        public bool TryGetValue(string key, out string value)
+        {
+            return this.openGraphData.TryGetValue(key, out value);
+        }
+
+        /// <summary>
+        /// Adds the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        public void Add(KeyValuePair<string, string> item)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Clears this instance.
+        /// </summary>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        public void Clear()
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Determines whether [contains] [the specified item].
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>
+        ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
+        /// </returns>
+        public bool Contains(KeyValuePair<string, string> item)
+        {
+            return this.openGraphData.Contains(item);
+        }
+
+        /// <summary>
+        /// Copies to.
+        /// </summary>
+        /// <param name="array">The array.</param>
+        /// <param name="arrayIndex">Index of the array.</param>
+        public void CopyTo(KeyValuePair<string, string>[] array, int arrayIndex)
+        {
+            this.openGraphData.CopyTo(array, arrayIndex);
+        }
+
+        /// <summary>
+        /// Removes the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>Returns false</returns>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        public bool Remove(KeyValuePair<string, string> item)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns>The enumerator for the key value pairs</returns>
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
+        {
+            return this.openGraphData.GetEnumerator();
+        }
+
+        /// <summary>
+        /// Safes the HTML decode URL.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>The string</returns>
+        private static string HtmlDecodeUrl(string value)
+        {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
+            // naive attempt
+            var patterns = new Dictionary<string, string>
+            {
+                ["&amp;"] = "&",
+            };
+
+            foreach (var key in patterns)
+            {
+                value = value.Replace(key.Key, key.Value);
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Gets the open graph key.
+        /// </summary>
+        /// <param name="metaTag">The meta tag.</param>
+        /// <returns>Returns the key stored from the meta tag</returns>
+        private static string GetOpenGraphKey(HtmlNode metaTag)
+        {
+            if (metaTag.Attributes.Contains("property"))
+            {
+                return CleanOpenGraphKey(metaTag.Attributes["property"].Value);
+            }
+
+            return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
+        }
+
+        /// <summary>
+        /// Cleans the open graph key.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>strips the <c>og:</c> namespace from the value</returns>
+        private static string CleanOpenGraphKey(string value)
+        {
+            return value.Replace("og:", string.Empty).ToLower(CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Gets the open graph value.
+        /// </summary>
+        /// <param name="metaTag">The meta tag.</param>
+        /// <returns>Returns the value from the meta tag</returns>
+        private static string GetOpenGraphValue(HtmlNode metaTag)
+        {
+            if (!metaTag.Attributes.Contains("content"))
+            {
+                return string.Empty;
+            }
+
+            return metaTag.Attributes["content"].Value;
+        }
+
+        /// <summary>
         /// Parses the HTML.
         /// </summary>
         /// <param name="result">The result.</param>
@@ -282,7 +499,8 @@ namespace OpenGraphNet
             document.LoadHtml(toParse);
 
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
-            var urlPropertyPatterns = new[] { "image", "url^"};
+
+            var urlPropertyPatterns = new[] { "image", "url^" };
             var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
                                     where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
                                     (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
@@ -310,6 +528,7 @@ namespace OpenGraphNet
                         break;
                     }
                 }
+
                 result.openGraphData.Add(property, value);
             }
 
@@ -366,242 +585,6 @@ namespace OpenGraphNet
         }
 
         /// <summary>
-        /// Safes the HTML decode URL.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>The string</returns>
-        private static string HtmlDecodeUrl(string value)
-        {
-            if (value == null)
-            {
-                return string.Empty;
-            }
-
-            // naive attempt
-            var patterns = new Dictionary<string, string>
-            {
-                ["&amp;"] = "&",
-            };
-
-
-            foreach (var key in patterns)
-            {
-                value = value.Replace(key.Key, key.Value);
-            }
-
-            return value;
-
-        }
-
-        /// <summary>
-        /// Gets the open graph key.
-        /// </summary>
-        /// <param name="metaTag">The meta tag.</param>
-        /// <returns>Returns the key stored from the meta tag</returns>
-        private static string GetOpenGraphKey(HtmlNode metaTag)
-        {
-            if (metaTag.Attributes.Contains("property"))
-            {
-                return CleanOpenGraphKey(metaTag.Attributes["property"].Value);
-            }
-
-            return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
-        }
-
-        /// <summary>
-        /// Cleans the open graph key.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns>strips the <c>og:</c> namespace from the value</returns>
-        private static string CleanOpenGraphKey(string value)
-        {
-            return value.Replace("og:", string.Empty).ToLower(CultureInfo.InvariantCulture);
-        }
-
-        /// <summary>
-        /// Gets the open graph value.
-        /// </summary>
-        /// <param name="metaTag">The meta tag.</param>
-        /// <returns>Returns the value from the meta tag</returns>
-        private static string GetOpenGraphValue(HtmlNode metaTag)
-        {
-            if (!metaTag.Attributes.Contains("content"))
-            {
-                return string.Empty;
-            }
-
-            return metaTag.Attributes["content"].Value;
-        }
-
-        #region IDictionary<string,string> Members
-
-        /// <summary>
-        /// Adds the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public void Add(string key, string value)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Determines whether the specified key contains key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified key contains key; otherwise, <c>false</c>.
-        /// </returns>
-        public bool ContainsKey(string key)
-        {
-            return this.openGraphData.ContainsKey(key);
-        }
-
-        /// <summary>
-        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Keys => this.openGraphData.Keys;
-
-        /// <summary>
-        /// Removes the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns><c>false</c></returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public bool Remove(string key)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Tries the get value.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>true if the value was successfully set; otherwise false</returns>
-        public bool TryGetValue(string key, out string value)
-        {
-            return this.openGraphData.TryGetValue(key, out value);
-        }
-
-        /// <summary>
-        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Values => this.openGraphData.Values;
-
-        /// <summary>
-        /// Gets or sets the element with the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns>returns the open graph value at the specified key</returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
-        public string this[string key]
-        {
-            get
-            {
-                if (!this.openGraphData.ContainsKey(key))
-                {
-                    return string.Empty;
-                }
-
-                return this.openGraphData[key];
-            }
-
-            set
-            {
-                throw new ReadOnlyDictionaryException();
-            }
-        }
-
-        #endregion
-
-        #region ICollection<KeyValuePair<string,string>> Members
-
-        /// <summary>
-        /// Adds the specified item.
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public void Add(KeyValuePair<string, string> item)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Clears this instance.
-        /// </summary>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public void Clear()
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Determines whether [contains] [the specified item].
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>
-        ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
-        /// </returns>
-        public bool Contains(KeyValuePair<string, string> item)
-        {
-            return this.openGraphData.Contains(item);
-        }
-
-        /// <summary>
-        /// Copies to.
-        /// </summary>
-        /// <param name="array">The array.</param>
-        /// <param name="arrayIndex">Index of the array.</param>
-        public void CopyTo(KeyValuePair<string, string>[] array, int arrayIndex)
-        {
-            this.openGraphData.CopyTo(array, arrayIndex);
-        }
-
-        /// <summary>
-        /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
-        /// </summary>
-        /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        public int Count => this.openGraphData.Count;
-
-        /// <summary>
-        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
-        /// </summary>
-        /// <returns>true</returns>
-        public bool IsReadOnly => true;
-
-        /// <summary>
-        /// Removes the specified item.
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>Returns false</returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public bool Remove(KeyValuePair<string, string> item)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        #endregion
-
-        #region IEnumerable<KeyValuePair<string,string>> Members
-
-        /// <summary>
-        /// Gets the enumerator.
-        /// </summary>
-        /// <returns>The enumerator for the key value pairs</returns>
-        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
-        {
-            return this.openGraphData.GetEnumerator();
-        }
-
-        #endregion
-
-        #region IEnumerable Members
-
-        /// <summary>
         /// Returns an enumerator that iterates through a collection.
         /// </summary>
         /// <returns>
@@ -611,7 +594,5 @@ namespace OpenGraphNet
         {
             return ((System.Collections.IEnumerable)this.openGraphData).GetEnumerator();
         }
-
-        #endregion     
     }
 }
