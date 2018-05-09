@@ -492,6 +492,44 @@
         }
 
         /// <summary>
+        /// Initializes the <see cref="OpenGraph" /> class.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        /// <param name="document">The document.</param>
+        private static void ParseNamespaces(OpenGraph result, HtmlDocument document)
+        {
+            const string NamespacePattern = @"(\w+):\s?(https?://[^\s]+)";
+
+            HtmlNode head = document.DocumentNode.SelectSingleNode("//head");
+
+            if (head != null && head.Attributes.Contains("prefix") && Regex.IsMatch(head.Attributes["prefix"].Value, NamespacePattern))
+            {
+                var matches = Regex.Matches(
+                    head.Attributes["prefix"].Value,
+                    NamespacePattern,
+                    RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Singleline);
+
+                foreach (Match match in matches)
+                {
+                    var prefix = match.Groups[1].Value;
+                    if (NamespaceRegistry.Instance.Schemas.ContainsKey(prefix))
+                    {
+                        result.Namespaces.Add(NamespaceRegistry.Instance.Schemas[prefix]);
+                        continue;
+                    }
+
+                    var ns = match.Groups[2].Value;
+                    result.Namespaces.Add(new Namespace(prefix, ns));
+                }
+            }
+            else
+            {  
+                // append the minimum og: prefix and namespace
+                result.Namespaces.Add(NamespaceRegistry.Instance.Schemas["og"]);
+            }
+        }
+
+        /// <summary>
         /// Parses the HTML.
         /// </summary>
         /// <param name="result">The result.</param>
@@ -508,6 +546,8 @@
 
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(toParse);
+
+            ParseNamespaces(result, document);
 
             HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
 

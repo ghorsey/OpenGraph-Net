@@ -15,7 +15,7 @@
         /// </summary>
         private string validSampleContent = @"<!DOCTYPE HTML>
 <html>
-<head prefix=""og: http://opg.me/ns# product: http://ogp.me/ns/product#"">
+<head prefix=""og: http://ogp.me/ns# product: http://ogp.me/ns/product#"">
     <meta property=""og:type"" content=""product"" />
     <meta property=""og:title"" cOntent=""Product Title"" />
     <meta name=""og:image"" content=""http://www.test.com/test.png""/>
@@ -111,6 +111,12 @@
         public void TestParsingHtmlValidGraphParsingTest()
         {
             OpenGraph graph = OpenGraph.ParseHtml(this.validSampleContent, true);
+
+            Assert.Equal(2, graph.Namespaces.Count);
+            Assert.Equal("og", graph.Namespaces[0].Prefix);
+            Assert.Equal("http://opg.me/ns#", graph.Namespaces[0].SchemaUri.ToString());
+            Assert.Equal("product", graph.Namespaces[1].Prefix);
+            Assert.Equal("http://ogp.me/ns/product#", graph.Namespaces[1].SchemaUri.ToString());
 
             Assert.Equal("product", graph.Type);
             Assert.Equal("Product Title", graph.Title);
