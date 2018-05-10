@@ -125,7 +125,7 @@ You can now add custom namespaces to the parser.  Simply make the following call
         schemaUri: "http://wwww.geoffhorsey.com/ogp/brain"#,
         requiredElements: new[] { "brain" });
 
-Dosing the above will allow the parser to understand the following HTML snippet:
+Doing the above will allow the parser to understand the following HTML snippet:
 
     <meta property="gah:brain" content="http://www.geoffhorsey.com/my-brain">
     <meta property="gah:brain:size" content="tiny">

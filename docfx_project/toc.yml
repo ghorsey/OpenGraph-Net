@@ -1,0 +1,11 @@
+- name: Articles
+  href: articles/
+- name: Api Documentation
+  href: api/
+  homepage: api/index.md
+- name: Nuget
+  href: https://www.nuget.org/packages/OpenGraph-Net/
+- name: Github
+  href: https://github.com/ghorsey/OpenGraph-Net
+- name: Report Issues
+  href: https://github.com/ghorsey/OpenGraph-Net/issues
