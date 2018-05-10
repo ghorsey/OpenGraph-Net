@@ -221,8 +221,6 @@ namespace OpenGraphNet.Tests
             imageMetadata[0].AddProperty("width", width1);
             imageMetadata[1].AddProperty("width", width2);
 
-
-
             Assert.Equal("og", graph.Namespaces.First().Value.Prefix);
             Assert.Equal("http://ogp.me/ns#", graph.Namespaces.First().Value.SchemaUri.ToString());
             
