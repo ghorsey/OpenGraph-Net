@@ -1,4 +1,5 @@
-﻿namespace OpenGraphNet.Tests
+﻿#pragma warning disable 618
+namespace OpenGraphNet.Tests
 {
     // ReSharper disable StringLiteralTypo
     using System.Linq;
@@ -133,6 +134,31 @@
 <body>
 </body>
 </html>";
+
+        [Fact]
+        public void TestParsingSpotifyAlbum()
+        {
+            var graph = OpenGraph.ParseHtml(SpotifyAlbumContent);
+
+            Assert.Equal("Salutations", graph.Title);
+            Assert.Empty(graph.Data["og:description"].First().Value);
+            Assert.Equal("https://open.spotify.com/album/5YQGQfkjghbxW00eKy9YpJ", graph.Url.ToString());
+            Assert.Null(graph.Image);
+            Assert.Equal("music.album", graph.Type);
+            Assert.Equal("https://open.spotify.com/artist/2Z7gV3uEh1ckIaBzTUCE6R", graph.Data["music:musician"].First().Value);
+            Assert.Equal("2017-03-17", graph.Data["music:release_date"].First().Value);
+            Assert.Equal(2, graph.Data["music:song"].Count);
+            Assert.Equal("https://open.spotify.com/track/1JJUbiYekbYkdDhK1kp3C9", graph.Data["music:song"][0].Value);
+            Assert.Equal("1", graph.Data["music:song"][0].Properties["disc"].First().Value);
+            Assert.Equal("1", graph.Data["music:song"][0].Properties["track"].First().Value);
+            Assert.Equal("https://open.spotify.com/track/3eitV6XbyRW0FxKEUh60Pi", graph.Data["music:song"][1].Value);
+            Assert.Equal("1", graph.Data["music:song"][1].Properties["disc"].First().Value);
+            Assert.Equal("2", graph.Data["music:song"][1].Properties["track"].First().Value);
+
+            Assert.Equal(@"<meta property=""og:title"" content=""Salutations""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/album/5YQGQfkjghbxW00eKy9YpJ""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.album""><meta property=""music:musician"" content=""https://open.spotify.com/artist/2Z7gV3uEh1ckIaBzTUCE6R""><meta property=""music:release_date"" content=""2017-03-17""><meta property=""music:song"" content=""https://open.spotify.com/track/1JJUbiYekbYkdDhK1kp3C9""><meta property=""music:song:disc"" content=""1""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/3eitV6XbyRW0FxKEUh60Pi""><meta property=""music:song:disc"" content=""1""><meta property=""music:song:track"" content=""2"">", graph.ToString());
+            Assert.Equal("og: http://ogp.me/ns# music: http://ogp.me/ns/music#", graph.HeadPrefixAttributeValue);
+            Assert.Equal("xmlns:og=\"http://ogp.me/ns#\" xmlns:music=\"http://ogp.me/ns/music#\"", graph.HtmlXmlnsValues);
+        }
 
         /// <summary>
         /// Tests the parsing spotify playlist.

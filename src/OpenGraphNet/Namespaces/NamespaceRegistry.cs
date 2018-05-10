@@ -2,7 +2,6 @@ namespace OpenGraphNet.Namespaces
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Runtime.CompilerServices;
 
     /// <summary>
     /// A singleton to define supported namespaces
@@ -78,6 +77,6 @@ namespace OpenGraphNet.Namespaces
         /// <value>
         /// The schemas.
         /// </value>
-        private IDictionary<string, RegistryNamespace> InternalNamespaces { get; } = new Dictionary<string, RegistryNamespace>();
+        private IDictionary<string, RegistryNamespace> InternalNamespaces { get; }
     }
 }

@@ -1,7 +1,4 @@
-﻿// <copyright file="ReadOnlyDictionaryException.cs" company="SHHH Innovations LLC">
-// Copyright SHHH Innovations LLC
-// </copyright>
-namespace OpenGraphNet
+﻿namespace OpenGraphNet
 {
     using System;
 
