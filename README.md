@@ -110,7 +110,7 @@ Would produce the following:
 
 To create the `head` version in a cshtml page, after create a new `graph`, use the following code:
 
-    <head prefix="@graph.HeadPrefixAttribute	Value">
+    <head prefix="@graph.HeadPrefixAttributeValue">
 
 Would produce the following:
 
