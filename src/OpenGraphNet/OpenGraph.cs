@@ -22,14 +22,14 @@
         /// <summary>
         /// The open graph data
         /// </summary>
-        private readonly IDictionary<string, IList<StructuredMetadata>> internalOpenGraphData;
+        private readonly StructuredMetadataCollection internalOpenGraphData;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
         /// </summary>
         private OpenGraph()
         {
-            this.internalOpenGraphData = new Dictionary<string, IList<StructuredMetadata>>();
+            this.internalOpenGraphData = new StructuredMetadataCollection();
             this.Namespaces = new Dictionary<string, Namespace>();
         }
 

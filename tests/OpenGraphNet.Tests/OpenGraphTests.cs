@@ -208,11 +208,20 @@ namespace OpenGraphNet.Tests
         {
             var title = "some title";
             var type = "website";
-            var image = "http://www.go.com/someimg.jpg";
+            var image = "http://www.go.com/img1.png";
+            var image2 = "http://www.go.com/img2.png";
             var url = "http://www.go.com/";
             var description = "some description";
             var siteName = "my site";
+            var width1 = "30";
+            var width2 = "60";
             var graph = OpenGraph.MakeGraph(title, type, image, url, description, siteName);
+            graph.AddMetadata("og", "image", image2);
+            var imageMetadata = graph.Metadata["og:image"];
+            imageMetadata[0].AddProperty("width", width1);
+            imageMetadata[1].AddProperty("width", width2);
+
+
 
             Assert.Equal("og", graph.Namespaces.First().Value.Prefix);
             Assert.Equal("http://ogp.me/ns#", graph.Namespaces.First().Value.SchemaUri.ToString());
@@ -225,13 +234,17 @@ namespace OpenGraphNet.Tests
             Assert.Equal(description, graph["description"].Value);
             Assert.Equal(siteName, graph.Metadata["og:site_name"].First().Value);
             Assert.Equal(siteName, graph["site_name"]);
+            Assert.Equal(0, graph.Metadata["og:donotexist"].Count);
 
-            var expected = "<meta property=\"og:title\" content=\"some title\">" +
+            var expected = $"<meta property=\"og:title\" content=\"{title}\">" +
                 "<meta property=\"og:type\" content=\"website\">" +
-                "<meta property=\"og:image\" content=\"http://www.go.com/someimg.jpg\">" +
-                "<meta property=\"og:url\" content=\"http://www.go.com/\">" +
-                "<meta property=\"og:description\" content=\"some description\">" +
-                "<meta property=\"og:site_name\" content=\"my site\">";
+                $"<meta property=\"og:image\" content=\"{image}\">" +
+                $"<meta property=\"og:image:width\" content=\"{width1}\">" +
+                $"<meta property=\"og:image\" content=\"{image2}\">" +
+                $"<meta property=\"og:image:width\" content=\"{width2}\">" +
+                $"<meta property=\"og:url\" content=\"{url}\">" +
+                $"<meta property=\"og:description\" content=\"{description}\">" +
+                $"<meta property=\"og:site_name\" content=\"{siteName}\">";
             Assert.Equal(expected, graph.ToString());
         }
 
