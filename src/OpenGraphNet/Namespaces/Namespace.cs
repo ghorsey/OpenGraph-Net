@@ -1,4 +1,4 @@
-﻿namespace OpenGraphNet
+﻿namespace OpenGraphNet.Namespaces
 {
     using System;
 

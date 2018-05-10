@@ -5,7 +5,7 @@ namespace OpenGraphNet.Namespaces
     /// <summary>
     /// The list of known supported Open Graph namespaces
     /// </summary>
-    /// <seealso cref="OpenGraphNet.Namespace" />
+    /// <seealso cref="Namespace" />
     public sealed class RegistryNamespace : Namespace
     {
         /// <summary>

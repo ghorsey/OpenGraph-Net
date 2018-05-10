@@ -1,5 +1,6 @@
-namespace OpenGraphNet
+namespace OpenGraphNet.Metadata
 {
+    using OpenGraphNet.Namespaces;
     using HtmlAgilityPack;
 
     /// <summary>

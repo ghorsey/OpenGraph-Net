@@ -10,6 +10,8 @@
     using System.Threading.Tasks;
 
     using HtmlAgilityPack;
+
+    using OpenGraphNet.Metadata;
     using OpenGraphNet.Namespaces;
 
     /// <summary>

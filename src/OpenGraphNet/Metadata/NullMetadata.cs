@@ -1,4 +1,4 @@
-﻿namespace OpenGraphNet
+﻿namespace OpenGraphNet.Metadata
 {
     /// <summary>
     /// Represents a null <see cref="Metadata"/>

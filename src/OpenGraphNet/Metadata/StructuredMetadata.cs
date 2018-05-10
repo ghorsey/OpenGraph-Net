@@ -1,10 +1,12 @@
-﻿namespace OpenGraphNet
+﻿namespace OpenGraphNet.Metadata
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
 
     using HtmlAgilityPack;
+
+    using OpenGraphNet.Namespaces;
 
     /// <summary>
     /// A root structured element

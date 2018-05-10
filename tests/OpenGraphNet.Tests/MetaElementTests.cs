@@ -1,5 +1,6 @@
 ﻿namespace OpenGraphNet.Tests
 {
+    using OpenGraphNet.Metadata;
     using OpenGraphNet.Namespaces;
 
     using Xunit;
