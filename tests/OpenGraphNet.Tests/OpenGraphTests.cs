@@ -44,6 +44,9 @@ namespace OpenGraphNet.Tests
     <link rel=""preconnect"" href=""https://api.spotify.com"">
     <link rel=""preconnect"" href=""https://spclient.wg.spotify.com"">
     <link rel=""preconnect"" href=""https://apresolve.spotify.com"">
+    <meta property=""og:locale"" content=""es"">
+    <meta property=""og:locale:alternate"" content=""es_US"">
+    <meta property=""og:locale:alternate"" content=""es_ES"">
 </head>
 <body class=""env-prod "" data-locale=""en"" data-market=""US""></body></html>";
 
@@ -71,6 +74,8 @@ namespace OpenGraphNet.Tests
     <link rel=""preconnect"" href=""https://api.spotify.com"">
     <link rel=""preconnect"" href=""https://spclient.wg.spotify.com"">
     <link rel=""preconnect"" href=""https://apresolve.spotify.com"">
+    <meta property=""og:locale:alternate"" content=""en_US"">
+    <meta property=""og:locale:alternate"" content=""en_GB"">
     </head>
 <body class=""env-prod "" data-locale=""en"" data-market=""US""></body>
 </html>";
@@ -156,8 +161,11 @@ namespace OpenGraphNet.Tests
             Assert.Equal("https://open.spotify.com/track/3eitV6XbyRW0FxKEUh60Pi", graph.Data["music:song"][1].Value);
             Assert.Equal("1", graph.Data["music:song"][1].Properties["disc"].First().Value);
             Assert.Equal("2", graph.Data["music:song"][1].Properties["track"].First().Value);
+            Assert.Equal("es", graph.Data["og:locale"].First().Value);
+            Assert.Equal("es_US", graph.Data["og:locale"].First().Properties["alternate"][0].Value);
+            Assert.Equal("es_ES", graph.Data["og:locale"].First().Properties["alternate"][1].Value);
 
-            Assert.Equal(@"<meta property=""og:title"" content=""Salutations""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/album/5YQGQfkjghbxW00eKy9YpJ""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.album""><meta property=""music:musician"" content=""https://open.spotify.com/artist/2Z7gV3uEh1ckIaBzTUCE6R""><meta property=""music:release_date"" content=""2017-03-17""><meta property=""music:song"" content=""https://open.spotify.com/track/1JJUbiYekbYkdDhK1kp3C9""><meta property=""music:song:disc"" content=""1""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/3eitV6XbyRW0FxKEUh60Pi""><meta property=""music:song:disc"" content=""1""><meta property=""music:song:track"" content=""2"">", graph.ToString());
+            Assert.Equal(@"<meta property=""og:title"" content=""Salutations""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/album/5YQGQfkjghbxW00eKy9YpJ""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.album""><meta property=""music:musician"" content=""https://open.spotify.com/artist/2Z7gV3uEh1ckIaBzTUCE6R""><meta property=""music:release_date"" content=""2017-03-17""><meta property=""music:song"" content=""https://open.spotify.com/track/1JJUbiYekbYkdDhK1kp3C9""><meta property=""music:song:disc"" content=""1""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/3eitV6XbyRW0FxKEUh60Pi""><meta property=""music:song:disc"" content=""1""><meta property=""music:song:track"" content=""2""><meta property=""og:locale"" content=""es""><meta property=""og:locale:alternate"" content=""es_US""><meta property=""og:locale:alternate"" content=""es_ES"">", graph.ToString());
             Assert.Equal("og: http://ogp.me/ns# music: http://ogp.me/ns/music#", graph.HeadPrefixAttributeValue);
             Assert.Equal("xmlns:og=\"http://ogp.me/ns#\" xmlns:music=\"http://ogp.me/ns/music#\"", graph.HtmlXmlnsValues);
         }
@@ -184,8 +192,10 @@ namespace OpenGraphNet.Tests
             Assert.Equal("2", graph.Data["music:song"][1].Properties["track"].First().Value);
             Assert.Equal("AD", graph.Data["og:restrictions:country:allowed"][0].Value);
             Assert.Equal("AR", graph.Data["og:restrictions:country:allowed"][1].Value);
+            Assert.Equal("en_US", graph.Data["og:locale:alternate"][0].Value);
+            Assert.Equal("en_GB", graph.Data["og:locale:alternate"][1].Value);
 
-            Assert.Equal(@"<meta property=""og:title"" content=""Programming Jams, a playlist by Jefe on Spotify""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.playlist""><meta property=""music:creator"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe""><meta property=""music:song_count"" content=""1020""><meta property=""music:song"" content=""https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/4yVfG04odefa7JanoF5r86""><meta property=""music:song:track"" content=""2""><meta property=""og:restrictions:country:allowed"" content=""AD""><meta property=""og:restrictions:country:allowed"" content=""AR"">", graph.ToString());
+            Assert.Equal(@"<meta property=""og:title"" content=""Programming Jams, a playlist by Jefe on Spotify""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.playlist""><meta property=""music:creator"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe""><meta property=""music:song_count"" content=""1020""><meta property=""music:song"" content=""https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/4yVfG04odefa7JanoF5r86""><meta property=""music:song:track"" content=""2""><meta property=""og:restrictions:country:allowed"" content=""AD""><meta property=""og:restrictions:country:allowed"" content=""AR""><meta property=""og:locale:alternate"" content=""en_US""><meta property=""og:locale:alternate"" content=""en_GB"">", graph.ToString());
             Assert.Equal("og: http://ogp.me/ns# music: http://ogp.me/ns/music#", graph.HeadPrefixAttributeValue);
             Assert.Equal("xmlns:og=\"http://ogp.me/ns#\" xmlns:music=\"http://ogp.me/ns/music#\"", graph.HtmlXmlnsValues);
         }
