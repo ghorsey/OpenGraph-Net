@@ -6,6 +6,7 @@ namespace OpenGraphNet.Tests
     using System.Threading.Tasks;
 
     using OpenGraphNet;
+    using OpenGraphNet.Metadata;
     using OpenGraphNet.Namespaces;
 
     using Xunit;
@@ -153,15 +154,15 @@ namespace OpenGraphNet.Tests
             Assert.Null(graph.Image);
             Assert.Equal("music.album", graph.Type);
             Assert.Equal("https://open.spotify.com/artist/2Z7gV3uEh1ckIaBzTUCE6R", graph.Metadata["music:musician"].First().Value);
-            Assert.Equal("2017-03-17", graph.Metadata["music:release_date"].First().Value);
+            Assert.Equal("2017-03-17", graph.Metadata["music:release_date"].Value());
             Assert.Equal(2, graph.Metadata["music:song"].Count);
             Assert.Equal("https://open.spotify.com/track/1JJUbiYekbYkdDhK1kp3C9", graph.Metadata["music:song"][0].Value);
-            Assert.Equal("1", graph.Metadata["music:song"][0].Properties["disc"].First().Value);
-            Assert.Equal("1", graph.Metadata["music:song"][0].Properties["track"].First().Value);
+            Assert.Equal("1", graph.Metadata["music:song"][0].Properties["disc"].Value());
+            Assert.Equal("1", graph.Metadata["music:song"][0].Properties["track"].Value());
             Assert.Equal("https://open.spotify.com/track/3eitV6XbyRW0FxKEUh60Pi", graph.Metadata["music:song"][1].Value);
-            Assert.Equal("1", graph.Metadata["music:song"][1].Properties["disc"].First().Value);
-            Assert.Equal("2", graph.Metadata["music:song"][1].Properties["track"].First().Value);
-            Assert.Equal("es", graph.Metadata["og:locale"].First().Value);
+            Assert.Equal("1", graph.Metadata["music:song"][1].Properties["disc"].Value());
+            Assert.Equal("2", graph.Metadata["music:song"][1].Properties["track"].Value());
+            Assert.Equal("es", graph.Metadata["og:locale"].Value());
             Assert.Equal("es_US", graph.Metadata["og:locale"].First().Properties["alternate"][0].Value);
             Assert.Equal("es_ES", graph.Metadata["og:locale"].First().Properties["alternate"][1].Value);
 
@@ -223,14 +224,22 @@ namespace OpenGraphNet.Tests
 
             Assert.Equal("og", graph.Namespaces.First().Value.Prefix);
             Assert.Equal("http://ogp.me/ns#", graph.Namespaces.First().Value.SchemaUri.ToString());
-            
+
+
+            Assert.Equal(graph.Namespaces.First().Value, graph.Metadata["og:title"].Namespace());
+            Assert.Equal(graph.Metadata["og:image"][0].Name, graph.Metadata["og:image"].Name());
+            Assert.Equal(graph.Namespaces.First().Value, graph.Metadata["og:image"].First().Properties["width"].Namespace());
+            Assert.Equal(graph.Metadata["og:image"].First().Properties["width"].First().Name, graph.Metadata["og:image"].First().Properties["width"].Name());
             Assert.Equal(title, graph.Title);
             Assert.Equal(type, graph.Type);
             Assert.Equal(image, graph.Image.ToString());
+            Assert.Equal(width1, graph.Metadata["og:image"].First().Properties["width"].Value());
+            Assert.Equal(image2, graph.Metadata["og:image"][1].Value);
+            Assert.Equal(width2, graph.Metadata["og:image"][1].Properties["width"].Value());
             Assert.Equal(url, graph.Url.ToString());
-            Assert.Equal(description, graph.Metadata["og:description"].First().Value);
+            Assert.Equal(description, graph.Metadata["og:description"].Value());
             Assert.Equal(description, graph["description"].Value);
-            Assert.Equal(siteName, graph.Metadata["og:site_name"].First().Value);
+            Assert.Equal(siteName, graph.Metadata["og:site_name"].Value());
             Assert.Equal(siteName, graph["site_name"]);
             Assert.Equal(0, graph.Metadata["og:donotexist"].Count);
 
