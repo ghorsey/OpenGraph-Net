@@ -27,4 +27,4 @@ Use the following steps to install the library from Nuget:
 * [Issues](https://github.com/ghorsey/OpenGraph-Net/issues)
 
 ## It's FOSS
-So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net);
+So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net).
