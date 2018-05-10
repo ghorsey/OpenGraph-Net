@@ -1,0 +1,1256 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: OpenGraphNet
+  name: OpenGraphNet
+  href: api/OpenGraphNet.html
+  commentId: N:OpenGraphNet
+  fullName: OpenGraphNet
+  nameWithType: OpenGraphNet
+- uid: OpenGraphNet.HttpDownloader
+  name: HttpDownloader
+  href: api/OpenGraphNet.HttpDownloader.html
+  commentId: T:OpenGraphNet.HttpDownloader
+  fullName: OpenGraphNet.HttpDownloader
+  nameWithType: HttpDownloader
+- uid: OpenGraphNet.HttpDownloader.#ctor(System.String,System.String,System.String)
+  name: HttpDownloader(String, String, String)
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_System_String_System_String_System_String_
+  commentId: M:OpenGraphNet.HttpDownloader.#ctor(System.String,System.String,System.String)
+  fullName: OpenGraphNet.HttpDownloader.HttpDownloader(System.String, System.String, System.String)
+  nameWithType: HttpDownloader.HttpDownloader(String, String, String)
+- uid: OpenGraphNet.HttpDownloader.#ctor(Uri,System.String,System.String)
+  name: HttpDownloader(Uri, String, String)
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_Uri_System_String_System_String_
+  commentId: M:OpenGraphNet.HttpDownloader.#ctor(Uri,System.String,System.String)
+  fullName: OpenGraphNet.HttpDownloader.HttpDownloader(Uri, System.String, System.String)
+  nameWithType: HttpDownloader.HttpDownloader(Uri, String, String)
+- uid: OpenGraphNet.HttpDownloader.#ctor*
+  name: HttpDownloader
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_
+  commentId: Overload:OpenGraphNet.HttpDownloader.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.HttpDownloader.HttpDownloader
+  nameWithType: HttpDownloader.HttpDownloader
+- uid: OpenGraphNet.HttpDownloader.Encoding
+  name: Encoding
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Encoding
+  commentId: P:OpenGraphNet.HttpDownloader.Encoding
+  fullName: OpenGraphNet.HttpDownloader.Encoding
+  nameWithType: HttpDownloader.Encoding
+- uid: OpenGraphNet.HttpDownloader.Encoding*
+  name: Encoding
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Encoding_
+  commentId: Overload:OpenGraphNet.HttpDownloader.Encoding
+  isSpec: "True"
+  fullName: OpenGraphNet.HttpDownloader.Encoding
+  nameWithType: HttpDownloader.Encoding
+- uid: OpenGraphNet.HttpDownloader.GetPage
+  name: GetPage()
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPage
+  commentId: M:OpenGraphNet.HttpDownloader.GetPage
+  fullName: OpenGraphNet.HttpDownloader.GetPage()
+  nameWithType: HttpDownloader.GetPage()
+- uid: OpenGraphNet.HttpDownloader.GetPage*
+  name: GetPage
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPage_
+  commentId: Overload:OpenGraphNet.HttpDownloader.GetPage
+  isSpec: "True"
+  fullName: OpenGraphNet.HttpDownloader.GetPage
+  nameWithType: HttpDownloader.GetPage
+- uid: OpenGraphNet.HttpDownloader.GetPageAsync
+  name: GetPageAsync()
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPageAsync
+  commentId: M:OpenGraphNet.HttpDownloader.GetPageAsync
+  fullName: OpenGraphNet.HttpDownloader.GetPageAsync()
+  nameWithType: HttpDownloader.GetPageAsync()
+- uid: OpenGraphNet.HttpDownloader.GetPageAsync*
+  name: GetPageAsync
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPageAsync_
+  commentId: Overload:OpenGraphNet.HttpDownloader.GetPageAsync
+  isSpec: "True"
+  fullName: OpenGraphNet.HttpDownloader.GetPageAsync
+  nameWithType: HttpDownloader.GetPageAsync
+- uid: OpenGraphNet.HttpDownloader.Headers
+  name: Headers
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Headers
+  commentId: P:OpenGraphNet.HttpDownloader.Headers
+  fullName: OpenGraphNet.HttpDownloader.Headers
+  nameWithType: HttpDownloader.Headers
+- uid: OpenGraphNet.HttpDownloader.Headers*
+  name: Headers
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Headers_
+  commentId: Overload:OpenGraphNet.HttpDownloader.Headers
+  isSpec: "True"
+  fullName: OpenGraphNet.HttpDownloader.Headers
+  nameWithType: HttpDownloader.Headers
+- uid: OpenGraphNet.HttpDownloader.Url
+  name: Url
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Url
+  commentId: P:OpenGraphNet.HttpDownloader.Url
+  fullName: OpenGraphNet.HttpDownloader.Url
+  nameWithType: HttpDownloader.Url
+- uid: OpenGraphNet.HttpDownloader.Url*
+  name: Url
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Url_
+  commentId: Overload:OpenGraphNet.HttpDownloader.Url
+  isSpec: "True"
+  fullName: OpenGraphNet.HttpDownloader.Url
+  nameWithType: HttpDownloader.Url
+- uid: OpenGraphNet.InvalidSpecificationException
+  name: InvalidSpecificationException
+  href: api/OpenGraphNet.InvalidSpecificationException.html
+  commentId: T:OpenGraphNet.InvalidSpecificationException
+  fullName: OpenGraphNet.InvalidSpecificationException
+  nameWithType: InvalidSpecificationException
+- uid: OpenGraphNet.InvalidSpecificationException.#ctor(System.String)
+  name: InvalidSpecificationException(String)
+  href: api/OpenGraphNet.InvalidSpecificationException.html#OpenGraphNet_InvalidSpecificationException__ctor_System_String_
+  commentId: M:OpenGraphNet.InvalidSpecificationException.#ctor(System.String)
+  fullName: OpenGraphNet.InvalidSpecificationException.InvalidSpecificationException(System.String)
+  nameWithType: InvalidSpecificationException.InvalidSpecificationException(String)
+- uid: OpenGraphNet.InvalidSpecificationException.#ctor*
+  name: InvalidSpecificationException
+  href: api/OpenGraphNet.InvalidSpecificationException.html#OpenGraphNet_InvalidSpecificationException__ctor_
+  commentId: Overload:OpenGraphNet.InvalidSpecificationException.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.InvalidSpecificationException.InvalidSpecificationException
+  nameWithType: InvalidSpecificationException.InvalidSpecificationException
+- uid: OpenGraphNet.Metadata
+  name: OpenGraphNet.Metadata
+  href: api/OpenGraphNet.Metadata.html
+  commentId: N:OpenGraphNet.Metadata
+  fullName: OpenGraphNet.Metadata
+  nameWithType: OpenGraphNet.Metadata
+- uid: OpenGraphNet.Metadata.Metadata
+  name: Metadata
+  href: api/OpenGraphNet.Metadata.Metadata.html
+  commentId: T:OpenGraphNet.Metadata.Metadata
+  fullName: OpenGraphNet.Metadata.Metadata
+  nameWithType: Metadata
+- uid: OpenGraphNet.Metadata.Metadata.#ctor(OpenGraphNet.Namespaces.Namespace,System.String,System.String)
+  name: Metadata(Namespace, String, String)
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata__ctor_OpenGraphNet_Namespaces_Namespace_System_String_System_String_
+  commentId: M:OpenGraphNet.Metadata.Metadata.#ctor(OpenGraphNet.Namespaces.Namespace,System.String,System.String)
+  fullName: OpenGraphNet.Metadata.Metadata.Metadata(OpenGraphNet.Namespaces.Namespace, System.String, System.String)
+  nameWithType: Metadata.Metadata(Namespace, String, String)
+- uid: OpenGraphNet.Metadata.Metadata.#ctor*
+  name: Metadata
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata__ctor_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.Metadata.Metadata
+  nameWithType: Metadata.Metadata
+- uid: OpenGraphNet.Metadata.Metadata.CreateDocument
+  name: CreateDocument()
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_CreateDocument
+  commentId: M:OpenGraphNet.Metadata.Metadata.CreateDocument
+  fullName: OpenGraphNet.Metadata.Metadata.CreateDocument()
+  nameWithType: Metadata.CreateDocument()
+- uid: OpenGraphNet.Metadata.Metadata.CreateDocument*
+  name: CreateDocument
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_CreateDocument_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.CreateDocument
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.Metadata.CreateDocument
+  nameWithType: Metadata.CreateDocument
+- uid: OpenGraphNet.Metadata.Metadata.Name
+  name: Name
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_Name
+  commentId: P:OpenGraphNet.Metadata.Metadata.Name
+  fullName: OpenGraphNet.Metadata.Metadata.Name
+  nameWithType: Metadata.Name
+- uid: OpenGraphNet.Metadata.Metadata.Name*
+  name: Name
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_Name_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.Name
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.Metadata.Name
+  nameWithType: Metadata.Name
+- uid: OpenGraphNet.Metadata.Metadata.Namespace
+  name: Namespace
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_Namespace
+  commentId: P:OpenGraphNet.Metadata.Metadata.Namespace
+  fullName: OpenGraphNet.Metadata.Metadata.Namespace
+  nameWithType: Metadata.Namespace
+- uid: OpenGraphNet.Metadata.Metadata.Namespace*
+  name: Namespace
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_Namespace_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.Namespace
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.Metadata.Namespace
+  nameWithType: Metadata.Namespace
+- uid: OpenGraphNet.Metadata.Metadata.op_Implicit(OpenGraphNet.Metadata.Metadata)~System.String
+  name: Implicit(Metadata to String)
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_op_Implicit_OpenGraphNet_Metadata_Metadata__System_String
+  commentId: M:OpenGraphNet.Metadata.Metadata.op_Implicit(OpenGraphNet.Metadata.Metadata)~System.String
+  name.vb: Widening(Metadata to String)
+  fullName: OpenGraphNet.Metadata.Metadata.Implicit(OpenGraphNet.Metadata.Metadata to System.String)
+  fullName.vb: OpenGraphNet.Metadata.Metadata.Widening(OpenGraphNet.Metadata.Metadata to System.String)
+  nameWithType: Metadata.Implicit(Metadata to String)
+  nameWithType.vb: Metadata.Widening(Metadata to String)
+- uid: OpenGraphNet.Metadata.Metadata.op_Implicit*
+  name: Implicit
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_op_Implicit_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: OpenGraphNet.Metadata.Metadata.Implicit
+  fullName.vb: OpenGraphNet.Metadata.Metadata.Widening
+  nameWithType: Metadata.Implicit
+  nameWithType.vb: Metadata.Widening
+- uid: OpenGraphNet.Metadata.Metadata.ToString
+  name: ToString()
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_ToString
+  commentId: M:OpenGraphNet.Metadata.Metadata.ToString
+  fullName: OpenGraphNet.Metadata.Metadata.ToString()
+  nameWithType: Metadata.ToString()
+- uid: OpenGraphNet.Metadata.Metadata.ToString*
+  name: ToString
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_ToString_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.ToString
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.Metadata.ToString
+  nameWithType: Metadata.ToString
+- uid: OpenGraphNet.Metadata.Metadata.Value
+  name: Value
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_Value
+  commentId: P:OpenGraphNet.Metadata.Metadata.Value
+  fullName: OpenGraphNet.Metadata.Metadata.Value
+  nameWithType: Metadata.Value
+- uid: OpenGraphNet.Metadata.Metadata.Value*
+  name: Value
+  href: api/OpenGraphNet.Metadata.Metadata.html#OpenGraphNet_Metadata_Metadata_Value_
+  commentId: Overload:OpenGraphNet.Metadata.Metadata.Value
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.Metadata.Value
+  nameWithType: Metadata.Value
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions
+  name: MetadataHelperExtensions
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html
+  commentId: T:OpenGraphNet.Metadata.MetadataHelperExtensions
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions
+  nameWithType: MetadataHelperExtensions
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList{OpenGraphNet.Metadata.PropertyMetadata})
+  name: Name(IList<PropertyMetadata>)
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Name_IList_OpenGraphNet_Metadata_PropertyMetadata__
+  commentId: M:OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList{OpenGraphNet.Metadata.PropertyMetadata})
+  name.vb: Name(IList(Of PropertyMetadata))
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList<OpenGraphNet.Metadata.PropertyMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList(Of OpenGraphNet.Metadata.PropertyMetadata))
+  nameWithType: MetadataHelperExtensions.Name(IList<PropertyMetadata>)
+  nameWithType.vb: MetadataHelperExtensions.Name(IList(Of PropertyMetadata))
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name: Name(IList<StructuredMetadata>)
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Name_IList_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Name(IList(Of StructuredMetadata))
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList<OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.MetadataHelperExtensions.Name(IList(Of OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: MetadataHelperExtensions.Name(IList<StructuredMetadata>)
+  nameWithType.vb: MetadataHelperExtensions.Name(IList(Of StructuredMetadata))
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Name*
+  name: Name
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Name_
+  commentId: Overload:OpenGraphNet.Metadata.MetadataHelperExtensions.Name
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Name
+  nameWithType: MetadataHelperExtensions.Name
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList{OpenGraphNet.Metadata.PropertyMetadata})
+  name: Namespace(IList<PropertyMetadata>)
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Namespace_IList_OpenGraphNet_Metadata_PropertyMetadata__
+  commentId: M:OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList{OpenGraphNet.Metadata.PropertyMetadata})
+  name.vb: Namespace(IList(Of PropertyMetadata))
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList<OpenGraphNet.Metadata.PropertyMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList(Of OpenGraphNet.Metadata.PropertyMetadata))
+  nameWithType: MetadataHelperExtensions.Namespace(IList<PropertyMetadata>)
+  nameWithType.vb: MetadataHelperExtensions.Namespace(IList(Of PropertyMetadata))
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name: Namespace(IList<StructuredMetadata>)
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Namespace_IList_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Namespace(IList(Of StructuredMetadata))
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList<OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(IList(Of OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: MetadataHelperExtensions.Namespace(IList<StructuredMetadata>)
+  nameWithType.vb: MetadataHelperExtensions.Namespace(IList(Of StructuredMetadata))
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace*
+  name: Namespace
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Namespace_
+  commentId: Overload:OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace
+  nameWithType: MetadataHelperExtensions.Namespace
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList{OpenGraphNet.Metadata.PropertyMetadata})
+  name: Value(IList<PropertyMetadata>)
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Value_IList_OpenGraphNet_Metadata_PropertyMetadata__
+  commentId: M:OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList{OpenGraphNet.Metadata.PropertyMetadata})
+  name.vb: Value(IList(Of PropertyMetadata))
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList<OpenGraphNet.Metadata.PropertyMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList(Of OpenGraphNet.Metadata.PropertyMetadata))
+  nameWithType: MetadataHelperExtensions.Value(IList<PropertyMetadata>)
+  nameWithType.vb: MetadataHelperExtensions.Value(IList(Of PropertyMetadata))
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name: Value(IList<StructuredMetadata>)
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Value_IList_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Value(IList(Of StructuredMetadata))
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList<OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(IList(Of OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: MetadataHelperExtensions.Value(IList<StructuredMetadata>)
+  nameWithType.vb: MetadataHelperExtensions.Value(IList(Of StructuredMetadata))
+- uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Value*
+  name: Value
+  href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Value_
+  commentId: Overload:OpenGraphNet.Metadata.MetadataHelperExtensions.Value
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Value
+  nameWithType: MetadataHelperExtensions.Value
+- uid: OpenGraphNet.Metadata.NullMetadata
+  name: NullMetadata
+  href: api/OpenGraphNet.Metadata.NullMetadata.html
+  commentId: T:OpenGraphNet.Metadata.NullMetadata
+  fullName: OpenGraphNet.Metadata.NullMetadata
+  nameWithType: NullMetadata
+- uid: OpenGraphNet.Metadata.NullMetadata.#ctor
+  name: NullMetadata()
+  href: api/OpenGraphNet.Metadata.NullMetadata.html#OpenGraphNet_Metadata_NullMetadata__ctor
+  commentId: M:OpenGraphNet.Metadata.NullMetadata.#ctor
+  fullName: OpenGraphNet.Metadata.NullMetadata.NullMetadata()
+  nameWithType: NullMetadata.NullMetadata()
+- uid: OpenGraphNet.Metadata.NullMetadata.#ctor*
+  name: NullMetadata
+  href: api/OpenGraphNet.Metadata.NullMetadata.html#OpenGraphNet_Metadata_NullMetadata__ctor_
+  commentId: Overload:OpenGraphNet.Metadata.NullMetadata.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.NullMetadata.NullMetadata
+  nameWithType: NullMetadata.NullMetadata
+- uid: OpenGraphNet.Metadata.PropertyMetadata
+  name: PropertyMetadata
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html
+  commentId: T:OpenGraphNet.Metadata.PropertyMetadata
+  fullName: OpenGraphNet.Metadata.PropertyMetadata
+  nameWithType: PropertyMetadata
+- uid: OpenGraphNet.Metadata.PropertyMetadata.#ctor(OpenGraphNet.Metadata.StructuredMetadata,OpenGraphNet.Namespaces.Namespace,System.String,System.String)
+  name: PropertyMetadata(StructuredMetadata, Namespace, String, String)
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata__ctor_OpenGraphNet_Metadata_StructuredMetadata_OpenGraphNet_Namespaces_Namespace_System_String_System_String_
+  commentId: M:OpenGraphNet.Metadata.PropertyMetadata.#ctor(OpenGraphNet.Metadata.StructuredMetadata,OpenGraphNet.Namespaces.Namespace,System.String,System.String)
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.PropertyMetadata(OpenGraphNet.Metadata.StructuredMetadata, OpenGraphNet.Namespaces.Namespace, System.String, System.String)
+  nameWithType: PropertyMetadata.PropertyMetadata(StructuredMetadata, Namespace, String, String)
+- uid: OpenGraphNet.Metadata.PropertyMetadata.#ctor(System.String,System.String)
+  name: PropertyMetadata(String, String)
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata__ctor_System_String_System_String_
+  commentId: M:OpenGraphNet.Metadata.PropertyMetadata.#ctor(System.String,System.String)
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.PropertyMetadata(System.String, System.String)
+  nameWithType: PropertyMetadata.PropertyMetadata(String, String)
+- uid: OpenGraphNet.Metadata.PropertyMetadata.#ctor*
+  name: PropertyMetadata
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata__ctor_
+  commentId: Overload:OpenGraphNet.Metadata.PropertyMetadata.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.PropertyMetadata
+  nameWithType: PropertyMetadata.PropertyMetadata
+- uid: OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
+  name: CreateDocument()
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata_CreateDocument
+  commentId: M:OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.CreateDocument()
+  nameWithType: PropertyMetadata.CreateDocument()
+- uid: OpenGraphNet.Metadata.PropertyMetadata.CreateDocument*
+  name: CreateDocument
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata_CreateDocument_
+  commentId: Overload:OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
+  nameWithType: PropertyMetadata.CreateDocument
+- uid: OpenGraphNet.Metadata.PropertyMetadata.ParentElement
+  name: ParentElement
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata_ParentElement
+  commentId: P:OpenGraphNet.Metadata.PropertyMetadata.ParentElement
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.ParentElement
+  nameWithType: PropertyMetadata.ParentElement
+- uid: OpenGraphNet.Metadata.PropertyMetadata.ParentElement*
+  name: ParentElement
+  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata_ParentElement_
+  commentId: Overload:OpenGraphNet.Metadata.PropertyMetadata.ParentElement
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.PropertyMetadata.ParentElement
+  nameWithType: PropertyMetadata.ParentElement
+- uid: OpenGraphNet.Metadata.StructuredMetadata
+  name: StructuredMetadata
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html
+  commentId: T:OpenGraphNet.Metadata.StructuredMetadata
+  fullName: OpenGraphNet.Metadata.StructuredMetadata
+  nameWithType: StructuredMetadata
+- uid: OpenGraphNet.Metadata.StructuredMetadata.#ctor(OpenGraphNet.Namespaces.Namespace,System.String,System.String)
+  name: StructuredMetadata(Namespace, String, String)
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata__ctor_OpenGraphNet_Namespaces_Namespace_System_String_System_String_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadata.#ctor(OpenGraphNet.Namespaces.Namespace,System.String,System.String)
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.StructuredMetadata(OpenGraphNet.Namespaces.Namespace, System.String, System.String)
+  nameWithType: StructuredMetadata.StructuredMetadata(Namespace, String, String)
+- uid: OpenGraphNet.Metadata.StructuredMetadata.#ctor*
+  name: StructuredMetadata
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata__ctor_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.StructuredMetadata
+  nameWithType: StructuredMetadata.StructuredMetadata
+- uid: OpenGraphNet.Metadata.StructuredMetadata.AddProperty(OpenGraphNet.Metadata.PropertyMetadata)
+  name: AddProperty(PropertyMetadata)
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_AddProperty_OpenGraphNet_Metadata_PropertyMetadata_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadata.AddProperty(OpenGraphNet.Metadata.PropertyMetadata)
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.AddProperty(OpenGraphNet.Metadata.PropertyMetadata)
+  nameWithType: StructuredMetadata.AddProperty(PropertyMetadata)
+- uid: OpenGraphNet.Metadata.StructuredMetadata.AddProperty(System.String,System.String)
+  name: AddProperty(String, String)
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_AddProperty_System_String_System_String_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadata.AddProperty(System.String,System.String)
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.AddProperty(System.String, System.String)
+  nameWithType: StructuredMetadata.AddProperty(String, String)
+- uid: OpenGraphNet.Metadata.StructuredMetadata.AddProperty*
+  name: AddProperty
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_AddProperty_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.AddProperty
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.AddProperty
+  nameWithType: StructuredMetadata.AddProperty
+- uid: OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
+  name: CreateDocument()
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_CreateDocument
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.CreateDocument()
+  nameWithType: StructuredMetadata.CreateDocument()
+- uid: OpenGraphNet.Metadata.StructuredMetadata.CreateDocument*
+  name: CreateDocument
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_CreateDocument_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
+  nameWithType: StructuredMetadata.CreateDocument
+- uid: OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty(System.String)
+  name: IsMyProperty(String)
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_IsMyProperty_System_String_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty(System.String)
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty(System.String)
+  nameWithType: StructuredMetadata.IsMyProperty(String)
+- uid: OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty*
+  name: IsMyProperty
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_IsMyProperty_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty
+  nameWithType: StructuredMetadata.IsMyProperty
+- uid: OpenGraphNet.Metadata.StructuredMetadata.Properties
+  name: Properties
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_Properties
+  commentId: P:OpenGraphNet.Metadata.StructuredMetadata.Properties
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.Properties
+  nameWithType: StructuredMetadata.Properties
+- uid: OpenGraphNet.Metadata.StructuredMetadata.Properties*
+  name: Properties
+  href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_Properties_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.Properties
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadata.Properties
+  nameWithType: StructuredMetadata.Properties
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection
+  name: StructuredMetadataCollection
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html
+  commentId: T:OpenGraphNet.Metadata.StructuredMetadataCollection
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection
+  nameWithType: StructuredMetadataCollection
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Add(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}})
+  name: Add(KeyValuePair<String, IList<StructuredMetadata>>)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Add_KeyValuePair_System_String_IList_OpenGraphNet_Metadata_StructuredMetadata___
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.Add(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}})
+  name.vb: Add(KeyValuePair(Of String, IList(Of StructuredMetadata)))
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Add(KeyValuePair<System.String, IList<OpenGraphNet.Metadata.StructuredMetadata>>)
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.Add(KeyValuePair(Of System.String, IList(Of OpenGraphNet.Metadata.StructuredMetadata)))
+  nameWithType: StructuredMetadataCollection.Add(KeyValuePair<String, IList<StructuredMetadata>>)
+  nameWithType.vb: StructuredMetadataCollection.Add(KeyValuePair(Of String, IList(Of StructuredMetadata)))
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Add(System.String,IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name: Add(String, IList<StructuredMetadata>)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Add_System_String_IList_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.Add(System.String,IList{OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Add(String, IList(Of StructuredMetadata))
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Add(System.String, IList<OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.Add(System.String, IList(Of OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: StructuredMetadataCollection.Add(String, IList<StructuredMetadata>)
+  nameWithType.vb: StructuredMetadataCollection.Add(String, IList(Of StructuredMetadata))
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Add*
+  name: Add
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Add_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Add
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Add
+  nameWithType: StructuredMetadataCollection.Add
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Clear
+  name: Clear()
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Clear
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.Clear
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Clear()
+  nameWithType: StructuredMetadataCollection.Clear()
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Clear*
+  name: Clear
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Clear_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Clear
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Clear
+  nameWithType: StructuredMetadataCollection.Clear
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Contains(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}})
+  name: Contains(KeyValuePair<String, IList<StructuredMetadata>>)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Contains_KeyValuePair_System_String_IList_OpenGraphNet_Metadata_StructuredMetadata___
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.Contains(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}})
+  name.vb: Contains(KeyValuePair(Of String, IList(Of StructuredMetadata)))
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Contains(KeyValuePair<System.String, IList<OpenGraphNet.Metadata.StructuredMetadata>>)
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.Contains(KeyValuePair(Of System.String, IList(Of OpenGraphNet.Metadata.StructuredMetadata)))
+  nameWithType: StructuredMetadataCollection.Contains(KeyValuePair<String, IList<StructuredMetadata>>)
+  nameWithType.vb: StructuredMetadataCollection.Contains(KeyValuePair(Of String, IList(Of StructuredMetadata)))
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Contains*
+  name: Contains
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Contains_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Contains
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Contains
+  nameWithType: StructuredMetadataCollection.Contains
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.ContainsKey(System.String)
+  name: ContainsKey(String)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_ContainsKey_System_String_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.ContainsKey(System.String)
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.ContainsKey(System.String)
+  nameWithType: StructuredMetadataCollection.ContainsKey(String)
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.ContainsKey*
+  name: ContainsKey
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_ContainsKey_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.ContainsKey
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.ContainsKey
+  nameWithType: StructuredMetadataCollection.ContainsKey
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}}[],System.Int32)
+  name: CopyTo(KeyValuePair<String, IList<StructuredMetadata>>[], Int32)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_CopyTo_KeyValuePair_System_String_IList_OpenGraphNet_Metadata_StructuredMetadata_____System_Int32_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}}[],System.Int32)
+  name.vb: CopyTo(KeyValuePair(Of String, IList(Of StructuredMetadata))(), Int32)
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo(KeyValuePair<System.String, IList<OpenGraphNet.Metadata.StructuredMetadata>>[], System.Int32)
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo(KeyValuePair(Of System.String, IList(Of OpenGraphNet.Metadata.StructuredMetadata))(), System.Int32)
+  nameWithType: StructuredMetadataCollection.CopyTo(KeyValuePair<String, IList<StructuredMetadata>>[], Int32)
+  nameWithType.vb: StructuredMetadataCollection.CopyTo(KeyValuePair(Of String, IList(Of StructuredMetadata))(), Int32)
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo*
+  name: CopyTo
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_CopyTo_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.CopyTo
+  nameWithType: StructuredMetadataCollection.CopyTo
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Count
+  name: Count
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Count
+  commentId: P:OpenGraphNet.Metadata.StructuredMetadataCollection.Count
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Count
+  nameWithType: StructuredMetadataCollection.Count
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Count*
+  name: Count
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Count_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Count
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Count
+  nameWithType: StructuredMetadataCollection.Count
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.GetEnumerator
+  name: GetEnumerator()
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_GetEnumerator
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.GetEnumerator
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.GetEnumerator()
+  nameWithType: StructuredMetadataCollection.GetEnumerator()
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.GetEnumerator*
+  name: GetEnumerator
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_GetEnumerator_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.GetEnumerator
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.GetEnumerator
+  nameWithType: StructuredMetadataCollection.GetEnumerator
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.IsReadOnly
+  name: IsReadOnly
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_IsReadOnly
+  commentId: P:OpenGraphNet.Metadata.StructuredMetadataCollection.IsReadOnly
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.IsReadOnly
+  nameWithType: StructuredMetadataCollection.IsReadOnly
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.IsReadOnly*
+  name: IsReadOnly
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_IsReadOnly_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.IsReadOnly
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.IsReadOnly
+  nameWithType: StructuredMetadataCollection.IsReadOnly
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Item(System.String)
+  name: Item[String]
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Item_System_String_
+  commentId: P:OpenGraphNet.Metadata.StructuredMetadataCollection.Item(System.String)
+  name.vb: Item(String)
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Item[System.String]
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.Item(System.String)
+  nameWithType: StructuredMetadataCollection.Item[String]
+  nameWithType.vb: StructuredMetadataCollection.Item(String)
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Item*
+  name: Item
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Item_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Item
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Item
+  nameWithType: StructuredMetadataCollection.Item
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Keys
+  name: Keys
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Keys
+  commentId: P:OpenGraphNet.Metadata.StructuredMetadataCollection.Keys
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Keys
+  nameWithType: StructuredMetadataCollection.Keys
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Keys*
+  name: Keys
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Keys_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Keys
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Keys
+  nameWithType: StructuredMetadataCollection.Keys
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}})
+  name: Remove(KeyValuePair<String, IList<StructuredMetadata>>)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Remove_KeyValuePair_System_String_IList_OpenGraphNet_Metadata_StructuredMetadata___
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(KeyValuePair{System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}})
+  name.vb: Remove(KeyValuePair(Of String, IList(Of StructuredMetadata)))
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(KeyValuePair<System.String, IList<OpenGraphNet.Metadata.StructuredMetadata>>)
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(KeyValuePair(Of System.String, IList(Of OpenGraphNet.Metadata.StructuredMetadata)))
+  nameWithType: StructuredMetadataCollection.Remove(KeyValuePair<String, IList<StructuredMetadata>>)
+  nameWithType.vb: StructuredMetadataCollection.Remove(KeyValuePair(Of String, IList(Of StructuredMetadata)))
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(System.String)
+  name: Remove(String)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Remove_System_String_
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(System.String)
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove(System.String)
+  nameWithType: StructuredMetadataCollection.Remove(String)
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove*
+  name: Remove
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Remove_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Remove
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Remove
+  nameWithType: StructuredMetadataCollection.Remove
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue(System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}@)
+  name: TryGetValue(String, out IList<StructuredMetadata>)
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_TryGetValue_System_String_IList_OpenGraphNet_Metadata_StructuredMetadata___
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue(System.String,IList{OpenGraphNet.Metadata.StructuredMetadata}@)
+  name.vb: TryGetValue(String, ByRef IList(Of StructuredMetadata))
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue(System.String, out IList<OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue(System.String, ByRef IList(Of OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: StructuredMetadataCollection.TryGetValue(String, out IList<StructuredMetadata>)
+  nameWithType.vb: StructuredMetadataCollection.TryGetValue(String, ByRef IList(Of StructuredMetadata))
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue*
+  name: TryGetValue
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_TryGetValue_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.TryGetValue
+  nameWithType: StructuredMetadataCollection.TryGetValue
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Values
+  name: Values
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Values
+  commentId: P:OpenGraphNet.Metadata.StructuredMetadataCollection.Values
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Values
+  nameWithType: StructuredMetadataCollection.Values
+- uid: OpenGraphNet.Metadata.StructuredMetadataCollection.Values*
+  name: Values
+  href: api/OpenGraphNet.Metadata.StructuredMetadataCollection.html#OpenGraphNet_Metadata_StructuredMetadataCollection_Values_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataCollection.Values
+  isSpec: "True"
+  fullName: OpenGraphNet.Metadata.StructuredMetadataCollection.Values
+  nameWithType: StructuredMetadataCollection.Values
+- uid: OpenGraphNet.Namespaces
+  name: OpenGraphNet.Namespaces
+  href: api/OpenGraphNet.Namespaces.html
+  commentId: N:OpenGraphNet.Namespaces
+  fullName: OpenGraphNet.Namespaces
+  nameWithType: OpenGraphNet.Namespaces
+- uid: OpenGraphNet.Namespaces.Namespace
+  name: Namespace
+  href: api/OpenGraphNet.Namespaces.Namespace.html
+  commentId: T:OpenGraphNet.Namespaces.Namespace
+  fullName: OpenGraphNet.Namespaces.Namespace
+  nameWithType: Namespace
+- uid: OpenGraphNet.Namespaces.Namespace.#ctor(System.String,System.String)
+  name: Namespace(String, String)
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace__ctor_System_String_System_String_
+  commentId: M:OpenGraphNet.Namespaces.Namespace.#ctor(System.String,System.String)
+  fullName: OpenGraphNet.Namespaces.Namespace.Namespace(System.String, System.String)
+  nameWithType: Namespace.Namespace(String, String)
+- uid: OpenGraphNet.Namespaces.Namespace.#ctor(System.String,Uri)
+  name: Namespace(String, Uri)
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace__ctor_System_String_Uri_
+  commentId: M:OpenGraphNet.Namespaces.Namespace.#ctor(System.String,Uri)
+  fullName: OpenGraphNet.Namespaces.Namespace.Namespace(System.String, Uri)
+  nameWithType: Namespace.Namespace(String, Uri)
+- uid: OpenGraphNet.Namespaces.Namespace.#ctor*
+  name: Namespace
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace__ctor_
+  commentId: Overload:OpenGraphNet.Namespaces.Namespace.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.Namespace.Namespace
+  nameWithType: Namespace.Namespace
+- uid: OpenGraphNet.Namespaces.Namespace.Prefix
+  name: Prefix
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace_Prefix
+  commentId: P:OpenGraphNet.Namespaces.Namespace.Prefix
+  fullName: OpenGraphNet.Namespaces.Namespace.Prefix
+  nameWithType: Namespace.Prefix
+- uid: OpenGraphNet.Namespaces.Namespace.Prefix*
+  name: Prefix
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace_Prefix_
+  commentId: Overload:OpenGraphNet.Namespaces.Namespace.Prefix
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.Namespace.Prefix
+  nameWithType: Namespace.Prefix
+- uid: OpenGraphNet.Namespaces.Namespace.SchemaUri
+  name: SchemaUri
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace_SchemaUri
+  commentId: P:OpenGraphNet.Namespaces.Namespace.SchemaUri
+  fullName: OpenGraphNet.Namespaces.Namespace.SchemaUri
+  nameWithType: Namespace.SchemaUri
+- uid: OpenGraphNet.Namespaces.Namespace.SchemaUri*
+  name: SchemaUri
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace_SchemaUri_
+  commentId: Overload:OpenGraphNet.Namespaces.Namespace.SchemaUri
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.Namespace.SchemaUri
+  nameWithType: Namespace.SchemaUri
+- uid: OpenGraphNet.Namespaces.Namespace.ToString
+  name: ToString()
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace_ToString
+  commentId: M:OpenGraphNet.Namespaces.Namespace.ToString
+  fullName: OpenGraphNet.Namespaces.Namespace.ToString()
+  nameWithType: Namespace.ToString()
+- uid: OpenGraphNet.Namespaces.Namespace.ToString*
+  name: ToString
+  href: api/OpenGraphNet.Namespaces.Namespace.html#OpenGraphNet_Namespaces_Namespace_ToString_
+  commentId: Overload:OpenGraphNet.Namespaces.Namespace.ToString
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.Namespace.ToString
+  nameWithType: Namespace.ToString
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry
+  name: NamespaceRegistry
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html
+  commentId: T:OpenGraphNet.Namespaces.NamespaceRegistry
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry
+  nameWithType: NamespaceRegistry
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace(System.String,System.String,System.String[])
+  name: AddNamespace(String, String, String[])
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_AddNamespace_System_String_System_String_System_String___
+  commentId: M:OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace(System.String,System.String,System.String[])
+  name.vb: AddNamespace(String, String, String())
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace(System.String, System.String, System.String[])
+  fullName.vb: OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace(System.String, System.String, System.String())
+  nameWithType: NamespaceRegistry.AddNamespace(String, String, String[])
+  nameWithType.vb: NamespaceRegistry.AddNamespace(String, String, String())
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace*
+  name: AddNamespace
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_AddNamespace_
+  commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace
+  nameWithType: NamespaceRegistry.AddNamespace
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.Instance
+  name: Instance
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_Instance
+  commentId: P:OpenGraphNet.Namespaces.NamespaceRegistry.Instance
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.Instance
+  nameWithType: NamespaceRegistry.Instance
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.Instance*
+  name: Instance
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_Instance_
+  commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.Instance
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.Instance
+  nameWithType: NamespaceRegistry.Instance
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
+  name: Namespaces
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_Namespaces
+  commentId: P:OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
+  nameWithType: NamespaceRegistry.Namespaces
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces*
+  name: Namespaces
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_Namespaces_
+  commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
+  nameWithType: NamespaceRegistry.Namespaces
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace(System.String)
+  name: RemoveNamespace(String)
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_RemoveNamespace_System_String_
+  commentId: M:OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace(System.String)
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace(System.String)
+  nameWithType: NamespaceRegistry.RemoveNamespace(String)
+- uid: OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace*
+  name: RemoveNamespace
+  href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_RemoveNamespace_
+  commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace
+  nameWithType: NamespaceRegistry.RemoveNamespace
+- uid: OpenGraphNet.Namespaces.RegistryNamespace
+  name: RegistryNamespace
+  href: api/OpenGraphNet.Namespaces.RegistryNamespace.html
+  commentId: T:OpenGraphNet.Namespaces.RegistryNamespace
+  fullName: OpenGraphNet.Namespaces.RegistryNamespace
+  nameWithType: RegistryNamespace
+- uid: OpenGraphNet.Namespaces.RegistryNamespace.#ctor(System.String,System.String,System.String[])
+  name: RegistryNamespace(String, String, String[])
+  href: api/OpenGraphNet.Namespaces.RegistryNamespace.html#OpenGraphNet_Namespaces_RegistryNamespace__ctor_System_String_System_String_System_String___
+  commentId: M:OpenGraphNet.Namespaces.RegistryNamespace.#ctor(System.String,System.String,System.String[])
+  name.vb: RegistryNamespace(String, String, String())
+  fullName: OpenGraphNet.Namespaces.RegistryNamespace.RegistryNamespace(System.String, System.String, System.String[])
+  fullName.vb: OpenGraphNet.Namespaces.RegistryNamespace.RegistryNamespace(System.String, System.String, System.String())
+  nameWithType: RegistryNamespace.RegistryNamespace(String, String, String[])
+  nameWithType.vb: RegistryNamespace.RegistryNamespace(String, String, String())
+- uid: OpenGraphNet.Namespaces.RegistryNamespace.#ctor*
+  name: RegistryNamespace
+  href: api/OpenGraphNet.Namespaces.RegistryNamespace.html#OpenGraphNet_Namespaces_RegistryNamespace__ctor_
+  commentId: Overload:OpenGraphNet.Namespaces.RegistryNamespace.#ctor
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.RegistryNamespace.RegistryNamespace
+  nameWithType: RegistryNamespace.RegistryNamespace
+- uid: OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
+  name: RequiredElements
+  href: api/OpenGraphNet.Namespaces.RegistryNamespace.html#OpenGraphNet_Namespaces_RegistryNamespace_RequiredElements
+  commentId: P:OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
+  fullName: OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
+  nameWithType: RegistryNamespace.RequiredElements
+- uid: OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements*
+  name: RequiredElements
+  href: api/OpenGraphNet.Namespaces.RegistryNamespace.html#OpenGraphNet_Namespaces_RegistryNamespace_RequiredElements_
+  commentId: Overload:OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
+  isSpec: "True"
+  fullName: OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
+  nameWithType: RegistryNamespace.RequiredElements
+- uid: OpenGraphNet.OpenGraph
+  name: OpenGraph
+  href: api/OpenGraphNet.OpenGraph.html
+  commentId: T:OpenGraphNet.OpenGraph
+  fullName: OpenGraphNet.OpenGraph
+  nameWithType: OpenGraph
+- uid: OpenGraphNet.OpenGraph.Add(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})
+  name: Add(KeyValuePair<String, StructuredMetadata>)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Add_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.OpenGraph.Add(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Add(KeyValuePair(Of String, StructuredMetadata))
+  fullName: OpenGraphNet.OpenGraph.Add(KeyValuePair<System.String, OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.OpenGraph.Add(KeyValuePair(Of System.String, OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: OpenGraph.Add(KeyValuePair<String, StructuredMetadata>)
+  nameWithType.vb: OpenGraph.Add(KeyValuePair(Of String, StructuredMetadata))
+- uid: OpenGraphNet.OpenGraph.Add(System.String,OpenGraphNet.Metadata.StructuredMetadata)
+  name: Add(String, StructuredMetadata)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Add_System_String_OpenGraphNet_Metadata_StructuredMetadata_
+  commentId: M:OpenGraphNet.OpenGraph.Add(System.String,OpenGraphNet.Metadata.StructuredMetadata)
+  fullName: OpenGraphNet.OpenGraph.Add(System.String, OpenGraphNet.Metadata.StructuredMetadata)
+  nameWithType: OpenGraph.Add(String, StructuredMetadata)
+- uid: OpenGraphNet.OpenGraph.Add*
+  name: Add
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Add_
+  commentId: Overload:OpenGraphNet.OpenGraph.Add
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Add
+  nameWithType: OpenGraph.Add
+- uid: OpenGraphNet.OpenGraph.AddMetadata(OpenGraphNet.Metadata.StructuredMetadata)
+  name: AddMetadata(StructuredMetadata)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_AddMetadata_OpenGraphNet_Metadata_StructuredMetadata_
+  commentId: M:OpenGraphNet.OpenGraph.AddMetadata(OpenGraphNet.Metadata.StructuredMetadata)
+  fullName: OpenGraphNet.OpenGraph.AddMetadata(OpenGraphNet.Metadata.StructuredMetadata)
+  nameWithType: OpenGraph.AddMetadata(StructuredMetadata)
+- uid: OpenGraphNet.OpenGraph.AddMetadata(System.String,System.String,System.String)
+  name: AddMetadata(String, String, String)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_AddMetadata_System_String_System_String_System_String_
+  commentId: M:OpenGraphNet.OpenGraph.AddMetadata(System.String,System.String,System.String)
+  fullName: OpenGraphNet.OpenGraph.AddMetadata(System.String, System.String, System.String)
+  nameWithType: OpenGraph.AddMetadata(String, String, String)
+- uid: OpenGraphNet.OpenGraph.AddMetadata*
+  name: AddMetadata
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_AddMetadata_
+  commentId: Overload:OpenGraphNet.OpenGraph.AddMetadata
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.AddMetadata
+  nameWithType: OpenGraph.AddMetadata
+- uid: OpenGraphNet.OpenGraph.Clear
+  name: Clear()
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Clear
+  commentId: M:OpenGraphNet.OpenGraph.Clear
+  fullName: OpenGraphNet.OpenGraph.Clear()
+  nameWithType: OpenGraph.Clear()
+- uid: OpenGraphNet.OpenGraph.Clear*
+  name: Clear
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Clear_
+  commentId: Overload:OpenGraphNet.OpenGraph.Clear
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Clear
+  nameWithType: OpenGraph.Clear
+- uid: OpenGraphNet.OpenGraph.Contains(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})
+  name: Contains(KeyValuePair<String, StructuredMetadata>)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Contains_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.OpenGraph.Contains(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Contains(KeyValuePair(Of String, StructuredMetadata))
+  fullName: OpenGraphNet.OpenGraph.Contains(KeyValuePair<System.String, OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.OpenGraph.Contains(KeyValuePair(Of System.String, OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: OpenGraph.Contains(KeyValuePair<String, StructuredMetadata>)
+  nameWithType.vb: OpenGraph.Contains(KeyValuePair(Of String, StructuredMetadata))
+- uid: OpenGraphNet.OpenGraph.Contains*
+  name: Contains
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Contains_
+  commentId: Overload:OpenGraphNet.OpenGraph.Contains
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Contains
+  nameWithType: OpenGraph.Contains
+- uid: OpenGraphNet.OpenGraph.ContainsKey(System.String)
+  name: ContainsKey(String)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ContainsKey_System_String_
+  commentId: M:OpenGraphNet.OpenGraph.ContainsKey(System.String)
+  fullName: OpenGraphNet.OpenGraph.ContainsKey(System.String)
+  nameWithType: OpenGraph.ContainsKey(String)
+- uid: OpenGraphNet.OpenGraph.ContainsKey*
+  name: ContainsKey
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ContainsKey_
+  commentId: Overload:OpenGraphNet.OpenGraph.ContainsKey
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.ContainsKey
+  nameWithType: OpenGraph.ContainsKey
+- uid: OpenGraphNet.OpenGraph.CopyTo(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata}[],System.Int32)
+  name: CopyTo(KeyValuePair<String, StructuredMetadata>[], Int32)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_CopyTo_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata____System_Int32_
+  commentId: M:OpenGraphNet.OpenGraph.CopyTo(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata}[],System.Int32)
+  name.vb: CopyTo(KeyValuePair(Of String, StructuredMetadata)(), Int32)
+  fullName: OpenGraphNet.OpenGraph.CopyTo(KeyValuePair<System.String, OpenGraphNet.Metadata.StructuredMetadata>[], System.Int32)
+  fullName.vb: OpenGraphNet.OpenGraph.CopyTo(KeyValuePair(Of System.String, OpenGraphNet.Metadata.StructuredMetadata)(), System.Int32)
+  nameWithType: OpenGraph.CopyTo(KeyValuePair<String, StructuredMetadata>[], Int32)
+  nameWithType.vb: OpenGraph.CopyTo(KeyValuePair(Of String, StructuredMetadata)(), Int32)
+- uid: OpenGraphNet.OpenGraph.CopyTo*
+  name: CopyTo
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_CopyTo_
+  commentId: Overload:OpenGraphNet.OpenGraph.CopyTo
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.CopyTo
+  nameWithType: OpenGraph.CopyTo
+- uid: OpenGraphNet.OpenGraph.Count
+  name: Count
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Count
+  commentId: P:OpenGraphNet.OpenGraph.Count
+  fullName: OpenGraphNet.OpenGraph.Count
+  nameWithType: OpenGraph.Count
+- uid: OpenGraphNet.OpenGraph.Count*
+  name: Count
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Count_
+  commentId: Overload:OpenGraphNet.OpenGraph.Count
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Count
+  nameWithType: OpenGraph.Count
+- uid: OpenGraphNet.OpenGraph.GetEnumerator
+  name: GetEnumerator()
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_GetEnumerator
+  commentId: M:OpenGraphNet.OpenGraph.GetEnumerator
+  fullName: OpenGraphNet.OpenGraph.GetEnumerator()
+  nameWithType: OpenGraph.GetEnumerator()
+- uid: OpenGraphNet.OpenGraph.GetEnumerator*
+  name: GetEnumerator
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_GetEnumerator_
+  commentId: Overload:OpenGraphNet.OpenGraph.GetEnumerator
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.GetEnumerator
+  nameWithType: OpenGraph.GetEnumerator
+- uid: OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
+  name: HeadPrefixAttributeValue
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_HeadPrefixAttributeValue
+  commentId: P:OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
+  fullName: OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
+  nameWithType: OpenGraph.HeadPrefixAttributeValue
+- uid: OpenGraphNet.OpenGraph.HeadPrefixAttributeValue*
+  name: HeadPrefixAttributeValue
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_HeadPrefixAttributeValue_
+  commentId: Overload:OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
+  nameWithType: OpenGraph.HeadPrefixAttributeValue
+- uid: OpenGraphNet.OpenGraph.HtmlXmlnsValues
+  name: HtmlXmlnsValues
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_HtmlXmlnsValues
+  commentId: P:OpenGraphNet.OpenGraph.HtmlXmlnsValues
+  fullName: OpenGraphNet.OpenGraph.HtmlXmlnsValues
+  nameWithType: OpenGraph.HtmlXmlnsValues
+- uid: OpenGraphNet.OpenGraph.HtmlXmlnsValues*
+  name: HtmlXmlnsValues
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_HtmlXmlnsValues_
+  commentId: Overload:OpenGraphNet.OpenGraph.HtmlXmlnsValues
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.HtmlXmlnsValues
+  nameWithType: OpenGraph.HtmlXmlnsValues
+- uid: OpenGraphNet.OpenGraph.Image
+  name: Image
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Image
+  commentId: P:OpenGraphNet.OpenGraph.Image
+  fullName: OpenGraphNet.OpenGraph.Image
+  nameWithType: OpenGraph.Image
+- uid: OpenGraphNet.OpenGraph.Image*
+  name: Image
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Image_
+  commentId: Overload:OpenGraphNet.OpenGraph.Image
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Image
+  nameWithType: OpenGraph.Image
+- uid: OpenGraphNet.OpenGraph.IsReadOnly
+  name: IsReadOnly
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_IsReadOnly
+  commentId: P:OpenGraphNet.OpenGraph.IsReadOnly
+  fullName: OpenGraphNet.OpenGraph.IsReadOnly
+  nameWithType: OpenGraph.IsReadOnly
+- uid: OpenGraphNet.OpenGraph.IsReadOnly*
+  name: IsReadOnly
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_IsReadOnly_
+  commentId: Overload:OpenGraphNet.OpenGraph.IsReadOnly
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.IsReadOnly
+  nameWithType: OpenGraph.IsReadOnly
+- uid: OpenGraphNet.OpenGraph.Item(System.String)
+  name: Item[String]
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Item_System_String_
+  commentId: P:OpenGraphNet.OpenGraph.Item(System.String)
+  name.vb: Item(String)
+  fullName: OpenGraphNet.OpenGraph.Item[System.String]
+  fullName.vb: OpenGraphNet.OpenGraph.Item(System.String)
+  nameWithType: OpenGraph.Item[String]
+  nameWithType.vb: OpenGraph.Item(String)
+- uid: OpenGraphNet.OpenGraph.Item*
+  name: Item
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Item_
+  commentId: Overload:OpenGraphNet.OpenGraph.Item
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Item
+  nameWithType: OpenGraph.Item
+- uid: OpenGraphNet.OpenGraph.Keys
+  name: Keys
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Keys
+  commentId: P:OpenGraphNet.OpenGraph.Keys
+  fullName: OpenGraphNet.OpenGraph.Keys
+  nameWithType: OpenGraph.Keys
+- uid: OpenGraphNet.OpenGraph.Keys*
+  name: Keys
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Keys_
+  commentId: Overload:OpenGraphNet.OpenGraph.Keys
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Keys
+  nameWithType: OpenGraph.Keys
+- uid: OpenGraphNet.OpenGraph.MakeGraph(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,IList{System.String},System.String)
+  name: MakeGraph(String, String, String, String, String, String, String, String, String, IList<String>, String)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_MakeGraph_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_IList_System_String__System_String_
+  commentId: M:OpenGraphNet.OpenGraph.MakeGraph(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,IList{System.String},System.String)
+  name.vb: MakeGraph(String, String, String, String, String, String, String, String, String, IList(Of String), String)
+  fullName: OpenGraphNet.OpenGraph.MakeGraph(System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, IList<System.String>, System.String)
+  fullName.vb: OpenGraphNet.OpenGraph.MakeGraph(System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.String, IList(Of System.String), System.String)
+  nameWithType: OpenGraph.MakeGraph(String, String, String, String, String, String, String, String, String, IList<String>, String)
+  nameWithType.vb: OpenGraph.MakeGraph(String, String, String, String, String, String, String, String, String, IList(Of String), String)
+- uid: OpenGraphNet.OpenGraph.MakeGraph*
+  name: MakeGraph
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_MakeGraph_
+  commentId: Overload:OpenGraphNet.OpenGraph.MakeGraph
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.MakeGraph
+  nameWithType: OpenGraph.MakeGraph
+- uid: OpenGraphNet.OpenGraph.Metadata
+  name: Metadata
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Metadata
+  commentId: P:OpenGraphNet.OpenGraph.Metadata
+  fullName: OpenGraphNet.OpenGraph.Metadata
+  nameWithType: OpenGraph.Metadata
+- uid: OpenGraphNet.OpenGraph.Metadata*
+  name: Metadata
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Metadata_
+  commentId: Overload:OpenGraphNet.OpenGraph.Metadata
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Metadata
+  nameWithType: OpenGraph.Metadata
+- uid: OpenGraphNet.OpenGraph.Namespaces
+  name: Namespaces
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Namespaces
+  commentId: P:OpenGraphNet.OpenGraph.Namespaces
+  fullName: OpenGraphNet.OpenGraph.Namespaces
+  nameWithType: OpenGraph.Namespaces
+- uid: OpenGraphNet.OpenGraph.Namespaces*
+  name: Namespaces
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Namespaces_
+  commentId: Overload:OpenGraphNet.OpenGraph.Namespaces
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Namespaces
+  nameWithType: OpenGraph.Namespaces
+- uid: OpenGraphNet.OpenGraph.OriginalUrl
+  name: OriginalUrl
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalUrl
+  commentId: P:OpenGraphNet.OpenGraph.OriginalUrl
+  fullName: OpenGraphNet.OpenGraph.OriginalUrl
+  nameWithType: OpenGraph.OriginalUrl
+- uid: OpenGraphNet.OpenGraph.OriginalUrl*
+  name: OriginalUrl
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalUrl_
+  commentId: Overload:OpenGraphNet.OpenGraph.OriginalUrl
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.OriginalUrl
+  nameWithType: OpenGraph.OriginalUrl
+- uid: OpenGraphNet.OpenGraph.ParseHtml(System.String,System.Boolean)
+  name: ParseHtml(String, Boolean)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseHtml_System_String_System_Boolean_
+  commentId: M:OpenGraphNet.OpenGraph.ParseHtml(System.String,System.Boolean)
+  fullName: OpenGraphNet.OpenGraph.ParseHtml(System.String, System.Boolean)
+  nameWithType: OpenGraph.ParseHtml(String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseHtml*
+  name: ParseHtml
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseHtml_
+  commentId: Overload:OpenGraphNet.OpenGraph.ParseHtml
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.ParseHtml
+  nameWithType: OpenGraph.ParseHtml
+- uid: OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean)
+  name: ParseUrl(String, String, Boolean)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_System_String_System_String_System_Boolean_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean)
+  fullName: OpenGraphNet.OpenGraph.ParseUrl(System.String, System.String, System.Boolean)
+  nameWithType: OpenGraph.ParseUrl(String, String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseUrl(Uri,System.String,System.Boolean)
+  name: ParseUrl(Uri, String, Boolean)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_Uri_System_String_System_Boolean_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrl(Uri,System.String,System.Boolean)
+  fullName: OpenGraphNet.OpenGraph.ParseUrl(Uri, System.String, System.Boolean)
+  nameWithType: OpenGraph.ParseUrl(Uri, String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseUrl*
+  name: ParseUrl
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_
+  commentId: Overload:OpenGraphNet.OpenGraph.ParseUrl
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.ParseUrl
+  nameWithType: OpenGraph.ParseUrl
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean)
+  name: ParseUrlAsync(String, String, Boolean)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_String_System_String_System_Boolean_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean)
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String, System.String, System.Boolean)
+  nameWithType: OpenGraph.ParseUrlAsync(String, String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(Uri,System.String,System.Boolean)
+  name: ParseUrlAsync(Uri, String, Boolean)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_Uri_System_String_System_Boolean_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(Uri,System.String,System.Boolean)
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(Uri, System.String, System.Boolean)
+  nameWithType: OpenGraph.ParseUrlAsync(Uri, String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync*
+  name: ParseUrlAsync
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_
+  commentId: Overload:OpenGraphNet.OpenGraph.ParseUrlAsync
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync
+  nameWithType: OpenGraph.ParseUrlAsync
+- uid: OpenGraphNet.OpenGraph.Remove(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})
+  name: Remove(KeyValuePair<String, StructuredMetadata>)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Remove_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.OpenGraph.Remove(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})
+  name.vb: Remove(KeyValuePair(Of String, StructuredMetadata))
+  fullName: OpenGraphNet.OpenGraph.Remove(KeyValuePair<System.String, OpenGraphNet.Metadata.StructuredMetadata>)
+  fullName.vb: OpenGraphNet.OpenGraph.Remove(KeyValuePair(Of System.String, OpenGraphNet.Metadata.StructuredMetadata))
+  nameWithType: OpenGraph.Remove(KeyValuePair<String, StructuredMetadata>)
+  nameWithType.vb: OpenGraph.Remove(KeyValuePair(Of String, StructuredMetadata))
+- uid: OpenGraphNet.OpenGraph.Remove(System.String)
+  name: Remove(String)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Remove_System_String_
+  commentId: M:OpenGraphNet.OpenGraph.Remove(System.String)
+  fullName: OpenGraphNet.OpenGraph.Remove(System.String)
+  nameWithType: OpenGraph.Remove(String)
+- uid: OpenGraphNet.OpenGraph.Remove*
+  name: Remove
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Remove_
+  commentId: Overload:OpenGraphNet.OpenGraph.Remove
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Remove
+  nameWithType: OpenGraph.Remove
+- uid: OpenGraphNet.OpenGraph.Title
+  name: Title
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Title
+  commentId: P:OpenGraphNet.OpenGraph.Title
+  fullName: OpenGraphNet.OpenGraph.Title
+  nameWithType: OpenGraph.Title
+- uid: OpenGraphNet.OpenGraph.Title*
+  name: Title
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Title_
+  commentId: Overload:OpenGraphNet.OpenGraph.Title
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Title
+  nameWithType: OpenGraph.Title
+- uid: OpenGraphNet.OpenGraph.ToString
+  name: ToString()
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ToString
+  commentId: M:OpenGraphNet.OpenGraph.ToString
+  fullName: OpenGraphNet.OpenGraph.ToString()
+  nameWithType: OpenGraph.ToString()
+- uid: OpenGraphNet.OpenGraph.ToString*
+  name: ToString
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ToString_
+  commentId: Overload:OpenGraphNet.OpenGraph.ToString
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.ToString
+  nameWithType: OpenGraph.ToString
+- uid: OpenGraphNet.OpenGraph.TryGetValue(System.String,OpenGraphNet.Metadata.StructuredMetadata@)
+  name: TryGetValue(String, out StructuredMetadata)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_TryGetValue_System_String_OpenGraphNet_Metadata_StructuredMetadata__
+  commentId: M:OpenGraphNet.OpenGraph.TryGetValue(System.String,OpenGraphNet.Metadata.StructuredMetadata@)
+  name.vb: TryGetValue(String, ByRef StructuredMetadata)
+  fullName: OpenGraphNet.OpenGraph.TryGetValue(System.String, out OpenGraphNet.Metadata.StructuredMetadata)
+  fullName.vb: OpenGraphNet.OpenGraph.TryGetValue(System.String, ByRef OpenGraphNet.Metadata.StructuredMetadata)
+  nameWithType: OpenGraph.TryGetValue(String, out StructuredMetadata)
+  nameWithType.vb: OpenGraph.TryGetValue(String, ByRef StructuredMetadata)
+- uid: OpenGraphNet.OpenGraph.TryGetValue*
+  name: TryGetValue
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_TryGetValue_
+  commentId: Overload:OpenGraphNet.OpenGraph.TryGetValue
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.TryGetValue
+  nameWithType: OpenGraph.TryGetValue
+- uid: OpenGraphNet.OpenGraph.Type
+  name: Type
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Type
+  commentId: P:OpenGraphNet.OpenGraph.Type
+  fullName: OpenGraphNet.OpenGraph.Type
+  nameWithType: OpenGraph.Type
+- uid: OpenGraphNet.OpenGraph.Type*
+  name: Type
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Type_
+  commentId: Overload:OpenGraphNet.OpenGraph.Type
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Type
+  nameWithType: OpenGraph.Type
+- uid: OpenGraphNet.OpenGraph.Url
+  name: Url
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Url
+  commentId: P:OpenGraphNet.OpenGraph.Url
+  fullName: OpenGraphNet.OpenGraph.Url
+  nameWithType: OpenGraph.Url
+- uid: OpenGraphNet.OpenGraph.Url*
+  name: Url
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Url_
+  commentId: Overload:OpenGraphNet.OpenGraph.Url
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Url
+  nameWithType: OpenGraph.Url
+- uid: OpenGraphNet.OpenGraph.Values
+  name: Values
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Values
+  commentId: P:OpenGraphNet.OpenGraph.Values
+  fullName: OpenGraphNet.OpenGraph.Values
+  nameWithType: OpenGraph.Values
+- uid: OpenGraphNet.OpenGraph.Values*
+  name: Values
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Values_
+  commentId: Overload:OpenGraphNet.OpenGraph.Values
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.Values
+  nameWithType: OpenGraph.Values
+- uid: OpenGraphNet.ReadOnlyDictionaryException
+  name: ReadOnlyDictionaryException
+  href: api/OpenGraphNet.ReadOnlyDictionaryException.html
+  commentId: T:OpenGraphNet.ReadOnlyDictionaryException
+  fullName: OpenGraphNet.ReadOnlyDictionaryException
+  nameWithType: ReadOnlyDictionaryException

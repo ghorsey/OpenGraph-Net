@@ -1,0 +1,392 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Projects/OpenGraph.Net/OpenGraph-Net/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "jm2wTG2IEREi9d+ta0Q9Xw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.HttpDownloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.HttpDownloader.html",
+          "hash": "b+n3xQsiGunGs3OzGqWI0Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.InvalidSpecificationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.InvalidSpecificationException.html",
+          "hash": "zIx6OFI9/YRKZhhetVj8sg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.Metadata.html",
+          "hash": "gmi3bDTcKdKb4pmKjG50Zg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.MetadataHelperExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.MetadataHelperExtensions.html",
+          "hash": "kimkDy0WG1d4i6WrxG23Dw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.NullMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.NullMetadata.html",
+          "hash": "lxV+lhzZBkUzhnMRBeOqng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.PropertyMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.PropertyMetadata.html",
+          "hash": "DIFEU+u5K6KDkJUfUiWNJA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.StructuredMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadata.html",
+          "hash": "KwTmJaKLzAsYg8JncS/6QQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataCollection.html",
+          "hash": "j0EeoNIJcRRCcKv2I1kPvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Metadata.html",
+          "hash": "F29UKFTZf/tRNjOUcb5KRw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Namespaces.Namespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Namespaces.Namespace.html",
+          "hash": "iivMG9tZuGKrlTzpAKdR1g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Namespaces.NamespaceRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Namespaces.NamespaceRegistry.html",
+          "hash": "HAQgjEQAeWUGu3jMRNPjmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Namespaces.RegistryNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Namespaces.RegistryNamespace.html",
+          "hash": "kdOi/HfjOjJFmzxaFxXPNA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Namespaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Namespaces.html",
+          "hash": "UaUollwzH4oXpg0j+rACbQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.OpenGraph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.OpenGraph.html",
+          "hash": "gySbMjFMYa9KniwWUTAStQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.ReadOnlyDictionaryException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.ReadOnlyDictionaryException.html",
+          "hash": "xGtfzhMnKVDV3YJF6LiCDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.html",
+          "hash": "zF3USXZm8Yl3XKFnq9Q9zg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "Z1FvUFdjg8Yz0ZUev7oZCg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "r85NCfgxm4D//G54zoUefQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/accessing-values.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/accessing-values.html",
+          "hash": "9I9pxVv/noHmgHPKk5ybBg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/complete-example.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/complete-example.html",
+          "hash": "6bfaGeARhXOi/8m3Z4qBsQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/creating-graph-data.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/creating-graph-data.html",
+          "hash": "mIMobVVG6QcgzX1sVWiWkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "fL5S5TOx+UJTotKCVk54Jw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/parsing-namespaces.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/parsing-namespaces.html",
+          "hash": "Al9KnX6LWbNRhO5FHtDYdA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/parsing-url.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/parsing-url.html",
+          "hash": "TV8zivaQ9RrQySFwcNWbhg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "lRH9v40E1zE3Ft5eFai8SA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/writing-namespaces.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/writing-namespaces.html",
+          "hash": "2h3pNvGalNuMAHLzNsVVbA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "5FSLEP3fK4DFPiIn54ENjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "ob7LqWp4kTNLz+9W4omdTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

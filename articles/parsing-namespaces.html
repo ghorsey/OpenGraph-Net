@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Parsing Namespaces </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Parsing Namespaces ">
+    <meta name="generator" content="docfx 2.35.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="parsing-namespaces">Parsing Namespaces</h1>
+
+<p>The component now knows about the 13 namespaces listed below.  When parsing a url or a HTML
+document, OpenGraph.Net will now read and use those namespaces from either the <code>&lt;html&gt;</code> or
+<code>&lt;head&gt;</code> tags.  The parser is now smart enough to include the namespaces when none are
+included in those tags by extracting it from the <code>meta[property]</code> value directly.</p>
+<ul>
+<li>og: <a href="http://ogp.me/ns#">http://ogp.me/ns#</a>
+<ul>
+<li>Expected fields when validating: <code>title</code>, <code>type</code>, <code>image</code>, <code>url</code></li>
+</ul>
+</li>
+<li>article: <a href="http://ogp.me/ns/article#">http://ogp.me/ns/article#</a></li>
+<li>book: <a href="http://ogp.me/ns/book#%22">http://ogp.me/ns/book#&quot;</a></li>
+<li>books: <a href="http://ogp.me/ns/books#">http://ogp.me/ns/books#</a></li>
+<li>business <a href="http://ogp.me/ns/business#">http://ogp.me/ns/business#</a></li>
+<li>fitness: <a href="http://ogp.me/ns/fitness#">http://ogp.me/ns/fitness#</a></li>
+<li>game: <a href="http://ogp.me/ns/game#">http://ogp.me/ns/game#</a></li>
+<li>music: <a href="http://ogp.me/ns/music#">http://ogp.me/ns/music#</a></li>
+<li>place: <a href="http://ogp.me/ns/place#">http://ogp.me/ns/place#</a></li>
+<li>product: <a href="http://ogp.me/ns/product#">http://ogp.me/ns/product#</a></li>
+<li>profile: <a href="http://ogp.me/ns/profile#">http://ogp.me/ns/profile#</a></li>
+<li>restaurant: <a href="http://ogp.me/ns/restaurant#">http://ogp.me/ns/restaurant#</a></li>
+<li>video: <a href="http://ogp.me/ns/video#%22">http://ogp.me/ns/video#&quot;</a></li>
+</ul>
+<p><em>If there are any additional standard/supported namespaces that I am misssing, please shoot me
+a comment or a pull request with the missing items.</em></p>
+<h2 id="adding-custom-namespaces">Adding Custom Namespaces</h2>
+<p>You can now add custom namespaces to the parser.  Simply make the following call:</p>
+<pre><code>NamespaceRegistry.Instance.AddNamespace(
+    prefix: &quot;gah&quot;,
+    schemaUri: &quot;http://wwww.geoffhorsey.com/ogp/brain&quot;#,
+    requiredElements: new[] { &quot;brain&quot; });
+</code></pre>
+<p>Doing the above will allow the parser to understand the following HTML snippet:</p>
+<pre><code>&lt;meta property=&quot;gah:brain&quot; content=&quot;http://www.geoffhorsey.com/my-brain&quot;&gt;
+&lt;meta property=&quot;gah:brain:size&quot; content=&quot;tiny&quot;&gt;
+</code></pre>
+<p>and the graph:</p>
+<pre><code>graph.Metadata[&quot;gah:brain&quot;].Value() // &quot;http://www.geoffhorsey.com/my-brain&quot;
+graph.Metadata[&quot;gah:brain&quot;].First().Properties[&quot;size&quot;].Value() // &quot;tiny&quot;
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ghorsey/OpenGraph-Net/blob/feature/documentation/docfx_project/articles/parsing-namespaces.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>!
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
