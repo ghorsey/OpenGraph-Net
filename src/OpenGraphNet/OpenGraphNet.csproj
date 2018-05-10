@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,7 @@
 
   <!-- nuget -->
   <PropertyGroup>
+    <PackageTags>OpenGraph</PackageTags>
     <PackageId>OpenGraph-Net</PackageId>
     <Title>OpenGraph.Net</Title>
     <Authors>ghorsey</Authors>
