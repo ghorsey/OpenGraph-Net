@@ -9,13 +9,13 @@
     /// <summary>
     /// A root structured element
     /// </summary>
-    /// <seealso cref="OpenGraphNet.MetaElement" />
-    public class StructuredMetaElement : MetaElement
+    /// <seealso cref="OpenGraphNet.Metadata" />
+    public class StructuredMetaElement : Metadata
     {
         /// <summary>
         /// The internal properties
         /// </summary>
-        private readonly Dictionary<string, IList<PropertyMetaElement>> internalProperties = new Dictionary<string, IList<PropertyMetaElement>>();
+        private readonly Dictionary<string, IList<PropertyMetadata>> internalProperties = new Dictionary<string, IList<PropertyMetadata>>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StructuredMetaElement"/> class.
@@ -34,7 +34,7 @@
         /// <value>
         /// The child elements.
         /// </value>
-        public IDictionary<string, IList<PropertyMetaElement>> Properties => new ReadOnlyDictionary<string, IList<PropertyMetaElement>>(this.internalProperties);
+        public IDictionary<string, IList<PropertyMetadata>> Properties => new ReadOnlyDictionary<string, IList<PropertyMetadata>>(this.internalProperties);
 
         /// <summary>
         /// Adds the property.
@@ -45,7 +45,7 @@
         {
             name = name.Replace(this.Namespace + ":", string.Empty);
             name = name.Replace(this.Name + ":", string.Empty);
-            var propertyElement = new PropertyMetaElement(this, this.Namespace, name, value);
+            var propertyElement = new PropertyMetadata(this, this.Namespace, name, value);
             this.AddProperty(propertyElement);
         }
 
@@ -53,7 +53,7 @@
         /// Adds the property.
         /// </summary>
         /// <param name="element">The element.</param>
-        public void AddProperty(PropertyMetaElement element)
+        public void AddProperty(PropertyMetadata element)
         {
             element.ParentElement = this;
             element.Namespace = this.Namespace;
@@ -64,7 +64,7 @@
             }
             else
             {
-                this.internalProperties.Add(element.Name, new List<PropertyMetaElement>() { element });
+                this.internalProperties.Add(element.Name, new List<PropertyMetadata>() { element });
             }
         }
 

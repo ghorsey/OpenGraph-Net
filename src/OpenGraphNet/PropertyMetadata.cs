@@ -5,8 +5,8 @@
     /// <summary>
     /// A property meta element
     /// </summary>
-    /// <seealso cref="OpenGraphNet.MetaElement" />
-    public class PropertyMetaElement : MetaElement
+    /// <seealso cref="OpenGraphNet.Metadata" />
+    public class PropertyMetaElement : Metadata
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PropertyMetaElement"/> class.

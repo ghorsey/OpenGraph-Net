@@ -37,7 +37,7 @@
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, IList<StructuredMetaElement>> Data => new ReadOnlyDictionary<string, IList<StructuredMetaElement>>(this.internalOpenGraphData);
+        public IDictionary<string, IList<StructuredMetaElement>> Metadata => new ReadOnlyDictionary<string, IList<StructuredMetaElement>>(this.internalOpenGraphData);
 
         /// <summary>
         /// Gets or sets the namespaces.
@@ -161,7 +161,7 @@
                     key = "og:" + key;
                 }
 
-                return !this.internalOpenGraphData.ContainsKey(key) ? new NullMetaElement() : this.internalOpenGraphData[key].First();
+                return !this.internalOpenGraphData.ContainsKey(key) ? new NullMetadata() : this.internalOpenGraphData[key].First();
             }
 
             set => throw new ReadOnlyDictionaryException();
@@ -205,39 +205,39 @@
             var ns = NamespaceRegistry.Instance.Namespaces["og"];
 
             graph.Namespaces.Add(ns.Prefix, ns);
-            graph.AddMetaElement(new StructuredMetaElement(ns, "title", title));
-            graph.AddMetaElement(new StructuredMetaElement(ns, "type", type));
-            graph.AddMetaElement(new StructuredMetaElement(ns, "image", image));
-            graph.AddMetaElement(new StructuredMetaElement(ns, "url", url));
+            graph.AddMetadata(new StructuredMetaElement(ns, "title", title));
+            graph.AddMetadata(new StructuredMetaElement(ns, "type", type));
+            graph.AddMetadata(new StructuredMetaElement(ns, "image", image));
+            graph.AddMetadata(new StructuredMetaElement(ns, "url", url));
 
             if (!string.IsNullOrWhiteSpace(description))
             {
-                graph.AddMetaElement(new StructuredMetaElement(ns, "description", description));
+                graph.AddMetadata(new StructuredMetaElement(ns, "description", description));
             }
 
             if (!string.IsNullOrWhiteSpace(siteName))
             {
-                graph.AddMetaElement(new StructuredMetaElement(ns, "site_name", siteName));
+                graph.AddMetadata(new StructuredMetaElement(ns, "site_name", siteName));
             }
 
             if (!string.IsNullOrWhiteSpace(audio))
             {
-                graph.AddMetaElement(new StructuredMetaElement(ns, "audio", audio));
+                graph.AddMetadata(new StructuredMetaElement(ns, "audio", audio));
             }
 
             if (!string.IsNullOrWhiteSpace(video))
             {
-                graph.AddMetaElement(new StructuredMetaElement(ns, "video", video));
+                graph.AddMetadata(new StructuredMetaElement(ns, "video", video));
             }
 
             if (!string.IsNullOrWhiteSpace(locale))
             {
-                graph.AddMetaElement(new StructuredMetaElement(ns, "locale", locale));
+                graph.AddMetadata(new StructuredMetaElement(ns, "locale", locale));
             }
 
             if (!string.IsNullOrWhiteSpace(determiner))
             {
-                graph.AddMetaElement(new StructuredMetaElement(ns, "determiner", determiner));
+                graph.AddMetadata(new StructuredMetaElement(ns, "determiner", determiner));
             }
 
             if (graph.internalOpenGraphData.ContainsKey("og:locale"))
@@ -252,7 +252,7 @@
             {
                 foreach (var localeAlternate in localeAlternates ?? new List<string>())
                 {
-                    graph.AddMetaElement(new StructuredMetaElement(ns, "locale:alternate", localeAlternate));
+                    graph.AddMetadata(new StructuredMetaElement(ns, "locale:alternate", localeAlternate));
                 }
             }
 
@@ -337,7 +337,7 @@
         /// Adds the meta element.
         /// </summary>
         /// <param name="element">The element.</param>
-        public void AddMetaElement(StructuredMetaElement element)
+        public void AddMetadata(StructuredMetaElement element)
         {
             var key = string.Concat(element.Namespace.Prefix, ":", element.Name);
             if (this.internalOpenGraphData.ContainsKey(key))
@@ -348,6 +348,26 @@
             {
                 this.internalOpenGraphData.Add(key, new List<StructuredMetaElement> { element });
             }
+        }
+
+        /// <summary>
+        /// Adds the metadata.
+        /// </summary>
+        /// <param name="prefix">The prefix.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        /// <exception cref="InvalidOperationException">The prefix {prefix} does not exist in the NamespaceRegistry</exception>
+        public void AddMetadata(string prefix, string name, string value)
+        {
+            if (!NamespaceRegistry.Instance.Namespaces.ContainsKey(prefix))
+            {
+                throw new InvalidOperationException($"The prefix {prefix} does not exist in the {nameof(NamespaceRegistry)}");
+            }
+
+            var ns = NamespaceRegistry.Instance.Namespaces[prefix];
+
+            var metadata = new StructuredMetaElement(ns, name, value);
+            this.AddMetadata(metadata);
         }
 
     /// <summary>
@@ -701,20 +721,20 @@
                 else
                 {
                     lastElement = new StructuredMetaElement(result.Namespaces[prefix], cleanProperty, value);
-                    result.AddMetaElement(lastElement);
+                    result.AddMetadata(lastElement);
                 }
             }
 
                 result.Type = string.Empty;
             if (result.internalOpenGraphData.TryGetValue("og:type", out var type))
             {
-                result.Type = (type.FirstOrDefault() ?? new NullMetaElement()).Value ?? string.Empty;
+                result.Type = (type.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty;
             }
 
             result.Title = string.Empty;
             if (result.internalOpenGraphData.TryGetValue("og:title", out var title))
             {
-                result.Title = (title.FirstOrDefault() ?? new NullMetaElement()).Value ?? string.Empty;
+                result.Title = (title.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty;
             }
 
             result.Image = GetUri(result, "og:image");
@@ -734,7 +754,7 @@
 
             try
             {
-                return new Uri((url.FirstOrDefault() ?? new NullMetaElement()).Value ?? string.Empty);
+                return new Uri((url.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty);
             }
             catch (ArgumentException)
             {
@@ -781,7 +801,7 @@
             {
                 foreach (var required in ns.RequiredElements)
                 {
-                    if (!result.Data.ContainsKey(string.Concat(ns.Prefix, ":", required)))
+                    if (!result.Metadata.ContainsKey(string.Concat(ns.Prefix, ":", required)))
                     {
                         throw new InvalidSpecificationException($"The parsed HTML does not meet the open graph specification, missing element: {required}");
                     }

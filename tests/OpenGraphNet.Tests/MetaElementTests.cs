@@ -16,7 +16,7 @@
         [Fact]
         public void TestNullMetaElement()
         {
-            var element = new NullMetaElement();
+            var element = new NullMetadata();
 
             Assert.Empty((string)element);
             Assert.Empty(element.ToString());

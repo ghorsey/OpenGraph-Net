@@ -5,15 +5,15 @@ namespace OpenGraphNet
     /// <summary>
     /// Represents an Open Graph meta element
     /// </summary>
-    public abstract class MetaElement
+    public abstract class Metadata
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MetaElement" /> class.
+        /// Initializes a new instance of the <see cref="Metadata" /> class.
         /// </summary>
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        protected MetaElement(Namespace ns, string name, string value) 
+        protected Metadata(Namespace ns, string name, string value) 
         {
             this.Namespace = ns;
             this.Name = name;
@@ -45,13 +45,13 @@ namespace OpenGraphNet
         public string Value { get; }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="MetaElement"/> to <see cref="System.String"/>.
+        /// Performs an implicit conversion from <see cref="Metadata"/> to <see cref="System.String"/>.
         /// </summary>
         /// <param name="element">The element.</param>
         /// <returns>
         /// The result of the conversion.
         /// </returns>
-        public static implicit operator string(MetaElement element)
+        public static implicit operator string(Metadata element)
         {
             return element.Value;
         }
