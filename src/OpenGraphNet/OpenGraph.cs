@@ -1,33 +1,53 @@
-﻿
-namespace OpenGraphNet
+﻿namespace OpenGraphNet
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Globalization;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+
     using HtmlAgilityPack;
+
+    using OpenGraphNet.Metadata;
+    using OpenGraphNet.Namespaces;
 
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
     /// </summary>
-    public class OpenGraph : IDictionary<string, string>
+    public class OpenGraph : IDictionary<string, StructuredMetadata>
     {
-        /// <summary>
-        /// The required meta
-        /// </summary>
-        private static readonly string[] RequiredMeta = { "title", "type", "image", "url" };
-
         /// <summary>
         /// The open graph data
         /// </summary>
-        private readonly IDictionary<string, string> openGraphData;
+        private readonly StructuredMetadataCollection internalOpenGraphData;
 
         /// <summary>
-        /// The local alternatives
+        /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
         /// </summary>
-        private IList<string> localAlternatives;
+        private OpenGraph()
+        {
+            this.internalOpenGraphData = new StructuredMetadataCollection();
+            this.Namespaces = new Dictionary<string, Namespace>();
+        }
+
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public IDictionary<string, IList<StructuredMetadata>> Metadata => new ReadOnlyDictionary<string, IList<StructuredMetadata>>(this.internalOpenGraphData);
+
+        /// <summary>
+        /// Gets or sets the namespaces.
+        /// </summary>
+        /// <value>
+        /// The namespaces.
+        /// </value>
+        public IDictionary<string, Namespace> Namespaces { get; set; }
 
         /// <summary>
         /// Gets the type.
@@ -60,12 +80,93 @@ namespace OpenGraphNet
         public Uri OriginalUrl { get; private set; }
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
+        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
-        private OpenGraph()
+        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public ICollection<string> Keys => this.internalOpenGraphData.Keys.ToList();
+
+        /// <summary>
+        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
+        /// </summary>
+        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public ICollection<StructuredMetadata> Values => this.internalOpenGraphData.Select(kvp => kvp.Value.FirstOrDefault()).ToList();
+
+        /// <summary>
+        /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
+        /// </summary>
+        /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public int Count => this.internalOpenGraphData.Count;
+
+        /// <summary>
+        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+        /// </summary>
+        /// <returns>true</returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public bool IsReadOnly => true;
+
+        /// <summary>
+        /// Gets the head prefix attribute value.
+        /// </summary>
+        /// <value>
+        /// The head prefix attribute value.
+        /// </value>
+        public string HeadPrefixAttributeValue 
         {
-            this.openGraphData = new Dictionary<string, string>();
-            this.localAlternatives = new List<string>();
+            get
+            {
+                var sb = new StringBuilder();
+                foreach (var ns in this.Namespaces)
+                {
+                    sb.AppendFormat(" {0}", ns.Value.ToString());
+                }
+
+                return sb.ToString().Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets the HTML XML namespace values.
+        /// </summary>
+        /// <value>
+        /// The HTML XML namespace values.
+        /// </value>
+        public string HtmlXmlnsValues
+        {
+            get
+            {
+                var sb = new StringBuilder();
+                foreach (var ns in this.Namespaces)
+                {
+                    sb.AppendFormat(" xmlns:{0}=\"{1}\"", ns.Value.Prefix, ns.Value.SchemaUri.ToString());
+                }
+
+                return sb.ToString().Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the element with the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns>returns the open graph value at the specified key</returns>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public StructuredMetadata this[string key]
+        {
+            get
+            {
+                if (key.IndexOf(':') < 0)
+                {
+                    key = "og:" + key;
+                }
+
+                return !this.internalOpenGraphData.ContainsKey(key) ? new NullMetadata() : this.internalOpenGraphData[key].First();
+            }
+
+            set => throw new ReadOnlyDictionaryException();
         }
 
         /// <summary>
@@ -80,7 +181,7 @@ namespace OpenGraphNet
         /// <param name="audio">The audio.</param>
         /// <param name="video">The video.</param>
         /// <param name="locale">The locale.</param>
-        /// <param name="localeAlternate">The locale alternate.</param>
+        /// <param name="localeAlternates">The locale alternates.</param>
         /// <param name="determiner">The determiner.</param>
         /// <returns><see cref="OpenGraph"/></returns>
         public static OpenGraph MakeGraph(
@@ -93,7 +194,7 @@ namespace OpenGraphNet
             string audio = "",
             string video = "",
             string locale = "",
-            IList<string> localeAlternate = null,
+            IList<string> localeAlternates = null,
             string determiner = "")
         {
             var graph = new OpenGraph
@@ -101,79 +202,63 @@ namespace OpenGraphNet
                 Title = title,
                 Type = type,
                 Image = new Uri(image, UriKind.Absolute),
-                Url = new Uri(url, UriKind.Absolute)
+                Url = new Uri(url, UriKind.Absolute),
             };
+            var ns = NamespaceRegistry.Instance.Namespaces["og"];
 
-            graph.openGraphData.Add("title", title);
-            graph.openGraphData.Add("type", type);
-            graph.openGraphData.Add("image", image);
-            graph.openGraphData.Add("url", url);
+            graph.Namespaces.Add(ns.Prefix, ns);
+            graph.AddMetadata(new StructuredMetadata(ns, "title", title));
+            graph.AddMetadata(new StructuredMetadata(ns, "type", type));
+            graph.AddMetadata(new StructuredMetadata(ns, "image", image));
+            graph.AddMetadata(new StructuredMetadata(ns, "url", url));
 
             if (!string.IsNullOrWhiteSpace(description))
             {
-                graph.openGraphData.Add("description", description);
+                graph.AddMetadata(new StructuredMetadata(ns, "description", description));
             }
 
             if (!string.IsNullOrWhiteSpace(siteName))
             {
-                graph.openGraphData.Add("site_name", siteName);
+                graph.AddMetadata(new StructuredMetadata(ns, "site_name", siteName));
             }
 
             if (!string.IsNullOrWhiteSpace(audio))
             {
-                graph.openGraphData.Add("audio", audio);
+                graph.AddMetadata(new StructuredMetadata(ns, "audio", audio));
             }
 
             if (!string.IsNullOrWhiteSpace(video))
             {
-                graph.openGraphData.Add("video", video);
+                graph.AddMetadata(new StructuredMetadata(ns, "video", video));
             }
 
             if (!string.IsNullOrWhiteSpace(locale))
             {
-                graph.openGraphData.Add("locale", locale);
+                graph.AddMetadata(new StructuredMetadata(ns, "locale", locale));
             }
 
             if (!string.IsNullOrWhiteSpace(determiner))
             {
-                graph.openGraphData.Add("determiner", determiner);
+                graph.AddMetadata(new StructuredMetadata(ns, "determiner", determiner));
             }
 
-            if (localeAlternate != null)
+            if (graph.internalOpenGraphData.ContainsKey("og:locale"))
             {
-                graph.localAlternatives = localeAlternate;
+                var localeElement = graph.internalOpenGraphData["og:locale"].First();
+                foreach (var localeAlternate in localeAlternates ?? new List<string>())
+                {
+                    localeElement.AddProperty(new PropertyMetadata("alternate", localeAlternate));
+                }
+            }
+            else
+            {
+                foreach (var localeAlternate in localeAlternates ?? new List<string>())
+                {
+                    graph.AddMetadata(new StructuredMetadata(ns, "locale:alternate", localeAlternate));
+                }
             }
 
             return graph;
-        }
-
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
-        {
-            var doc = new HtmlDocument();
-
-            foreach (var itm in this.openGraphData)
-            {
-                var meta = doc.CreateElement("meta");
-                meta.Attributes.Add("property", "og:" + itm.Key);
-                meta.Attributes.Add("content", itm.Value);
-                doc.DocumentNode.AppendChild(meta);
-            }
-
-            foreach (var itm in this.localAlternatives)
-            {
-                var meta = doc.CreateElement("meta");
-                meta.Attributes.Add("property", "og:locale:alternate");
-                meta.Attributes.Add("content", itm);
-                doc.DocumentNode.AppendChild(meta);
-            }
-
-            return doc.DocumentNode.InnerHtml;
         }
 
         /// <summary>
@@ -181,28 +266,27 @@ namespace OpenGraphNet
         /// </summary>
         /// <param name="url">The URL to download the HTML from.</param>
         /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
-        /// <param name="validateSpecifiction">if set to <c>true</c> <see cref="OpenGraph"/> will validate against the specification.</param>
+        /// <param name="validateSpecification">if set to <c>true</c> <see cref="OpenGraph"/> will validate against the specification.</param>
         /// <returns>
         ///   <see cref="OpenGraph" />
         /// </returns>
-        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
+        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
             Uri uri = new Uri(url);
-            return ParseUrl(uri, userAgent, validateSpecifiction);
+            return ParseUrl(uri, userAgent, validateSpecification);
         }
-
 
         /// <summary>
         /// Parses the URL asynchronous.
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <param name="userAgent">The user agent.</param>
-        /// <param name="validateSpecifiction">if set to <c>true</c> [validate specifiction].</param>
+        /// <param name="validateSpecification">if set to <c>true</c> validate minimum Open Graph specification.</param>
         /// <returns><see cref="Task{OpenGraph}"/></returns>
-        public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "facebookexternalhit", bool validateSpecifiction = false)
+        public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
             Uri uri = new Uri(url);
-            return ParseUrlAsync(uri, userAgent, validateSpecifiction);
+            return ParseUrlAsync(uri, userAgent, validateSpecification);
         }
 
         /// <summary>
@@ -252,105 +336,191 @@ namespace OpenGraphNet
         }
 
         /// <summary>
-        /// Parses the HTML.
+        /// Adds the meta element.
         /// </summary>
-        /// <param name="result">The result.</param>
-        /// <param name="content">The content.</param>
-        /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
-        /// <returns><see cref="OpenGraph"/></returns>
-        /// <exception cref="OpenGraphNet.InvalidSpecificationException">The parsed HTML does not meet the open graph specification</exception>
-        private static OpenGraph ParseHtml(OpenGraph result, string content, bool validateSpecification = false)
+        /// <param name="element">The element.</param>
+        public void AddMetadata(StructuredMetadata element)
         {
-            int indexOfClosingHead = Regex.Match(content, "</head>").Index;
-            string toParse = content.Substring(0, indexOfClosingHead + 7);
-
-            toParse = toParse + "<body></body></html>\r\n";
-
-            HtmlDocument document = new HtmlDocument();
-            document.LoadHtml(toParse);
-
-            HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
-            var urlPropertyPatterns = new[] { "image", "url^"};
-            var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
-                                    where (meta.Attributes.Contains("property") && meta.Attributes["property"].Value.StartsWith("og:")) ||
-                                    (meta.Attributes.Contains("name") && meta.Attributes["name"].Value.StartsWith("og:"))
-                                    select meta;
-
-            foreach (HtmlNode metaTag in openGraphMetaTags)
+            var key = string.Concat(element.Namespace.Prefix, ":", element.Name);
+            if (this.internalOpenGraphData.ContainsKey(key))
             {
-                string value = GetOpenGraphValue(metaTag);
-                string property = GetOpenGraphKey(metaTag);
-                if (string.IsNullOrWhiteSpace(value))
-                {
-                    continue;
-                }
+                this.internalOpenGraphData[key].Add(element);
+            }
+            else
+            {
+                this.internalOpenGraphData.Add(key, new List<StructuredMetadata> { element });
+            }
+        }
 
-                if (result.openGraphData.ContainsKey(property))
-                {
-                    continue;
-                }
-
-                foreach (var urlPropertyPattern in urlPropertyPatterns)
-                {
-                    if (Regex.IsMatch(property, urlPropertyPattern))
-                    {
-                        value = HtmlDecodeUrl(value);
-                        break;
-                    }
-                }
-                result.openGraphData.Add(property, value);
+        /// <summary>
+        /// Adds the metadata.
+        /// </summary>
+        /// <param name="prefix">The prefix.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        /// <exception cref="InvalidOperationException">The prefix {prefix} does not exist in the NamespaceRegistry</exception>
+        public void AddMetadata(string prefix, string name, string value)
+        {
+            if (!NamespaceRegistry.Instance.Namespaces.ContainsKey(prefix))
+            {
+                throw new InvalidOperationException($"The prefix {prefix} does not exist in the {nameof(NamespaceRegistry)}");
             }
 
-            string type;
-            result.openGraphData.TryGetValue("type", out type);
-            result.Type = type ?? string.Empty;
+            var ns = NamespaceRegistry.Instance.Namespaces[prefix];
 
-            string title;
-            result.openGraphData.TryGetValue("title", out title);
-            result.Title = title ?? string.Empty;
+            var metadata = new StructuredMetadata(ns, name, value);
+            this.AddMetadata(metadata);
+        }
 
-            try
-            {
-                string image;
-                result.openGraphData.TryGetValue("image", out image);
-                result.Image = new Uri(image ?? string.Empty);
-            }
-            catch (UriFormatException)
-            {
-                // do nothing
-            }
-            catch (ArgumentException)
-            {
-                // do nothing
-            }
+    /// <summary>
+    /// Returns a <see cref="System.String" /> that represents this instance.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="System.String" /> that represents this instance.
+    /// </returns>
+    public override string ToString()
+        {
+            var doc = new HtmlDocument();
 
-            try
+            var elements = this.internalOpenGraphData.SelectMany(og => og.Value).ToList();
+
+            foreach (var structuredMetaElement in elements)
             {
-                string url;
-                result.openGraphData.TryGetValue("url", out url);
-                result.Url = new Uri(url ?? string.Empty);
-            }
-            catch (UriFormatException)
-            {
-                // do nothing
-            }
-            catch (ArgumentException)
-            {
-                // do nothing
+                doc.DocumentNode.AppendChild(structuredMetaElement.CreateDocument().DocumentNode);
             }
 
-            if (validateSpecification)
-            {
-                foreach (string required in RequiredMeta)
-                {
-                    if (!result.ContainsKey(required))
-                    {
-                        throw new InvalidSpecificationException("The parsed HTML does not meet the open graph specification");
-                    }
-                }
-            }
+            return doc.DocumentNode.InnerHtml;
+        }
 
+        /// <summary>
+        /// Adds the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public void Add(string key, StructuredMetadata value)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Determines whether the specified key contains key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified key contains key; otherwise, <c>false</c>.
+        /// </returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public bool ContainsKey(string key)
+        {
+            return this.internalOpenGraphData.ContainsKey(key);
+        }
+
+        /// <summary>
+        /// Removes the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns><c>false</c></returns>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public bool Remove(string key)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Tries the get value.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>true if the value was successfully set; otherwise false</returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public bool TryGetValue(string key, out StructuredMetadata value)
+        {
+            var result = this.internalOpenGraphData.TryGetValue(key, out var item);
+            value = (item ?? new List<StructuredMetadata>()).FirstOrDefault();
             return result;
+        }
+
+        /// <summary>
+        /// Adds the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public void Add(KeyValuePair<string, StructuredMetadata> item)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Clears this instance.
+        /// </summary>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public void Clear()
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Determines whether [contains] [the specified item].
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>
+        ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
+        /// </returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public bool Contains(KeyValuePair<string, StructuredMetadata> item)
+        {
+            return this.internalOpenGraphData.Contains(new KeyValuePair<string, IList<StructuredMetadata>>(item.Key, new List<StructuredMetadata> { item.Value }));
+        }
+
+        /// <summary>
+        /// Copies to.
+        /// </summary>
+        /// <param name="array">The array.</param>
+        /// <param name="arrayIndex">Index of the array.</param>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public void CopyTo(KeyValuePair<string, StructuredMetadata>[] array, int arrayIndex)
+        {
+            var items = array.Select(a => new KeyValuePair<string, IList<StructuredMetadata>>(a.Key, new List<StructuredMetadata> { a.Value })).ToArray();
+            this.internalOpenGraphData.CopyTo(items, arrayIndex);
+        }
+
+        /// <summary>
+        /// Removes the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>Returns false</returns>
+        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public bool Remove(KeyValuePair<string, StructuredMetadata> item)
+        {
+            throw new ReadOnlyDictionaryException();
+        }
+
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns>The enumerator for the key value pairs</returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        public IEnumerator<KeyValuePair<string, StructuredMetadata>> GetEnumerator()
+        {
+            return this.internalOpenGraphData.Select(kvp => new KeyValuePair<string, StructuredMetadata>(kvp.Key, kvp.Value.First())).GetEnumerator();
+        }
+
+        /// <summary>
+        /// Returns an enumerator that iterates through a collection.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+        /// </returns>
+        [Obsolete("Use this.Data instead. This feature will be removed")]
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return ((System.Collections.IEnumerable)this.internalOpenGraphData).GetEnumerator();
         }
 
         /// <summary>
@@ -371,15 +541,14 @@ namespace OpenGraphNet
                 ["&amp;"] = "&",
             };
 
-
             foreach (var key in patterns)
             {
                 value = value.Replace(key.Key, key.Value);
             }
 
             return value;
-
         }
+
         /// <summary>
         /// Gets the open graph key.
         /// </summary>
@@ -389,20 +558,30 @@ namespace OpenGraphNet
         {
             if (metaTag.Attributes.Contains("property"))
             {
-                return CleanOpenGraphKey(metaTag.Attributes["property"].Value);
+                return metaTag.Attributes["property"].Value;
             }
 
-            return CleanOpenGraphKey(metaTag.Attributes["name"].Value);
+            return metaTag.Attributes["name"].Value;
+        }
+
+        private static string GetOpenGraphPrefix(HtmlNode metaTag)
+        {
+            var value = metaTag.Attributes.Contains("property") ? metaTag.Attributes["property"].Value : metaTag.Attributes["name"].Value;
+
+            return value.Split(':')[0];
         }
 
         /// <summary>
         /// Cleans the open graph key.
         /// </summary>
+        /// <param name="prefix">The prefix.</param>
         /// <param name="value">The value.</param>
-        /// <returns>strips the <c>og:</c> namespace from the value</returns>
-        private static string CleanOpenGraphKey(string value)
+        /// <returns>
+        /// strips the namespace prefix from the value
+        /// </returns>
+        private static string CleanOpenGraphKey(string prefix, string value)
         {
-            return value.Replace("og:", string.Empty).ToLower(CultureInfo.InvariantCulture);
+            return value.Replace(string.Concat(prefix, ":"), string.Empty).ToLower(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -420,185 +599,216 @@ namespace OpenGraphNet
             return metaTag.Attributes["content"].Value;
         }
 
-        #region IDictionary<string,string> Members
-
         /// <summary>
-        /// Adds the specified key.
+        /// Initializes the <see cref="OpenGraph" /> class.
         /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public void Add(string key, string value)
+        /// <param name="result">The result.</param>
+        /// <param name="document">The document.</param>
+        private static void ParseNamespaces(OpenGraph result, HtmlDocument document)
         {
-            throw new ReadOnlyDictionaryException();
-        }
+            const string NamespacePattern = @"(\w+):\s?(https?://[^\s]+)";
 
-        /// <summary>
-        /// Determines whether the specified key contains key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified key contains key; otherwise, <c>false</c>.
-        /// </returns>
-        public bool ContainsKey(string key)
-        {
-            return this.openGraphData.ContainsKey(key);
-        }
+            HtmlNode head = document.DocumentNode.SelectSingleNode("//head");
+            HtmlNode html = document.DocumentNode.SelectSingleNode("html");
 
-        /// <summary>
-        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Keys => this.openGraphData.Keys;
-
-        /// <summary>
-        /// Removes the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns><c>false</c></returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public bool Remove(string key)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Tries the get value.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>true if the value was successfully set; otherwise false</returns>
-        public bool TryGetValue(string key, out string value)
-        {
-            return this.openGraphData.TryGetValue(key, out value);
-        }
-
-        /// <summary>
-        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        public ICollection<string> Values => this.openGraphData.Values;
-
-        /// <summary>
-        /// Gets or sets the element with the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns>returns the open graph value at the specified key</returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
-        public string this[string key]
-        {
-            get
+            if (head != null && head.Attributes.Contains("prefix") && Regex.IsMatch(head.Attributes["prefix"].Value, NamespacePattern))
             {
-                if (!this.openGraphData.ContainsKey(key))
+                var matches = Regex.Matches(
+                    head.Attributes["prefix"].Value,
+                    NamespacePattern,
+                    RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Singleline);
+
+                foreach (Match match in matches)
                 {
-                    return string.Empty;
+                    var prefix = match.Groups[1].Value;
+                    if (NamespaceRegistry.Instance.Namespaces.ContainsKey(prefix))
+                    {
+                        result.Namespaces.Add(prefix, NamespaceRegistry.Instance.Namespaces[prefix]);
+                        continue;
+                    }
+
+                    var ns = match.Groups[2].Value;
+                    result.Namespaces.Add(prefix, new Namespace(prefix, ns));
+                }
+            }
+            else if (html != null && html.Attributes.Any(a => a.Name.ToLowerInvariant().StartsWith("xmlns:")))
+            {
+                var namespaces = html.Attributes.Where(a => a.Name.ToLowerInvariant().StartsWith("xmlns:"));
+                foreach (var ns in namespaces)
+                {
+                    var prefix = ns.Name.ToLowerInvariant().Replace("xmlns:", string.Empty);
+                    result.Namespaces.Add(prefix, new Namespace(prefix, ns.Value));
+                }
+            }
+            else
+            {  
+                // append the minimum og: prefix and namespace
+                result.Namespaces.Add("og", NamespaceRegistry.Instance.Namespaces["og"]);
+            }
+        }
+
+        private static bool MatchesNamespacePredicate(string value)
+        {
+            return value.IndexOf(':') >= 0;
+        }
+
+        private static void SetNamespace(OpenGraph graph, string prefix)
+        {
+            if (graph.Namespaces.Any(n => n.Key == prefix.ToLowerInvariant()))
+            {
+                return;
+            }
+
+            if (NamespaceRegistry.Instance.Namespaces.Any(_ => _.Key == prefix.ToLowerInvariant()))
+            {
+                var ns = NamespaceRegistry.Instance.Namespaces.First(_ => _.Key == prefix.ToLowerInvariant());
+                graph.Namespaces.Add(ns.Key, ns.Value);
+            }
+        }
+
+        private static HtmlDocument MakeDocumentToParse(string content)
+        {
+            int indexOfClosingHead = Regex.Match(content, "</head>").Index;
+            string toParse = content.Substring(0, indexOfClosingHead + 7);
+
+            toParse = toParse + "<body></body></html>\r\n";
+
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(toParse);
+
+            return document;
+        }
+
+        /// <summary>
+        /// Parses the HTML.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        /// <param name="content">The content.</param>
+        /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
+        /// <returns><see cref="OpenGraph"/></returns>
+        /// <exception cref="OpenGraphNet.InvalidSpecificationException">The parsed HTML does not meet the open graph specification</exception>
+        private static OpenGraph ParseHtml(OpenGraph result, string content, bool validateSpecification = false)
+        {
+            HtmlDocument document = MakeDocumentToParse(content);
+
+            ParseNamespaces(result, document);
+
+            HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
+
+            var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
+                                    where (meta.Attributes.Contains("property") && MatchesNamespacePredicate(meta.Attributes["property"].Value)) ||
+                                    (meta.Attributes.Contains("name") && MatchesNamespacePredicate(meta.Attributes["name"].Value))
+                                    select meta;
+
+            StructuredMetadata lastElement = null;
+            foreach (HtmlNode metaTag in openGraphMetaTags)
+            {
+                var prefix = GetOpenGraphPrefix(metaTag);
+                SetNamespace(result, prefix);
+                if (!result.Namespaces.ContainsKey(prefix))
+                {
+                    continue;
                 }
 
-                return this.openGraphData[key];
+                string value = GetOpenGraphValue(metaTag);
+                string property = GetOpenGraphKey(metaTag);
+                var cleanProperty = CleanOpenGraphKey(prefix, property);
+
+                value = HtmlDecodeUrl(property, value);
+
+                if (lastElement != null && lastElement.IsMyProperty(property))
+                {
+                    lastElement.AddProperty(cleanProperty, value);
+                }
+                else
+                {
+                    lastElement = new StructuredMetadata(result.Namespaces[prefix], cleanProperty, value);
+                    result.AddMetadata(lastElement);
+                }
             }
 
-            set
+                result.Type = string.Empty;
+            if (result.internalOpenGraphData.TryGetValue("og:type", out var type))
             {
-                throw new ReadOnlyDictionaryException();
+                result.Type = (type.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty;
+            }
+
+            result.Title = string.Empty;
+            if (result.internalOpenGraphData.TryGetValue("og:title", out var title))
+            {
+                result.Title = (title.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty;
+            }
+
+            result.Image = GetUri(result, "og:image");
+            result.Url = GetUri(result, "og:url");
+
+            if (validateSpecification)
+            {
+                ValidateSpecification(result);
+            }
+
+            return result;
+        }
+
+        private static Uri GetUri(OpenGraph result, string property)
+        {
+            result.internalOpenGraphData.TryGetValue(property, out var url);
+
+            try
+            {
+                return new Uri((url.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty);
+            }
+            catch (ArgumentException)
+            {
+                return null;
+            }
+            catch (UriFormatException)
+            {
+                return null;
             }
         }
 
-        #endregion
-
-        #region ICollection<KeyValuePair<string,string>> Members
-
         /// <summary>
-        /// Adds the specified item.
+        /// HTMLs the decode urls.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public void Add(KeyValuePair<string, string> item)
+        /// <param name="property">The property.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>The decoded url value</returns>
+        private static string HtmlDecodeUrl(string property, string value)
         {
-            throw new ReadOnlyDictionaryException();
+            var urlPropertyPatterns = new[] { "image", "url^" };
+            foreach (var urlPropertyPattern in urlPropertyPatterns)
+            {
+                if (Regex.IsMatch(property, urlPropertyPattern))
+                {
+                    return HtmlDecodeUrl(value);
+                }
+            }
+
+            return value;
         }
 
-        /// <summary>
-        /// Clears this instance.
-        /// </summary>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public void Clear()
+        private static void ValidateSpecification(OpenGraph result)
         {
-            throw new ReadOnlyDictionaryException();
+            var prefixes = result.Namespaces.Select(ns => ns.Value.Prefix);
+
+            var namespaces = NamespaceRegistry
+                .Instance
+                .Namespaces
+                .Where(ns => prefixes.Contains(ns.Key) && ns.Value.RequiredElements.Count > 0)
+                .Select(ns => ns.Value)
+                .ToList();
+
+            foreach (var ns in namespaces)
+            {
+                foreach (var required in ns.RequiredElements)
+                {
+                    if (!result.Metadata.ContainsKey(string.Concat(ns.Prefix, ":", required)))
+                    {
+                        throw new InvalidSpecificationException($"The parsed HTML does not meet the open graph specification, missing element: {required}");
+                    }
+                }
+            }
         }
-
-        /// <summary>
-        /// Determines whether [contains] [the specified item].
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>
-        ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
-        /// </returns>
-        public bool Contains(KeyValuePair<string, string> item)
-        {
-            return this.openGraphData.Contains(item);
-        }
-
-        /// <summary>
-        /// Copies to.
-        /// </summary>
-        /// <param name="array">The array.</param>
-        /// <param name="arrayIndex">Index of the array.</param>
-        public void CopyTo(KeyValuePair<string, string>[] array, int arrayIndex)
-        {
-            this.openGraphData.CopyTo(array, arrayIndex);
-        }
-
-        /// <summary>
-        /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
-        /// </summary>
-        /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        public int Count => this.openGraphData.Count;
-
-        /// <summary>
-        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
-        /// </summary>
-        /// <returns>true</returns>
-        public bool IsReadOnly => true;
-
-        /// <summary>
-        /// Removes the specified item.
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>Returns false</returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        public bool Remove(KeyValuePair<string, string> item)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        #endregion
-
-        #region IEnumerable<KeyValuePair<string,string>> Members
-
-        /// <summary>
-        /// Gets the enumerator.
-        /// </summary>
-        /// <returns>The enumerator for the key value pairs</returns>
-        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
-        {
-            return this.openGraphData.GetEnumerator();
-        }
-
-        #endregion
-
-        #region IEnumerable Members
-
-        /// <summary>
-        /// Returns an enumerator that iterates through a collection.
-        /// </summary>
-        /// <returns>
-        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-        /// </returns>
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return ((System.Collections.IEnumerable)this.openGraphData).GetEnumerator();
-        }
-
-        #endregion     
     }
 }
