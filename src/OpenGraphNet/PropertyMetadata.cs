@@ -6,27 +6,27 @@
     /// A property meta element
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
-    public class PropertyMetaElement : Metadata
+    public class PropertyMetadata : Metadata
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyMetaElement"/> class.
+        /// Initializes a new instance of the <see cref="PropertyMetadata"/> class.
         /// </summary>
         /// <param name="parentElement">The parent element.</param>
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public PropertyMetaElement(StructuredMetaElement parentElement, Namespace ns, string name, string value)
+        public PropertyMetadata(StructuredMetadata parentElement, Namespace ns, string name, string value)
             : base(ns, name, value)
         {
             this.ParentElement = parentElement;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropertyMetaElement"/> class.
+        /// Initializes a new instance of the <see cref="PropertyMetadata"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public PropertyMetaElement(string name, string value)
+        public PropertyMetadata(string name, string value)
             : this(null, null, name, value)
         {
         }
@@ -37,7 +37,7 @@
         /// <value>
         /// The parent element.
         /// </value>
-        public StructuredMetaElement ParentElement { get; internal set; }
+        public StructuredMetadata ParentElement { get; internal set; }
 
         /// <summary>
         /// Creates the document.

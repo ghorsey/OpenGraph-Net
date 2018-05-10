@@ -10,7 +10,7 @@
     /// A root structured element
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
-    public class StructuredMetaElement : Metadata
+    public class StructuredMetadata : Metadata
     {
         /// <summary>
         /// The internal properties
@@ -18,12 +18,12 @@
         private readonly Dictionary<string, IList<PropertyMetadata>> internalProperties = new Dictionary<string, IList<PropertyMetadata>>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StructuredMetaElement"/> class.
+        /// Initializes a new instance of the <see cref="StructuredMetadata"/> class.
         /// </summary>
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public StructuredMetaElement(Namespace ns, string name, string value)
+        public StructuredMetadata(Namespace ns, string name, string value)
             : base(ns, name, value)
         {
         }

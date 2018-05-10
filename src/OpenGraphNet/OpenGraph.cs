@@ -15,19 +15,19 @@
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
     /// </summary>
-    public class OpenGraph : IDictionary<string, StructuredMetaElement>
+    public class OpenGraph : IDictionary<string, StructuredMetadata>
     {
         /// <summary>
         /// The open graph data
         /// </summary>
-        private readonly IDictionary<string, IList<StructuredMetaElement>> internalOpenGraphData;
+        private readonly IDictionary<string, IList<StructuredMetadata>> internalOpenGraphData;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
         /// </summary>
         private OpenGraph()
         {
-            this.internalOpenGraphData = new Dictionary<string, IList<StructuredMetaElement>>();
+            this.internalOpenGraphData = new Dictionary<string, IList<StructuredMetadata>>();
             this.Namespaces = new Dictionary<string, Namespace>();
         }
 
@@ -37,7 +37,7 @@
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, IList<StructuredMetaElement>> Metadata => new ReadOnlyDictionary<string, IList<StructuredMetaElement>>(this.internalOpenGraphData);
+        public IDictionary<string, IList<StructuredMetadata>> Metadata => new ReadOnlyDictionary<string, IList<StructuredMetadata>>(this.internalOpenGraphData);
 
         /// <summary>
         /// Gets or sets the namespaces.
@@ -89,7 +89,7 @@
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public ICollection<StructuredMetaElement> Values => this.internalOpenGraphData.Select(kvp => kvp.Value.FirstOrDefault()).ToList();
+        public ICollection<StructuredMetadata> Values => this.internalOpenGraphData.Select(kvp => kvp.Value.FirstOrDefault()).ToList();
 
         /// <summary>
         /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
@@ -152,7 +152,7 @@
         /// <returns>returns the open graph value at the specified key</returns>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public StructuredMetaElement this[string key]
+        public StructuredMetadata this[string key]
         {
             get
             {
@@ -205,39 +205,39 @@
             var ns = NamespaceRegistry.Instance.Namespaces["og"];
 
             graph.Namespaces.Add(ns.Prefix, ns);
-            graph.AddMetadata(new StructuredMetaElement(ns, "title", title));
-            graph.AddMetadata(new StructuredMetaElement(ns, "type", type));
-            graph.AddMetadata(new StructuredMetaElement(ns, "image", image));
-            graph.AddMetadata(new StructuredMetaElement(ns, "url", url));
+            graph.AddMetadata(new StructuredMetadata(ns, "title", title));
+            graph.AddMetadata(new StructuredMetadata(ns, "type", type));
+            graph.AddMetadata(new StructuredMetadata(ns, "image", image));
+            graph.AddMetadata(new StructuredMetadata(ns, "url", url));
 
             if (!string.IsNullOrWhiteSpace(description))
             {
-                graph.AddMetadata(new StructuredMetaElement(ns, "description", description));
+                graph.AddMetadata(new StructuredMetadata(ns, "description", description));
             }
 
             if (!string.IsNullOrWhiteSpace(siteName))
             {
-                graph.AddMetadata(new StructuredMetaElement(ns, "site_name", siteName));
+                graph.AddMetadata(new StructuredMetadata(ns, "site_name", siteName));
             }
 
             if (!string.IsNullOrWhiteSpace(audio))
             {
-                graph.AddMetadata(new StructuredMetaElement(ns, "audio", audio));
+                graph.AddMetadata(new StructuredMetadata(ns, "audio", audio));
             }
 
             if (!string.IsNullOrWhiteSpace(video))
             {
-                graph.AddMetadata(new StructuredMetaElement(ns, "video", video));
+                graph.AddMetadata(new StructuredMetadata(ns, "video", video));
             }
 
             if (!string.IsNullOrWhiteSpace(locale))
             {
-                graph.AddMetadata(new StructuredMetaElement(ns, "locale", locale));
+                graph.AddMetadata(new StructuredMetadata(ns, "locale", locale));
             }
 
             if (!string.IsNullOrWhiteSpace(determiner))
             {
-                graph.AddMetadata(new StructuredMetaElement(ns, "determiner", determiner));
+                graph.AddMetadata(new StructuredMetadata(ns, "determiner", determiner));
             }
 
             if (graph.internalOpenGraphData.ContainsKey("og:locale"))
@@ -245,14 +245,14 @@
                 var localeElement = graph.internalOpenGraphData["og:locale"].First();
                 foreach (var localeAlternate in localeAlternates ?? new List<string>())
                 {
-                    localeElement.AddProperty(new PropertyMetaElement("alternate", localeAlternate));
+                    localeElement.AddProperty(new PropertyMetadata("alternate", localeAlternate));
                 }
             }
             else
             {
                 foreach (var localeAlternate in localeAlternates ?? new List<string>())
                 {
-                    graph.AddMetadata(new StructuredMetaElement(ns, "locale:alternate", localeAlternate));
+                    graph.AddMetadata(new StructuredMetadata(ns, "locale:alternate", localeAlternate));
                 }
             }
 
@@ -337,7 +337,7 @@
         /// Adds the meta element.
         /// </summary>
         /// <param name="element">The element.</param>
-        public void AddMetadata(StructuredMetaElement element)
+        public void AddMetadata(StructuredMetadata element)
         {
             var key = string.Concat(element.Namespace.Prefix, ":", element.Name);
             if (this.internalOpenGraphData.ContainsKey(key))
@@ -346,7 +346,7 @@
             }
             else
             {
-                this.internalOpenGraphData.Add(key, new List<StructuredMetaElement> { element });
+                this.internalOpenGraphData.Add(key, new List<StructuredMetadata> { element });
             }
         }
 
@@ -366,7 +366,7 @@
 
             var ns = NamespaceRegistry.Instance.Namespaces[prefix];
 
-            var metadata = new StructuredMetaElement(ns, name, value);
+            var metadata = new StructuredMetadata(ns, name, value);
             this.AddMetadata(metadata);
         }
 
@@ -397,7 +397,7 @@
         /// <param name="value">The value.</param>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public void Add(string key, StructuredMetaElement value)
+        public void Add(string key, StructuredMetadata value)
         {
             throw new ReadOnlyDictionaryException();
         }
@@ -434,10 +434,10 @@
         /// <param name="value">The value.</param>
         /// <returns>true if the value was successfully set; otherwise false</returns>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public bool TryGetValue(string key, out StructuredMetaElement value)
+        public bool TryGetValue(string key, out StructuredMetadata value)
         {
             var result = this.internalOpenGraphData.TryGetValue(key, out var item);
-            value = (item ?? new List<StructuredMetaElement>()).FirstOrDefault();
+            value = (item ?? new List<StructuredMetadata>()).FirstOrDefault();
             return result;
         }
 
@@ -447,7 +447,7 @@
         /// <param name="item">The item.</param>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public void Add(KeyValuePair<string, StructuredMetaElement> item)
+        public void Add(KeyValuePair<string, StructuredMetadata> item)
         {
             throw new ReadOnlyDictionaryException();
         }
@@ -470,9 +470,9 @@
         ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
         /// </returns>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public bool Contains(KeyValuePair<string, StructuredMetaElement> item)
+        public bool Contains(KeyValuePair<string, StructuredMetadata> item)
         {
-            return this.internalOpenGraphData.Contains(new KeyValuePair<string, IList<StructuredMetaElement>>(item.Key, new List<StructuredMetaElement> { item.Value }));
+            return this.internalOpenGraphData.Contains(new KeyValuePair<string, IList<StructuredMetadata>>(item.Key, new List<StructuredMetadata> { item.Value }));
         }
 
         /// <summary>
@@ -481,9 +481,9 @@
         /// <param name="array">The array.</param>
         /// <param name="arrayIndex">Index of the array.</param>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public void CopyTo(KeyValuePair<string, StructuredMetaElement>[] array, int arrayIndex)
+        public void CopyTo(KeyValuePair<string, StructuredMetadata>[] array, int arrayIndex)
         {
-            var items = array.Select(a => new KeyValuePair<string, IList<StructuredMetaElement>>(a.Key, new List<StructuredMetaElement> { a.Value })).ToArray();
+            var items = array.Select(a => new KeyValuePair<string, IList<StructuredMetadata>>(a.Key, new List<StructuredMetadata> { a.Value })).ToArray();
             this.internalOpenGraphData.CopyTo(items, arrayIndex);
         }
 
@@ -494,7 +494,7 @@
         /// <returns>Returns false</returns>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public bool Remove(KeyValuePair<string, StructuredMetaElement> item)
+        public bool Remove(KeyValuePair<string, StructuredMetadata> item)
         {
             throw new ReadOnlyDictionaryException();
         }
@@ -504,9 +504,9 @@
         /// </summary>
         /// <returns>The enumerator for the key value pairs</returns>
         [Obsolete("Use this.Data instead. This feature will be removed")]
-        public IEnumerator<KeyValuePair<string, StructuredMetaElement>> GetEnumerator()
+        public IEnumerator<KeyValuePair<string, StructuredMetadata>> GetEnumerator()
         {
-            return this.internalOpenGraphData.Select(kvp => new KeyValuePair<string, StructuredMetaElement>(kvp.Key, kvp.Value.First())).GetEnumerator();
+            return this.internalOpenGraphData.Select(kvp => new KeyValuePair<string, StructuredMetadata>(kvp.Key, kvp.Value.First())).GetEnumerator();
         }
 
         /// <summary>
@@ -698,7 +698,7 @@
                                     (meta.Attributes.Contains("name") && MatchesNamespacePredicate(meta.Attributes["name"].Value))
                                     select meta;
 
-            StructuredMetaElement lastElement = null;
+            StructuredMetadata lastElement = null;
             foreach (HtmlNode metaTag in openGraphMetaTags)
             {
                 var prefix = GetOpenGraphPrefix(metaTag);
@@ -720,7 +720,7 @@
                 }
                 else
                 {
-                    lastElement = new StructuredMetaElement(result.Namespaces[prefix], cleanProperty, value);
+                    lastElement = new StructuredMetadata(result.Namespaces[prefix], cleanProperty, value);
                     result.AddMetadata(lastElement);
                 }
             }

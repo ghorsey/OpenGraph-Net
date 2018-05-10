@@ -4,7 +4,7 @@
     /// Represents a null <see cref="Metadata"/>
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
-    public sealed class NullMetadata : StructuredMetaElement
+    public sealed class NullMetadata : StructuredMetadata
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NullMetadata"/> class.
