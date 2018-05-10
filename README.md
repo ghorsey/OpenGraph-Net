@@ -169,7 +169,7 @@ Would produce the following:
 
 Writing out OpenGraph Metadata to the `head` tag
 -------------------------------------------------
-Below is a complete version to write out a graph from to a page:
+Below is a complete example to write out a OpenGraph metadata to a page:
 
     @{
         var graph = OpenGraph.MakeGraph(
