@@ -52,7 +52,7 @@ The four required Open Graph properties for all pages are available as direct pr
 
 * `graph.Type` is a shortcut for `graph.Metadata["og:type"].Value()`
 * `graph.Title` is a shortcut for `graph.Metadata["og:title"].Value()`
-* `graph.Image` is a shortcut for `graph.Metadata["og:image"].Value()` *Note: since there can be multiple images, this helper returns the URI of the first image.  If you want to access child properties like `og:image:width` then you should instead use the `graph.Data` dictionary.*
+* `graph.Image` is a shortcut for `graph.Metadata["og:image"].Value()` *Note: since there can be multiple images, this helper returns the URI of the first image.  If you want to access child properties like `og:image:width` then you should instead use the `graph.Metadata` dictionary.*
 * `graph.Url` is a shortcut for `graph.Metadata["og:url"].Value()`
 
 **Misc** 
@@ -109,8 +109,8 @@ document, OpenGraph.Net will now read and use those namespaces from either the `
 * restaurant: http://ogp.me/ns/restaurant#
 * video: http://ogp.me/ns/video#"
 
-If there are any additional standard/supported namespaces that I am misssing, please shoot me
-a comment or a pull request with the missing items.
+*If there are any additional standard/supported namespaces that I am misssing, please shoot me
+a comment or a pull request with the missing items.**
 
 **Adding Custom Namespaces**
 
@@ -126,7 +126,7 @@ Dosing the above will allow the parser to understand the following HTML snippet:
     <meta property="gah:brain" content="http://www.geoffhorsey.com/my-brain">
     <meta property="gah:brain:size" content="tiny">
 
-into the graph:
+and the graph:
 
     graph.Metadata["gah:brain"].Value() // "http://www.geoffhorsey.com/my-brain"
     graph.Metadata["gah:brain"].First().Properties["size"].Value() // "tiny"
