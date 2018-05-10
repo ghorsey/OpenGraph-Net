@@ -156,6 +156,10 @@
             Assert.Equal("2", graph.Data["music:song"][1].Properties["track"].First().Value);
             Assert.Equal("AD", graph.Data["og:restrictions:country:allowed"][0].Value);
             Assert.Equal("AR", graph.Data["og:restrictions:country:allowed"][1].Value);
+
+            Assert.Equal(@"<meta property=""og:title"" content=""Programming Jams, a playlist by Jefe on Spotify""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.playlist""><meta property=""music:creator"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe""><meta property=""music:song_count"" content=""1020""><meta property=""music:song"" content=""https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/4yVfG04odefa7JanoF5r86""><meta property=""music:song:track"" content=""2""><meta property=""og:restrictions:country:allowed"" content=""AD""><meta property=""og:restrictions:country:allowed"" content=""AR"">", graph.ToString());
+            Assert.Equal("og: http://ogp.me/ns# music: http://ogp.me/ns/music#", graph.HeadPrefixAttributeValue);
+            Assert.Equal("xmlns:og=\"http://ogp.me/ns#\" xmlns:music=\"http://ogp.me/ns/music#\"", graph.HtmlXmlnsValues);
         }
 
         /// <summary>
@@ -173,7 +177,7 @@
             var graph = OpenGraph.MakeGraph(title, type, image, url, description, siteName);
 
             Assert.Equal("og", graph.Namespaces.First().Value.Prefix);
-            Assert.Equal("http://opg.me/ns#", graph.Namespaces.First().Value.SchemaUri.ToString());
+            Assert.Equal("http://ogp.me/ns#", graph.Namespaces.First().Value.SchemaUri.ToString());
             
             Assert.Equal(title, graph.Title);
             Assert.Equal(type, graph.Type);
@@ -203,7 +207,7 @@
 
             Assert.Equal(2, graph.Namespaces.Count);
             Assert.Equal("og", graph.Namespaces["og"].Prefix);
-            Assert.Equal("http://opg.me/ns#", graph.Namespaces["og"].SchemaUri.ToString());
+            Assert.Equal("http://ogp.me/ns#", graph.Namespaces["og"].SchemaUri.ToString());
             Assert.Equal("product", graph.Namespaces["product"].Prefix);
             Assert.Equal("http://ogp.me/ns/product#", graph.Namespaces["product"].SchemaUri.ToString());
 
@@ -227,7 +231,7 @@
 
             Assert.Equal(1, graph.Namespaces.Count);
             Assert.Equal("og", graph.Namespaces["og"].Prefix);
-            Assert.Equal("http://opg.me/ns#", graph.Namespaces["og"].SchemaUri.ToString());
+            Assert.Equal("http://ogp.me/ns#", graph.Namespaces["og"].SchemaUri.ToString());
             Assert.Equal("product", graph.Type);
             Assert.Equal("Product Title", graph.Title);
             Assert.Null(graph.Image);

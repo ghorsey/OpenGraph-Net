@@ -23,7 +23,7 @@ namespace OpenGraphNet.Namespaces
         {
             this.InternalNamespaces = new Dictionary<string, RegistryNamespace>
                                           {
-                                              { "og", new RegistryNamespace("og", "http://opg.me/ns#", "title", "type", "image", "url") },
+                                              { "og", new RegistryNamespace("og", "http://ogp.me/ns#", "title", "type", "image", "url") },
                                               { "article", new RegistryNamespace("article", "http://ogp.me/ns/article#") },
                                               { "book", new RegistryNamespace("book", "http://ogp.me/ns/book#") },
                                               { "books", new RegistryNamespace("books", "http://ogp.me/ns/books#") },

@@ -5,6 +5,7 @@
     using System.Collections.ObjectModel;
     using System.Globalization;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
@@ -103,6 +104,46 @@
         /// <returns>true</returns>
         [Obsolete("Use this.Data instead. This feature will be removed")]
         public bool IsReadOnly => true;
+
+        /// <summary>
+        /// Gets the head prefix attribute value.
+        /// </summary>
+        /// <value>
+        /// The head prefix attribute value.
+        /// </value>
+        public string HeadPrefixAttributeValue 
+        {
+            get
+            {
+                var sb = new StringBuilder();
+                foreach (var ns in this.Namespaces)
+                {
+                    sb.AppendFormat(" {0}", ns.Value.ToString());
+                }
+
+                return sb.ToString().Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets the HTML XML namespace values.
+        /// </summary>
+        /// <value>
+        /// The HTML XML namespace values.
+        /// </value>
+        public string HtmlXmlnsValues
+        {
+            get
+            {
+                var sb = new StringBuilder();
+                foreach (var ns in this.Namespaces)
+                {
+                    sb.AppendFormat(" xmlns:{0}=\"{1}\"", ns.Value.Prefix, ns.Value.SchemaUri.ToString());
+                }
+
+                return sb.ToString().Trim();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the element with the specified key.
@@ -309,13 +350,14 @@
             }
         }
 
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
-        public override string ToString()
+
+    /// <summary>
+    /// Returns a <see cref="System.String" /> that represents this instance.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="System.String" /> that represents this instance.
+    /// </returns>
+    public override string ToString()
         {
             var doc = new HtmlDocument();
 
