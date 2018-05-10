@@ -20,6 +20,11 @@
     <PackageReleaseNotes>Added netstandard2.0 support</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
     <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
+    <FileVersion>2.1.0.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>

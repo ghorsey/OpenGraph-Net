@@ -1,5 +1,4 @@
-﻿
-namespace OpenGraphNet
+﻿namespace OpenGraphNet
 {
     using System;
     using System.IO;
@@ -9,18 +8,41 @@ namespace OpenGraphNet
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
-    // 
     /// <summary>
     /// Http Downloader
     /// </summary>
     /// <remarks>
-    /// http://stackoverflow.com/a/2700707
+    /// Taken from http://stackoverflow.com/a/2700707
     /// </remarks>
     public class HttpDownloader
     {
-        private readonly string referer;
+        private readonly string referrer;
         private readonly string userAgent;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="referrer">The referrer.</param>
+        /// <param name="userAgent">The user agent.</param>
+        public HttpDownloader(Uri url, string referrer, string userAgent)
+        {
+            this.Encoding = Encoding.GetEncoding("ISO-8859-1");
+            this.Url = url;
+            this.userAgent = userAgent;
+            this.referrer = referrer;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="referrer">The referrer.</param>
+        /// <param name="userAgent">The user agent.</param>
+        public HttpDownloader(string url, string referrer, string userAgent) : this(new Uri(url), referrer, userAgent)
+        {
+        }
+        
         /// <summary>
         /// Gets or sets the encoding.
         /// </summary>
@@ -46,45 +68,23 @@ namespace OpenGraphNet
         public Uri Url { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
-        /// </summary>
-        /// <param name="url">The URL.</param>
-        /// <param name="referer">The referer.</param>
-        /// <param name="userAgent">The user agent.</param>
-        public HttpDownloader(Uri url, string referer, string userAgent)
-        {
-            this.Encoding = Encoding.GetEncoding("ISO-8859-1");
-            this.Url = url;
-            this.userAgent = userAgent;
-            this.referer = referer;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
-        /// </summary>
-        /// <param name="url">The URL.</param>
-        /// <param name="referer">The referer.</param>
-        /// <param name="userAgent">The user agent.</param>
-        public HttpDownloader(string url, string referer, string userAgent) : this(new Uri(url), referer, userAgent)
-        {
-        }
-
-        /// <summary>
         /// Gets the page.
         /// </summary>
         /// <returns>The content of the page</returns>
         public string GetPage()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
-            if (!string.IsNullOrEmpty(this.referer))
+            if (!string.IsNullOrEmpty(this.referrer))
             {
-                request.Referer = this.referer;
+                request.Referer = this.referrer;
             }
+
             if (!string.IsNullOrEmpty(this.userAgent))
             {
                 request.UserAgent = this.userAgent;
             }
 
+            // ReSharper disable once StringLiteralTypo
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -96,7 +96,7 @@ namespace OpenGraphNet
         }
 
         /// <summary>
-        /// Gets the page asynchronosly
+        /// Gets the page asynchronously
         /// </summary>
         /// <returns>
         /// The content of the page
@@ -104,15 +104,17 @@ namespace OpenGraphNet
         public async Task<string> GetPageAsync()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
-            if (!string.IsNullOrEmpty(this.referer))
+            if (!string.IsNullOrEmpty(this.referrer))
             {
-                request.Referer = this.referer;
+                request.Referer = this.referrer;
             }
+
             if (!string.IsNullOrEmpty(this.userAgent))
             {
                 request.UserAgent = this.userAgent;
             }
 
+            // ReSharper disable once StringLiteralTypo
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
             using (HttpWebResponse response = (HttpWebResponse)(await request.GetResponseAsync()))
@@ -122,11 +124,13 @@ namespace OpenGraphNet
                 return this.ProcessContent(response);
             }
         }
+
         /// <summary>
         /// Processes the content.
         /// </summary>
         /// <param name="response">The response.</param>
-        /// <returns></returns>
+        /// <returns>The HTML content</returns>
+        /// <exception cref="InvalidOperationException">Response stream came back as null</exception>
         private string ProcessContent(HttpWebResponse response)
         {
             this.SetEncodingFromHeader(response);
@@ -138,6 +142,7 @@ namespace OpenGraphNet
                 throw new InvalidOperationException("Response stream came back as null");
             }
 
+            // ReSharper disable once StringLiteralTypo
             if (response.ContentEncoding.ToLower().Contains("gzip"))
             {
                 s = new GZipStream(s, CompressionMode.Decompress);
@@ -154,6 +159,7 @@ namespace OpenGraphNet
             {
                 memStream.Write(buffer, 0, bytesRead);
             }
+
             s.Close();
             string html;
             memStream.Position = 0;
@@ -185,6 +191,7 @@ namespace OpenGraphNet
             {
                 charset = response.CharacterSet;
             }
+
             if (!string.IsNullOrEmpty(charset))
             {
                 try
@@ -204,11 +211,10 @@ namespace OpenGraphNet
         /// </summary>
         /// <param name="memStream">The memory stream.</param>
         /// <param name="html">The HTML.</param>
-        /// <returns></returns>
+        /// <returns>The HTML content</returns>
         private string CheckMetaCharSetAndReEncode(Stream memStream, string html)
         {
             Match m = new Regex(@"<meta\s+.*?charset\s*=\s*?""?(?<charset>[A-Za-z0-9_-]+?)""", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
-            ////Match m = new Regex(@"<meta\s+.*?charset\s*=\s*(?<charset>[A-Za-z0-9_-]+)", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
             if (m.Success)
             {
                 string charset = m.Groups["charset"].Value.ToLower();
