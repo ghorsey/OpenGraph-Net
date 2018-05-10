@@ -143,7 +143,7 @@
         ////    var graph = OpenGraph.ParseHtml(SpotifyPlaylistContent);
 
         ////    Assert.Equal("Programming Jams, a playlist by Jefe on Spotify", graph.Title);
-        ////    Assert.Equal(string.Empty, graph.Data["description"].First().Value);
+        ////    Assert.Equal(string.Empty, graph.Data["og:description"].First().Value);
         ////    Assert.Equal("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3", graph.Url.ToString());
         ////    Assert.Null(graph.Image);
         ////    Assert.Equal("music.playlist", graph.Type);

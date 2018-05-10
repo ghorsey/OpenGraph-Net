@@ -22,17 +22,11 @@
         private readonly IDictionary<string, IList<StructuredMetaElement>> internalOpenGraphData;
 
         /// <summary>
-        /// The local alternatives
-        /// </summary>
-        private IList<string> localAlternatives;
-
-        /// <summary>
         /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
         /// </summary>
         private OpenGraph()
         {
             this.internalOpenGraphData = new Dictionary<string, IList<StructuredMetaElement>>();
-            this.localAlternatives = new List<string>();
             this.Namespaces = new Dictionary<string, Namespace>();
         }
 
@@ -125,8 +119,10 @@
                 {
                     key = "og:" + key;
                 }
+
                 return !this.internalOpenGraphData.ContainsKey(key) ? new NullMetaElement() : this.internalOpenGraphData[key].First();
             }
+
             set => throw new ReadOnlyDictionaryException();
         }
 
@@ -142,7 +138,7 @@
         /// <param name="audio">The audio.</param>
         /// <param name="video">The video.</param>
         /// <param name="locale">The locale.</param>
-        /// <param name="localeAlternate">The locale alternate.</param>
+        /// <param name="localeAlternates">The locale alternates.</param>
         /// <param name="determiner">The determiner.</param>
         /// <returns><see cref="OpenGraph"/></returns>
         public static OpenGraph MakeGraph(
@@ -155,7 +151,7 @@
             string audio = "",
             string video = "",
             string locale = "",
-            IList<string> localeAlternate = null,
+            IList<string> localeAlternates = null,
             string determiner = "")
         {
             var graph = new OpenGraph
@@ -166,45 +162,57 @@
                 Url = new Uri(url, UriKind.Absolute),
             };
             var ns = NamespaceRegistry.Instance.Namespaces["og"];
+
             graph.Namespaces.Add(ns.Prefix, ns);
-            graph.internalOpenGraphData.Add("og:title", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "title", title) });
-            graph.internalOpenGraphData.Add("og:type", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "type", type) });
-            graph.internalOpenGraphData.Add("og:image", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "image", image) });
-            graph.internalOpenGraphData.Add("og:url", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "url", url) });
+            graph.AddMetaElement(new StructuredMetaElement(ns, "title", title));
+            graph.AddMetaElement(new StructuredMetaElement(ns, "type", type));
+            graph.AddMetaElement(new StructuredMetaElement(ns, "image", image));
+            graph.AddMetaElement(new StructuredMetaElement(ns, "url", url));
 
             if (!string.IsNullOrWhiteSpace(description))
             {
-                graph.internalOpenGraphData.Add("og:description", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "description", description) });
+                graph.AddMetaElement(new StructuredMetaElement(ns, "description", description));
             }
 
             if (!string.IsNullOrWhiteSpace(siteName))
             {
-                graph.internalOpenGraphData.Add("og:site_name", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "site_name", siteName) });
+                graph.AddMetaElement(new StructuredMetaElement(ns, "site_name", siteName));
             }
 
             if (!string.IsNullOrWhiteSpace(audio))
             {
-                graph.internalOpenGraphData.Add("og:audio", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "audio", audio) });
+                graph.AddMetaElement(new StructuredMetaElement(ns, "audio", audio));
             }
 
             if (!string.IsNullOrWhiteSpace(video))
             {
-                graph.internalOpenGraphData.Add("og:video", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "video", video) });
+                graph.AddMetaElement(new StructuredMetaElement(ns, "video", video));
             }
 
             if (!string.IsNullOrWhiteSpace(locale))
             {
-                graph.internalOpenGraphData.Add("og:locale", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "locale", locale) });
+                graph.AddMetaElement(new StructuredMetaElement(ns, "locale", locale));
             }
 
             if (!string.IsNullOrWhiteSpace(determiner))
             {
-                graph.internalOpenGraphData.Add("og:determiner", new List<StructuredMetaElement> { new StructuredMetaElement(ns, "determiner", determiner) });
+                graph.AddMetaElement(new StructuredMetaElement(ns, "determiner", determiner));
             }
 
-            if (localeAlternate != null)
+            if (graph.internalOpenGraphData.ContainsKey("og:locale"))
             {
-                graph.localAlternatives = localeAlternate;
+                var localeElement = graph.internalOpenGraphData["og:locale"].First();
+                foreach (var localeAlternate in localeAlternates ?? new List<string>())
+                {
+                    localeElement.AddProperty(new PropertyMetaElement("alternate", localeAlternate));
+                }
+            }
+            else
+            {
+                foreach (var localeAlternate in localeAlternates ?? new List<string>())
+                {
+                    graph.AddMetaElement(new StructuredMetaElement(ns, "locale:alternate", localeAlternate));
+                }
             }
 
             return graph;
@@ -316,15 +324,6 @@
             foreach (var structuredMetaElement in elements)
             {
                 doc.DocumentNode.AppendChild(structuredMetaElement.CreateDocument().DocumentNode);
-            }
-
-            // todo: remove this local alternatives.. crap.
-            foreach (var itm in this.localAlternatives)
-            {
-                var meta = doc.CreateElement("meta");
-                meta.Attributes.Add("property", "og:locale:alternate");
-                meta.Attributes.Add("content", itm);
-                doc.DocumentNode.AppendChild(meta);
             }
 
             return doc.DocumentNode.InnerHtml;
@@ -654,9 +653,15 @@
 
                 value = HtmlDecodeUrl(property, value);
 
-                var propertyParts = property.Split(':');
-                lastElement = new StructuredMetaElement(result.Namespaces[prefix], cleanProperty, value);
-                result.AddMetaElement(lastElement);
+                ////if (lastElement != null && lastElement.IsMyProperty(property))
+                ////{
+                ////    lastElement.AddProperty(cleanProperty, value);
+                ////}
+                ////else
+                ////{
+                    lastElement = new StructuredMetaElement(result.Namespaces[prefix], cleanProperty, value);
+                    result.AddMetaElement(lastElement);
+                ////}
             }
 
             result.Type = string.Empty;
