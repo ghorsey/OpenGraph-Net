@@ -134,29 +134,29 @@
 </body>
 </html>";
 
-        /////// <summary>
-        /////// Tests the parsing spotify playlist.
-        /////// </summary>
-        ////[Fact]
-        ////public void TestParsingSpotifyPlaylist()
-        ////{
-        ////    var graph = OpenGraph.ParseHtml(SpotifyPlaylistContent);
+        /// <summary>
+        /// Tests the parsing spotify playlist.
+        /// </summary>
+        [Fact]
+        public void TestParsingSpotifyPlaylist()
+        {
+            var graph = OpenGraph.ParseHtml(SpotifyPlaylistContent);
 
-        ////    Assert.Equal("Programming Jams, a playlist by Jefe on Spotify", graph.Title);
-        ////    Assert.Equal(string.Empty, graph.Data["og:description"].First().Value);
-        ////    Assert.Equal("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3", graph.Url.ToString());
-        ////    Assert.Null(graph.Image);
-        ////    Assert.Equal("music.playlist", graph.Type);
-        ////    Assert.Equal("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe", graph.Data["music:creator"].First().Value);
-        ////    Assert.Equal("1020", graph.Data["music:song_count"].First().Value);
-        ////    Assert.Equal(2, graph.Data["music:song"].Count);
-        ////    Assert.Equal("https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a", graph.Data["music:song"][0].Value);
-        ////    Assert.Equal("1", graph.Data["music:song"][0].Properties["track"].First().Value);
-        ////    Assert.Equal("https://open.spotify.com/track/4yVfG04odefa7JanoF5r86", graph.Data["music:song"][1].Value);
-        ////    Assert.Equal("2", graph.Data["music:song"][1].Properties["track"].First().Value);
-        ////    Assert.Equal("AD", graph.Data["restrictions:country:allowed"][0].Value);
-        ////    Assert.Equal("AR", graph.Data["restrictions:country:allowed"][1].Value);
-        ////}
+            Assert.Equal("Programming Jams, a playlist by Jefe on Spotify", graph.Title);
+            Assert.Equal(string.Empty, graph.Data["og:description"].First().Value);
+            Assert.Equal("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3", graph.Url.ToString());
+            Assert.Null(graph.Image);
+            Assert.Equal("music.playlist", graph.Type);
+            Assert.Equal("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe", graph.Data["music:creator"].First().Value);
+            Assert.Equal("1020", graph.Data["music:song_count"].First().Value);
+            Assert.Equal(2, graph.Data["music:song"].Count);
+            Assert.Equal("https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a", graph.Data["music:song"][0].Value);
+            Assert.Equal("1", graph.Data["music:song"][0].Properties["track"].First().Value);
+            Assert.Equal("https://open.spotify.com/track/4yVfG04odefa7JanoF5r86", graph.Data["music:song"][1].Value);
+            Assert.Equal("2", graph.Data["music:song"][1].Properties["track"].First().Value);
+            Assert.Equal("AD", graph.Data["og:restrictions:country:allowed"][0].Value);
+            Assert.Equal("AR", graph.Data["og:restrictions:country:allowed"][1].Value);
+        }
 
         /// <summary>
         /// Tests calling <c>MakeOpenGraph</c> method

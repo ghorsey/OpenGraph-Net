@@ -15,7 +15,7 @@
         /// <summary>
         /// The internal properties
         /// </summary>
-        private Dictionary<string, IList<PropertyMetaElement>> internalProperties = new Dictionary<string, IList<PropertyMetaElement>>();
+        private readonly Dictionary<string, IList<PropertyMetaElement>> internalProperties = new Dictionary<string, IList<PropertyMetaElement>>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StructuredMetaElement"/> class.
@@ -39,6 +39,19 @@
         /// <summary>
         /// Adds the property.
         /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        public void AddProperty(string name, string value)
+        {
+            name = name.Replace(this.Namespace + ":", string.Empty);
+            name = name.Replace(this.Name + ":", string.Empty);
+            var propertyElement = new PropertyMetaElement(this, this.Namespace, name, value);
+            this.AddProperty(propertyElement);
+        }
+
+        /// <summary>
+        /// Adds the property.
+        /// </summary>
         /// <param name="element">The element.</param>
         public void AddProperty(PropertyMetaElement element)
         {
@@ -53,6 +66,19 @@
             {
                 this.internalProperties.Add(element.Name, new List<PropertyMetaElement>() { element });
             }
+        }
+
+        /// <summary>
+        /// Determines whether the specified property key is a property of this element.
+        /// </summary>
+        /// <param name="propertyKey">The property key.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified property key is a child property of this element; otherwise, <c>false</c>.
+        /// </returns>
+        public bool IsMyProperty(string propertyKey)
+        {
+            var myKey = string.Concat(this.Namespace.Prefix, ":", this.Name);
+            return propertyKey.ToLowerInvariant().StartsWith(myKey) && propertyKey.ToLowerInvariant() != myKey;
         }
 
         /// <summary>

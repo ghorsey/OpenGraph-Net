@@ -653,18 +653,18 @@
 
                 value = HtmlDecodeUrl(property, value);
 
-                ////if (lastElement != null && lastElement.IsMyProperty(property))
-                ////{
-                ////    lastElement.AddProperty(cleanProperty, value);
-                ////}
-                ////else
-                ////{
+                if (lastElement != null && lastElement.IsMyProperty(property))
+                {
+                    lastElement.AddProperty(cleanProperty, value);
+                }
+                else
+                {
                     lastElement = new StructuredMetaElement(result.Namespaces[prefix], cleanProperty, value);
                     result.AddMetaElement(lastElement);
-                ////}
+                }
             }
 
-            result.Type = string.Empty;
+                result.Type = string.Empty;
             if (result.internalOpenGraphData.TryGetValue("og:type", out var type))
             {
                 result.Type = (type.FirstOrDefault() ?? new NullMetaElement()).Value ?? string.Empty;
