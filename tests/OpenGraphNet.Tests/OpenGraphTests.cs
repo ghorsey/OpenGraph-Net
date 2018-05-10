@@ -6,6 +6,7 @@ namespace OpenGraphNet.Tests
     using System.Threading.Tasks;
 
     using OpenGraphNet;
+    using OpenGraphNet.Namespaces;
 
     using Xunit;
 
@@ -86,6 +87,7 @@ namespace OpenGraphNet.Tests
     <meta propErty=""og:uRl"" content=""http://www.test.com"" />
     <meta property=""og:description"" content=""My Description""/>
     <meta property=""og:site_Name"" content=""Test Site"">
+    <meta property=""gah:pea_brain:size"" content=""small"">
 </head>
 <body>
 </body>
@@ -229,13 +231,16 @@ namespace OpenGraphNet.Tests
         [Fact]
         public void TestParsingHtmlValidGraphParsingTest()
         {
+            NamespaceRegistry.Instance.AddNamespace("gah", "http://www.geoffhorsey.com/ogp/pea_brain#", "pea_brain:size");
             OpenGraph graph = OpenGraph.ParseHtml(this.validSampleContent, true);
 
-            Assert.Equal(2, graph.Namespaces.Count);
+            Assert.Equal(3, graph.Namespaces.Count);
             Assert.Equal("og", graph.Namespaces["og"].Prefix);
             Assert.Equal("http://ogp.me/ns#", graph.Namespaces["og"].SchemaUri.ToString());
             Assert.Equal("product", graph.Namespaces["product"].Prefix);
             Assert.Equal("http://ogp.me/ns/product#", graph.Namespaces["product"].SchemaUri.ToString());
+            Assert.Equal("gah", graph.Namespaces["gah"].Prefix);
+            Assert.Equal("http://www.geoffhorsey.com/ogp/pea_brain#", graph.Namespaces["gah"].SchemaUri.ToString());
 
             Assert.Equal("product", graph.Type);
             Assert.Equal("Product Title", graph.Title);
@@ -245,6 +250,8 @@ namespace OpenGraphNet.Tests
             Assert.Equal("My Description", graph["description"]);
             Assert.Equal("Test Site", graph.Data["og:site_name"].First().Value);
             Assert.Equal("Test Site", graph["og:site_name"]);
+            Assert.Equal("small", graph.Data["gah:pea_brain:size"].First().Value);
+            NamespaceRegistry.Instance.RemoveNamespace("gah");
         }
 
         /// <summary>

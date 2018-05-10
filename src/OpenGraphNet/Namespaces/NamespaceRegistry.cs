@@ -78,5 +78,25 @@ namespace OpenGraphNet.Namespaces
         /// The schemas.
         /// </value>
         private IDictionary<string, RegistryNamespace> InternalNamespaces { get; }
+
+        /// <summary>
+        /// Adds the namespace.
+        /// </summary>
+        /// <param name="prefix">The prefix.</param>
+        /// <param name="schemaUri">The schema URI.</param>
+        /// <param name="requiredElements">The required elements.</param>
+        public void AddNamespace(string prefix, string schemaUri, params string[] requiredElements)
+        {
+            this.InternalNamespaces.Add(prefix, new RegistryNamespace(prefix, schemaUri, requiredElements));
+        }
+
+        /// <summary>
+        /// Removes the namespace.
+        /// </summary>
+        /// <param name="prefix">The prefix.</param>
+        public void RemoveNamespace(string prefix)
+        {
+            this.InternalNamespaces.Remove(prefix);
+        }
     }
 }
