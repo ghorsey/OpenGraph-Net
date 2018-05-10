@@ -23,7 +23,8 @@
         /// </summary>
         /// <param name="prefix">The prefix.</param>
         /// <param name="schemaUri">The schema URI.</param>
-        public Namespace(string prefix, string schemaUri) : this(prefix, new Uri(schemaUri, UriKind.RelativeOrAbsolute))
+        public Namespace(string prefix, string schemaUri)
+            : this(prefix, new Uri(schemaUri, UriKind.RelativeOrAbsolute))
         {
         }
 
