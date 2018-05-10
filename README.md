@@ -52,7 +52,10 @@ The four required Open Graph properties for all pages are available as direct pr
 
 * `graph.Type` is a shortcut for `graph.Metadata["og:type"].Value()`
 * `graph.Title` is a shortcut for `graph.Metadata["og:title"].Value()`
-* `graph.Image` is a shortcut for `graph.Metadata["og:image"].Value()` *Note: since there can be multiple images, this helper returns the URI of the first image.  If you want to access child properties like `og:image:width` then you should instead use the `graph.Metadata` dictionary.*
+* `graph.Image` is a shortcut for `graph.Metadata["og:image"].Value()` 
+*Note: since there can be multiple images, this helper returns the URI of the 
+first image.  If you want to access images or child properties like `og:image:width` then you 
+should instead use the `graph.Metadata` dictionary.*
 * `graph.Url` is a shortcut for `graph.Metadata["og:url"].Value()`
 
 **Misc** 
@@ -62,7 +65,7 @@ The original url used to generate the OpenGraph data is available from the `Orig
 
 Creating OpenGraph Data
 -----------------------
-The following code:
+To create OpenGraph data in memory use the following code:
 
     var graph = OpenGraph.MakeGraph(
         title: "My Title", 
@@ -92,7 +95,8 @@ Parsing Namespaces
 ------------------
 The component now knows about the 13 namespaces listed below.  When parsing a url or a HTML
 document, OpenGraph.Net will now read and use those namespaces from either the `<html>` or
-`<head>` tags.
+`<head>` tags.  The parser is now smart enough to include the namespaces when none are
+included in those tags by extracting it from the `meta[property]` value directly.
 
 * og: http://ogp.me/ns#
   *  Expected fields when validating: `title`, `type`, `image`, `url`
@@ -110,7 +114,7 @@ document, OpenGraph.Net will now read and use those namespaces from either the `
 * video: http://ogp.me/ns/video#"
 
 *If there are any additional standard/supported namespaces that I am misssing, please shoot me
-a comment or a pull request with the missing items.**
+a comment or a pull request with the missing items.*
 
 **Adding Custom Namespaces**
 
@@ -142,7 +146,7 @@ write the namespaces in the `html` as `xmlns` attributes or withing the `head` t
 * `<html xmlns:og="http://ogp.me/ns#" xmlns:product="http://ogp.me/ns/product#">`
 * `<head prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">`
 
-**XMLNS version in the `html` tag**
+**`xmlns:` version in the `html` tag**
 
 To create the `html` version in an cshtml page after creating a new `graph`, use the following code:
 
@@ -152,7 +156,7 @@ Would produce the following:
 
     <html xmlns:og="http://ogp.me/ns#" xmlns:product="http://ogp.me/ns/product#">
 
-**Prefix version in the `<head>` tag**
+**`prefix` version in the `<head>` tag**
 
 To create the `head` version in a cshtml page, after create a new `graph`, use the following code:
 
@@ -162,3 +166,41 @@ Would produce the following:
 
     <head prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
  
+
+Writing out OpenGraph Metadata to the `head` tag
+-------------------------------------------------
+Below is a complete version to write out a graph from to a page:
+
+    @{
+        var graph = OpenGraph.MakeGraph(
+            title: "My Title", 
+            type: "website", 
+            image: "http://example.com/img/img1.png", 
+            url: "http://example.com/home", 
+            description: "My Description", 
+            siteName: "Example.com");
+    }
+    <html>
+    <head prefix="@graph.HeadPrefixAttributeValue">
+        @graph.ToString()
+    </head>
+    <body>
+        <!-- Your awesome page! -->
+    </body>
+    </html>
+
+will produce the following HTML:
+
+    <html>
+    <head prefix="og: http://ogp.me/ns#">
+        <meta property="og:title" content="My Title">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="http://example.com/img/img1.png">
+        <meta property="og:url" content="http://example.com/home">
+        <meta property="og:description" content="My Description">
+        <meta property="og:site_name" content="Example.com">
+    </head>
+    <body>
+        <!-- Your awesome page! -->
+    </body>
+    </html>
