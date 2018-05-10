@@ -73,7 +73,7 @@ The following code:
         siteName: "Example.com");
     graph.AddMetadata("og", "image", "http://example.com/img/img2.png");
 	graph.Metadata["og:image"][0].AddProperty("width", "30");
-	graph.Metadata["og:image"][1]AddProperty("width", "60");
+	graph.Metadata["og:image"][1].AddProperty("width", "60");
     System.Console.Write(graph.ToString());
 
 The previous `System.Console.Write(graph.ToString());` will produce the following HTML (formatting added for legibility):
