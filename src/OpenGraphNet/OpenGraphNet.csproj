@@ -10,20 +10,26 @@
 
   <!-- nuget -->
   <PropertyGroup>
-    <PackageTags>OpenGraph</PackageTags>
     <PackageId>OpenGraph-Net</PackageId>
     <Title>OpenGraph.Net</Title>
     <Authors>ghorsey</Authors>
-    <Description>A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the Open Graph protocol @ http://ogp.me.</Description>
+    <Description>
+      A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. 
+      You can read more about the Open Graph protocol @ http://ogp.me.
+    </Description>
     <Copyright>Copyright © 2018</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ghorsey/OpenGraph-Net</PackageProjectUrl>
-    <PackageReleaseNotes>Finally add full support to the OpenGraph Protocol.</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Fully implmented the OpenGraph protocol.  I have deprecated all collection methods
+      on the OpenGraph object in favor of using the `OpenGraph.Metadata` collection.
+    </PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
     <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
     <AssemblyVersion>2.2.0.0</AssemblyVersion>
     <FileVersion>2.2.0.0</FileVersion>
     <Version>2.2.0</Version>
+    <PackageTags>OpenGraph parser</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningsAsErrors />
