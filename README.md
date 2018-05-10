@@ -52,7 +52,7 @@ The four required Open Graph properties for all pages are available as direct pr
 
 * `graph.Type` is a shortcut for `graph.Metadata["og:type"][0].Value`
 * `graph.Title` is a shortcut for `graph.Metadata["og:title"][0].Value`
-* `graph.Image` is a shortcut for `graph.Metadata["og:image"][0].Value` *Note: since there can be multiple images, this helper returns the URI of the first image.  If you want to access child properties like `og:image:width` then you should instead use the `graph.Data` dictionary.
+* `graph.Image` is a shortcut for `graph.Metadata["og:image"][0].Value` *Note: since there can be multiple images, this helper returns the URI of the first image.  If you want to access child properties like `og:image:width` then you should instead use the `graph.Data` dictionary.*
 * `graph.Url` is a shortcut for `graph.Metadata["og:url"][0].Value`
 
 **Misc** 
@@ -110,7 +110,7 @@ Would produce the following:
 
 To create the `head` version in a cshtml page, after create a new `graph`, use the following code:
 
-    <head prefix="@graph.HeadPrefixAttributeValue">
+    <head prefix="@graph.HeadPrefixAttribute	Value">
 
 Would produce the following:
 
