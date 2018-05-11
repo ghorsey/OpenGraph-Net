@@ -1,8 +1,8 @@
 - name: Introduction
   href: intro.md
-- name: Parsing URL
+- name: Parsing URLs
   href: parsing-url.md
-- name: Accessing OpenGraph values
+- name: Accessing OpenGraph Values
   href: accessing-values.md
 - name: Creating OpenGraph Metadata
   href: creating-graph-data.md
