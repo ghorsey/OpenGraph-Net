@@ -57,6 +57,7 @@
             </ul>
           </div>
         </div>
+    <a href="https://github.com/ghorsey/OpenGraph-Net"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
       </header>
       <div role="main" class="container body-content hide-when-search">
         
@@ -81,11 +82,39 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">OpenGraph</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="OpenGraphNet.html">OpenGraphNet</a></h6>
   <h6><strong>Assembly</strong>: OpenGraphNet.dll</h6>
   <h5 id="OpenGraphNet_OpenGraph_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OpenGraph : IDictionary&lt;string, StructuredMetadata&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class OpenGraph : IDictionary&lt;string, StructuredMetadata&gt;, ICollection&lt;KeyValuePair&lt;string, StructuredMetadata&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, StructuredMetadata&gt;&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -98,12 +127,13 @@
   </span>
   <a id="OpenGraphNet_OpenGraph_Count_" data-uid="OpenGraphNet.OpenGraph.Count*"></a>
   <h4 id="OpenGraphNet_OpenGraph_Count" data-uid="OpenGraphNet.OpenGraph.Count">Count</h4>
-  <div class="markdown level1 summary"><p>Gets the number of elements contained in the <span class="xref">System.Collections.Generic.ICollection`1</span>.</p>
+  <div class="markdown level1 summary"><p>Gets the number of elements contained in the <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public int Count { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -116,7 +146,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
-        <td><p>The number of elements contained in the <span class="xref">System.Collections.Generic.ICollection`1</span>.</p>
+        <td><p>The number of elements contained in the <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -211,7 +241,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
+        <td><span class="xref">System.Uri</span></td>
         <td><p>The image.</p>
 </td>
       </tr>
@@ -226,12 +256,13 @@
   </span>
   <a id="OpenGraphNet_OpenGraph_IsReadOnly_" data-uid="OpenGraphNet.OpenGraph.IsReadOnly*"></a>
   <h4 id="OpenGraphNet_OpenGraph_IsReadOnly" data-uid="OpenGraphNet.OpenGraph.IsReadOnly">IsReadOnly</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether the <span class="xref">System.Collections.Generic.ICollection`1</span> is read-only.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span> is read-only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public bool IsReadOnly { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -263,7 +294,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StructuredMetadata this[string key] { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public StructuredMetadata this[string key] { get; set; }</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -324,12 +356,13 @@
   </span>
   <a id="OpenGraphNet_OpenGraph_Keys_" data-uid="OpenGraphNet.OpenGraph.Keys*"></a>
   <h4 id="OpenGraphNet_OpenGraph_Keys" data-uid="OpenGraphNet.OpenGraph.Keys">Keys</h4>
-  <div class="markdown level1 summary"><p>Gets an <span class="xref">System.Collections.Generic.ICollection`1</span> containing the keys of the <span class="xref">System.Collections.Generic.IDictionary`2</span>.</p>
+  <div class="markdown level1 summary"><p>Gets an <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span> containing the keys of the <span class="xref">System.Collections.Generic.IDictionary&lt;TKey, TValue&gt;</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; Keys { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public ICollection&lt;string&gt; Keys { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -341,8 +374,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ICollection</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><p>An <span class="xref">System.Collections.Generic.ICollection`1</span> containing the keys of the object that implements <span class="xref">System.Collections.Generic.IDictionary`2</span>.</p>
+        <td><span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>An <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span> containing the keys of the object that implements <span class="xref">System.Collections.Generic.IDictionary&lt;TKey, TValue&gt;</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -373,7 +406,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">IList</span>&lt;<a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;&gt;</td>
         <td><p>The data.</p>
 </td>
       </tr>
@@ -405,7 +438,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Namespaces.Namespace.html">Namespace</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Namespaces.Namespace.html">Namespace</a>&gt;</td>
         <td><p>The namespaces.</p>
 </td>
       </tr>
@@ -437,7 +470,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
+        <td><span class="xref">System.Uri</span></td>
         <td><p>The original URL.</p>
 </td>
       </tr>
@@ -533,7 +566,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
+        <td><span class="xref">System.Uri</span></td>
         <td><p>The URL.</p>
 </td>
       </tr>
@@ -548,12 +581,13 @@
   </span>
   <a id="OpenGraphNet_OpenGraph_Values_" data-uid="OpenGraphNet.OpenGraph.Values*"></a>
   <h4 id="OpenGraphNet_OpenGraph_Values" data-uid="OpenGraphNet.OpenGraph.Values">Values</h4>
-  <div class="markdown level1 summary"><p>Gets an <span class="xref">System.Collections.Generic.ICollection`1</span> containing the values in the <span class="xref">System.Collections.Generic.IDictionary`2</span>.</p>
+  <div class="markdown level1 summary"><p>Gets an <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span> containing the values in the <span class="xref">System.Collections.Generic.IDictionary&lt;TKey, TValue&gt;</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;StructuredMetadata&gt; Values { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public ICollection&lt;StructuredMetadata&gt; Values { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -565,8 +599,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ICollection</span>&lt;<a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
-        <td><p>An <span class="xref">System.Collections.Generic.ICollection`1</span> containing the values in the object that implements <span class="xref">System.Collections.Generic.IDictionary`2</span>.</p>
+        <td><span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
+        <td><p>An <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span> containing the values in the object that implements <span class="xref">System.Collections.Generic.IDictionary&lt;TKey, TValue&gt;</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -575,19 +609,20 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Add_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Add(KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Add_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Add(System.Collections.Generic.KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L451">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_Add_" data-uid="OpenGraphNet.OpenGraph.Add*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_Add_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__" data-uid="OpenGraphNet.OpenGraph.Add(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})">Add(KeyValuePair&lt;String, StructuredMetadata&gt;)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_Add_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__" data-uid="OpenGraphNet.OpenGraph.Add(System.Collections.Generic.KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})">Add(KeyValuePair&lt;String, StructuredMetadata&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds the specified item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Add(KeyValuePair&lt;string, StructuredMetadata&gt; item)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public void Add(KeyValuePair&lt;string, StructuredMetadata&gt; item)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -600,7 +635,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
         <td><span class="parametername">item</span></td>
         <td><p>The item.</p>
 </td>
@@ -637,7 +672,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Add(string key, StructuredMetadata value)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public void Add(string key, StructuredMetadata value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -759,6 +795,22 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>The prefix {prefix} does not exist in the NamespaceRegistry</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Clear.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -773,7 +825,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public void Clear()</code></pre>
   </div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -793,19 +846,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Contains_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Contains(KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Contains_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Contains(System.Collections.Generic.KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L474">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_Contains_" data-uid="OpenGraphNet.OpenGraph.Contains*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_Contains_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__" data-uid="OpenGraphNet.OpenGraph.Contains(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})">Contains(KeyValuePair&lt;String, StructuredMetadata&gt;)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_Contains_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__" data-uid="OpenGraphNet.OpenGraph.Contains(System.Collections.Generic.KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})">Contains(KeyValuePair&lt;String, StructuredMetadata&gt;)</h4>
   <div class="markdown level1 summary"><p>Determines whether [contains] [the specified item].</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Contains(KeyValuePair&lt;string, StructuredMetadata&gt; item)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public bool Contains(KeyValuePair&lt;string, StructuredMetadata&gt; item)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -818,7 +872,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
         <td><span class="parametername">item</span></td>
         <td><p>The item.</p>
 </td>
@@ -855,7 +909,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ContainsKey(string key)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public bool ContainsKey(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -893,19 +948,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_CopyTo_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata____System_Int32_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.CopyTo(KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_CopyTo_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata____System_Int32_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.CopyTo(System.Collections.Generic.KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L485">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_CopyTo_" data-uid="OpenGraphNet.OpenGraph.CopyTo*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_CopyTo_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata____System_Int32_" data-uid="OpenGraphNet.OpenGraph.CopyTo(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata}[],System.Int32)">CopyTo(KeyValuePair&lt;String, StructuredMetadata&gt;[], Int32)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_CopyTo_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata____System_Int32_" data-uid="OpenGraphNet.OpenGraph.CopyTo(System.Collections.Generic.KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata}[],System.Int32)">CopyTo(KeyValuePair&lt;String, StructuredMetadata&gt;[], Int32)</h4>
   <div class="markdown level1 summary"><p>Copies to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CopyTo(KeyValuePair&lt;string, StructuredMetadata&gt;[] array, int arrayIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public void CopyTo(KeyValuePair&lt;string, StructuredMetadata&gt;[] array, int arrayIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -918,7 +974,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;[]</td>
+        <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;[]</td>
         <td><span class="parametername">array</span></td>
         <td><p>The array.</p>
 </td>
@@ -945,7 +1001,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerator&lt;KeyValuePair&lt;string, StructuredMetadata&gt;&gt; GetEnumerator()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public IEnumerator&lt;KeyValuePair&lt;string, StructuredMetadata&gt;&gt; GetEnumerator()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -957,7 +1014,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerator</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;&gt;</td>
         <td><p>The enumerator for the key value pairs</p>
 </td>
       </tr>
@@ -965,13 +1022,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_MakeGraph_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_IList_System_String__System_String_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.MakeGraph(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CIList%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_MakeGraph_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_String_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.MakeGraph(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Collections.Generic.IList%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L187">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_MakeGraph_" data-uid="OpenGraphNet.OpenGraph.MakeGraph*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_MakeGraph_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_IList_System_String__System_String_" data-uid="OpenGraphNet.OpenGraph.MakeGraph(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,IList{System.String},System.String)">MakeGraph(String, String, String, String, String, String, String, String, String, IList&lt;String&gt;, String)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_MakeGraph_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_String_" data-uid="OpenGraphNet.OpenGraph.MakeGraph(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.IList{System.String},System.String)">MakeGraph(String, String, String, String, String, String, String, String, String, IList&lt;String&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Makes the graph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1044,7 +1101,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">localeAlternates</span></td>
         <td><p>The locale alternates.</p>
 </td>
@@ -1193,13 +1250,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_ParseUrl_Uri_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.ParseUrl(Uri%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_ParseUrl_System_Uri_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.ParseUrl(System.Uri%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L316">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_ParseUrl_" data-uid="OpenGraphNet.OpenGraph.ParseUrl*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_ParseUrl_Uri_System_String_System_Boolean_" data-uid="OpenGraphNet.OpenGraph.ParseUrl(Uri,System.String,System.Boolean)">ParseUrl(Uri, String, Boolean)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_ParseUrl_System_Uri_System_String_System_Boolean_" data-uid="OpenGraphNet.OpenGraph.ParseUrl(System.Uri,System.String,System.Boolean)">ParseUrl(Uri, String, Boolean)</h4>
   <div class="markdown level1 summary"><p>Downloads the HTML of the specified URL and parses it for open graph content.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1218,7 +1275,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
+        <td><span class="xref">System.Uri</span></td>
         <td><span class="parametername">url</span></td>
         <td><p>The URL to download the HTML from.</p>
 </td>
@@ -1309,21 +1366,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="OpenGraphNet.OpenGraph.html">OpenGraph</a>&gt;</td>
-        <td><p><see cref="!:Task&lt;OpenGraph>"></see></p>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="OpenGraphNet.OpenGraph.html">OpenGraph</a>&gt;</td>
+        <td><p><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span></p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_ParseUrlAsync_Uri_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.ParseUrlAsync(Uri%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_ParseUrlAsync_System_Uri_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L299">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_ParseUrlAsync_" data-uid="OpenGraphNet.OpenGraph.ParseUrlAsync*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_ParseUrlAsync_Uri_System_String_System_Boolean_" data-uid="OpenGraphNet.OpenGraph.ParseUrlAsync(Uri,System.String,System.Boolean)">ParseUrlAsync(Uri, String, Boolean)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_ParseUrlAsync_System_Uri_System_String_System_Boolean_" data-uid="OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean)">ParseUrlAsync(Uri, String, Boolean)</h4>
   <div class="markdown level1 summary"><p>Parses the URL asynchronous.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1342,7 +1399,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Uri</span></td>
+        <td><span class="xref">System.Uri</span></td>
         <td><span class="parametername">url</span></td>
         <td><p>The URL.</p>
 </td>
@@ -1371,27 +1428,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="OpenGraphNet.OpenGraph.html">OpenGraph</a>&gt;</td>
-        <td><p><see cref="!:Task&lt;OpenGraph>"></see></p>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="OpenGraphNet.OpenGraph.html">OpenGraph</a>&gt;</td>
+        <td><p><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span></p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Remove_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Remove(KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_Remove_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.Remove(System.Collections.Generic.KeyValuePair%7BSystem.String%2COpenGraphNet.Metadata.StructuredMetadata%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L498">View Source</a>
   </span>
   <a id="OpenGraphNet_OpenGraph_Remove_" data-uid="OpenGraphNet.OpenGraph.Remove*"></a>
-  <h4 id="OpenGraphNet_OpenGraph_Remove_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__" data-uid="OpenGraphNet.OpenGraph.Remove(KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})">Remove(KeyValuePair&lt;String, StructuredMetadata&gt;)</h4>
+  <h4 id="OpenGraphNet_OpenGraph_Remove_System_Collections_Generic_KeyValuePair_System_String_OpenGraphNet_Metadata_StructuredMetadata__" data-uid="OpenGraphNet.OpenGraph.Remove(System.Collections.Generic.KeyValuePair{System.String,OpenGraphNet.Metadata.StructuredMetadata})">Remove(KeyValuePair&lt;String, StructuredMetadata&gt;)</h4>
   <div class="markdown level1 summary"><p>Removes the specified item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Remove(KeyValuePair&lt;string, StructuredMetadata&gt; item)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public bool Remove(KeyValuePair&lt;string, StructuredMetadata&gt; item)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1404,7 +1462,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="OpenGraphNet.Metadata.StructuredMetadata.html">StructuredMetadata</a>&gt;</td>
         <td><span class="parametername">item</span></td>
         <td><p>The item.</p>
 </td>
@@ -1457,7 +1515,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Remove(string key)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public bool Remove(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1518,7 +1577,7 @@
   </span>
   <a id="OpenGraphNet_OpenGraph_ToString_" data-uid="OpenGraphNet.OpenGraph.ToString*"></a>
   <h4 id="OpenGraphNet_OpenGraph_ToString" data-uid="OpenGraphNet.OpenGraph.ToString">ToString()</h4>
-  <div class="markdown level1 summary"><p>Returns a <see cref="!:System.String"></see> that represents this instance.</p>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1536,11 +1595,13 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>A <see cref="!:System.String"></see> that represents this instance.</p>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_TryGetValue_System_String_OpenGraphNet_Metadata_StructuredMetadata__.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.TryGetValue(System.String%2COpenGraphNet.Metadata.StructuredMetadata%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1555,7 +1616,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryGetValue(string key, out StructuredMetadata value)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+public bool TryGetValue(string key, out StructuredMetadata value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1597,6 +1659,54 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ghorsey/OpenGraph-Net/new/develop/apiSpec/new?filename=OpenGraphNet_OpenGraph_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20OpenGraphNet.OpenGraph.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ghorsey/OpenGraph-Net/blob/develop/src/OpenGraphNet/OpenGraph.cs/#L520">View Source</a>
+  </span>
+  <a id="OpenGraphNet_OpenGraph_System_Collections_IEnumerable_GetEnumerator_" data-uid="OpenGraphNet.OpenGraph.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="OpenGraphNet_OpenGraph_System_Collections_IEnumerable_GetEnumerator" data-uid="OpenGraphNet.OpenGraph.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through a collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use this.Data instead. This feature will be removed&quot;)]
+IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td><p>An <span class="xref">System.Collections.IEnumerator</span> object that can be used to iterate through the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IDictionary&lt;TKey, TValue&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
 </article>
           </div>
           
