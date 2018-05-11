@@ -1,7 +1,7 @@
 
 # Writing OpenGraph Namespaces
 In the wild web sites seem to add their OpenGraph namespaces in one of 2 ways.  They either
-write the namespaces in the `html` as `xmlns` attributes or withing the `head` tag in the `prefix` attribute.
+write the namespaces in the `html` as `xmlns` attributes or within the `head` tag in the `prefix` attribute.
 
 * `<html xmlns:og="http://ogp.me/ns#" xmlns:product="http://ogp.me/ns/product#">`
 * `<head prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">`
