@@ -12,7 +12,7 @@
           "hash": "xOrgHjqmulQ3ihJryZGr2Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -24,7 +24,7 @@
           "hash": "WTbPpiBmY3Aae0kiFF/qXQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -36,7 +36,7 @@
           "hash": "tLGKJJQxwdNqSlkkZjbQMA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,7 +48,7 @@
           "hash": "T1P+UkHXi8Oc00rmfzukYg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -60,7 +60,7 @@
           "hash": "m122HJX1qwE4/1zkYqX/ZQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -72,7 +72,7 @@
           "hash": "5GVjFq4EDXsHvDI43p4Yvg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -84,7 +84,7 @@
           "hash": "dwr5Wf7EBu5rDWEusVYecw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -96,7 +96,7 @@
           "hash": "lJzZkYEJo07BmrmbiDJ75w=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -108,7 +108,7 @@
           "hash": "lyEwK6TP3CJ1KjxJzNuLCw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -120,7 +120,7 @@
           "hash": "L6+pu+2hDcVHyJc0VkriYw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -132,7 +132,7 @@
           "hash": "ei1EbnYuDG+dZw/T6Gl2fg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -144,7 +144,7 @@
           "hash": "0WUN2PCU2+3UfikSA3Nutw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -156,7 +156,7 @@
           "hash": "63ApYy/2AvcNrJcGE38cJQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -168,7 +168,7 @@
           "hash": "TXzlvLv+f5BEOkCQe07O9Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -177,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.OpenGraph.html",
-          "hash": "UeJyM3u0d2HSMClbgstlnw=="
+          "hash": "rxlYXeMzRWU3NJyKmfZKIg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -192,7 +192,7 @@
           "hash": "qO9X0fZtcl/WJ2j1t5rigg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -204,7 +204,7 @@
           "hash": "ByKJ/QncZVzXgAPrQnrhsw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -216,7 +216,7 @@
           "hash": "eO/SAOUDZA1QLlMo8RZ9ew=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -233,82 +233,82 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/accessing-values.md",
+      "source_relative_path": "documentation/accessing-values.md",
       "output": {
         ".html": {
-          "relative_path": "articles/accessing-values.html",
-          "hash": "LPAkgbMkv0xuMTG4+qPakg=="
+          "relative_path": "documentation/accessing-values.html",
+          "hash": "5n+v74fZ0Nzm3zBCw+Kn0Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/complete-example.md",
+      "source_relative_path": "documentation/complete-example.md",
       "output": {
         ".html": {
-          "relative_path": "articles/complete-example.html",
-          "hash": "WSS/bQN1dmhvOgLBlMXB2w=="
+          "relative_path": "documentation/complete-example.html",
+          "hash": "8z3ZJ3f4IZwPN4TPgu4jbQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/creating-graph-data.md",
+      "source_relative_path": "documentation/creating-graph-data.md",
       "output": {
         ".html": {
-          "relative_path": "articles/creating-graph-data.html",
-          "hash": "KgMp+hBFTqs0B+FrjQMtDA=="
+          "relative_path": "documentation/creating-graph-data.html",
+          "hash": "i8ga+0APxqeqiBMj0Gl6vg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/intro.md",
+      "source_relative_path": "documentation/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "1ME+TQnZ4laFXknNFkMGjA=="
+          "relative_path": "documentation/intro.html",
+          "hash": "JLAUwAoDjrd7ZdDRHRZ/sg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/parsing-namespaces.md",
+      "source_relative_path": "documentation/parsing-namespaces.md",
       "output": {
         ".html": {
-          "relative_path": "articles/parsing-namespaces.html",
-          "hash": "m2Km5rDb5vysWXLrW0wsUg=="
+          "relative_path": "documentation/parsing-namespaces.html",
+          "hash": "P0JMkDaWCHqsIiU4SHAKkg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/parsing-url.md",
+      "source_relative_path": "documentation/parsing-url.md",
       "output": {
         ".html": {
-          "relative_path": "articles/parsing-url.html",
-          "hash": "svUKHIEFG/sf6q6A8FY1Ug=="
+          "relative_path": "documentation/parsing-url.html",
+          "hash": "HFWrJXir+2/w5hH9i6kH/Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
       "type": "Toc",
-      "source_relative_path": "articles/toc.yml",
+      "source_relative_path": "documentation/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
+          "relative_path": "documentation/toc.html",
           "hash": "8PpKnpHWTRSXwYapTAcEaw=="
         }
       },
@@ -317,14 +317,14 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/writing-namespaces.md",
+      "source_relative_path": "documentation/writing-namespaces.md",
       "output": {
         ".html": {
-          "relative_path": "articles/writing-namespaces.html",
-          "hash": "Kmni2DyjWDhg4HqWfl0G5g=="
+          "relative_path": "documentation/writing-namespaces.html",
+          "hash": "tI1fo08JZkuSQ59wolSP0Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -333,10 +333,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "N16hufdZFyodjGgIlK9lSQ=="
+          "hash": "WhRHzq6hqSIiQVKvFBzUgw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "k+aHcy95Tl55ZNoT0M3B8A=="
+          "hash": "oOWcPI0yDy3SRnyQAIFM2w=="
         }
       },
       "is_incremental": false,
