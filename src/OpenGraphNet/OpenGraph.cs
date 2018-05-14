@@ -83,28 +83,28 @@
         /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public ICollection<string> Keys => this.internalOpenGraphData.Keys.ToList();
 
         /// <summary>
         /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
         /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public ICollection<StructuredMetadata> Values => this.internalOpenGraphData.Select(kvp => kvp.Value.FirstOrDefault()).ToList();
 
         /// <summary>
         /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public int Count => this.internalOpenGraphData.Count;
 
         /// <summary>
         /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
         /// </summary>
         /// <returns>true</returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public bool IsReadOnly => true;
 
         /// <summary>
@@ -153,7 +153,7 @@
         /// <param name="key">The key.</param>
         /// <returns>returns the open graph value at the specified key</returns>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public StructuredMetadata this[string key]
         {
             get
@@ -398,7 +398,7 @@
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public void Add(string key, StructuredMetadata value)
         {
             throw new ReadOnlyDictionaryException();
@@ -411,7 +411,7 @@
         /// <returns>
         ///   <c>true</c> if the specified key contains key; otherwise, <c>false</c>.
         /// </returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public bool ContainsKey(string key)
         {
             return this.internalOpenGraphData.ContainsKey(key);
@@ -423,7 +423,7 @@
         /// <param name="key">The key.</param>
         /// <returns><c>false</c></returns>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public bool Remove(string key)
         {
             throw new ReadOnlyDictionaryException();
@@ -435,7 +435,7 @@
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns>true if the value was successfully set; otherwise false</returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public bool TryGetValue(string key, out StructuredMetadata value)
         {
             var result = this.internalOpenGraphData.TryGetValue(key, out var item);
@@ -448,7 +448,7 @@
         /// </summary>
         /// <param name="item">The item.</param>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public void Add(KeyValuePair<string, StructuredMetadata> item)
         {
             throw new ReadOnlyDictionaryException();
@@ -458,7 +458,7 @@
         /// Clears this instance.
         /// </summary>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public void Clear()
         {
             throw new ReadOnlyDictionaryException();
@@ -471,7 +471,7 @@
         /// <returns>
         ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
         /// </returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public bool Contains(KeyValuePair<string, StructuredMetadata> item)
         {
             return this.internalOpenGraphData.Contains(new KeyValuePair<string, IList<StructuredMetadata>>(item.Key, new List<StructuredMetadata> { item.Value }));
@@ -482,7 +482,7 @@
         /// </summary>
         /// <param name="array">The array.</param>
         /// <param name="arrayIndex">Index of the array.</param>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public void CopyTo(KeyValuePair<string, StructuredMetadata>[] array, int arrayIndex)
         {
             var items = array.Select(a => new KeyValuePair<string, IList<StructuredMetadata>>(a.Key, new List<StructuredMetadata> { a.Value })).ToArray();
@@ -495,7 +495,7 @@
         /// <param name="item">The item.</param>
         /// <returns>Returns false</returns>
         /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public bool Remove(KeyValuePair<string, StructuredMetadata> item)
         {
             throw new ReadOnlyDictionaryException();
@@ -505,7 +505,7 @@
         /// Gets the enumerator.
         /// </summary>
         /// <returns>The enumerator for the key value pairs</returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         public IEnumerator<KeyValuePair<string, StructuredMetadata>> GetEnumerator()
         {
             return this.internalOpenGraphData.Select(kvp => new KeyValuePair<string, StructuredMetadata>(kvp.Key, kvp.Value.First())).GetEnumerator();
@@ -517,7 +517,7 @@
         /// <returns>
         /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
         /// </returns>
-        [Obsolete("Use this.Data instead. This feature will be removed")]
+        [Obsolete("Use this.Metadata instead. This feature will be removed")]
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return ((System.Collections.IEnumerable)this.internalOpenGraphData).GetEnumerator();
