@@ -4,6 +4,9 @@ OpenGraphNet
 [![Nuget](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![Nuget](https://img.shields.io/nuget/dt/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://raw.githubusercontent.com/ghorsey/OpenGraph-Net/master/LICENSE)
+<a href="https://gitter.im/OpenGraph-Net/OpenGraph-Net">
+		<img src="https://badges.gitter.im/webpack/webpack.svg">
+	</a>
 
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the
 Open Graph protocol @ http://ogp.me.
