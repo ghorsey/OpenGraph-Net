@@ -1,6 +1,7 @@
 ﻿namespace OpenGraphNet
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Compression;
     using System.Net;
@@ -14,9 +15,17 @@
     /// <remarks>
     /// Taken from http://stackoverflow.com/a/2700707
     /// </remarks>
+    [ExcludeFromCodeCoverage]
     public class HttpDownloader
     {
+        /// <summary>
+        /// The referrer
+        /// </summary>
         private readonly string referrer;
+
+        /// <summary>
+        /// The user agent
+        /// </summary>
         private readonly string userAgent;
 
         /// <summary>
@@ -33,16 +42,6 @@
             this.referrer = referrer;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
-        /// </summary>
-        /// <param name="url">The URL.</param>
-        /// <param name="referrer">The referrer.</param>
-        /// <param name="userAgent">The user agent.</param>
-        public HttpDownloader(string url, string referrer, string userAgent) : this(new Uri(url), referrer, userAgent)
-        {
-        }
-        
         /// <summary>
         /// Gets or sets the encoding.
         /// </summary>

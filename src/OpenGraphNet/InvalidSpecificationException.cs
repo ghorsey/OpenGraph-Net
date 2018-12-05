@@ -1,11 +1,12 @@
 ﻿namespace OpenGraphNet
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// An invalid specification exception
     /// </summary>
-    [Serializable]
+    [Serializable, ExcludeFromCodeCoverage]
     public class InvalidSpecificationException : Exception
     {
         /// <summary>

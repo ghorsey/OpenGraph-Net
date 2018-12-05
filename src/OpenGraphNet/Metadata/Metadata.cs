@@ -1,7 +1,8 @@
 namespace OpenGraphNet.Metadata
 {
-    using OpenGraphNet.Namespaces;
     using HtmlAgilityPack;
+
+    using OpenGraphNet.Namespaces;
 
     /// <summary>
     /// Represents an Open Graph meta element
