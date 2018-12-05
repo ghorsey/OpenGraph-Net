@@ -3,6 +3,8 @@
     using System.Collections;
     using System.Collections.Generic;
 
+    using OpenGraphNet.Namespaces;
+
     /// <summary>
     /// A collection class to contain <see cref="StructuredMetadata"/> objects
     /// </summary>
@@ -47,11 +49,11 @@
         public IList<StructuredMetadata> this[string key]
         {
             get
-            { 
-                // default og: namespace
+            {
+                var ns = NamespaceRegistry.DefaultNamespace;
                 if (key.IndexOf(':') < 0) 
                 {
-                    key = "og:" + key;
+                    key = string.Concat(ns.Prefix, ":", key);
                 }
 
                 if (!this.InternalCollection.ContainsKey(key))
