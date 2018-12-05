@@ -17,7 +17,7 @@
     /// <summary>
     /// Represents Open Graph meta data parsed from HTML
     /// </summary>
-    public class OpenGraph : IDictionary<string, StructuredMetadata>
+    public class OpenGraph
     {
         /// <summary>
         /// The open graph data
@@ -80,34 +80,6 @@
         public Uri OriginalUrl { get; private set; }
 
         /// <summary>
-        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the keys of the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public ICollection<string> Keys => this.internalOpenGraphData.Keys.ToList();
-
-        /// <summary>
-        /// Gets an <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <returns>An <see cref="T:System.Collections.Generic.ICollection`1" /> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public ICollection<StructuredMetadata> Values => this.internalOpenGraphData.Select(kvp => kvp.Value.FirstOrDefault()).ToList();
-
-        /// <summary>
-        /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
-        /// </summary>
-        /// <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public int Count => this.internalOpenGraphData.Count;
-
-        /// <summary>
-        /// Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
-        /// </summary>
-        /// <returns>true</returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public bool IsReadOnly => true;
-
-        /// <summary>
         /// Gets the head prefix attribute value.
         /// </summary>
         /// <value>
@@ -120,7 +92,7 @@
                 var sb = new StringBuilder();
                 foreach (var ns in this.Namespaces)
                 {
-                    sb.AppendFormat(" {0}", ns.Value.ToString());
+                    sb.AppendFormat(" {0}", ns.Value);
                 }
 
                 return sb.ToString().Trim();
@@ -140,33 +112,11 @@
                 var sb = new StringBuilder();
                 foreach (var ns in this.Namespaces)
                 {
-                    sb.AppendFormat(" xmlns:{0}=\"{1}\"", ns.Value.Prefix, ns.Value.SchemaUri.ToString());
+                    sb.AppendFormat(" xmlns:{0}=\"{1}\"", ns.Value.Prefix, ns.Value.SchemaUri);
                 }
 
                 return sb.ToString().Trim();
             }
-        }
-
-        /// <summary>
-        /// Gets or sets the element with the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns>returns the open graph value at the specified key</returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot modify a read-only collection</exception>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public StructuredMetadata this[string key]
-        {
-            get
-            {
-                if (key.IndexOf(':') < 0)
-                {
-                    key = "og:" + key;
-                }
-
-                return !this.internalOpenGraphData.ContainsKey(key) ? new NullMetadata() : this.internalOpenGraphData[key].First();
-            }
-
-            set => throw new ReadOnlyDictionaryException();
         }
 
         /// <summary>
@@ -393,137 +343,6 @@
         }
 
         /// <summary>
-        /// Adds the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public void Add(string key, StructuredMetadata value)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Determines whether the specified key contains key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified key contains key; otherwise, <c>false</c>.
-        /// </returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public bool ContainsKey(string key)
-        {
-            return this.internalOpenGraphData.ContainsKey(key);
-        }
-
-        /// <summary>
-        /// Removes the specified key.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <returns><c>false</c></returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public bool Remove(string key)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Tries the get value.
-        /// </summary>
-        /// <param name="key">The key.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>true if the value was successfully set; otherwise false</returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public bool TryGetValue(string key, out StructuredMetadata value)
-        {
-            var result = this.internalOpenGraphData.TryGetValue(key, out var item);
-            value = (item ?? new List<StructuredMetadata>()).FirstOrDefault();
-            return result;
-        }
-
-        /// <summary>
-        /// Adds the specified item.
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public void Add(KeyValuePair<string, StructuredMetadata> item)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Clears this instance.
-        /// </summary>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public void Clear()
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Determines whether [contains] [the specified item].
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>
-        ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
-        /// </returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public bool Contains(KeyValuePair<string, StructuredMetadata> item)
-        {
-            return this.internalOpenGraphData.Contains(new KeyValuePair<string, IList<StructuredMetadata>>(item.Key, new List<StructuredMetadata> { item.Value }));
-        }
-
-        /// <summary>
-        /// Copies to.
-        /// </summary>
-        /// <param name="array">The array.</param>
-        /// <param name="arrayIndex">Index of the array.</param>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public void CopyTo(KeyValuePair<string, StructuredMetadata>[] array, int arrayIndex)
-        {
-            var items = array.Select(a => new KeyValuePair<string, IList<StructuredMetadata>>(a.Key, new List<StructuredMetadata> { a.Value })).ToArray();
-            this.internalOpenGraphData.CopyTo(items, arrayIndex);
-        }
-
-        /// <summary>
-        /// Removes the specified item.
-        /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>Returns false</returns>
-        /// <exception cref="OpenGraphNet.ReadOnlyDictionaryException">Cannot change a read only dictionary</exception>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public bool Remove(KeyValuePair<string, StructuredMetadata> item)
-        {
-            throw new ReadOnlyDictionaryException();
-        }
-
-        /// <summary>
-        /// Gets the enumerator.
-        /// </summary>
-        /// <returns>The enumerator for the key value pairs</returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        public IEnumerator<KeyValuePair<string, StructuredMetadata>> GetEnumerator()
-        {
-            return this.internalOpenGraphData.Select(kvp => new KeyValuePair<string, StructuredMetadata>(kvp.Key, kvp.Value.First())).GetEnumerator();
-        }
-
-        /// <summary>
-        /// Returns an enumerator that iterates through a collection.
-        /// </summary>
-        /// <returns>
-        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-        /// </returns>
-        [Obsolete("Use this.Metadata instead. This feature will be removed")]
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return ((System.Collections.IEnumerable)this.internalOpenGraphData).GetEnumerator();
-        }
-
-        /// <summary>
         /// Safes the HTML decode URL.
         /// </summary>
         /// <param name="value">The value.</param>
@@ -564,6 +383,11 @@
             return metaTag.Attributes["name"].Value;
         }
 
+        /// <summary>
+        /// Gets the open graph prefix.
+        /// </summary>
+        /// <param name="metaTag">The meta tag.</param>
+        /// <returns>The prefix</returns>
         private static string GetOpenGraphPrefix(HtmlNode metaTag)
         {
             var value = metaTag.Attributes.Contains("property") ? metaTag.Attributes["property"].Value : metaTag.Attributes["name"].Value;
@@ -647,11 +471,21 @@
             }
         }
 
+        /// <summary>
+        /// Matches the namespace predicate.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> when the element has a namespace; otherwise <c>false</c></returns>
         private static bool MatchesNamespacePredicate(string value)
         {
             return value.IndexOf(':') >= 0;
         }
 
+        /// <summary>
+        /// Sets the namespace.
+        /// </summary>
+        /// <param name="graph">The graph.</param>
+        /// <param name="prefix">The prefix.</param>
         private static void SetNamespace(OpenGraph graph, string prefix)
         {
             if (graph.Namespaces.Any(n => n.Key == prefix.ToLowerInvariant()))
@@ -666,6 +500,11 @@
             }
         }
 
+        /// <summary>
+        /// Makes the document to parse.
+        /// </summary>
+        /// <param name="content">The content.</param>
+        /// <returns>The <see cref="HtmlDocument"/></returns>
         private static HtmlDocument MakeDocumentToParse(string content)
         {
             int indexOfClosingHead = Regex.Match(content, "</head>").Index;
@@ -750,13 +589,19 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets the URI.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        /// <param name="property">The property.</param>
+        /// <returns>The Uri</returns>
         private static Uri GetUri(OpenGraph result, string property)
         {
             result.internalOpenGraphData.TryGetValue(property, out var url);
 
             try
             {
-                return new Uri((url.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty);
+                return new Uri(url?.FirstOrDefault()?.Value ?? string.Empty);
             }
             catch (ArgumentException)
             {
@@ -788,6 +633,11 @@
             return value;
         }
 
+        /// <summary>
+        /// Validates the specification.
+        /// </summary>
+        /// <param name="result">The result.</param>
+        /// <exception cref="InvalidSpecificationException">The parsed HTML does not meet the open graph specification, missing element: {required}</exception>
         private static void ValidateSpecification(OpenGraph result)
         {
             var prefixes = result.Namespaces.Select(ns => ns.Value.Prefix);

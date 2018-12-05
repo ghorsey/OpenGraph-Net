@@ -18,13 +18,11 @@
     <Copyright>Copyright © 2018</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
-    <PackageReleaseNotes>Fully implmented the OpenGraph protocol.  I have deprecated all collection methods on the OpenGraph object in favor of using the `OpenGraph.Metadata` collection.
+    <PackageReleaseNotes>I have removed all deprecated all collection methods on the OpenGraph object to clean up the code.
 </PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
     <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
-    <AssemblyVersion>2.2.0.0</AssemblyVersion>
-    <FileVersion>2.2.0.0</FileVersion>
-    <Version>2.2.0</Version>
+    <Version>3.0.0</Version>
     <PackageTags>OpenGraph  OGP Parser</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>OpenGraph.Net</Product>

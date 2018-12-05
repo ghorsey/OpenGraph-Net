@@ -18,6 +18,9 @@ namespace OpenGraphNet.Namespaces
         /// </summary>
         private static NamespaceRegistry internalInstance;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="NamespaceRegistry"/> class from being created.
+        /// </summary>
         private NamespaceRegistry()
         {
             this.InternalNamespaces = new Dictionary<string, RegistryNamespace>
@@ -62,6 +65,14 @@ namespace OpenGraphNet.Namespaces
                 return internalInstance;
             }
         }
+
+        /// <summary>
+        /// Gets the default namespace.
+        /// </summary>
+        /// <value>
+        /// The default namespace.
+        /// </value>
+        public static Namespace DefaultNamespace => Instance.Namespaces["og"];
 
         /// <summary>
         /// Gets the namespaces.
