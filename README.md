@@ -1,9 +1,10 @@
 OpenGraphNet
 =============
 [![AppVeyor](https://img.shields.io/appveyor/ci/GeoffHorsey/opengraph-net.svg)](https://ci.appveyor.com/project/GeoffHorsey/opengraph-net)
-[![Nuget](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
-[![Nuget](https://img.shields.io/nuget/dt/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
+[![Nuget V](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
+[![Nuget dl](https://img.shields.io/nuget/dt/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://raw.githubusercontent.com/ghorsey/OpenGraph-Net/master/LICENSE)
+[![gitter](https://badges.gitter.im/webpack/webpack.svg)](https://gitter.im/OpenGraph-Net/OpenGraph-Net)
 
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the
 Open Graph protocol @ http://ogp.me.
@@ -204,3 +205,13 @@ will produce the following HTML:
         <!-- Your awesome page! -->
     </body>
     </html>
+
+## It's FOSS
+So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net).
+
+### Contribution Guide
+1. Fork the OpenGraph-Net repository
+2. Create a feature branch for the item you are going to add.
+3. Add your awesome code and your unit tests to cover the new feture
+4. Run all of the tests to ensure everything is still passing.
+5. Create a pull request to our `develop` branch.
