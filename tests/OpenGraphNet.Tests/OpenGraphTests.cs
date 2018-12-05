@@ -246,9 +246,9 @@ namespace OpenGraphNet.Tests
             Assert.Equal(width2, graph.Metadata["og:image"][1].Properties["width"].Value());
             Assert.Equal(url, graph.Url.ToString());
             Assert.Equal(description, graph.Metadata["og:description"].Value());
-            Assert.Equal(description, graph["description"].Value);
+            Assert.Equal(description, graph.Metadata["description"].Value());
             Assert.Equal(siteName, graph.Metadata["og:site_name"].Value());
-            Assert.Equal(siteName, graph["site_name"]);
+            Assert.Equal(siteName, graph.Metadata["site_name"].Value());
             Assert.Equal(0, graph.Metadata["og:donotexist"].Count);
 
             var expected = $"<meta property=\"og:title\" content=\"{title}\">" +
@@ -285,9 +285,9 @@ namespace OpenGraphNet.Tests
             Assert.Equal("http://www.test.com/test.png", graph.Image.ToString());
             Assert.Equal("http://www.test.com/", graph.Url.ToString());
             Assert.Equal("My Description", graph.Metadata["og:description"].First().Value);
-            Assert.Equal("My Description", graph["description"]);
+            Assert.Equal("My Description", graph.Metadata["description"].Value());
             Assert.Equal("Test Site", graph.Metadata["og:site_name"].First().Value);
-            Assert.Equal("Test Site", graph["og:site_name"]);
+            Assert.Equal("Test Site", graph.Metadata["og:site_name"].Value());
             Assert.Equal("small", graph.Metadata["gah:pea_brain:size"].First().Value);
             NamespaceRegistry.Instance.RemoveNamespace("gah");
         }
@@ -308,9 +308,9 @@ namespace OpenGraphNet.Tests
             Assert.Null(graph.Image);
             Assert.Null(graph.Url);
             Assert.Equal("My Description", graph.Metadata["og:description"].First().Value);
-            Assert.Equal("My Description", graph["description"]);
+            Assert.Equal("My Description", graph.Metadata["description"].Value());
             Assert.Equal("Test Site", graph.Metadata["og:site_name"].First().Value);
-            Assert.Equal("Test Site", graph["site_name"]);
+            Assert.Equal("Test Site", graph.Metadata["site_name"].Value());
         }
 
         /// <summary>

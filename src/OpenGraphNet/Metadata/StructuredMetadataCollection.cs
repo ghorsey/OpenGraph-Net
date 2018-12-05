@@ -47,7 +47,13 @@
         public IList<StructuredMetadata> this[string key]
         {
             get
-            {
+            { 
+                // default og: namespace
+                if (key.IndexOf(':') < 0) 
+                {
+                    key = "og:" + key;
+                }
+
                 if (!this.InternalCollection.ContainsKey(key))
                 {
                     return new List<StructuredMetadata>();
