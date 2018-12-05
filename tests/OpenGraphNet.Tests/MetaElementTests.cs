@@ -5,15 +5,27 @@
 
     using Xunit;
 
+    /// <summary>
+    /// Meta Element Tests
+    /// </summary>
     public class MetaElementTests
     {
-        private readonly Namespace ns; 
+        /// <summary>
+        /// The namespace
+        /// </summary>
+        private readonly Namespace ns;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetaElementTests"/> class.
+        /// </summary>
         public MetaElementTests()
         {
             this.ns = NamespaceRegistry.Instance.Namespaces["og"];
         }
 
+        /// <summary>
+        /// Tests the null meta element.
+        /// </summary>
         [Fact]
         public void TestNullMetaElement()
         {
@@ -23,6 +35,9 @@
             Assert.Empty(element.ToString());
         }
 
+        /// <summary>
+        /// Tests the meta element.
+        /// </summary>
         [Fact]
         public void TestMetaElement()
         {
@@ -32,6 +47,9 @@
             Assert.Equal(@"<meta property=""og:title"" content=""my title"">", element.ToString());
         }
 
+        /// <summary>
+        /// Tests the structured elements.
+        /// </summary>
         [Fact]
         public void TestStructuredElements()
         {
@@ -45,6 +63,9 @@
             Assert.Equal(expected, element.ToString());
         }
 
+        /// <summary>
+        /// Tests the structured element with array property.
+        /// </summary>
         [Fact]
         public void TestStructuredElementWithArrayProperty()
         {
