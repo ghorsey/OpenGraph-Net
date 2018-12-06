@@ -22,6 +22,25 @@ namespace OpenGraphNet.Tests
         private const string SpacedLink = "http://www.imdb.com/title/tt0187664/";
 
         /// <summary>
+        /// The periscope tv content
+        /// </summary>
+        private const string PeriscopeTvContent = @"<!doctype html>
+<html>
+<head>
+    <title data-react-helmet=""true"">Société Générale: &quot;Accueil musical pour les collaborateurs en cette #FDLM2016 #TeamSpirit&quot;</title>
+    <meta data-react-helmet=""true"" property=""og:title"" content=""Société Générale @SocieteGenerale"" />
+    <meta data-react-helmet=""true"" property=""og:description"" content=""Accueil musical pour les collaborateurs en cette #FDLM2016 #TeamSpirit — Nanterre, France"" />
+    <meta data-react-helmet=""true"" property=""og:image"" content=""https://prod-video-us-west-2.pscp.tv/lXc5gSh6UPaWdc37LtVCb3UdtSfvj2QNutojPK2du5YWrNchfI4wXpwwHKTyfDhmfT2ibsBZV4doQeWlhSvI4A==/replay_thumbnail/us-west-2/periscope-replay-direct-live/eyJkIjowfQ/chunk_314.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlcnNpb24iOiIyIn0.eyJBbGxvd2VkUHJvdG9jb2xzIjpbInRodW1iIl0sIkJyb2FkY2FzdElkIjoiMURYeHlaWlpWeWtLTSIsIkdyYW50VHlwZSI6InJlYWQiLCJHcmFudGVkQXQiOjE1NDQwNTgzMjgsIkdyYW50ZWRUbyI6IndlYi1yYXRlLWxpbWl0ZWQtMDA4NjkxZjE3ZDUyY2E3OTMyNTdlYWQ4NTkyOGE1N2IiLCJTdHJlYW1OYW1lIjoibFhjNWdTaDZVUGFXZGMzN0x0VkNiM1VkdFNmdmoyUU51dG9qUEsyZHU1WVdyTmNoZkk0d1hwd3dIS1R5ZkRobWZUMmlic0JaVjRkb1FlV2xoU3ZJNEE9PSIsImV4cCI6MTU0NDIzMTEyOH0.UbJfSn8A0BFBRJHAlhgBxAxGv4DuMnTnwGOztR-3swE&amp;service=proxsee&amp;digest=tGkjjGWVywQpODOMKx7vAqtCh-QohM9rSCR8KM_JtN4"" />
+    <meta data-react-helmet=""true"" property=""og:site_name"" content=""Periscope"" />
+    <meta data-react-helmet=""true"" property=""og:type"" content=""video"" />
+    <meta data-react-helmet=""true"" property=""og:url"" content=""https://www.pscp.tv/SocieteGenerale/1DXxyZZZVykKM"" />
+    <meta data-react-helmet=""true"" property=""og:email"" content=""contact@pscp.tv"" />
+    <meta data-react-helmet=""true"" property=""og:image:width"" content=""320"" />
+    <meta data-react-helmet=""true"" property=""og:image:height"" content=""568"" />
+</head>
+<body class=""""></body></html>";
+
+        /// <summary>
         /// The spotify album content
         /// </summary>
         private const string SpotifyAlbumContent = @"<!DOCTYPE html>
@@ -411,13 +430,17 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the URL decoding URL values.
         /// </summary>
-        [Fact(Skip = "The sample site generates a new image URL with each request... can no longer use to test")]
+        ////[Fact(Skip = "The sample site generates a new image URL with each request... can no longer use to test")]
+        [Fact]
         public void TestUrlDecodingUrlValues()
         {
-            var expectedUrl = "https://prod-video-us-west-2.pscp.tv/lXc5gSh6UPaWdc37LtVCb3UdtSfvj2QNutojPK2du5YWrNchfI4wXpwwHKTyfDhmfT2ibsBZV4doQeWlhSvI4A==/replay_thumbnail/us-west-2/periscope-replay-direct-live/eyJkIjowfQ/chunk_314.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlcnNpb24iOiIyIn0.eyJBbGxvd2VkUHJvdG9jb2xzIjpbInRodW1iIl0sIkJyb2FkY2FzdElkIjoiMURYeHlaWlpWeWtLTSIsIkdyYW50VHlwZSI6InJlYWQiLCJHcmFudGVkQXQiOjE1NDQwMzgyOTMsIkdyYW50ZWRUbyI6IndlYi1yYXRlLWxpbWl0ZWQtYzRiYjA2MjU0MTQ4MmI3Y2YyN2NjODQ1NDk4NzE3MDUiLCJTdHJlYW1OYW1lIjoibFhjNWdTaDZVUGFXZGMzN0x0VkNiM1VkdFNmdmoyUU51dG9qUEsyZHU1WVdyTmNoZkk0d1hwd3dIS1R5ZkRobWZUMmlic0JaVjRkb1FlV2xoU3ZJNEE9PSIsImV4cCI6MTU0NDIxMTA5M30.xl5wEFhkig-Co83Ay4np0_5QoKkUAUVEifFH1VOqtFQ&amp;service=proxsee&amp;digest=fhI7BsiHwBt_e74tG104QhfHaDv4NhquvoyKS3ud3xg";
-            var og = OpenGraph.ParseUrl("https://www.periscope.tv/w/1DXxyZZZVykKM");
+            var expectedUrl = "https://prod-video-us-west-2.pscp.tv/lXc5gSh6UPaWdc37LtVCb3UdtSfvj2QNutojPK2du5YWrNchfI4wXpwwHKTyfDhmfT2ibsBZV4doQeWlhSvI4A==/replay_thumbnail/us-west-2/periscope-replay-direct-live/eyJkIjowfQ/chunk_314.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlcnNpb24iOiIyIn0.eyJBbGxvd2VkUHJvdG9jb2xzIjpbInRodW1iIl0sIkJyb2FkY2FzdElkIjoiMURYeHlaWlpWeWtLTSIsIkdyYW50VHlwZSI6InJlYWQiLCJHcmFudGVkQXQiOjE1NDQwNTgzMjgsIkdyYW50ZWRUbyI6IndlYi1yYXRlLWxpbWl0ZWQtMDA4NjkxZjE3ZDUyY2E3OTMyNTdlYWQ4NTkyOGE1N2IiLCJTdHJlYW1OYW1lIjoibFhjNWdTaDZVUGFXZGMzN0x0VkNiM1VkdFNmdmoyUU51dG9qUEsyZHU1WVdyTmNoZkk0d1hwd3dIS1R5ZkRobWZUMmlic0JaVjRkb1FlV2xoU3ZJNEE9PSIsImV4cCI6MTU0NDIzMTEyOH0.UbJfSn8A0BFBRJHAlhgBxAxGv4DuMnTnwGOztR-3swE&service=proxsee&digest=tGkjjGWVywQpODOMKx7vAqtCh-QohM9rSCR8KM_JtN4";
+            ////var og = OpenGraph.ParseUrl("https://www.periscope.tv/w/1DXxyZZZVykKM");
+            var og = OpenGraph.ParseHtml(PeriscopeTvContent);
 
             Assert.Equal(expectedUrl, og.Image.ToString());
+            Assert.Equal("320", og.Metadata["image"].First().Properties["width"].Value());
+            Assert.Equal("568", og.Metadata["image"].First().Properties["height"].Value());
         }
 
         /// <summary>

@@ -559,6 +559,14 @@
                 {
                     lastElement.AddProperty(cleanProperty, value);
                 }
+                else if (IsChildOfExistingElement(result.internalOpenGraphData, property))
+                {
+                    var matchingElement =
+                        result.internalOpenGraphData.First(kvp => kvp.Value.First().IsMyProperty(property));
+
+                    var element = matchingElement.Value.FirstOrDefault(e => !e.Properties.ContainsKey(cleanProperty));
+                    element?.AddProperty(cleanProperty, value);
+                }
                 else
                 {
                     lastElement = new StructuredMetadata(result.Namespaces[prefix], cleanProperty, value);
@@ -587,6 +595,19 @@
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Determines whether [is child of existing element] [the specified property].
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        /// <param name="property">The property.</param>
+        /// <returns>
+        ///   <c>true</c> if this child of existing element] [the specified property]; otherwise, <c>false</c>.
+        /// </returns>
+        private static bool IsChildOfExistingElement(StructuredMetadataCollection collection, string property)
+        {
+            return collection.Any(kvp => kvp.Value.FirstOrDefault()?.IsMyProperty(property) ?? false);
         }
 
         /// <summary>
