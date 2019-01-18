@@ -80,6 +80,14 @@
         public Uri OriginalUrl { get; private set; }
 
         /// <summary>
+        /// Gets the original HTML content.
+        /// </summary>
+        /// <value>
+        /// The original HTML content.
+        /// </value>
+        public string OriginalHtml { get; private set; }
+
+        /// <summary>
         /// Gets the head prefix attribute value.
         /// </summary>
         /// <value>
@@ -269,6 +277,8 @@
 
             HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
             string html = downloader.GetPage();
+
+            result.OriginalHtml = html;
 
             return ParseHtml(result, html, validateSpecification);
         }

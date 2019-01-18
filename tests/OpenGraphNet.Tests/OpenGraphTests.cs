@@ -386,6 +386,7 @@ namespace OpenGraphNet.Tests
         public void TestParsingUrlTest()
         {
             OpenGraph graph = OpenGraph.ParseUrl(SpacedLink);
+            Assert.Contains("<html", graph.OriginalHtml);
             this.AssertSpaced(graph);
         }
 
