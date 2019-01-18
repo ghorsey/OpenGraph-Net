@@ -376,6 +376,7 @@ namespace OpenGraphNet.Tests
         public async Task TestParsingAsyncTest()
         {
             OpenGraph graph = await OpenGraph.ParseUrlAsync(SpacedLink);
+            Assert.Contains("<html", graph.OriginalHtml);
             this.AssertSpaced(graph);
         }
 
@@ -388,6 +389,24 @@ namespace OpenGraphNet.Tests
             OpenGraph graph = OpenGraph.ParseUrl(SpacedLink);
             Assert.Contains("<html", graph.OriginalHtml);
             this.AssertSpaced(graph);
+        }
+
+        /// <summary>
+        /// Tests the parsing of urls without a scheme.
+        /// </summary>
+        /// <returns>A task that represents this async operation</returns>
+        [Fact]
+        public async Task TestParsingUrlsWithoutScheme()
+        {
+            var withoutScheme = SpacedLink.Replace("http://", string.Empty);
+            var withHttpsScheme = SpacedLink.Replace("http", "https");
+
+            OpenGraph.ParseUrl(withHttpsScheme);
+            await OpenGraph.ParseUrlAsync(withHttpsScheme);
+
+            OpenGraph.ParseUrl(withoutScheme);
+            await OpenGraph.ParseUrlAsync(withoutScheme);
+
         }
 
         /// <summary>

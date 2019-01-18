@@ -230,8 +230,7 @@
         /// </returns>
         public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
-            Uri uri = new Uri(url);
-            return ParseUrl(uri, userAgent, validateSpecification);
+            return ParseUrlAsync(url, userAgent, validateSpecification).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -243,6 +242,11 @@
         /// <returns><see cref="Task{OpenGraph}"/></returns>
         public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
+            if (!Regex.IsMatch(url, "^https?://", RegexOptions.IgnoreCase))
+            {
+                url = $"http://{url}";
+            }
+
             Uri uri = new Uri(url);
             return ParseUrlAsync(uri, userAgent, validateSpecification);
         }
@@ -260,24 +264,6 @@
 
             HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
             string html = await downloader.GetPageAsync();
-
-            return ParseHtml(result, html, validateSpecification);
-        }
-
-        /// <summary>
-        /// Downloads the HTML of the specified URL and parses it for open graph content.
-        /// </summary>
-        /// <param name="url">The URL to download the HTML from.</param>
-        /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
-        /// <param name="validateSpecification">if set to <c>true</c> verify that the document meets the required attributes of the open graph specification.</param>
-        /// <returns><see cref="OpenGraph"/></returns>
-        public static OpenGraph ParseUrl(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
-        {
-            OpenGraph result = new OpenGraph { OriginalUrl = url };
-
-            HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
-            string html = downloader.GetPage();
-
             result.OriginalHtml = html;
 
             return ParseHtml(result, html, validateSpecification);
