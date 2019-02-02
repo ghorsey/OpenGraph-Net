@@ -631,11 +631,11 @@
         }
 
         /// <summary>
-        /// HTMLs the decode urls.
+        /// HTMLs the decode URLs.
         /// </summary>
         /// <param name="property">The property.</param>
         /// <param name="value">The value.</param>
-        /// <returns>The decoded url value</returns>
+        /// <returns>The decoded URL value</returns>
         private static string HtmlDecodeUrl(string property, string value)
         {
             var urlPropertyPatterns = new[] { "image", "url^" };

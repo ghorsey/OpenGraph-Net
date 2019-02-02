@@ -2,6 +2,7 @@
 namespace OpenGraphNet.Tests
 {
     // ReSharper disable StringLiteralTypo
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace OpenGraphNet.Tests
         private const string SpacedLink = "http://www.imdb.com/title/tt0187664/";
 
         /// <summary>
-        /// The periscope tv content
+        /// The periscope TV content
         /// </summary>
         private const string PeriscopeTvContent = @"<!doctype html>
 <html>
@@ -41,8 +42,9 @@ namespace OpenGraphNet.Tests
 <body class=""""></body></html>";
 
         /// <summary>
-        /// The spotify album content
+        /// The Spotify album content
         /// </summary>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private const string SpotifyAlbumContent = @"<!DOCTYPE html>
 <html lang=en class="""">
 <head>
@@ -76,6 +78,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// The spotify playlist content
         /// </summary>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private const string SpotifyPlaylistContent = @"<!DOCTYPE html>
 <html lang=en class="""">
 <head>
@@ -171,6 +174,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing spotify album.
         /// </summary>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         [Fact]
         public void TestParsingSpotifyAlbum()
         {
@@ -202,6 +206,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing spotify playlist.
         /// </summary>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         [Fact]
         public void TestParsingSpotifyPlaylist()
         {
@@ -392,7 +397,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Tests the parsing of urls without a scheme.
+        /// Tests the parsing of URLs without a scheme.
         /// </summary>
         /// <returns>A task that represents this async operation</returns>
         [Fact]
@@ -406,7 +411,6 @@ namespace OpenGraphNet.Tests
 
             OpenGraph.ParseUrl(withoutScheme);
             await OpenGraph.ParseUrlAsync(withoutScheme);
-
         }
 
         /// <summary>

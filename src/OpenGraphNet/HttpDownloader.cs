@@ -15,6 +15,7 @@
     /// <remarks>
     /// Taken from http://stackoverflow.com/a/2700707
     /// </remarks>
+    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     [ExcludeFromCodeCoverage]
     public class HttpDownloader
     {
