@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Diagnostics;
     using System.Linq;
 
     using HtmlAgilityPack;
@@ -12,6 +13,7 @@
     /// A root structured element
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
+    [DebuggerDisplay("{" + nameof(Name) + "}: {" + nameof(Value) + "}")]
     public class StructuredMetadata : Metadata
     {
         /// <summary>
