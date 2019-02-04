@@ -263,7 +263,7 @@
             OpenGraph result = new OpenGraph { OriginalUrl = url };
 
             HttpDownloader downloader = new HttpDownloader(url, null, userAgent);
-            string html = await downloader.GetPageAsync();
+            string html = await downloader.GetPageAsync().ConfigureAwait(false);
             result.OriginalHtml = html;
 
             return ParseHtml(result, html, validateSpecification);

@@ -117,7 +117,7 @@
             // ReSharper disable once StringLiteralTypo
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
-            using (HttpWebResponse response = (HttpWebResponse)(await request.GetResponseAsync()))
+            using (HttpWebResponse response = (HttpWebResponse)(await request.GetResponseAsync().ConfigureAwait(false)))
             {
                 this.Headers = response.Headers;
                 this.Url = response.ResponseUri;
