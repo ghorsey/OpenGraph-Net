@@ -135,26 +135,22 @@
         {
             this.SetEncodingFromHeader(response);
 
-            Stream s = response.GetResponseStream();
+            var s = response.GetResponseStream() ?? throw new InvalidOperationException("Response stream came back as null");
 
-            if (s == null)
-            {
-                throw new InvalidOperationException("Response stream came back as null");
-            }
+            var contentEncoding = response.ContentEncoding ?? string.Empty;
 
-            // ReSharper disable once StringLiteralTypo
-            if (response.ContentEncoding.ToLower().Contains("gzip"))
+            if (contentEncoding.ToLower().Contains("gzip"))
             {
                 s = new GZipStream(s, CompressionMode.Decompress);
             }
-            else if (response.ContentEncoding.ToLower().Contains("deflate"))
+            else if (contentEncoding.ToLower().Contains("deflate"))
             {
                 s = new DeflateStream(s, CompressionMode.Decompress);
             }
 
-            MemoryStream memStream = new MemoryStream();
+            var memStream = new MemoryStream();
             int bytesRead;
-            byte[] buffer = new byte[0x1000];
+            var buffer = new byte[0x1000];
             for (bytesRead = s.Read(buffer, 0, buffer.Length); bytesRead > 0; bytesRead = s.Read(buffer, 0, buffer.Length))
             {
                 memStream.Write(buffer, 0, bytesRead);
@@ -163,7 +159,7 @@
             s.Close();
             string html;
             memStream.Position = 0;
-            using (StreamReader r = new StreamReader(memStream, this.Encoding))
+            using (var r = new StreamReader(memStream, this.Encoding))
             {
                 html = r.ReadToEnd().Trim();
                 html = this.CheckMetaCharSetAndReEncode(memStream, html);

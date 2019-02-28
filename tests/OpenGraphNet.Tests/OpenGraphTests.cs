@@ -2,6 +2,7 @@
 namespace OpenGraphNet.Tests
 {
     // ReSharper disable StringLiteralTypo
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
@@ -465,6 +466,19 @@ namespace OpenGraphNet.Tests
             Assert.Equal(expectedUrl, og.Image.ToString());
             Assert.Equal("320", og.Metadata["image"].First().Properties["width"].Value());
             Assert.Equal("568", og.Metadata["image"].First().Properties["height"].Value());
+        }
+
+        /// <summary>
+        /// Defines the test method TestDownloader. Issue #15
+        /// </summary>
+        /// <returns>A/an <c>Task</c>.</returns>
+        [Fact]
+        public async Task TestDownloader()
+        {
+            HttpDownloader downloader = new HttpDownloader(new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"), "test", "test");
+            string html = await downloader.GetPageAsync();
+
+            Assert.NotEqual(string.Empty, html);
         }
 
         /// <summary>
