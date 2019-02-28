@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="StyleCop Ruleset" Description=" " ToolsVersion="15.0">
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA1633" Action="None"/> <!-- FileMustHaveHeader -->
+        <Rule Id="SA1118" Action="None"/> <!--  ParameterMustNotSpanMultipleLines -->
+    </Rules>
+</RuleSet>
