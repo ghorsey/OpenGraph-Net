@@ -15,7 +15,7 @@ namespace OpenGraphNet.Metadata
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        protected Metadata(Namespace ns, string name, string value) 
+        protected Metadata(Namespace ns, string name, string value)
         {
             this.Namespace = ns;
             this.Name = name;
@@ -47,7 +47,7 @@ namespace OpenGraphNet.Metadata
         public string Value { get; }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Metadata"/> to <see cref="System.String"/>.
+        /// Performs an implicit conversion from <see cref="Metadata"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="element">The element.</param>
         /// <returns>
@@ -59,10 +59,10 @@ namespace OpenGraphNet.Metadata
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// Returns a <see cref="string" /> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// A <see cref="string" /> that represents this instance.
         /// </returns>
         public override string ToString()
         {

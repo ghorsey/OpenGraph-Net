@@ -14,7 +14,8 @@ namespace OpenGraphNet.Namespaces
         /// <param name="prefix">The prefix.</param>
         /// <param name="schemaUri">The schema URI.</param>
         /// <param name="requiredElements">The required elements.</param>
-        public RegistryNamespace(string prefix, string schemaUri, params string[] requiredElements) : base(prefix, schemaUri)
+        public RegistryNamespace(string prefix, string schemaUri, params string[] requiredElements)
+            : base(prefix, schemaUri)
         {
             this.RequiredElements = new List<string>(requiredElements);
         }

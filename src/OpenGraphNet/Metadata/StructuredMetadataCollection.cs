@@ -51,7 +51,7 @@
             get
             {
                 var ns = NamespaceRegistry.DefaultNamespace;
-                if (key.IndexOf(':') < 0) 
+                if (key.IndexOf(':') < 0)
                 {
                     key = string.Concat(ns.Prefix, ":", key);
                 }
@@ -118,7 +118,7 @@
         /// true if <paramref name="item">item</paramref> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"></see>; otherwise, false. This method also returns false if <paramref name="item">item</paramref> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"></see>.
         /// </returns>
         public bool Remove(KeyValuePair<string, IList<StructuredMetadata>> item) => this.InternalCollection.Remove(item);
-        
+
         /// <summary>
         /// Adds an element with the provided key and value to the <see cref="T:System.Collections.Generic.IDictionary`2"></see>.
         /// </summary>

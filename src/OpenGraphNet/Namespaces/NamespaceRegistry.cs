@@ -48,7 +48,7 @@ namespace OpenGraphNet.Namespaces
         /// The instance.
         /// </value>
         public static NamespaceRegistry Instance
-        { 
+        {
             get
             {
                 if (internalInstance == null)

@@ -195,6 +195,7 @@
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                     this.Encoding = Encoding.GetEncoding(charset);
                 }
+
                 // ReSharper disable once UncatchableException
                 catch (ArgumentException)
                 {
@@ -230,6 +231,7 @@
                         recodeReader.Close();
                     }
                 }
+
                 // ReSharper disable once UncatchableException
                 catch (ArgumentException)
                 {

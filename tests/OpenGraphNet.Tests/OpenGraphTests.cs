@@ -370,7 +370,7 @@ namespace OpenGraphNet.Tests
             Assert.Equal("http://www.test.com/test.png", graph.Image.ToString());
             Assert.Equal("http://www.test.com/", graph.Url.ToString());
             Assert.Equal("My Description", graph.Metadata["og:description"].First().Value);
-            
+
             Assert.Equal("Test Site", graph.Metadata["og:site_name"].First().Value);
         }
 
@@ -425,7 +425,7 @@ namespace OpenGraphNet.Tests
             var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756");
             Assert.Equal(expectedContent, tags.Metadata["og:description"].First().Value);
         }
-        
+
         /// <summary>
         /// Tests the parsing URL validate encoding is correct.
         /// </summary>
@@ -493,7 +493,7 @@ namespace OpenGraphNet.Tests
             Assert.Equal("og", graph.Namespaces["og"].Prefix);
             Assert.Equal("http://www.facebook.com/2008/fbml", graph.Namespaces["fb"].SchemaUri.ToString());
             Assert.Equal("fb", graph.Namespaces["fb"].Prefix);
-            
+
             Assert.Equal(SpacedLink, graph.Url.ToString());
             Assert.StartsWith("Spaced (TV Series 1999–2001)", graph.Title);
             Assert.Contains("Simon", graph.Metadata["og:description"].First().Value);

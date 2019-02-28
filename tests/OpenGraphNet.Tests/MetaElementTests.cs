@@ -42,7 +42,7 @@
         public void TestMetaElement()
         {
             var element = new StructuredMetadata(this.ns, "title", "my title");
-            
+
             Assert.Equal("my title", element);
             Assert.Equal(@"<meta property=""og:title"" content=""my title"">", element.ToString());
         }

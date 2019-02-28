@@ -6,7 +6,8 @@
     /// <summary>
     /// An invalid specification exception
     /// </summary>
-    [Serializable, ExcludeFromCodeCoverage]
+    [Serializable]
+    [ExcludeFromCodeCoverage]
     public class InvalidSpecificationException : Exception
     {
         /// <summary>

@@ -93,7 +93,7 @@
         /// <value>
         /// The head prefix attribute value.
         /// </value>
-        public string HeadPrefixAttributeValue 
+        public string HeadPrefixAttributeValue
         {
             get
             {
@@ -319,10 +319,10 @@
         }
 
     /// <summary>
-    /// Returns a <see cref="System.String" /> that represents this instance.
+    /// Returns a <see cref="string" /> that represents this instance.
     /// </summary>
     /// <returns>
-    /// A <see cref="System.String" /> that represents this instance.
+    /// A <see cref="string" /> that represents this instance.
     /// </returns>
     public override string ToString()
         {
@@ -461,7 +461,7 @@
                 }
             }
             else
-            {  
+            {
                 // append the minimum og: prefix and namespace
                 result.Namespaces.Add("og", NamespaceRegistry.Instance.Namespaces["og"]);
             }
