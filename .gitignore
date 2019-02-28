@@ -1,4 +1,5 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+*.DS_Store
 [Bb]in/
 [Oo]bj/
 project.lock.json
@@ -101,7 +102,6 @@ TestResults
 [Tt]est[Rr]esult*
 *.Cache
 ClientBin
-[Ss]tyle[Cc]op.*
 ~$*
 *.dbmdl
 Generated_Code #added for RIA/Silverlight projects
