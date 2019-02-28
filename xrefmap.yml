@@ -957,6 +957,19 @@ references:
   isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Namespaces
   nameWithType: OpenGraph.Namespaces
+- uid: OpenGraphNet.OpenGraph.OriginalHtml
+  name: OriginalHtml
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalHtml
+  commentId: P:OpenGraphNet.OpenGraph.OriginalHtml
+  fullName: OpenGraphNet.OpenGraph.OriginalHtml
+  nameWithType: OpenGraph.OriginalHtml
+- uid: OpenGraphNet.OpenGraph.OriginalHtml*
+  name: OriginalHtml
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalHtml_
+  commentId: Overload:OpenGraphNet.OpenGraph.OriginalHtml
+  isSpec: "True"
+  fullName: OpenGraphNet.OpenGraph.OriginalHtml
+  nameWithType: OpenGraph.OriginalHtml
 - uid: OpenGraphNet.OpenGraph.OriginalUrl
   name: OriginalUrl
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalUrl
@@ -989,12 +1002,6 @@ references:
   commentId: M:OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean)
   fullName: OpenGraphNet.OpenGraph.ParseUrl(System.String, System.String, System.Boolean)
   nameWithType: OpenGraph.ParseUrl(String, String, Boolean)
-- uid: OpenGraphNet.OpenGraph.ParseUrl(System.Uri,System.String,System.Boolean)
-  name: ParseUrl(Uri, String, Boolean)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_System_Uri_System_String_System_Boolean_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrl(System.Uri,System.String,System.Boolean)
-  fullName: OpenGraphNet.OpenGraph.ParseUrl(System.Uri, System.String, System.Boolean)
-  nameWithType: OpenGraph.ParseUrl(Uri, String, Boolean)
 - uid: OpenGraphNet.OpenGraph.ParseUrl*
   name: ParseUrl
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_
