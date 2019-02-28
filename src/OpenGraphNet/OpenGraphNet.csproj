@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.0.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
@@ -14,24 +13,18 @@
     <PackageId>OpenGraph-Net</PackageId>
     <Title>OpenGraph.Net</Title>
     <Authors>ghorsey</Authors>
-    <Description>
-      A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet.   You can read more about the Open Graph protocol @ http://ogp.me.
-    </Description>
+    <Description>A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet.   You can read more about the Open Graph protocol @ http://ogp.me.</Description>
     <Copyright>Copyright © 2016-2019</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
-    <PackageReleaseNotes>
-      Added 2 feature requests:
-
-      * New property `OriginalHtml` now contains the downloaded content from the Parse URL methods
-      * Can now call ParseUrl("www.amazon.com") without any scheme.  When this happens http:// is assumed.
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>Bug fixes</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
     <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
-    <Version>3.1.0</Version>
+    <Version>3.1.1</Version>
     <PackageTags>OpenGraph  OGP Parser</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>OpenGraph.Net</Product>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningsAsErrors />
