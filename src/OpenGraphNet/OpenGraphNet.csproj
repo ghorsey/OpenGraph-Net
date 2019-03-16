@@ -19,24 +19,32 @@
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
     <PackageReleaseNotes>Bug fixes</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
-    <RepositoryUrl>https://github.com/ghorsey/OpenGraph-Net</RepositoryUrl>
-    <Version>3.1.1</Version>
+    <Version>3.1.2</Version>
     <PackageTags>OpenGraph  OGP Parser</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>OpenGraph.Net</Product>
     <RepositoryType>git</RepositoryType>
+     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+ 
+    <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  
+    <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.8.11" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.9.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
   </ItemGroup>
 
 </Project>
