@@ -3,7 +3,7 @@ namespace OpenGraphNet.Namespaces
     using System.Collections.Generic;
 
     /// <summary>
-    /// The list of known supported Open Graph namespaces
+    /// The list of known supported Open Graph namespaces.
     /// </summary>
     /// <seealso cref="Namespace" />
     public sealed class RegistryNamespace : Namespace

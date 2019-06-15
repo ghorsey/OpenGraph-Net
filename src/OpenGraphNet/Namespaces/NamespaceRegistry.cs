@@ -4,17 +4,17 @@ namespace OpenGraphNet.Namespaces
     using System.Collections.ObjectModel;
 
     /// <summary>
-    /// A singleton to define supported namespaces
+    /// A singleton to define supported namespaces.
     /// </summary>
     public sealed class NamespaceRegistry
     {
         /// <summary>
-        /// The synchronization lock
+        /// The synchronization lock.
         /// </summary>
         private static readonly object SynchronizationLock = new object();
 
         /// <summary>
-        /// The instance
+        /// The instance.
         /// </summary>
         private static NamespaceRegistry internalInstance;
 

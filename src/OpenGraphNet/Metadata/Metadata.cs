@@ -5,7 +5,7 @@ namespace OpenGraphNet.Metadata
     using OpenGraphNet.Namespaces;
 
     /// <summary>
-    /// Represents an Open Graph meta element
+    /// Represents an Open Graph meta element.
     /// </summary>
     public abstract class Metadata
     {
@@ -79,7 +79,7 @@ namespace OpenGraphNet.Metadata
         /// <summary>
         /// Creates the document.
         /// </summary>
-        /// <returns>The HTML snippet that represents this element</returns>
+        /// <returns>The HTML snippet that represents this element.</returns>
         protected internal virtual HtmlDocument CreateDocument()
         {
             var doc = new HtmlDocument();

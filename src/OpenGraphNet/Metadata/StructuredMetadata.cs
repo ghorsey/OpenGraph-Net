@@ -10,14 +10,14 @@
     using OpenGraphNet.Namespaces;
 
     /// <summary>
-    /// A root structured element
+    /// A root structured element.
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
     [DebuggerDisplay("{" + nameof(Name) + "}: {" + nameof(Value) + "}")]
     public class StructuredMetadata : Metadata
     {
         /// <summary>
-        /// The internal properties
+        /// The internal properties.
         /// </summary>
         private readonly Dictionary<string, IList<PropertyMetadata>> internalProperties = new Dictionary<string, IList<PropertyMetadata>>();
 
@@ -89,7 +89,7 @@
         /// Creates the document.
         /// </summary>
         /// <returns>
-        /// The HTML snippet that represents this element
+        /// The HTML snippet that represents this element.
         /// </returns>
         protected internal override HtmlDocument CreateDocument()
         {

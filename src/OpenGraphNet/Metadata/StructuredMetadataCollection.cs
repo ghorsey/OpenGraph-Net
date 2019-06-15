@@ -6,7 +6,7 @@
     using OpenGraphNet.Namespaces;
 
     /// <summary>
-    /// A collection class to contain <see cref="StructuredMetadata"/> objects
+    /// A collection class to contain <see cref="StructuredMetadata"/> objects.
     /// </summary>
     public class StructuredMetadataCollection : IDictionary<string, IList<StructuredMetadata>>
     {
@@ -45,7 +45,7 @@
         /// The <see cref="IList{StructuredMetadata}"/>.
         /// </value>
         /// <param name="key">The key.</param>
-        /// <returns>The metadata at the current specified key</returns>
+        /// <returns>The metadata at the current specified key.</returns>
         public IList<StructuredMetadata> this[string key]
         {
             get

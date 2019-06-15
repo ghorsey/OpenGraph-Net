@@ -15,12 +15,12 @@
     using OpenGraphNet.Namespaces;
 
     /// <summary>
-    /// Represents Open Graph meta data parsed from HTML
+    /// Represents Open Graph meta data parsed from HTML.
     /// </summary>
     public class OpenGraph
     {
         /// <summary>
-        /// The open graph data
+        /// The open graph data.
         /// </summary>
         private readonly StructuredMetadataCollection internalOpenGraphData;
 
@@ -68,13 +68,13 @@
         public Uri Image { get; private set; }
 
         /// <summary>
-        /// Gets the URL for the open graph document
+        /// Gets the URL for the open graph document.
         /// </summary>
         /// <value>The URL.</value>
         public Uri Url { get; private set; }
 
         /// <summary>
-        /// Gets the original URL used to generate this graph
+        /// Gets the original URL used to generate this graph.
         /// </summary>
         /// <value>The original URL.</value>
         public Uri OriginalUrl { get; private set; }
@@ -141,7 +141,7 @@
         /// <param name="locale">The locale.</param>
         /// <param name="localeAlternates">The locale alternates.</param>
         /// <param name="determiner">The determiner.</param>
-        /// <returns><see cref="OpenGraph"/></returns>
+        /// <returns><see cref="OpenGraph"/>.</returns>
         public static OpenGraph MakeGraph(
             string title,
             string type,
@@ -226,7 +226,7 @@
         /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
         /// <param name="validateSpecification">if set to <c>true</c> <see cref="OpenGraph"/> will validate against the specification.</param>
         /// <returns>
-        ///   <see cref="OpenGraph" />
+        ///   <see cref="OpenGraph" />.
         /// </returns>
         public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
@@ -239,7 +239,7 @@
         /// <param name="url">The URL.</param>
         /// <param name="userAgent">The user agent.</param>
         /// <param name="validateSpecification">if set to <c>true</c> validate minimum Open Graph specification.</param>
-        /// <returns><see cref="Task{OpenGraph}"/></returns>
+        /// <returns><see cref="Task{OpenGraph}"/>.</returns>
         public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
             if (!Regex.IsMatch(url, "^https?://", RegexOptions.IgnoreCase))
@@ -257,7 +257,7 @@
         /// <param name="url">The URL.</param>
         /// <param name="userAgent">The user agent.</param>
         /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
-        /// <returns><see cref="Task{OpenGraph}"/></returns>
+        /// <returns><see cref="Task{OpenGraph}"/>.</returns>
         public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
         {
             OpenGraph result = new OpenGraph { OriginalUrl = url };
@@ -274,7 +274,7 @@
         /// </summary>
         /// <param name="content">The HTML to parse.</param>
         /// <param name="validateSpecification">if set to <c>true</c> verify that the document meets the required attributes of the open graph specification.</param>
-        /// <returns><see cref="OpenGraph"/></returns>
+        /// <returns><see cref="OpenGraph"/>.</returns>
         public static OpenGraph ParseHtml(string content, bool validateSpecification = false)
         {
             OpenGraph result = new OpenGraph();
@@ -304,7 +304,7 @@
         /// <param name="prefix">The prefix.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        /// <exception cref="InvalidOperationException">The prefix {prefix} does not exist in the NamespaceRegistry</exception>
+        /// <exception cref="InvalidOperationException">The prefix {prefix} does not exist in the NamespaceRegistry.</exception>
         public void AddMetadata(string prefix, string name, string value)
         {
             if (!NamespaceRegistry.Instance.Namespaces.ContainsKey(prefix))
@@ -318,13 +318,13 @@
             this.AddMetadata(metadata);
         }
 
-    /// <summary>
-    /// Returns a <see cref="string" /> that represents this instance.
-    /// </summary>
-    /// <returns>
-    /// A <see cref="string" /> that represents this instance.
-    /// </returns>
-    public override string ToString()
+        /// <summary>
+        /// Returns a <see cref="string" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="string" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
         {
             var doc = new HtmlDocument();
 
@@ -342,7 +342,7 @@
         /// Safes the HTML decode URL.
         /// </summary>
         /// <param name="value">The value.</param>
-        /// <returns>The string</returns>
+        /// <returns>The string.</returns>
         private static string HtmlDecodeUrl(string value)
         {
             if (value == null)
@@ -368,7 +368,7 @@
         /// Gets the open graph key.
         /// </summary>
         /// <param name="metaTag">The meta tag.</param>
-        /// <returns>Returns the key stored from the meta tag</returns>
+        /// <returns>Returns the key stored from the meta tag.</returns>
         private static string GetOpenGraphKey(HtmlNode metaTag)
         {
             if (metaTag.Attributes.Contains("property"))
@@ -383,7 +383,7 @@
         /// Gets the open graph prefix.
         /// </summary>
         /// <param name="metaTag">The meta tag.</param>
-        /// <returns>The prefix</returns>
+        /// <returns>The prefix.</returns>
         private static string GetOpenGraphPrefix(HtmlNode metaTag)
         {
             var value = metaTag.Attributes.Contains("property") ? metaTag.Attributes["property"].Value : metaTag.Attributes["name"].Value;
@@ -397,7 +397,7 @@
         /// <param name="prefix">The prefix.</param>
         /// <param name="value">The value.</param>
         /// <returns>
-        /// strips the namespace prefix from the value
+        /// strips the namespace prefix from the value.
         /// </returns>
         private static string CleanOpenGraphKey(string prefix, string value)
         {
@@ -408,7 +408,7 @@
         /// Gets the open graph value.
         /// </summary>
         /// <param name="metaTag">The meta tag.</param>
-        /// <returns>Returns the value from the meta tag</returns>
+        /// <returns>Returns the value from the meta tag.</returns>
         private static string GetOpenGraphValue(HtmlNode metaTag)
         {
             if (!metaTag.Attributes.Contains("content"))
@@ -451,9 +451,9 @@
                     result.Namespaces.Add(prefix, new Namespace(prefix, ns));
                 }
             }
-            else if (html != null && html.Attributes.Any(a => a.Name.ToLowerInvariant().StartsWith("xmlns:")))
+            else if (html != null && html.Attributes.Any(a => a.Name.StartsWith("xmlns:", StringComparison.InvariantCultureIgnoreCase)))
             {
-                var namespaces = html.Attributes.Where(a => a.Name.ToLowerInvariant().StartsWith("xmlns:"));
+                var namespaces = html.Attributes.Where(a => a.Name.StartsWith("xmlns:", StringComparison.InvariantCultureIgnoreCase));
                 foreach (var ns in namespaces)
                 {
                     var prefix = ns.Name.ToLowerInvariant().Replace("xmlns:", string.Empty);
@@ -471,7 +471,7 @@
         /// Matches the namespace predicate.
         /// </summary>
         /// <param name="value">The value.</param>
-        /// <returns><c>true</c> when the element has a namespace; otherwise <c>false</c></returns>
+        /// <returns><c>true</c> when the element has a namespace; otherwise <c>false</c>.</returns>
         private static bool MatchesNamespacePredicate(string value)
         {
             return value.IndexOf(':') >= 0;
@@ -500,7 +500,7 @@
         /// Makes the document to parse.
         /// </summary>
         /// <param name="content">The content.</param>
-        /// <returns>The <see cref="HtmlDocument"/></returns>
+        /// <returns>The <see cref="HtmlDocument"/>.</returns>
         private static HtmlDocument MakeDocumentToParse(string content)
         {
             int indexOfClosingHead = Regex.Match(content, "</head>").Index;
@@ -520,8 +520,8 @@
         /// <param name="result">The result.</param>
         /// <param name="content">The content.</param>
         /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
-        /// <returns><see cref="OpenGraph"/></returns>
-        /// <exception cref="OpenGraphNet.InvalidSpecificationException">The parsed HTML does not meet the open graph specification</exception>
+        /// <returns><see cref="OpenGraph"/>.</returns>
+        /// <exception cref="OpenGraphNet.InvalidSpecificationException">The parsed HTML does not meet the open graph specification.</exception>
         private static OpenGraph ParseHtml(OpenGraph result, string content, bool validateSpecification = false)
         {
             HtmlDocument document = MakeDocumentToParse(content);
@@ -570,7 +570,7 @@
                 }
             }
 
-                result.Type = string.Empty;
+            result.Type = string.Empty;
             if (result.internalOpenGraphData.TryGetValue("og:type", out var type))
             {
                 result.Type = (type.FirstOrDefault() ?? new NullMetadata()).Value ?? string.Empty;
@@ -611,7 +611,7 @@
         /// </summary>
         /// <param name="result">The result.</param>
         /// <param name="property">The property.</param>
-        /// <returns>The Uri</returns>
+        /// <returns>The Uri.</returns>
         private static Uri GetUri(OpenGraph result, string property)
         {
             result.internalOpenGraphData.TryGetValue(property, out var url);
@@ -635,7 +635,7 @@
         /// </summary>
         /// <param name="property">The property.</param>
         /// <param name="value">The value.</param>
-        /// <returns>The decoded URL value</returns>
+        /// <returns>The decoded URL value.</returns>
         private static string HtmlDecodeUrl(string property, string value)
         {
             var urlPropertyPatterns = new[] { "image", "url^" };
@@ -654,7 +654,7 @@
         /// Validates the specification.
         /// </summary>
         /// <param name="result">The result.</param>
-        /// <exception cref="InvalidSpecificationException">The parsed HTML does not meet the open graph specification, missing element: {required}</exception>
+        /// <exception cref="InvalidSpecificationException">The parsed HTML does not meet the open graph specification, missing element: {required}.</exception>
         private static void ValidateSpecification(OpenGraph result)
         {
             var prefixes = result.Namespaces.Select(ns => ns.Value.Prefix);

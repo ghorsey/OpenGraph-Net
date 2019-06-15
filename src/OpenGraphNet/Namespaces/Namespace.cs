@@ -3,7 +3,7 @@
     using System;
 
     /// <summary>
-    /// An OpenGraph Namespace
+    /// An OpenGraph Namespace.
     /// </summary>
     public class Namespace
     {

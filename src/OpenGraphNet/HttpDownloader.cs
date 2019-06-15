@@ -10,22 +10,22 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Http Downloader
+    /// Http Downloader.
     /// </summary>
     /// <remarks>
-    /// Taken from http://stackoverflow.com/a/2700707
+    /// Taken from http://stackoverflow.com/a/2700707.
     /// </remarks>
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     [ExcludeFromCodeCoverage]
     public class HttpDownloader
     {
         /// <summary>
-        /// The referrer
+        /// The referrer.
         /// </summary>
         private readonly string referrer;
 
         /// <summary>
-        /// The user agent
+        /// The user agent.
         /// </summary>
         private readonly string userAgent;
 
@@ -70,7 +70,7 @@
         /// <summary>
         /// Gets the page.
         /// </summary>
-        /// <returns>The content of the page</returns>
+        /// <returns>The content of the page.</returns>
         public string GetPage()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
@@ -84,7 +84,6 @@
                 request.UserAgent = this.userAgent;
             }
 
-            // ReSharper disable once StringLiteralTypo
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -96,10 +95,10 @@
         }
 
         /// <summary>
-        /// Gets the page asynchronously
+        /// Gets the page asynchronously.
         /// </summary>
         /// <returns>
-        /// The content of the page
+        /// The content of the page.
         /// </returns>
         public async Task<string> GetPageAsync()
         {
@@ -129,8 +128,8 @@
         /// Processes the content.
         /// </summary>
         /// <param name="response">The response.</param>
-        /// <returns>The HTML content</returns>
-        /// <exception cref="InvalidOperationException">Response stream came back as null</exception>
+        /// <returns>The HTML content.</returns>
+        /// <exception cref="InvalidOperationException">Response stream came back as null.</exception>
         private string ProcessContent(HttpWebResponse response)
         {
             this.SetEncodingFromHeader(response);
@@ -139,11 +138,11 @@
 
             var contentEncoding = response.ContentEncoding ?? string.Empty;
 
-            if (contentEncoding.ToLower().Contains("gzip"))
+            if (contentEncoding.IndexOf("gzip", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 s = new GZipStream(s, CompressionMode.Decompress);
             }
-            else if (contentEncoding.ToLower().Contains("deflate"))
+            else if (contentEncoding.IndexOf("deflate", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 s = new DeflateStream(s, CompressionMode.Decompress);
             }
@@ -208,7 +207,7 @@
         /// </summary>
         /// <param name="memStream">The memory stream.</param>
         /// <param name="html">The HTML.</param>
-        /// <returns>The HTML content</returns>
+        /// <returns>The HTML content.</returns>
         private string CheckMetaCharSetAndReEncode(Stream memStream, string html)
         {
             Match m = new Regex(@"<meta\s+.*?charset\s*=\s*?""?(?<charset>[A-Za-z0-9_-]+?)""", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
@@ -222,17 +221,15 @@
 
                 try
                 {
-                    Encoding metaEncoding = Encoding.GetEncoding(charset);
+                    var metaEncoding = Encoding.GetEncoding(charset);
                     if (!this.Encoding.Equals(metaEncoding))
                     {
                         memStream.Position = 0L;
-                        StreamReader recodeReader = new StreamReader(memStream, metaEncoding);
+                        var recodeReader = new StreamReader(memStream, metaEncoding);
                         html = recodeReader.ReadToEnd().Trim();
                         recodeReader.Close();
                     }
                 }
-
-                // ReSharper disable once UncatchableException
                 catch (ArgumentException)
                 {
                 }

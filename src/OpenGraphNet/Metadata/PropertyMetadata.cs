@@ -5,7 +5,7 @@
     using OpenGraphNet.Namespaces;
 
     /// <summary>
-    /// A property meta element
+    /// A property meta element.
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
     public class PropertyMetadata : Metadata
@@ -45,7 +45,7 @@
         /// Creates the document.
         /// </summary>
         /// <returns>
-        /// The HTML snippet that represents this element
+        /// The HTML snippet that represents this element.
         /// </returns>
         protected internal override HtmlDocument CreateDocument()
         {
