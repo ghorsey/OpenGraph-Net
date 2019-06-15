@@ -23,7 +23,6 @@
         /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
         /// </summary>
         public InvalidSpecificationException()
-            : base()
         {
         }
 

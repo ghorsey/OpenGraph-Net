@@ -460,7 +460,6 @@ namespace OpenGraphNet.Tests
         public void TestUrlDecodingUrlValues()
         {
             var expectedUrl = "https://prod-video-us-west-2.pscp.tv/lXc5gSh6UPaWdc37LtVCb3UdtSfvj2QNutojPK2du5YWrNchfI4wXpwwHKTyfDhmfT2ibsBZV4doQeWlhSvI4A==/replay_thumbnail/us-west-2/periscope-replay-direct-live/eyJkIjowfQ/chunk_314.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsInZlcnNpb24iOiIyIn0.eyJBbGxvd2VkUHJvdG9jb2xzIjpbInRodW1iIl0sIkJyb2FkY2FzdElkIjoiMURYeHlaWlpWeWtLTSIsIkdyYW50VHlwZSI6InJlYWQiLCJHcmFudGVkQXQiOjE1NDQwNTgzMjgsIkdyYW50ZWRUbyI6IndlYi1yYXRlLWxpbWl0ZWQtMDA4NjkxZjE3ZDUyY2E3OTMyNTdlYWQ4NTkyOGE1N2IiLCJTdHJlYW1OYW1lIjoibFhjNWdTaDZVUGFXZGMzN0x0VkNiM1VkdFNmdmoyUU51dG9qUEsyZHU1WVdyTmNoZkk0d1hwd3dIS1R5ZkRobWZUMmlic0JaVjRkb1FlV2xoU3ZJNEE9PSIsImV4cCI6MTU0NDIzMTEyOH0.UbJfSn8A0BFBRJHAlhgBxAxGv4DuMnTnwGOztR-3swE&service=proxsee&digest=tGkjjGWVywQpODOMKx7vAqtCh-QohM9rSCR8KM_JtN4";
-            ////var og = OpenGraph.ParseUrl("https://www.periscope.tv/w/1DXxyZZZVykKM");
             var og = OpenGraph.ParseHtml(PeriscopeTvContent);
 
             Assert.Equal(expectedUrl, og.Image.ToString());
@@ -475,7 +474,7 @@ namespace OpenGraphNet.Tests
         [Fact]
         public async Task TestDownloader()
         {
-            HttpDownloader downloader = new HttpDownloader(new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"), "test", "test");
+            var downloader = new HttpDownloader(new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"), "test", "test");
             string html = await downloader.GetPageAsync().ConfigureAwait(false);
 
             Assert.NotEqual(string.Empty, html);

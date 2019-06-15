@@ -16,7 +16,6 @@
     /// <remarks>
     /// Taken from http://stackoverflow.com/a/2700707.
     /// </remarks>
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     [ExcludeFromCodeCoverage]
     public class HttpDownloader
     {
@@ -73,6 +72,7 @@
         public string GetPage()
         {
             var request = (HttpWebRequest)WebRequest.Create(this.Url);
+            request.AllowAutoRedirect = true;
             if (!string.IsNullOrEmpty(this.referrer))
             {
                 request.Referer = this.referrer;
@@ -101,7 +101,8 @@
         /// </returns>
         public async Task<string> GetPageAsync()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
+            var request = (HttpWebRequest)WebRequest.Create(this.Url);
+            request.AllowAutoRedirect = true;
             if (!string.IsNullOrEmpty(this.referrer))
             {
                 request.Referer = this.referrer;
@@ -113,7 +114,6 @@
             }
 
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
-            request.AllowAutoRedirect = true;
 
             using (var response = (HttpWebResponse)(await request.GetResponseAsync().ConfigureAwait(false)))
             {
@@ -195,8 +195,6 @@
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                     this.Encoding = Encoding.GetEncoding(charset);
                 }
-
-                // ReSharper disable once UncatchableException
                 catch (ArgumentException)
                 {
                 }
