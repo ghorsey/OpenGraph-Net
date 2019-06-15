@@ -13,7 +13,7 @@
         /// <summary>
         /// The namespace
         /// </summary>
-        private readonly Namespace ns;
+        private readonly OpenGraphNamespace ns;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetaElementTests"/> class.

@@ -1,7 +1,7 @@
 ﻿namespace OpenGraphNet.Metadata
 {
     /// <summary>
-    /// Represents a null <see cref="Metadata"/>.
+    /// Represents a null <see cref="MetadataBase"/>.
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
     public sealed class NullMetadata : StructuredMetadata

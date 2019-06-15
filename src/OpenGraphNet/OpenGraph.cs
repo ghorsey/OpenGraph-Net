@@ -22,15 +22,15 @@
         /// <summary>
         /// The open graph data.
         /// </summary>
-        private readonly StructuredMetadataCollection internalOpenGraphData;
+        private readonly StructuredMetadataDictionary internalOpenGraphData;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="OpenGraph" /> class from being created.
         /// </summary>
         private OpenGraph()
         {
-            this.internalOpenGraphData = new StructuredMetadataCollection();
-            this.Namespaces = new Dictionary<string, Namespace>();
+            this.internalOpenGraphData = new StructuredMetadataDictionary();
+            this.Namespaces = new Dictionary<string, OpenGraphNamespace>();
         }
 
         /// <summary>
@@ -42,12 +42,10 @@
         public IDictionary<string, IList<StructuredMetadata>> Metadata => new ReadOnlyDictionary<string, IList<StructuredMetadata>>(this.internalOpenGraphData);
 
         /// <summary>
-        /// Gets or sets the namespaces.
+        /// Gets the namespaces.
         /// </summary>
-        /// <value>
-        /// The namespaces.
-        /// </value>
-        public IDictionary<string, Namespace> Namespaces { get; set; }
+        /// <value>The namespaces.</value>
+        public IDictionary<string, OpenGraphNamespace> Namespaces { get; }
 
         /// <summary>
         /// Gets the type.
@@ -100,7 +98,7 @@
                 var sb = new StringBuilder();
                 foreach (var ns in this.Namespaces)
                 {
-                    sb.AppendFormat(" {0}", ns.Value);
+                    _ = sb.AppendFormat(CultureInfo.InvariantCulture, " {0}", ns.Value);
                 }
 
                 return sb.ToString().Trim();
@@ -120,7 +118,7 @@
                 var sb = new StringBuilder();
                 foreach (var ns in this.Namespaces)
                 {
-                    sb.AppendFormat(" xmlns:{0}=\"{1}\"", ns.Value.Prefix, ns.Value.SchemaUri);
+                    _ = sb.AppendFormat(CultureInfo.InvariantCulture, " xmlns:{0}=\"{1}\"", ns.Value.Prefix, ns.Value.SchemaUri);
                 }
 
                 return sb.ToString().Trim();
@@ -228,10 +226,7 @@
         /// <returns>
         ///   <see cref="OpenGraph" />.
         /// </returns>
-        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false)
-        {
-            return ParseUrlAsync(url, userAgent, validateSpecification).GetAwaiter().GetResult();
-        }
+        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false) => ParseUrlAsync(url, userAgent, validateSpecification).GetAwaiter().GetResult();
 
         /// <summary>
         /// Parses the URL asynchronous.
@@ -287,6 +282,11 @@
         /// <param name="element">The element.</param>
         public void AddMetadata(StructuredMetadata element)
         {
+            if (element == null)
+            {
+                throw new ArgumentNullException(nameof(element));
+            }
+
             var key = string.Concat(element.Namespace.Prefix, ":", element.Name);
             if (this.internalOpenGraphData.ContainsKey(key))
             {
@@ -448,7 +448,7 @@
                     }
 
                     var ns = match.Groups[2].Value;
-                    result.Namespaces.Add(prefix, new Namespace(prefix, ns));
+                    result.Namespaces.Add(prefix, new OpenGraphNamespace(prefix, ns));
                 }
             }
             else if (html != null && html.Attributes.Any(a => a.Name.StartsWith("xmlns:", StringComparison.InvariantCultureIgnoreCase)))
@@ -457,7 +457,7 @@
                 foreach (var ns in namespaces)
                 {
                     var prefix = ns.Name.ToLowerInvariant().Replace("xmlns:", string.Empty);
-                    result.Namespaces.Add(prefix, new Namespace(prefix, ns.Value));
+                    result.Namespaces.Add(prefix, new OpenGraphNamespace(prefix, ns.Value));
                 }
             }
             else
@@ -484,14 +484,14 @@
         /// <param name="prefix">The prefix.</param>
         private static void SetNamespace(OpenGraph graph, string prefix)
         {
-            if (graph.Namespaces.Any(n => n.Key == prefix.ToLowerInvariant()))
+            if (graph.Namespaces.Any(n => n.Key.Equals(prefix, StringComparison.InvariantCultureIgnoreCase)))
             {
                 return;
             }
 
-            if (NamespaceRegistry.Instance.Namespaces.Any(_ => _.Key == prefix.ToLowerInvariant()))
+            if (NamespaceRegistry.Instance.Namespaces.Any(ns => ns.Key.Equals(prefix, StringComparison.CurrentCultureIgnoreCase)))
             {
-                var ns = NamespaceRegistry.Instance.Namespaces.First(_ => _.Key == prefix.ToLowerInvariant());
+                var ns = NamespaceRegistry.Instance.Namespaces.First(ns2 => ns2.Key.Equals(prefix, StringComparison.InvariantCultureIgnoreCase));
                 graph.Namespaces.Add(ns.Key, ns.Value);
             }
         }
@@ -601,7 +601,7 @@
         /// <returns>
         ///   <c>true</c> if this child of existing element] [the specified property]; otherwise, <c>false</c>.
         /// </returns>
-        private static bool IsChildOfExistingElement(StructuredMetadataCollection collection, string property)
+        private static bool IsChildOfExistingElement(StructuredMetadataDictionary collection, string property)
         {
             return collection.Any(kvp => kvp.Value.FirstOrDefault()?.IsMyProperty(property) ?? false);
         }

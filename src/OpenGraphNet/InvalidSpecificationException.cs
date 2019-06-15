@@ -36,5 +36,15 @@
             : base(message, innerException)
         {
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
+        /// </summary>
+        /// <param name="serializationInfo">The serialization information.</param>
+        /// <param name="streamingContext">The streaming context.</param>
+        protected InvalidSpecificationException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
+            : base(serializationInfo, streamingContext)
+        {
+        }
     }
 }

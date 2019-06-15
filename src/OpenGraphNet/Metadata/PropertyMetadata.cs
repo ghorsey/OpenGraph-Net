@@ -8,7 +8,7 @@
     /// A property meta element.
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
-    public class PropertyMetadata : Metadata
+    public class PropertyMetadata : MetadataBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PropertyMetadata"/> class.
@@ -17,7 +17,7 @@
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public PropertyMetadata(StructuredMetadata parentElement, Namespace ns, string name, string value)
+        public PropertyMetadata(StructuredMetadata parentElement, OpenGraphNamespace ns, string name, string value)
             : base(ns, name, value)
         {
             this.ParentElement = parentElement;

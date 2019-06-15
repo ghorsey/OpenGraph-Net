@@ -1,5 +1,6 @@
 ﻿namespace OpenGraphNet.Metadata
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
@@ -14,7 +15,7 @@
     /// </summary>
     /// <seealso cref="OpenGraphNet.Metadata" />
     [DebuggerDisplay("{" + nameof(Name) + "}: {" + nameof(Value) + "}")]
-    public class StructuredMetadata : Metadata
+    public class StructuredMetadata : MetadataBase
     {
         /// <summary>
         /// The internal properties.
@@ -27,7 +28,7 @@
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        public StructuredMetadata(Namespace ns, string name, string value)
+        public StructuredMetadata(OpenGraphNamespace ns, string name, string value)
             : base(ns, name, value)
         {
         }
@@ -47,6 +48,11 @@
         /// <param name="value">The value.</param>
         public void AddProperty(string name, string value)
         {
+            if (name == null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
             name = name.Replace(this.Namespace + ":", string.Empty);
             name = name.Replace(this.Name + ":", string.Empty);
             var propertyElement = new PropertyMetadata(this, this.Namespace, name, value);
@@ -59,6 +65,11 @@
         /// <param name="element">The element.</param>
         public void AddProperty(PropertyMetadata element)
         {
+            if (element == null)
+            {
+                throw new ArgumentNullException(nameof(element));
+            }
+
             element.ParentElement = this;
             element.Namespace = this.Namespace;
 
@@ -81,8 +92,13 @@
         /// </returns>
         public bool IsMyProperty(string propertyKey)
         {
+            if (propertyKey == null)
+            {
+                throw new ArgumentNullException(nameof(propertyKey));
+            }
+
             var myKey = string.Concat(this.Namespace.Prefix, ":", this.Name);
-            return propertyKey.ToLowerInvariant().StartsWith(myKey) && propertyKey.ToLowerInvariant() != myKey;
+            return propertyKey.StartsWith(myKey, StringComparison.OrdinalIgnoreCase) && !string.Equals(propertyKey, myKey, StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>

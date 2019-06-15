@@ -5,25 +5,25 @@
     /// <summary>
     /// An OpenGraph Namespace.
     /// </summary>
-    public class Namespace
+    public class OpenGraphNamespace
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Namespace"/> class.
+        /// Initializes a new instance of the <see cref="OpenGraphNamespace"/> class.
         /// </summary>
         /// <param name="prefix">The prefix.</param>
         /// <param name="schemaUri">The schema URI.</param>
-        public Namespace(string prefix, Uri schemaUri)
+        public OpenGraphNamespace(string prefix, Uri schemaUri)
         {
             this.Prefix = prefix;
             this.SchemaUri = schemaUri;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Namespace"/> class.
+        /// Initializes a new instance of the <see cref="OpenGraphNamespace"/> class.
         /// </summary>
         /// <param name="prefix">The prefix.</param>
         /// <param name="schemaUri">The schema URI.</param>
-        public Namespace(string prefix, string schemaUri)
+        public OpenGraphNamespace(string prefix, string schemaUri)
             : this(prefix, new Uri(schemaUri, UriKind.RelativeOrAbsolute))
         {
         }

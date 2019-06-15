@@ -5,8 +5,8 @@ namespace OpenGraphNet.Namespaces
     /// <summary>
     /// The list of known supported Open Graph namespaces.
     /// </summary>
-    /// <seealso cref="Namespace" />
-    public sealed class RegistryNamespace : Namespace
+    /// <seealso cref="OpenGraphNamespace" />
+    public sealed class RegistryNamespace : OpenGraphNamespace
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RegistryNamespace"/> class.
@@ -21,11 +21,9 @@ namespace OpenGraphNet.Namespaces
         }
 
         /// <summary>
-        /// Gets or sets the required elements.
+        /// Gets the required elements.
         /// </summary>
-        /// <value>
-        /// The required elements.
-        /// </value>
-        public IList<string> RequiredElements { get; set; }
+        /// <value>The required elements.</value>
+        public IList<string> RequiredElements { get; }
     }
 }

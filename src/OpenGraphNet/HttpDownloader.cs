@@ -2,6 +2,7 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.IO;
     using System.IO.Compression;
     using System.Net;
@@ -52,12 +53,10 @@
         public Encoding Encoding { get; set; }
 
         /// <summary>
-        /// Gets or sets the headers.
+        /// Gets the headers.
         /// </summary>
-        /// <value>
-        /// The headers.
-        /// </value>
-        public WebHeaderCollection Headers { get; set; }
+        /// <value>The headers.</value>
+        public WebHeaderCollection Headers { get; private set; }
 
         /// <summary>
         /// Gets or sets the URL.
@@ -73,7 +72,7 @@
         /// <returns>The content of the page.</returns>
         public string GetPage()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(this.Url);
+            var request = (HttpWebRequest)WebRequest.Create(this.Url);
             if (!string.IsNullOrEmpty(this.referrer))
             {
                 request.Referer = this.referrer;
@@ -86,7 +85,7 @@
 
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (var response = (HttpWebResponse)request.GetResponse())
             {
                 this.Headers = response.Headers;
                 this.Url = response.ResponseUri;
@@ -113,10 +112,10 @@
                 request.UserAgent = this.userAgent;
             }
 
-            // ReSharper disable once StringLiteralTypo
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
+            request.AllowAutoRedirect = true;
 
-            using (HttpWebResponse response = (HttpWebResponse)(await request.GetResponseAsync().ConfigureAwait(false)))
+            using (var response = (HttpWebResponse)(await request.GetResponseAsync().ConfigureAwait(false)))
             {
                 this.Headers = response.Headers;
                 this.Url = response.ResponseUri;
@@ -134,7 +133,7 @@
         {
             this.SetEncodingFromHeader(response);
 
-            var s = response.GetResponseStream() ?? throw new InvalidOperationException("Response stream came back as null");
+            var s = response.GetResponseStream() ?? throw new InvalidOperationException(Messages.Response_stream_came_back_as_null);
 
             var contentEncoding = response.ContentEncoding ?? string.Empty;
 
@@ -147,24 +146,26 @@
                 s = new DeflateStream(s, CompressionMode.Decompress);
             }
 
-            var memStream = new MemoryStream();
-            int bytesRead;
-            var buffer = new byte[0x1000];
-            for (bytesRead = s.Read(buffer, 0, buffer.Length); bytesRead > 0; bytesRead = s.Read(buffer, 0, buffer.Length))
+            using (var memStream = new MemoryStream())
             {
-                memStream.Write(buffer, 0, bytesRead);
-            }
+                int bytesRead;
+                var buffer = new byte[0x1000];
+                for (bytesRead = s.Read(buffer, 0, buffer.Length); bytesRead > 0; bytesRead = s.Read(buffer, 0, buffer.Length))
+                {
+                    memStream.Write(buffer, 0, bytesRead);
+                }
 
-            s.Close();
-            string html;
-            memStream.Position = 0;
-            using (var r = new StreamReader(memStream, this.Encoding))
-            {
-                html = r.ReadToEnd().Trim();
-                html = this.CheckMetaCharSetAndReEncode(memStream, html);
-            }
+                s.Close();
+                string html;
+                memStream.Position = 0;
+                using (var r = new StreamReader(memStream, this.Encoding))
+                {
+                    html = r.ReadToEnd().Trim();
+                    html = this.CheckMetaCharSetAndReEncode(memStream, html);
+                }
 
-            return html;
+                return html;
+            }
         }
 
         /// <summary>
@@ -213,7 +214,7 @@
             Match m = new Regex(@"<meta\s+.*?charset\s*=\s*?""?(?<charset>[A-Za-z0-9_-]+?)""", RegexOptions.Singleline | RegexOptions.IgnoreCase).Match(html);
             if (m.Success)
             {
-                string charset = m.Groups["charset"].Value.ToLower();
+                string charset = m.Groups["charset"].Value.ToLower(CultureInfo.CurrentCulture);
                 if ((charset == "unicode") || (charset == "utf-16"))
                 {
                     charset = "utf-8";

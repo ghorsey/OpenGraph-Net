@@ -72,7 +72,7 @@ namespace OpenGraphNet.Namespaces
         /// <value>
         /// The default namespace.
         /// </value>
-        public static Namespace DefaultNamespace => Instance.Namespaces["og"];
+        public static OpenGraphNamespace DefaultNamespace => Instance.Namespaces["og"];
 
         /// <summary>
         /// Gets the namespaces.

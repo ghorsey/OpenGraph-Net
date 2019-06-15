@@ -381,8 +381,8 @@ namespace OpenGraphNet.Tests
         [Fact]
         public async Task TestParsingAsyncTest()
         {
-            OpenGraph graph = await OpenGraph.ParseUrlAsync(SpacedLink);
-            Assert.Contains("<html", graph.OriginalHtml);
+            OpenGraph graph = await OpenGraph.ParseUrlAsync(SpacedLink).ConfigureAwait(false);
+            Assert.Contains("<html", graph.OriginalHtml, StringComparison.InvariantCultureIgnoreCase);
             this.AssertSpaced(graph);
         }
 
@@ -393,7 +393,7 @@ namespace OpenGraphNet.Tests
         public void TestParsingUrlTest()
         {
             OpenGraph graph = OpenGraph.ParseUrl(SpacedLink);
-            Assert.Contains("<html", graph.OriginalHtml);
+            Assert.Contains("<html", graph.OriginalHtml, StringComparison.InvariantCultureIgnoreCase);
             this.AssertSpaced(graph);
         }
 
@@ -404,14 +404,14 @@ namespace OpenGraphNet.Tests
         [Fact]
         public async Task TestParsingUrlsWithoutScheme()
         {
-            var withoutScheme = SpacedLink.Replace("http://", string.Empty);
-            var withHttpsScheme = SpacedLink.Replace("http", "https");
+            var withoutScheme = SpacedLink.Replace("http://", string.Empty, StringComparison.InvariantCultureIgnoreCase);
+            var withHttpsScheme = SpacedLink.Replace("http", "https", StringComparison.InvariantCultureIgnoreCase);
 
             OpenGraph.ParseUrl(withHttpsScheme);
-            await OpenGraph.ParseUrlAsync(withHttpsScheme);
+            await OpenGraph.ParseUrlAsync(withHttpsScheme).ConfigureAwait(false);
 
             OpenGraph.ParseUrl(withoutScheme);
-            await OpenGraph.ParseUrlAsync(withoutScheme);
+            await OpenGraph.ParseUrlAsync(withoutScheme).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -422,7 +422,7 @@ namespace OpenGraphNet.Tests
         public async Task TestParsingUrlAsyncValidateEncodingIsCorrect()
         {
             var expectedContent = "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame&amp;#33; -&amp;gt; http://ubi.li/u8w9n";
-            var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756");
+            var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756").ConfigureAwait(false);
             Assert.Equal(expectedContent, tags.Metadata["og:description"].First().Value);
         }
 
@@ -476,7 +476,7 @@ namespace OpenGraphNet.Tests
         public async Task TestDownloader()
         {
             HttpDownloader downloader = new HttpDownloader(new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"), "test", "test");
-            string html = await downloader.GetPageAsync();
+            string html = await downloader.GetPageAsync().ConfigureAwait(false);
 
             Assert.NotEqual(string.Empty, html);
         }
@@ -495,9 +495,9 @@ namespace OpenGraphNet.Tests
             Assert.Equal("fb", graph.Namespaces["fb"].Prefix);
 
             Assert.Equal(SpacedLink, graph.Url.ToString());
-            Assert.StartsWith("Spaced (TV Series 1999–2001)", graph.Title);
-            Assert.Contains("Simon", graph.Metadata["og:description"].First().Value);
-            Assert.Contains("/images", graph.Image.ToString());
+            Assert.StartsWith("Spaced (TV Series 1999–2001)", graph.Title, StringComparison.InvariantCultureIgnoreCase);
+            Assert.Contains("Simon", graph.Metadata["og:description"].First().Value, StringComparison.InvariantCultureIgnoreCase);
+            Assert.Contains("/images", graph.Image.ToString(), StringComparison.InvariantCultureIgnoreCase);
             Assert.Equal("video.tv_show", graph.Type);
             Assert.Equal("IMDb", graph.Metadata["og:site_name"].First().Value);
 

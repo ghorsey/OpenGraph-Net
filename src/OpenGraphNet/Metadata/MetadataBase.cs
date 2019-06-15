@@ -1,5 +1,6 @@
-namespace OpenGraphNet.Metadata
+﻿namespace OpenGraphNet.Metadata
 {
+    using System;
     using HtmlAgilityPack;
 
     using OpenGraphNet.Namespaces;
@@ -7,15 +8,15 @@ namespace OpenGraphNet.Metadata
     /// <summary>
     /// Represents an Open Graph meta element.
     /// </summary>
-    public abstract class Metadata
+    public abstract class MetadataBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Metadata" /> class.
+        /// Initializes a new instance of the <see cref="MetadataBase" /> class.
         /// </summary>
         /// <param name="ns">The ns.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
-        protected Metadata(Namespace ns, string name, string value)
+        protected MetadataBase(OpenGraphNamespace ns, string name, string value)
         {
             this.Namespace = ns;
             this.Name = name;
@@ -28,7 +29,7 @@ namespace OpenGraphNet.Metadata
         /// <value>
         /// The namespace.
         /// </value>
-        public Namespace Namespace { get; set; }
+        public OpenGraphNamespace Namespace { get; set; }
 
         /// <summary>
         /// Gets the name.
@@ -47,15 +48,15 @@ namespace OpenGraphNet.Metadata
         public string Value { get; }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="Metadata"/> to <see cref="string"/>.
+        /// Performs an implicit conversion from <see cref="MetadataBase"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="element">The element.</param>
         /// <returns>
         /// The result of the conversion.
         /// </returns>
-        public static implicit operator string(Metadata element)
+        public static implicit operator string(MetadataBase element)
         {
-            return element.Value;
+            return element?.Value;
         }
 
         /// <summary>

@@ -8,7 +8,7 @@
     /// <summary>
     /// A collection class to contain <see cref="StructuredMetadata"/> objects.
     /// </summary>
-    public class StructuredMetadataCollection : IDictionary<string, IList<StructuredMetadata>>
+    public class StructuredMetadataDictionary : IDictionary<string, IList<StructuredMetadata>>
     {
         /// <summary>
         /// Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"></see>.
@@ -51,7 +51,7 @@
             get
             {
                 var ns = NamespaceRegistry.DefaultNamespace;
-                if (key.IndexOf(':') < 0)
+                if (key?.IndexOf(':') < 0)
                 {
                     key = string.Concat(ns.Prefix, ":", key);
                 }
@@ -79,7 +79,7 @@
         /// Returns an enumerator that iterates through a collection.
         /// </summary>
         /// <returns>
-        /// An <see cref="T:System.Collections.IEnumerator"></see> object that can be used to iterate through the collection.
+        /// An <see cref="System.Collections.IEnumerator"></see> object that can be used to iterate through the collection.
         /// </returns>
         IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
