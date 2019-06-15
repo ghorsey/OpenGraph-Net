@@ -6,12 +6,12 @@
     using Xunit;
 
     /// <summary>
-    /// Meta Element Tests
+    /// Meta Element Tests.
     /// </summary>
     public class MetaElementTests
     {
         /// <summary>
-        /// The namespace
+        /// The namespace.
         /// </summary>
         private readonly OpenGraphNamespace ns;
 

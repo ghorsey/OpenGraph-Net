@@ -1,7 +1,6 @@
 ﻿#pragma warning disable 618
 namespace OpenGraphNet.Tests
 {
-    // ReSharper disable StringLiteralTypo
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -14,17 +13,17 @@ namespace OpenGraphNet.Tests
     using Xunit;
 
     /// <summary>
-    /// The open graph test fixture
+    /// The open graph test fixture.
     /// </summary>
     public class OpenGraphTests
     {
         /// <summary>
-        /// The spaced link
+        /// The spaced link.
         /// </summary>
         private const string SpacedLink = "http://www.imdb.com/title/tt0187664/";
 
         /// <summary>
-        /// The periscope TV content
+        /// The periscope TV content.
         /// </summary>
         private const string PeriscopeTvContent = @"<!doctype html>
 <html>
@@ -43,7 +42,7 @@ namespace OpenGraphNet.Tests
 <body class=""""></body></html>";
 
         /// <summary>
-        /// The Spotify album content
+        /// The Spotify album content.
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private const string SpotifyAlbumContent = @"<!DOCTYPE html>
@@ -77,7 +76,7 @@ namespace OpenGraphNet.Tests
 <body class=""env-prod "" data-locale=""en"" data-market=""US""></body></html>";
 
         /// <summary>
-        /// The spotify playlist content
+        /// The spotify playlist content.
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         private const string SpotifyPlaylistContent = @"<!DOCTYPE html>
@@ -111,7 +110,7 @@ namespace OpenGraphNet.Tests
 </html>";
 
         /// <summary>
-        /// The valid sample content
+        /// The valid sample content.
         /// </summary>
         private string validSampleContent = @"<!DOCTYPE HTML>
 <html>
@@ -129,7 +128,7 @@ namespace OpenGraphNet.Tests
 </html>";
 
         /// <summary>
-        /// The invalid sample content
+        /// The invalid sample content.
         /// </summary>
         private string invalidSampleContent = @"<!DOCTYPE HTML>
 <html>
@@ -146,7 +145,7 @@ namespace OpenGraphNet.Tests
 </html>";
 
         /// <summary>
-        /// The invalid missing required URLs
+        /// The invalid missing required URLs.
         /// </summary>
         private string invalidMissingRequiredUrls = @"<!DOCTYPE HTML>
 <html>
@@ -161,7 +160,7 @@ namespace OpenGraphNet.Tests
 </html>";
 
         /// <summary>
-        /// The invalid missing all meta
+        /// The invalid missing all meta.
         /// </summary>
         private string invalidMissingAllMeta = @"<!DOCTYPE HTML>
 <html>
@@ -236,7 +235,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Tests calling <c>MakeOpenGraph</c> method
+        /// Tests calling <c>MakeOpenGraph</c> method.
         /// </summary>
         [Fact]
         public void TestMakingOpenGraphMetaTags()
@@ -289,7 +288,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Tests parsing the HTML
+        /// Tests parsing the HTML.
         /// </summary>
         [Fact]
         public void TestParsingHtmlValidGraphParsingTest()
@@ -318,7 +317,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Tests parsing the HTML that is missing URLs
+        /// Tests parsing the HTML that is missing URLs.
         /// </summary>
         [Fact]
         public void TestParsingHtmlHtmlMissingUrlsTest()
@@ -339,7 +338,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Test that parsing the HTML with invalid graph specification throws an exception
+        /// Test that parsing the HTML with invalid graph specification throws an exception.
         /// </summary>
         [Fact]
         public void TestParsingHtmlInvalidGraphParsingTest()
@@ -348,7 +347,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Test that parsing the HTML with invalid graph specification throws an exception
+        /// Test that parsing the HTML with invalid graph specification throws an exception.
         /// </summary>
         [Fact]
         public void TestParsingHtmlInvalidGraphParsingMissingAllMetaTest()
@@ -357,7 +356,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Test that parsing the HTML with invalid graph specification passes when validate specification boolean is off
+        /// Test that parsing the HTML with invalid graph specification passes when validate specification boolean is off.
         /// </summary>
         [Fact]
         public void TestParsingHtmlInvalidGraphParsingWithoutCheckTest()
@@ -377,7 +376,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing amazon URL asynchronous test.
         /// </summary>
-        /// <returns>A task</returns>
+        /// <returns>A task.</returns>
         [Fact]
         public async Task TestParsingAsyncTest()
         {
@@ -387,7 +386,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Test parsing a URL
+        /// Test parsing a URL.
         /// </summary>
         [Fact]
         public void TestParsingUrlTest()
@@ -400,7 +399,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing of URLs without a scheme.
         /// </summary>
-        /// <returns>A task that represents this async operation</returns>
+        /// <returns>A task that represents this async operation.</returns>
         [Fact]
         public async Task TestParsingUrlsWithoutScheme()
         {
@@ -417,7 +416,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing URL asynchronous validate encoding is correct.
         /// </summary>
-        /// <returns>A task</returns>
+        /// <returns>A task.</returns>
         [Fact]
         public async Task TestParsingUrlAsyncValidateEncodingIsCorrect()
         {
@@ -468,7 +467,7 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
-        /// Defines the test method TestDownloader. Issue #15
+        /// Defines the test method TestDownloader. Issue #15.
         /// </summary>
         /// <returns>A/an <c>Task</c>.</returns>
         [Fact]
