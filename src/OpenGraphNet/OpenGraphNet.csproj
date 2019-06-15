@@ -19,7 +19,7 @@
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
     <PackageReleaseNotes>Bug fixes</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
-    <Version>3.1.2</Version>
+    <Version>3.2.0</Version>
     <PackageTags>OpenGraph  OGP Parser</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>OpenGraph.Net</Product>
