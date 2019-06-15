@@ -15,7 +15,7 @@
     <Authors>ghorsey</Authors>
     <Description>A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet.   You can read more about the Open Graph protocol @ http://ogp.me.</Description>
     <Copyright>Copyright © 2016-2019</Copyright>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
     <PackageReleaseNotes>Bug fixes</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
@@ -38,6 +38,10 @@
     <WarningsAsErrors />
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="LICENSE"/>
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.7" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.3" />
