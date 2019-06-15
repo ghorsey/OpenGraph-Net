@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "jutZvRsZgFkqkUB6Z8c0nA=="
+          "hash": "vwQRqA/O0ixbzEgAwQrcPg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -21,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.HttpDownloader.html",
-          "hash": "s4srJMR48OHvNYBHMPnOrw=="
+          "hash": "EkYuf/HvMul/wPDoVWFEUg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.InvalidSpecificationException.html",
-          "hash": "KyPq+e8/+mgF0an5+jOi4g=="
+          "hash": "Y7nr1rBNzaxvmVsUV2SfMw=="
         }
       },
       "is_incremental": false,
@@ -41,11 +41,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/OpenGraphNet.Metadata.Metadata.yml",
+      "source_relative_path": "api/OpenGraphNet.Metadata.MetadataBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenGraphNet.Metadata.Metadata.html",
-          "hash": "QnC629V9GIw1SAA8G5zKXw=="
+          "relative_path": "api/OpenGraphNet.Metadata.MetadataBase.html",
+          "hash": "7dM6Y9hLZjOUDDmRfk2s5w=="
         }
       },
       "is_incremental": false,
@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.MetadataHelperExtensions.html",
-          "hash": "dsgzlAT7HLnqFk6IBGs0sQ=="
+          "hash": "fsWQ/Qa+MJ8fQAeugZ6FDg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.NullMetadata.html",
-          "hash": "sZVlTggbj7jJ5DyvrH7f7w=="
+          "hash": "iO1A9cndFUp/O9fC6vla2A=="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.PropertyMetadata.html",
-          "hash": "NciN6+6HD7oJfMrS75FF+Q=="
+          "hash": "oETuuyF2UOSG+EfzsUKIWg=="
         }
       },
       "is_incremental": false,
@@ -93,19 +93,22 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadata.html",
-          "hash": "OvsP1Nfqo2bsBFah4pODBA=="
+          "hash": "o4JLkq0v1G1ekG+cksv2/Q=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "ReferencedXrefPropertyNotString"
+      ],
       "type": "ManagedReference",
-      "source_relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataCollection.yml",
+      "source_relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataDictionary.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataCollection.html",
-          "hash": "0ZusEHp0240UcU6Bvocnxw=="
+          "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html",
+          "hash": "CQdeI9HVTY0Mj3EctfeAWg=="
         }
       },
       "is_incremental": false,
@@ -117,19 +120,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.html",
-          "hash": "MSLESkJUTbdrZxGXuJtl7Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/OpenGraphNet.Namespaces.Namespace.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenGraphNet.Namespaces.Namespace.html",
-          "hash": "x7VuKW68/GhGvc0/BiL8VA=="
+          "hash": "sY/4i/ozONpv0OB+4PHVrQ=="
         }
       },
       "is_incremental": false,
@@ -141,7 +132,19 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.NamespaceRegistry.html",
-          "hash": "ytFxF6xFxQQDZveRqRTZ6g=="
+          "hash": "mGHOLbto1RxfEvToyrm/0g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenGraphNet.Namespaces.OpenGraphNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenGraphNet.Namespaces.OpenGraphNamespace.html",
+          "hash": "RHzYvO1sDav4tP1j9TcMdA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +156,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.RegistryNamespace.html",
-          "hash": "4ty38yOPqv9PACj6G+q7hA=="
+          "hash": "fTYh3tREK+ySx3EuKr3Cxg=="
         }
       },
       "is_incremental": false,
@@ -165,19 +168,22 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.html",
-          "hash": "XoaUExnJaFl9VWmwryb9Cg=="
+          "hash": "zDkZbo1fYCCgRCFLrtEvEQ=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "ReferencedXrefPropertyNotString"
+      ],
       "type": "ManagedReference",
       "source_relative_path": "api/OpenGraphNet.OpenGraph.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.OpenGraph.html",
-          "hash": "O+mhpPDMMubJgc0aD4iA4Q=="
+          "hash": "q7RI2C9+b/We6MUxH03USQ=="
         }
       },
       "is_incremental": false,
@@ -189,7 +195,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.html",
-          "hash": "NxKXcV8mM0ZpgHd3Y2jUMQ=="
+          "hash": "YhQ+l10pQ41D883hIHH09Q=="
         }
       },
       "is_incremental": false,
@@ -201,10 +207,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "U51lC8o9yJahOiYmue+mEw=="
+          "hash": "WOIpg4EhzrP0XUKy4W3ULg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -213,7 +219,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "8o3ojd802QOYoELT1O/IJA=="
+          "hash": "NSWGXq8oAedkGp6de1z2ng=="
         }
       },
       "is_incremental": false,
@@ -225,10 +231,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/accessing-values.html",
-          "hash": "aFVl1VGZY9uxBs0pGR5wWw=="
+          "hash": "e731dgh258450G9E0flUgw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -237,10 +243,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/complete-example.html",
-          "hash": "7Vdht3okJhLzDbIUXk4+bg=="
+          "hash": "hZIOil6jZY/F/p078LAPkA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -249,10 +255,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/creating-graph-data.html",
-          "hash": "DoJOhQBQ6G9HV7LbqVSuZg=="
+          "hash": "LhMPstCwzy7wAJzsN0Tu2w=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -261,10 +267,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "4LJi/3slXHOd3g9d2XtiTg=="
+          "hash": "yJteum2Sn3XB6dCkhTJkww=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -273,10 +279,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/parsing-namespaces.html",
-          "hash": "ThI+DCPjFMaBTCHoMYDBSg=="
+          "hash": "9VmF/UpodyL8ony54Qn8xw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -285,10 +291,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/parsing-url.html",
-          "hash": "ryYgq38vpz7QLyVKcMDY4A=="
+          "hash": "vyFyEhdjGTo2p8zlMyv74Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -309,10 +315,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/writing-namespaces.html",
-          "hash": "dBC4ubcBqq9o9VMaVX5ljA=="
+          "hash": "qazTU27Ttgh1stmA7rxI/g=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -321,10 +327,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "mfBZufBK0GmDlIXZmY2WUA=="
+          "hash": "GYAISIDyOzRsHCic6FIapQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -343,12 +349,10 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -359,23 +363,23 @@
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 15,
-          "skipped_file_count": 0
+          "skipped_file_count": 9
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 10,
-          "skipped_file_count": 0
+          "skipped_file_count": 10
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
