@@ -1,4 +1,7 @@
-version: 3.2.1.{build}
+version: {build}
+
+image:
+- Ubuntu
 
 before_build:
 - cmd: dotnet restore
