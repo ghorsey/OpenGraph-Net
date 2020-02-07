@@ -14,7 +14,7 @@
     <Title>OpenGraph.Net</Title>
     <Authors>ghorsey</Authors>
     <Description>A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet.   You can read more about the Open Graph protocol @ http://ogp.me.</Description>
-    <Copyright>Copyright © 2016-2019</Copyright>
+    <Copyright>Copyright © 2016-2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
     <PackageReleaseNotes>Add support for netstandard 2.1 and make fxcop a private reference</PackageReleaseNotes>
