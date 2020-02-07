@@ -1,5 +1,10 @@
 version: 3.1.{build}
 
+image: Visual Studio 2019
+
+install:
+- ps: build/ci/appveyor/installDotnetCore3.1.ps1
+
 before_build:
 - cmd: dotnet restore
 
