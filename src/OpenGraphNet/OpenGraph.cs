@@ -358,7 +358,11 @@
 
             foreach (var key in patterns)
             {
+#if NETSTANDARD2_1
+                value = value.Replace(key.Key, key.Value, StringComparison.InvariantCultureIgnoreCase);
+#else
                 value = value.Replace(key.Key, key.Value);
+#endif
             }
 
             return value;
@@ -401,7 +405,11 @@
         /// </returns>
         private static string CleanOpenGraphKey(string prefix, string value)
         {
+#if NETSTANDARD2_1
+            return value.Replace(string.Concat(prefix, ":"), string.Empty, StringComparison.OrdinalIgnoreCase).ToLower(CultureInfo.InvariantCulture);
+#else
             return value.Replace(string.Concat(prefix, ":"), string.Empty).ToLower(CultureInfo.InvariantCulture);
+#endif
         }
 
         /// <summary>
@@ -456,7 +464,11 @@
                 var namespaces = html.Attributes.Where(a => a.Name.StartsWith("xmlns:", StringComparison.InvariantCultureIgnoreCase));
                 foreach (var ns in namespaces)
                 {
+#if NETSTANDARD2_1
+                    var prefix = ns.Name.ToLowerInvariant().Replace("xmlns:", string.Empty, StringComparison.InvariantCultureIgnoreCase);
+#else
                     var prefix = ns.Name.ToLowerInvariant().Replace("xmlns:", string.Empty);
+#endif
                     result.Namespaces.Add(prefix, new OpenGraphNamespace(prefix, ns.Value));
                 }
             }
@@ -474,7 +486,11 @@
         /// <returns><c>true</c> when the element has a namespace; otherwise <c>false</c>.</returns>
         private static bool MatchesNamespacePredicate(string value)
         {
+#if NETSTANDARD2_1
+            return value.IndexOf(':', StringComparison.OrdinalIgnoreCase) >= 0;
+#else
             return value.IndexOf(':') >= 0;
+#endif
         }
 
         /// <summary>

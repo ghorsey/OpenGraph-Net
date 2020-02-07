@@ -1,6 +1,9 @@
 ﻿namespace OpenGraphNet.Metadata
 {
     using System.Collections;
+#if NETSTANDARD2_1
+    using System;
+#endif
     using System.Collections.Generic;
 
     using OpenGraphNet.Namespaces;
@@ -51,7 +54,11 @@
             get
             {
                 var ns = NamespaceRegistry.DefaultNamespace;
+#if NETSTANDARD2_1
+                if (key?.IndexOf(':', System.StringComparison.OrdinalIgnoreCase) < 0)
+#else
                 if (key?.IndexOf(':') < 0)
+#endif
                 {
                     key = string.Concat(ns.Prefix, ":", key);
                 }
@@ -81,7 +88,11 @@
         /// <returns>
         /// An <see cref="System.Collections.IEnumerator"></see> object that can be used to iterate through the collection.
         /// </returns>
+#if NETSTANDARD2_1
         IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+#else
+        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+#endif
 
         /// <summary>
         /// Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"></see>.

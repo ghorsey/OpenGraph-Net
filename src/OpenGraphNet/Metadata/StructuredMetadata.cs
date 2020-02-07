@@ -52,9 +52,13 @@
             {
                 throw new ArgumentNullException(nameof(name));
             }
-
+#if NETSTANDARD2_1
+            name = name.Replace(this.Namespace + ":", string.Empty, StringComparison.InvariantCulture);
+            name = name.Replace(this.Name + ":", string.Empty, StringComparison.InvariantCulture);
+#else
             name = name.Replace(this.Namespace + ":", string.Empty);
             name = name.Replace(this.Name + ":", string.Empty);
+#endif
             var propertyElement = new PropertyMetadata(this, this.Namespace, name, value);
             this.AddProperty(propertyElement);
         }
