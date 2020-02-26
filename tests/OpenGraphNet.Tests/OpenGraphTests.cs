@@ -112,7 +112,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// The valid sample content.
         /// </summary>
-        private string validSampleContent = @"<!DOCTYPE HTML>
+        private readonly string validSampleContent = @"<!DOCTYPE HTML>
 <html>
 <head prefix=""og: http://ogp.me/ns# product: http://ogp.me/ns/product#"">
     <meta property=""og:type"" content=""product"" />
@@ -130,7 +130,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// The invalid sample content.
         /// </summary>
-        private string invalidSampleContent = @"<!DOCTYPE HTML>
+        private readonly string invalidSampleContent = @"<!DOCTYPE HTML>
 <html>
 <head>
     <meta property=""og:title"" cOntent=""Product Title"" />
@@ -147,7 +147,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// The invalid missing required URLs.
         /// </summary>
-        private string invalidMissingRequiredUrls = @"<!DOCTYPE HTML>
+        private readonly string invalidMissingRequiredUrls = @"<!DOCTYPE HTML>
 <html>
 <head>
     <meta property=""og:type"" content=""product"" />
@@ -162,7 +162,7 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// The invalid missing all meta.
         /// </summary>
-        private string invalidMissingAllMeta = @"<!DOCTYPE HTML>
+        private readonly string invalidMissingAllMeta = @"<!DOCTYPE HTML>
 <html>
 <head>
     <title>some title</title>

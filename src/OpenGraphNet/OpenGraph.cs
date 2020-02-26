@@ -522,9 +522,9 @@
             int indexOfClosingHead = Regex.Match(content, "</head>").Index;
             string toParse = content.Substring(0, indexOfClosingHead + 7);
 
-            toParse = toParse + "<body></body></html>\r\n";
+            toParse += "<body></body></html>\r\n";
 
-            HtmlDocument document = new HtmlDocument();
+            var document = new HtmlDocument();
             document.LoadHtml(toParse);
 
             return document;
