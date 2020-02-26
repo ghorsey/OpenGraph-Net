@@ -20,8 +20,10 @@
     <PackageReleaseNotes>Add support for netstandard 2.1 and make fxcop a private reference</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
     <Version>$(MinVerVersion)</Version>
+    <PackageVersion>$(MinVerVersion)</PackageVersion>
+    <FileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).0</FileVersion>
+    <AssemblyVersion>$(MinVerMajor).0.0.0</AssemblyVersion>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    <MinVerSkip Condition="'$(Configuration)' == 'Debug'">true</MinVerSkip>
     <PackageTags>OpenGraph  OGP Parser</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>OpenGraph.Net</Product>
