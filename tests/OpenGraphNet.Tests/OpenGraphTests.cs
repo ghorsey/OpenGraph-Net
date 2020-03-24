@@ -2,6 +2,7 @@
 namespace OpenGraphNet.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
@@ -477,6 +478,23 @@ namespace OpenGraphNet.Tests
             string html = await downloader.GetPageAsync().ConfigureAwait(false);
 
             Assert.NotEqual(string.Empty, html);
+        }
+
+        /// <summary>
+        /// Defines the test method TestIssue14FromGit.
+        /// </summary>
+        /// <returns>A <c>Task</c>.</returns>
+        [Fact]
+        public async Task TestIssue14FromGit()
+        {
+            var urls = new List<Task<OpenGraph>>
+            {
+                OpenGraph.ParseUrlAsync("https://www.cntraveler.com/story/how-cruise-lines-are-getting-more-eco-friendly"),
+                OpenGraph.ParseUrlAsync("https://www.nytimes.com/2019/05/22/travel/leaping-caimans-and-tasty-piranha-in-the-wild-amazon.html"),
+                OpenGraph.ParseUrlAsync("https://www.thrillist.com/travel/nation/visiting-hainan-things-to-know"),
+            };
+
+            await Task.WhenAll(urls);
         }
 
         /// <summary>
