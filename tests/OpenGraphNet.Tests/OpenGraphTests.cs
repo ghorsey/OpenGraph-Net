@@ -533,7 +533,7 @@ namespace OpenGraphNet.Tests
         [Fact]
         public async Task TestDownloader()
         {
-            var downloader = new HttpDownloader(new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"), "test", "test");
+            var downloader = new HttpDownloader(new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"), "test", "test", 100000);
             string html = await downloader.GetPageAsync().ConfigureAwait(false);
 
             Assert.NotEqual(string.Empty, html);

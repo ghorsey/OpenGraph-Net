@@ -30,17 +30,24 @@
         private readonly string userAgent;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpDownloader"/> class.
+        /// The timeout in miliseconds.
+        /// </summary>
+        private readonly int timeout;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpDownloader" /> class.
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <param name="referrer">The referrer.</param>
         /// <param name="userAgent">The user agent.</param>
-        public HttpDownloader(Uri url, string referrer, string userAgent)
+        /// <param name="timeout">The timeout in milliseconds.</param>
+        public HttpDownloader(Uri url, string referrer, string userAgent, int timeout)
         {
             this.Encoding = Encoding.GetEncoding("ISO-8859-1");
             this.Url = url;
             this.userAgent = userAgent;
             this.referrer = referrer;
+            this.timeout = timeout;
         }
 
         /// <summary>
@@ -126,6 +133,7 @@
         {
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.AllowAutoRedirect = true;
+            request.Timeout = this.timeout;
 
             if (!string.IsNullOrEmpty(this.referrer))
             {
