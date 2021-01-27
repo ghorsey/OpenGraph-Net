@@ -13,12 +13,12 @@ references:
   commentId: T:OpenGraphNet.HttpDownloader
   fullName: OpenGraphNet.HttpDownloader
   nameWithType: HttpDownloader
-- uid: OpenGraphNet.HttpDownloader.#ctor(System.Uri,System.String,System.String)
-  name: HttpDownloader(Uri, String, String)
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_System_Uri_System_String_System_String_
-  commentId: M:OpenGraphNet.HttpDownloader.#ctor(System.Uri,System.String,System.String)
-  fullName: OpenGraphNet.HttpDownloader.HttpDownloader(System.Uri, System.String, System.String)
-  nameWithType: HttpDownloader.HttpDownloader(Uri, String, String)
+- uid: OpenGraphNet.HttpDownloader.#ctor(System.Uri,System.String,System.String,System.Int32)
+  name: HttpDownloader(Uri, String, String, Int32)
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_System_Uri_System_String_System_String_System_Int32_
+  commentId: M:OpenGraphNet.HttpDownloader.#ctor(System.Uri,System.String,System.String,System.Int32)
+  fullName: OpenGraphNet.HttpDownloader.HttpDownloader(System.Uri, System.String, System.String, System.Int32)
+  nameWithType: HttpDownloader.HttpDownloader(Uri, String, String, Int32)
 - uid: OpenGraphNet.HttpDownloader.#ctor*
   name: HttpDownloader
   href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_
@@ -1014,12 +1014,12 @@ references:
   isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.ParseHtml
   nameWithType: OpenGraph.ParseHtml
-- uid: OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean)
-  name: ParseUrl(String, String, Boolean)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_System_String_System_String_System_Boolean_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean)
-  fullName: OpenGraphNet.OpenGraph.ParseUrl(System.String, System.String, System.Boolean)
-  nameWithType: OpenGraph.ParseUrl(String, String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean,System.Int32)
+  name: ParseUrl(String, String, Boolean, Int32)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_System_String_System_String_System_Boolean_System_Int32_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean,System.Int32)
+  fullName: OpenGraphNet.OpenGraph.ParseUrl(System.String, System.String, System.Boolean, System.Int32)
+  nameWithType: OpenGraph.ParseUrl(String, String, Boolean, Int32)
 - uid: OpenGraphNet.OpenGraph.ParseUrl*
   name: ParseUrl
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_
@@ -1027,18 +1027,18 @@ references:
   isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.ParseUrl
   nameWithType: OpenGraph.ParseUrl
-- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean)
-  name: ParseUrlAsync(String, String, Boolean)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_String_System_String_System_Boolean_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean)
-  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String, System.String, System.Boolean)
-  nameWithType: OpenGraph.ParseUrlAsync(String, String, Boolean)
-- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean)
-  name: ParseUrlAsync(Uri, String, Boolean)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_Uri_System_String_System_Boolean_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean)
-  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri, System.String, System.Boolean)
-  nameWithType: OpenGraph.ParseUrlAsync(Uri, String, Boolean)
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean,System.Int32)
+  name: ParseUrlAsync(String, String, Boolean, Int32)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_String_System_String_System_Boolean_System_Int32_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean,System.Int32)
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String, System.String, System.Boolean, System.Int32)
+  nameWithType: OpenGraph.ParseUrlAsync(String, String, Boolean, Int32)
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean,System.Int32)
+  name: ParseUrlAsync(Uri, String, Boolean, Int32)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_Uri_System_String_System_Boolean_System_Int32_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean,System.Int32)
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri, System.String, System.Boolean, System.Int32)
+  nameWithType: OpenGraph.ParseUrlAsync(Uri, String, Boolean, Int32)
 - uid: OpenGraphNet.OpenGraph.ParseUrlAsync*
   name: ParseUrlAsync
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_
