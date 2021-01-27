@@ -513,24 +513,6 @@
         }
 
         /// <summary>
-        /// Makes the document to parse.
-        /// </summary>
-        /// <param name="content">The content.</param>
-        /// <returns>The <see cref="HtmlDocument"/>.</returns>
-        private static HtmlDocument MakeDocumentToParse(string content)
-        {
-            int indexOfClosingHead = Regex.Match(content, "</head>").Index;
-            string toParse = content.Substring(0, indexOfClosingHead + 7);
-
-            toParse += "<body></body></html>\r\n";
-
-            var document = new HtmlDocument();
-            document.LoadHtml(toParse);
-
-            return document;
-        }
-
-        /// <summary>
         /// Parses the HTML.
         /// </summary>
         /// <param name="result">The result.</param>
@@ -540,7 +522,8 @@
         /// <exception cref="OpenGraphNet.InvalidSpecificationException">The parsed HTML does not meet the open graph specification.</exception>
         private static OpenGraph ParseHtml(OpenGraph result, string content, bool validateSpecification = false)
         {
-            HtmlDocument document = MakeDocumentToParse(content);
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(content);
 
             ParseNamespaces(result, document);
 

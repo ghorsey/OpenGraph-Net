@@ -4,6 +4,7 @@ namespace OpenGraphNet.Tests
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -175,7 +176,6 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing spotify album.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         [Fact]
         public void TestParsingSpotifyAlbum()
         {
@@ -207,7 +207,6 @@ namespace OpenGraphNet.Tests
         /// <summary>
         /// Tests the parsing spotify playlist.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         [Fact]
         public void TestParsingSpotifyPlaylist()
         {
@@ -233,6 +232,48 @@ namespace OpenGraphNet.Tests
             Assert.Equal(@"<meta property=""og:title"" content=""Programming Jams, a playlist by Jefe on Spotify""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.playlist""><meta property=""music:creator"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe""><meta property=""music:song_count"" content=""1020""><meta property=""music:song"" content=""https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/4yVfG04odefa7JanoF5r86""><meta property=""music:song:track"" content=""2""><meta property=""og:restrictions:country:allowed"" content=""AD""><meta property=""og:restrictions:country:allowed"" content=""AR""><meta property=""og:locale:alternate"" content=""en_US""><meta property=""og:locale:alternate"" content=""en_GB"">", graph.ToString());
             Assert.Equal("og: http://ogp.me/ns# music: http://ogp.me/ns/music#", graph.HeadPrefixAttributeValue);
             Assert.Equal("xmlns:og=\"http://ogp.me/ns#\" xmlns:music=\"http://ogp.me/ns/music#\"", graph.HtmlXmlnsValues);
+        }
+
+        /// <summary>
+        /// Defines the test method TestParsingYouTubeTagsInBody.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+        [Fact]
+        public async Task TestParsingYouTubeTagsInBody()
+        {
+            var html = await File.ReadAllTextAsync("./TestHtml/YoutubeTagsInBody.htm");
+
+            var graph = OpenGraph.ParseHtml(html);
+
+            Assert.NotEmpty(graph.Metadata);
+            Assert.Equal("YouTube", graph.Metadata["og:site_name"].First());
+            Assert.Equal("https://www.youtube.com/watch?v=c_-ViUmhqtk", graph.Url.ToString());
+            Assert.Equal("PVE Corvette Build Guide | Cucumber Update!", graph.Title);
+            Assert.Equal("https://i.ytimg.com/vi/c_-ViUmhqtk/maxresdefault.jpg", graph.Image.ToString());
+            Assert.Equal("1280", graph.Metadata["og:image"].First().Properties["width"].First());
+            Assert.Equal("720", graph.Metadata["og:image"].First().Properties["height"].First());
+            Assert.Equal("The merch store is open!! Take a look▶️ https://teespring.com/stores/down-to-earth-storeWant to help support the channel? Get you name listed at the end of m...", graph.Metadata["og:description"].First());
+            Assert.Equal("The merch store is open!! Take a look▶️ https://teespring.com/stores/down-to-earth-storeWant to help support the channel? Get you name listed at the end of m...", graph.Metadata["og:description"].First());
+            Assert.Equal("video.other", graph.Type);
+            Assert.Equal("https://www.youtube.com/embed/c_-ViUmhqtk", graph.Metadata["og:video:url"].First());
+            Assert.Equal("https://www.youtube.com/embed/c_-ViUmhqtk", graph.Metadata["og:video:secure_url"].First());
+            Assert.Equal("text/html", graph.Metadata["og:video:type"].First());
+            Assert.Equal("1280", graph.Metadata["og:video:width"].First());
+            Assert.Equal("720", graph.Metadata["og:video:height"].First());
+            Assert.Equal("Elite dangerous", graph.Metadata["og:video:tag"][0]);
+            Assert.Equal("corvette", graph.Metadata["og:video:tag"][1]);
+            Assert.Equal("PVE", graph.Metadata["og:video:tag"][2]);
+            Assert.Equal("build", graph.Metadata["og:video:tag"][3]);
+            Assert.Equal("loadout", graph.Metadata["og:video:tag"][4]);
+            Assert.Equal("fitting", graph.Metadata["og:video:tag"][5]);
+            Assert.Equal("guide", graph.Metadata["og:video:tag"][6]);
+            Assert.Equal("tutorial", graph.Metadata["og:video:tag"][7]);
+            Assert.Equal("help", graph.Metadata["og:video:tag"][8]);
+            Assert.Equal("2020", graph.Metadata["og:video:tag"][9]);
+            Assert.Equal("D2EA", graph.Metadata["og:video:tag"][10]);
+            Assert.Equal("shield", graph.Metadata["og:video:tag"][11]);
+            Assert.Equal("cucumber", graph.Metadata["og:video:tag"][12]);
+            Assert.Equal("newest", graph.Metadata["og:video:tag"][13]);
         }
 
         /// <summary>

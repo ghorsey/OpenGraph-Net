@@ -29,4 +29,10 @@
     <ProjectReference Include="..\..\src\OpenGraphNet\OpenGraphNet.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestHtml\YouTubeTagsInBody.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

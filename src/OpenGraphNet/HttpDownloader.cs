@@ -115,7 +115,7 @@
 
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
-            using (var response = (HttpWebResponse)(await request.GetResponseAsync().ConfigureAwait(false)))
+            using (var response = (HttpWebResponse)await request.GetResponseAsync().ConfigureAwait(false))
             {
                 this.Headers = response.Headers;
                 this.Url = response.ResponseUri;
