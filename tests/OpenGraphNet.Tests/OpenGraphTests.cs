@@ -6,6 +6,7 @@ namespace OpenGraphNet.Tests
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Net;
     using System.Threading.Tasks;
 
     using OpenGraphNet;
@@ -232,6 +233,23 @@ namespace OpenGraphNet.Tests
             Assert.Equal(@"<meta property=""og:title"" content=""Programming Jams, a playlist by Jefe on Spotify""><meta property=""og:description"" content=""""><meta property=""og:url"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3""><meta property=""og:image"" content=""""><meta property=""og:type"" content=""music.playlist""><meta property=""music:creator"" content=""https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe""><meta property=""music:song_count"" content=""1020""><meta property=""music:song"" content=""https://open.spotify.com/track/3RL1cNdki1AsOLCMinb60a""><meta property=""music:song:track"" content=""1""><meta property=""music:song"" content=""https://open.spotify.com/track/4yVfG04odefa7JanoF5r86""><meta property=""music:song:track"" content=""2""><meta property=""og:restrictions:country:allowed"" content=""AD""><meta property=""og:restrictions:country:allowed"" content=""AR""><meta property=""og:locale:alternate"" content=""en_US""><meta property=""og:locale:alternate"" content=""en_GB"">", graph.ToString());
             Assert.Equal("og: http://ogp.me/ns# music: http://ogp.me/ns/music#", graph.HeadPrefixAttributeValue);
             Assert.Equal("xmlns:og=\"http://ogp.me/ns#\" xmlns:music=\"http://ogp.me/ns/music#\"", graph.HtmlXmlnsValues);
+        }
+
+        /// <summary>
+        /// Defines the test method Test301RedirectUrl.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+        [Fact]
+        public async Task Test301RedirectUrl()
+        {
+            try
+            {
+                var graph = await OpenGraph.ParseUrlAsync("https://news.google.com/__i/rss/rd/articles/CBMigwFodHRwczovL3d3dy5zdWRpbmZvLmJlL2lkMzEzNzM4L2FydGljbGUvMjAyMS0wMS0yMi9sZS1jb21pdGUtZGUtY29uY2VydGF0aW9uLWRlYnV0ZS1kZS1ub3V2ZWxsZXMtbWVzdXJlcy1wbHVzLXJlc3RyaWN0aXZlcy1xdWlkLWRlc9IBAA?oc=5");
+            }
+            catch (WebException ex)
+            {
+                Assert.True(false, ex.Message);
+            }
         }
 
         /// <summary>

@@ -101,8 +101,32 @@
         /// </returns>
         public async Task<string> GetPageAsync()
         {
-            var request = (HttpWebRequest)WebRequest.Create(this.Url);
+            const string LocationHeader = "Location";
+            try
+            {
+                var request = this.MakeRequest(this.Url);
+                return await this.ProcessRequest(request);
+            }
+            catch (WebException ex)
+            {
+                if (((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.MovedPermanently)
+                {
+                    var response = (HttpWebResponse)ex.Response;
+                    var location = response.Headers.Get(LocationHeader);
+
+                    var request = this.MakeRequest(new Uri(location));
+                    return await this.ProcessRequest(request);
+                }
+
+                throw;
+            }
+        }
+
+        private HttpWebRequest MakeRequest(Uri url)
+        {
+            var request = (HttpWebRequest)WebRequest.Create(url);
             request.AllowAutoRedirect = true;
+
             if (!string.IsNullOrEmpty(this.referrer))
             {
                 request.Referer = this.referrer;
@@ -115,6 +139,11 @@
 
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
 
+            return request;
+        }
+
+        private async Task<string> ProcessRequest(HttpWebRequest request)
+        {
             using (var response = (HttpWebResponse)await request.GetResponseAsync().ConfigureAwait(false))
             {
                 this.Headers = response.Headers;
