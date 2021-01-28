@@ -17,7 +17,7 @@
     <Copyright>Copyright © 2016-2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
-    <PackageReleaseNotes>Added support for target framework 472 to resolve issue 14.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added ability to parse open graph tags from body, correctly handle 301 response status code</PackageReleaseNotes>
     <PackageTags>OpenGraph</PackageTags>
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <PackageTags>OpenGraph  OGP Parser</PackageTags>
