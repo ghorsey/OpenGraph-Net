@@ -14,7 +14,7 @@
     <Title>OpenGraph.Net</Title>
     <Authors>ghorsey</Authors>
     <Description>A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet.   You can read more about the Open Graph protocol @ http://ogp.me.</Description>
-    <Copyright>Copyright © 2016-2020</Copyright>
+    <Copyright>Copyright © 2016-2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
     <PackageReleaseNotes>Added ability to parse open graph tags from body, correctly handle 301 response status code</PackageReleaseNotes>
