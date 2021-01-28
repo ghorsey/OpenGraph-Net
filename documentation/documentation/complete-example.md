@@ -1,4 +1,5 @@
 # Complete Example
+
 Below is a complete example to write out a OpenGraph metadata to a cshtml page:
 
     @{

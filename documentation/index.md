@@ -1,4 +1,5 @@
-#  Welcome to the OpenGraph.Net documentation site
+# Welcome to the OpenGraph.Net documentation site
+
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the Open Graph protocol @ http://ogp.me.
 
 [![AppVeyor](https://img.shields.io/appveyor/ci/GeoffHorsey/opengraph-net.svg)](https://ci.appveyor.com/project/GeoffHorsey/opengraph-net)
@@ -8,17 +9,18 @@ A simple .net assembly to use to parse Open Graph information from either a URL 
 [![gitter](https://badges.gitter.im/webpack/webpack.svg)](https://gitter.im/OpenGraph-Net/OpenGraph-Net)
 
 ## Installation:
+
 Use the following steps to install the library from Nuget:
 
-**dotnet cli**
+### dotnet cli
 
     dotnet add package OpenGraph-Net --version 2.2.0
 
-**Package Manager**
+### Package Manager
 
     Install-Package OpenGraph-Net -Version 2.2.0
 
-**Packet Cli**
+## Packet Cli
 
     paket add OpenGraph-Net --version 2.2.0
 
@@ -28,11 +30,13 @@ Use the following steps to install the library from Nuget:
 * [Issues](https://github.com/ghorsey/OpenGraph-Net/issues)
 
 ## It's FOSS
+
 So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net).
 
 ### Contribution Guide
+
 1. Fork the OpenGraph-Net repository
-2. Create a feature branch for the item you are going to add.
-3. Add your awesome code and your unit tests to cover the new feture
-4. Run all of the tests to ensure everything is still passing.
-5. Create a pull request to our `develop` branch.
+1. Create a feature branch for the item you are going to add.
+1. Add your awesome code and your unit tests to cover the new feture
+1. Run all of the tests to ensure everything is still passing.
+1. Create a pull request to our `develop` branch.

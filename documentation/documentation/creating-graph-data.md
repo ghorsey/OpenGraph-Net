@@ -1,5 +1,6 @@
 
 # Creating OpenGraph Data
+
 To create OpenGraph data in memory use the following code:
 
     var graph = OpenGraph.MakeGraph(
@@ -10,8 +11,8 @@ To create OpenGraph data in memory use the following code:
         description: "My Description", 
         siteName: "Example.com");
     graph.AddMetadata("og", "image", "http://example.com/img/img2.png");
-	graph.Metadata["og:image"][0].AddProperty("width", "30");
-	graph.Metadata["og:image"][1].AddProperty("width", "60");
+    graph.Metadata["og:image"][0].AddProperty("width", "30");
+    graph.Metadata["og:image"][1].AddProperty("width", "60");
 
 To write out the meta tags use `graph.ToString();`.  This will produce the following HTML (formatting added for legibility):
 

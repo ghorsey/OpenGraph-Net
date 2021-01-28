@@ -1,5 +1,6 @@
 
 # Writing OpenGraph Namespaces
+
 In the wild web sites seem to add their OpenGraph namespaces in one of 2 ways.  They either
 write the namespaces in the `html` as `xmlns` attributes or within the `head` tag in the `prefix` attribute.
 
@@ -25,4 +26,3 @@ To create the `head` version in a cshtml page, after create a new `graph`, use t
 Would produce the following:
 
     <head prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
- 

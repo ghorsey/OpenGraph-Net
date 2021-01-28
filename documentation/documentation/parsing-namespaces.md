@@ -1,12 +1,13 @@
 
 # Parsing Namespaces
+
 The component now knows about the 13 namespaces listed below.  When parsing a url or a HTML
 document, OpenGraph.Net will now read and use those namespaces from either the `<html>` or
 `<head>` tags.  The parser is now smart enough to include the namespaces when none are
 included in those tags by extracting it from the `meta[property]` value directly.
 
 * og: http://ogp.me/ns#
-  *  Expected fields when validating: `title`, `type`, `image`, `url`
+  * Expected fields when validating: `title`, `type`, `image`, `url`
 * article: http://ogp.me/ns/article#
 * book: http://ogp.me/ns/book#"
 * books: http://ogp.me/ns/books#
@@ -41,4 +42,3 @@ and the graph:
 
     graph.Metadata["gah:brain"].Value() // "http://www.geoffhorsey.com/my-brain"
     graph.Metadata["gah:brain"].First().Properties["size"].Value() // "tiny"
-

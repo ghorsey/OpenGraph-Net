@@ -15,19 +15,19 @@ These are the basic operations of the OpenGraphNet parser.
 
 Parsing from a URL
 ------------------
-Synchronosly parse a url:
+Synchronously parse a URL:
 
     OpenGraph graph = OpenGraph.ParseUrl("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3?si=KcZxfwiIR7OBPCzj20utaQ");
 
-Use `async/await` to parse a url:
+Use `async/await` to parse a URL:
 
     OpenGraph graph = await OpenGraph.ParseUrlAsync("https://open.spotify.com/user/er811nzvdw2cy2qgkrlei9sqe/playlist/2lzTTRqhYS6AkHPIvdX9u3?si=KcZxfwiIR7OBPCzj20utaQ");
 
-Acessing Values
+Accessing Values
 ---------------
 **Accessing Metadata**
 
-Each metadata element is is stored as an array. Additionally, each element's properties are also stored as an array.
+Each metadata element is stored as an array. Additionally, each element's properties are also stored as an array.
 
     <meta property="og:image" content="http://example.com/img1.png">
     <meta property="og:image:width" content="30">
@@ -161,6 +161,6 @@ So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net)
 ### Contribution Guide
 1. Fork the OpenGraph-Net repository
 2. Create a feature branch for the item you are going to add.
-3. Add your awesome code and your unit tests to cover the new feture
+3. Add your awesome code and your unit tests to cover the new feature
 4. Run all of the tests to ensure everything is still passing.
 5. Create a pull request to our `develop` branch.
