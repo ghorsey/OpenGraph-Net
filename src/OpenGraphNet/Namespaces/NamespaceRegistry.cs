@@ -83,10 +83,10 @@ namespace OpenGraphNet.Namespaces
         public IDictionary<string, RegistryNamespace> Namespaces => new ReadOnlyDictionary<string, RegistryNamespace>(this.InternalNamespaces);
 
         /// <summary>
-        /// Gets the schemas.
+        /// Gets the schema dictionary.
         /// </summary>
         /// <value>
-        /// The schemas.
+        /// The schema dictionary.
         /// </value>
         private IDictionary<string, RegistryNamespace> InternalNamespaces { get; }
 

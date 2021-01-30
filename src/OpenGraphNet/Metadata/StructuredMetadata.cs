@@ -25,7 +25,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="StructuredMetadata"/> class.
         /// </summary>
-        /// <param name="ns">The ns.</param>
+        /// <param name="ns">The namespace.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
         public StructuredMetadata(OpenGraphNamespace ns, string name, string value)

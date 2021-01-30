@@ -14,7 +14,7 @@
         /// Initializes a new instance of the <see cref="PropertyMetadata"/> class.
         /// </summary>
         /// <param name="parentElement">The parent element.</param>
-        /// <param name="ns">The ns.</param>
+        /// <param name="ns">The namespace.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
         public PropertyMetadata(StructuredMetadata parentElement, OpenGraphNamespace ns, string name, string value)

@@ -12,7 +12,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataBase" /> class.
         /// </summary>
-        /// <param name="ns">The ns.</param>
+        /// <param name="ns">The namespace.</param>
         /// <param name="name">The name.</param>
         /// <param name="value">The value.</param>
         protected MetadataBase(OpenGraphNamespace ns, string name, string value)

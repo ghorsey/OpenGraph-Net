@@ -11,7 +11,7 @@
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Http Downloader.
+    /// HTTP Downloader.
     /// </summary>
     /// <remarks>
     /// Taken from http://stackoverflow.com/a/2700707.
@@ -30,7 +30,7 @@
         private readonly string userAgent;
 
         /// <summary>
-        /// The timeout in miliseconds.
+        /// The timeout in milliseconds.
         /// </summary>
         private readonly int timeout;
 
@@ -114,18 +114,13 @@
                 var request = this.MakeRequest(this.Url);
                 return await this.ProcessRequest(request);
             }
-            catch (WebException ex)
+            catch (WebException ex) when (((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.MovedPermanently)
             {
-                if (((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.MovedPermanently)
-                {
-                    var response = (HttpWebResponse)ex.Response;
-                    var location = response.Headers.Get(LocationHeader);
+                var response = (HttpWebResponse)ex.Response;
+                var location = response.Headers.Get(LocationHeader);
 
-                    var request = this.MakeRequest(new Uri(location));
-                    return await this.ProcessRequest(request);
-                }
-
-                throw;
+                var request = this.MakeRequest(new Uri(location));
+                return await this.ProcessRequest(request);
             }
         }
 
