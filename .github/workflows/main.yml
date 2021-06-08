@@ -25,6 +25,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       # Runs a single command using the runners shell
       - name: Setup .Net Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v1.7.2
