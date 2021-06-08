@@ -54,5 +54,5 @@ jobs:
         run: dotnet pack -c Release --include-symbols -o pack
 
       - name: publish
-        run: echo going to publish $GITHUB_WORKSPACE
+        run: echo going to publish ${{ env.GITHUB_WORKSPACE }}
         
