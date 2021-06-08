@@ -42,5 +42,6 @@ jobs:
 
       - name: publish
         if: github.ref == 'refs/heads/main'
-        run: echo I would publish to nuget
+        run: |
+            dotnet pack -c Release --no-restore --include-symbols
 
