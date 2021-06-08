@@ -114,7 +114,7 @@
                 var request = this.MakeRequest(this.Url);
                 return await this.ProcessRequest(request);
             }
-            catch (WebException ex) when (((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.MovedPermanently)
+            catch (WebException ex) when (((HttpWebResponse)ex?.Response)?.StatusCode == HttpStatusCode.MovedPermanently)
             {
                 var response = (HttpWebResponse)ex.Response;
                 var location = response.Headers.Get(LocationHeader);

@@ -42,7 +42,6 @@ jobs:
 
   publish:
     needs: build_and_test
-    if: github.ref == 'refs/heads/main'
     runs-on: windows-latest
     env:
       NUGET_KEY: ${{ secrets.NUGET_KEY }}
