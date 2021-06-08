@@ -33,19 +33,13 @@ jobs:
       
       - name: Install Dependencies
         run: dotnet restore
+
       - name: Build
         run: dotnet build --configuration Release --no-restore
-  test:
-    needs: build
-    runs-on: windows-latest
-    steps:
+        
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 
-  publish:
-    needs: [build, test]
-    runs-on: windows-latest
-    steps:
       - name: publish
         run: echo I would publish to nuget
 
