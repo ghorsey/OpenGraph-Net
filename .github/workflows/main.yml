@@ -46,6 +46,7 @@ jobs:
     runs-on: windows-latest
     env:
       NUGET_KEY: ${{ secrets.NUGET_KEY }}
+      GITHUB_WORKSPACE: $GITHUB_WORKSPACE
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -57,4 +58,5 @@ jobs:
 
       - name: publish
         run: |
-          dotnet nuget push $GITHUB_WORKSPACE/pack/*.nupkg -k "$env:NUGET_KEY" -s https://api.nuget.org/v3/index.json
+          echo $env:GITHUB_WORKSPACE
+          dotnet nuget push $env:GITHUB_WORKSPACE/pack/*.nupkg -k "$env:NUGET_KEY" -s https://api.nuget.org/v3/index.json
