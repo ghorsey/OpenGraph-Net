@@ -583,7 +583,7 @@ namespace OpenGraphNet.Tests
         [Fact]
         public async Task TestParsingABadHostAsync()
         {
-            await Assert.ThrowsAsync<WebException>(() => OpenGraph.ParseUrlAsync("https://og.idonotexist.com/nowhere"));
+            await Assert.ThrowsAsync<WebException>(() => OpenGraph.ParseUrlAsync("https://www.developors.facebook.com/"));
         }
 
         /// <summary>
@@ -592,7 +592,7 @@ namespace OpenGraphNet.Tests
         [Fact]
         public void TestParsingABadHostUrl()
         {
-            Assert.Throws<WebException>(() => OpenGraph.ParseUrl("https://og.idontexist.com/nowhere"));
+            Assert.Throws<WebException>(() => OpenGraph.ParseUrl("https://www.developors.facebook.com/"));
         }
 
         /// <summary>
