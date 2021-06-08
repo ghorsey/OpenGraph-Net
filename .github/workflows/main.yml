@@ -44,6 +44,8 @@ jobs:
     needs: build_and_test
     if: github.ref == 'refs/heads/main'
     runs-on: windows-latest
+    env:
+      NUGET_KEY: ${{ secrets.NUGET_KEY }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -54,5 +56,5 @@ jobs:
         run: dotnet pack -c Release --include-symbols -o pack
 
       - name: publish
-        run: echo going to publish $GITHUB_WORKSPACE
- 
+        run: |
+          dotnet nuget push $GITHUB_WORKSPACE/pack/*.nupkg -k "$env:NUGET_KEY"
