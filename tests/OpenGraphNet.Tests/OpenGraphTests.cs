@@ -569,7 +569,7 @@ namespace OpenGraphNet.Tests
             Assert.Equal("http://www.facebook.com/2008/fbml", graph.Namespaces["fb"].SchemaUri.ToString());
             Assert.Equal("fb", graph.Namespaces["fb"].Prefix);
 
-            Assert.Equal(SpacedLink, graph.Url.ToString());
+            Assert.Equal(SpacedLink, graph.Url?.ToString());
             Assert.StartsWith("Spaced (TV Series 1999–2001)", graph.Title, StringComparison.InvariantCultureIgnoreCase);
             Assert.Contains("Simon", graph.Metadata["og:description"].First().Value, StringComparison.InvariantCultureIgnoreCase);
             Assert.Contains("/images", graph.Image.ToString(), StringComparison.InvariantCultureIgnoreCase);
