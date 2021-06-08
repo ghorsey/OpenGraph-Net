@@ -37,3 +37,10 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: publish
+        run: echo I would publish to nuget
+
