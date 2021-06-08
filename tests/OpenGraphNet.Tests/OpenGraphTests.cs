@@ -576,7 +576,7 @@ namespace OpenGraphNet.Tests
             //// Assert.Equal("video.tv_show", graph.Type); // bug in new layout of IMDB
             ////Assert.Equal("IMDb", graph.Metadata["og:site_name"].First().Value); // bug in the new layout of IMDB
 
-            Assert.Equal("115109575169727", graph.Metadata["fb:app_id"].First().Value);
+            ////Assert.Equal("115109575169727", graph.Metadata["fb:app_id"].First().Value); .. bug in the new layout of IMDB
         }
     }
 }
