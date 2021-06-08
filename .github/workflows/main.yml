@@ -39,6 +39,7 @@ jobs:
         run: dotnet test --no-restore --verbosity normal
 
   publish:
+    needs: build
     runs-on: windows-latest
     steps:
       - name: publish
