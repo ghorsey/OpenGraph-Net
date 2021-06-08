@@ -564,7 +564,7 @@ namespace OpenGraphNet.Tests
         private void AssertSpaced(OpenGraph graph)
         {
             Assert.Equal(2, graph.Namespaces.Count);
-            Assert.Contains(new[] { "http://opengraphprotocol.org/schema", "http://ogp.me/ns#" }, (item) => item == graph.Namespaces["og"].SchemaUri.ToString());
+            Assert.Contains(new[] { "http://opengraphprotocol.org/schema", "http://ogp.me/ns#" }, (item) => graph.Namespaces["og"].SchemaUri.ToString().StartsWith(item));
             Assert.Equal("og", graph.Namespaces["og"].Prefix);
             Assert.Equal("http://www.facebook.com/2008/fbml", graph.Namespaces["fb"].SchemaUri.ToString());
             Assert.Equal("fb", graph.Namespaces["fb"].Prefix);
