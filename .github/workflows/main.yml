@@ -34,7 +34,7 @@ jobs:
       - name: Install Dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release --no-restore\
+        run: dotnet build --configuration Release --no-restore
   test:
     needs: build
     runs-on: windows-latest
