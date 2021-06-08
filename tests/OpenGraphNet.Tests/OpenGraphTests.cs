@@ -7,6 +7,7 @@ namespace OpenGraphNet.Tests
     using System.IO;
     using System.Linq;
     using System.Net;
+    using System.Net.Http;
     using System.Threading.Tasks;
 
     using OpenGraphNet;
@@ -554,6 +555,44 @@ namespace OpenGraphNet.Tests
             };
 
             await Task.WhenAll(urls);
+        }
+
+        /// <summary>
+        /// Defines the test method TestParsingA404Url.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+        [Fact]
+        public async Task TestParsingA404UrlAsync()
+        {
+            await Assert.ThrowsAsync<WebException>(() => OpenGraph.ParseUrlAsync("https://github.com/ghorsey/OpenGraph-Net/i-dont-exist"));
+        }
+
+        /// <summary>
+        /// Defines the test method TestParsingA404Url.
+        /// </summary>
+        [Fact]
+        public void TestParsingA404Url()
+        {
+            Assert.Throws<WebException>(() => OpenGraph.ParseUrl("https://github.com/ghorsey/OpenGraph-Net/i-dont-exist"));
+        }
+
+        /// <summary>
+        /// Defines the test method TestParsingA404Url.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+        [Fact]
+        public async Task TestParsingABadHostAsync()
+        {
+            await Assert.ThrowsAsync<WebException>(() => OpenGraph.ParseUrlAsync("https://og.idonotexist.com/nowhere"));
+        }
+
+        /// <summary>
+        /// Defines the test method TestParsingA404Url.
+        /// </summary>
+        [Fact]
+        public void TestParsingABadHostUrl()
+        {
+            Assert.Throws<WebException>(() => OpenGraph.ParseUrl("https://og.idontexist.com/nowhere"));
         }
 
         /// <summary>
