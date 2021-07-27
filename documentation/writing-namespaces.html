@@ -78,17 +78,17 @@ write the namespaces in the <code>html</code> as <code>xmlns</code> attributes o
 </ul>
 <h2 id="xmlns-version-in-the-html-tag"><code>xmlns:</code> version in the <code>html</code> tag</h2>
 <p>To create the <code>html</code> version in an cshtml page after creating a new <code>graph</code>, use the following code:</p>
-<pre><code>&lt;html @graph.HtmlXmlnsValues&gt;
+<pre><code class="lang-html">&lt;html @graph.HtmlXmlnsValues&gt;
 </code></pre>
 <p>Would produce the following:</p>
-<pre><code>&lt;html xmlns:og=&quot;http://ogp.me/ns#&quot; xmlns:product=&quot;http://ogp.me/ns/product#&quot;&gt;
+<pre><code class="lang-html">&lt;html xmlns:og=&quot;http://ogp.me/ns#&quot; xmlns:product=&quot;http://ogp.me/ns/product#&quot;&gt;
 </code></pre>
 <h2 id="prefix-version-in-the-head-tag"><code>prefix</code> version in the <code>&lt;head&gt;</code> tag</h2>
 <p>To create the <code>head</code> version in a cshtml page, after create a new <code>graph</code>, use the following code:</p>
-<pre><code>&lt;head prefix=&quot;@graph.HeadPrefixAttributeValue&quot;&gt;
+<pre><code class="lang-html">&lt;head prefix=&quot;@graph.HeadPrefixAttributeValue&quot;&gt;
 </code></pre>
 <p>Would produce the following:</p>
-<pre><code>&lt;head prefix=&quot;og: http://ogp.me/ns# product: http://ogp.me/ns/product#&quot;&gt;
+<pre><code class="lang-html">&lt;head prefix=&quot;og: http://ogp.me/ns# product: http://ogp.me/ns/product#&quot;&gt;
 </code></pre>
 </article>
           </div>

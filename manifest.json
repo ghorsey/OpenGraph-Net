@@ -276,7 +276,7 @@
           "hash": "Tt9j8qlmY9wcJ3UDzZMjvuIWnXWVwNhLQf1VyVsA06E="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -288,7 +288,7 @@
           "hash": "Akcx/54cX7hgfTiLK/prXCb+/quK9uvFHtw612UcpNc="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -309,10 +309,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/writing-namespaces.html",
-          "hash": "qVM1tAKj9NrZAfdSiWg60RxWgM+11Q9dufXYQDeb1WA="
+          "hash": "uat8eayOTz257vo1qrzupcAGuanEnGAdPp3dNWfKwqc="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -353,7 +353,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 10,
-          "skipped_file_count": 8
+          "skipped_file_count": 9
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
