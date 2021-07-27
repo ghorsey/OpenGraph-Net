@@ -11,18 +11,26 @@ write the namespaces in the `html` as `xmlns` attributes or within the `head` ta
 
 To create the `html` version in an cshtml page after creating a new `graph`, use the following code:
 
-    <html @graph.HtmlXmlnsValues>
+```html
+<html @graph.HtmlXmlnsValues>
+```
 
 Would produce the following:
 
-    <html xmlns:og="http://ogp.me/ns#" xmlns:product="http://ogp.me/ns/product#">
+```html
+<html xmlns:og="http://ogp.me/ns#" xmlns:product="http://ogp.me/ns/product#">
+```
 
 ## `prefix` version in the `<head>` tag
 
 To create the `head` version in a cshtml page, after create a new `graph`, use the following code:
 
-    <head prefix="@graph.HeadPrefixAttributeValue">
+```html
+<head prefix="@graph.HeadPrefixAttributeValue">
+```
 
 Would produce the following:
 
-    <head prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
+```html
+<head prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
+```
