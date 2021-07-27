@@ -1,0 +1,108 @@
+:root{
+    --nord0: #2e3440;
+    --nord1: #3b4252;
+    --nord2: #434c5e;
+    --nord3: #4c566a;
+    --nord4: #d8dee9;
+    --nord5: #e5e9f0;
+    --nord6: #eceff4;
+    --nord7: #8fbcbb;
+    --nord8: #88c0d0;
+    --nord9: #81a1c1;
+    --nord10: #5e81ac;
+    --nord11: #bf616a;
+    --nord12: #d08770;
+    --nord13: #ebcb8b;
+    --nord14: #a3be8c;
+    --nord15: #b48ead;
+}
+#wrapper {
+    background-color: var(--nord6);
+    color: var(--nord0);
+}
+
+th {
+    color: var(--nord3);
+    background-color: var(--nord4);
+}
+.navbar.navbar-inverse {
+    background-color: var(--nord2);
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+    background-color: var(--nord0);
+}
+.navbar-brand {
+    height: 3.125rem;
+    padding-top: 0.3125rem;
+}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
+    color: var(--nord4);
+}
+
+.navbar-default, .footer, .sidetoc, body .toc, .sidefilter {
+    background-color: var(--nord5);
+    border-color: var(--nord4);
+}
+
+pre, code {
+    background-color: var(--nord1);
+    border-color: var(--nord4);
+}
+
+.hljs {
+    color: var(--nord5);
+}
+
+.hljs .hljs-number {
+    color: var(--nord15);
+}
+
+.hljs-keyword {
+    color: var(--nord9);
+}
+.hljs-title{
+    color: var(--nord7);
+}
+
+code {
+    color: var(--nord5);
+}
+
+.affix ul > li > a{
+    color: var(--nord0);
+}
+.affix ul > li > a:hover {
+    color: var(--nord3);
+}
+
+.sideaffix > div.contribution > ul > li > a.contribution-link:hover {
+    background-color: var(--nord4);
+}
+
+button, a {
+    color: var(--nord2);
+}
+
+.toc .nav > li > a {
+    color: var(--nord2);
+}
+
+.toc .nav > li.active > a {
+    color: var(--nord10);
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+    color: var(--nord6);
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: var(--nord4);
+}
+.toc-filter {
+    background-color: var(--nord4);
+    color: var(--nord0)
+}
+.toc-filter > input {
+    color: var(--nord2);
+    background-color: var(--nord4);
+}
