@@ -596,6 +596,16 @@ namespace OpenGraphNet.Tests
         }
 
         /// <summary>
+        /// Defines the test method TestIssue13FromGit.
+        /// </summary>
+        [Fact]
+        public void TestIssue31FromGit()
+        {
+            var og = OpenGraph.ParseUrl("https://www.nasdaq.com/boardvantage/board-portal?utm_medium=ppc@utm_source=google&utm_term=boardroom%20software&gclid=Cj0KCQjwh_eFBhDZARIsALHjlKf3nzPwT2d6QCIYjHbN5UVrpwJvD0gixyDMuUI66RdSpWjfCzEqoT8aAkXfEALw_wcB");
+            Assert.Equal("Microsite Landing", og.Type);
+        }
+
+        /// <summary>
         /// Asserts the spaced open graph data.
         /// </summary>
         /// <param name="graph">The graph.</param>

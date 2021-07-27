@@ -221,11 +221,11 @@
         /// Downloads the HTML of the specified URL and parses it for open graph content.
         /// </summary>
         /// <param name="url">The URL to download the HTML from.</param>
-        /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>"facebookexternalhit"</c> which is required for some site (like amazon) to include open graph data.</param>
+        /// <param name="userAgent">The user agent to use when downloading content.  The default is <c>""</c> which is required for some site (like amazon) to include open graph data.</param>
         /// <param name="validateSpecification">if set to <c>true</c> <see cref="OpenGraph" /> will validate against the specification.</param>
         /// <param name="timeout">The timeout in milliseconds.</param>
         /// <returns><see cref="OpenGraph" />.</returns>
-        public static OpenGraph ParseUrl(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false, int timeout = 90000) => ParseUrlAsync(url, userAgent, validateSpecification, timeout).GetAwaiter().GetResult();
+        public static OpenGraph ParseUrl(string url, string userAgent = "", bool validateSpecification = false, int timeout = 90000) => ParseUrlAsync(url, userAgent, validateSpecification, timeout).GetAwaiter().GetResult();
 
         /// <summary>
         /// Parses the URL asynchronous.
@@ -235,7 +235,7 @@
         /// <param name="validateSpecification">if set to <c>true</c> validate minimum Open Graph specification.</param>
         /// <param name="timeout">The timeout in milliseconds.</param>
         /// <returns><see cref="Task{OpenGraph}" />.</returns>
-        public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "facebookexternalhit", bool validateSpecification = false, int timeout = 90000)
+        public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = "", bool validateSpecification = false, int timeout = 90000)
         {
             if (!Regex.IsMatch(url, "^https?://", RegexOptions.IgnoreCase))
             {
@@ -254,7 +254,7 @@
         /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
         /// <param name="timeout">The timeout in milliseconds.</param>
         /// <returns><see cref="Task{OpenGraph}" />.</returns>
-        public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "facebookexternalhit", bool validateSpecification = false, int timeout = 90000)
+        public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "", bool validateSpecification = false, int timeout = 90000)
         {
             OpenGraph result = new OpenGraph { OriginalUrl = url };
 
