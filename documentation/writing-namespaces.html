@@ -72,10 +72,9 @@
 
 <p>In the wild web sites seem to add their OpenGraph namespaces in one of 2 ways.  They either
 write the namespaces in the <code>html</code> as <code>xmlns</code> attributes or within the <code>head</code> tag in the <code>prefix</code> attribute.</p>
-<ul>
-<li><code>&lt;html xmlns:og=&quot;http://ogp.me/ns#&quot; xmlns:product=&quot;http://ogp.me/ns/product#&quot;&gt;</code></li>
-<li><code>&lt;head prefix=&quot;og: http://ogp.me/ns# product: http://ogp.me/ns/product#&quot;&gt;</code></li>
-</ul>
+<pre><code class="lang-html">&lt;html xmlns:og=&quot;http://ogp.me/ns#&quot; xmlns:product=&quot;http://ogp.me/ns/product#&quot;&gt;
+&lt;head prefix=&quot;og: http://ogp.me/ns# product: http://ogp.me/ns/product#&quot;&gt;
+</code></pre>
 <h2 id="xmlns-version-in-the-html-tag"><code>xmlns:</code> version in the <code>html</code> tag</h2>
 <p>To create the <code>html</code> version in an cshtml page after creating a new <code>graph</code>, use the following code:</p>
 <pre><code class="lang-html">&lt;html @graph.HtmlXmlnsValues&gt;
