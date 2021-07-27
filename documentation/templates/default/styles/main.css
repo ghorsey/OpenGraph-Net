@@ -66,6 +66,21 @@ pre, code {
     color: var(--nord7);
 }
 
+.hljs-string {
+    color: var(--nord14)
+}
+
+.hljs-name, .hljs-section {
+    color: var(--nord7);
+}
+.hljs-attr, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-id, .hljs-selector-pseudo, .hljs-tag{
+    color: var(--nord4);
+}
+
+.hljs-comment {
+    color: var(--nord10);
+}
+
 code {
     color: var(--nord5);
 }
