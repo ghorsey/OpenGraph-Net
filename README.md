@@ -1,14 +1,13 @@
 # OpenGraphNet
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 [![Build](https://github.com/ghorsey/OpenGraph-Net/actions/workflows/main.yml/badge.svg)](https://github.com/ghorsey/OpenGraph-Net/actions/workflows/main.yml)
 [![Nuget V](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![Nuget dl](https://img.shields.io/nuget/dt/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/ghorsey/OpenGraph-Net/blob/main/LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/ghorsey/OpenGraph-Net/blob/main/CODE_OF_CONDUCT.md)
 [![gitter](https://badges.gitter.im/webpack/webpack.svg)](https://gitter.im/OpenGraph-Net/OpenGraph-Net)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=round-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the
 Open Graph protocol @ <http://ogp.me>.
