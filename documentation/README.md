@@ -7,8 +7,6 @@
 1. `docfx --serve` to serve the site from the gh-pages worktree location.
 1. If it all looks good, navigate the console to `../gh-pages` and commit/push the site updates.
 
-minor edit that should not trigger a build.
-
 ## Troubleshooting
 
 ### There was an issue building the metadata
