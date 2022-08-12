@@ -20,7 +20,7 @@
 		<Copyright>Copyright © 2016-2021</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>http://ghorsey.github.io/OpenGraph-Net</PackageProjectUrl>
-		<PackageReleaseNotes>Removed non-async methods.  Updated Package to .net 6 and removed older framework support.  Use version 3 for older support.</PackageReleaseNotes>
+		<PackageReleaseNotes>Added back NetStandard 2.1.</PackageReleaseNotes>
 		<PackageTags>OpenGraph</PackageTags>
 		<MinVerTagPrefix>v</MinVerTagPrefix>
 		<PackageTags>OpenGraph  OGP Parser</PackageTags>
