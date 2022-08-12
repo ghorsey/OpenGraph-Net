@@ -20,19 +20,19 @@ Use the following steps to install the library from Nuget:
 ### dotnet cli
 
 ```powershell
-dotnet add package OpenGraph-Net --version 3.2.8
+dotnet add package OpenGraph-Net --version 4.0.1
 ```
 
 ### Package Manager
 
 ```powershell
-Install-Package OpenGraph-Net -Version 3.2.8
+Install-Package OpenGraph-Net -Version 4.0.1
 ```
 
 ## Packet Cli
 
 ```powershell
-paket add OpenGraph-Net --version 3.2.8
+paket add OpenGraph-Net --version 4.0.1
 ```
 
 ## Get Help/Report Issues
@@ -48,6 +48,6 @@ So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net)
 
 1. Fork the OpenGraph-Net repository
 1. Create a feature branch for the item you are going to add.
-1. Add your awesome code and your unit tests to cover the new feture
+1. Add your awesome code and your unit tests to cover the new feature
 1. Run all of the tests to ensure everything is still passing.
 1. Create a pull request to our `develop` branch.

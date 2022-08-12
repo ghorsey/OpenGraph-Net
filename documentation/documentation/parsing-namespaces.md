@@ -5,20 +5,20 @@ document, OpenGraph.Net will now read and use those namespaces from either the `
 `<head>` tags.  The parser is now smart enough to include the namespaces when none are
 included in those tags by extracting it from the `meta[property]` value directly.
 
-* og: http://ogp.me/ns#
+* og: <http://ogp.me/ns#>
   * Expected fields when validating: `title`, `type`, `image`, `url`
-* article: http://ogp.me/ns/article#
-* book: http://ogp.me/ns/book#"
-* books: http://ogp.me/ns/books#
-* business http://ogp.me/ns/business#
-* fitness: http://ogp.me/ns/fitness#
-* game: http://ogp.me/ns/game#
-* music: http://ogp.me/ns/music#
-* place: http://ogp.me/ns/place#
-* product: http://ogp.me/ns/product#
-* profile: http://ogp.me/ns/profile#
-* restaurant: http://ogp.me/ns/restaurant#
-* video: http://ogp.me/ns/video#"
+* article: <http://ogp.me/ns/article#>
+* book: <http://ogp.me/ns/book#">
+* books: <http://ogp.me/ns/books#>
+* business <http://ogp.me/ns/business#>
+* fitness: <http://ogp.me/ns/fitness#>
+* game: <http://ogp.me/ns/game#>
+* music: <http://ogp.me/ns/music#>
+* place: <http://ogp.me/ns/place#>
+* product: <http://ogp.me/ns/product#>
+* profile: <http://ogp.me/ns/profile#>
+* restaurant: <http://ogp.me/ns/restaurant#>
+* video: <http://ogp.me/ns/video#">
 
 *If there are any additional standard/supported namespaces that I am missing, please shoot me
 a comment or a pull request with the missing items.*
