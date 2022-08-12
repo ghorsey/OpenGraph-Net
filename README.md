@@ -1,4 +1,7 @@
 # OpenGraphNet
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build](https://github.com/ghorsey/OpenGraph-Net/actions/workflows/main.yml/badge.svg)](https://github.com/ghorsey/OpenGraph-Net/actions/workflows/main.yml)
 [![Nuget V](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
@@ -242,3 +245,16 @@ So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net)
 3. Add your awesome code and your unit tests to cover the new feature
 4. Run all of the tests to ensure everything is still passing.
 5. Create a pull request to our `develop` branch.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

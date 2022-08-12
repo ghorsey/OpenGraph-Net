@@ -1,3 +1,4 @@
+node_modules/
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 *.DS_Store
 [Bb]in/
