@@ -12,7 +12,7 @@ public class HttpDownloader
     /// <summary>
     /// The referrer.
     /// </summary>
-    private readonly string referrer;
+    private readonly string? referrer;
 
     /// <summary>
     /// The user agent.
@@ -31,7 +31,7 @@ public class HttpDownloader
     /// <param name="referrer">The referrer.</param>
     /// <param name="userAgent">The user agent.</param>
     /// <param name="timeout">The timeout in milliseconds.</param>
-    public HttpDownloader(Uri url, string referrer, string userAgent, int timeout)
+    public HttpDownloader(Uri url, string? referrer, string userAgent, int timeout)
     {
         this.Url = url;
         this.userAgent = userAgent;

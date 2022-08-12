@@ -37,31 +37,31 @@ public class OpenGraph
     /// Gets the type.
     /// </summary>
     /// <value>The type of open graph document.</value>
-    public string Type { get; private set; }
+    public string Type { get; private set; } = string.Empty;
 
     /// <summary>
     /// Gets the title of the open graph document.
     /// </summary>
     /// <value>The title.</value>
-    public string Title { get; private set; }
+    public string Title { get; private set; } = string.Empty;
 
     /// <summary>
     /// Gets the image for the open graph document.
     /// </summary>
     /// <value>The image.</value>
-    public Uri Image { get; private set; }
+    public Uri? Image { get; private set; }
 
     /// <summary>
     /// Gets the URL for the open graph document.
     /// </summary>
     /// <value>The URL.</value>
-    public Uri Url { get; private set; }
+    public Uri? Url { get; private set; }
 
     /// <summary>
     /// Gets the original URL used to generate this graph.
     /// </summary>
     /// <value>The original URL.</value>
-    public Uri OriginalUrl { get; private set; }
+    public Uri? OriginalUrl { get; private set; }
 
     /// <summary>
     /// Gets the original HTML content.
@@ -69,7 +69,7 @@ public class OpenGraph
     /// <value>
     /// The original HTML content.
     /// </value>
-    public string OriginalHtml { get; private set; }
+    public string OriginalHtml { get; private set; } = string.Empty;
 
     /// <summary>
     /// Gets the head prefix attribute value.
@@ -136,7 +136,7 @@ public class OpenGraph
         string audio = "",
         string video = "",
         string locale = "",
-        IList<string> localeAlternates = null,
+        IList<string>? localeAlternates = null,
         string determiner = "")
     {
         var graph = new OpenGraph
@@ -212,7 +212,7 @@ public class OpenGraph
     /// <param name="timeout">The timeout in milliseconds.</param>
     /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
     /// <returns><see cref="Task{OpenGraph}" />.</returns>
-    public static Task<OpenGraph> ParseUrlAsync(string url, string userAgent = null, bool validateSpecification = false, int timeout = 90000, CancellationToken cancellationToken = default)
+    public static Task<OpenGraph> ParseUrlAsync(string url, string? userAgent = null, bool validateSpecification = false, int timeout = 90000, CancellationToken cancellationToken = default)
     {
         if (!Regex.IsMatch(url, "^https?://", RegexOptions.IgnoreCase))
         {
@@ -499,7 +499,7 @@ public class OpenGraph
                                 (meta.Attributes.Contains("name") && MatchesNamespacePredicate(meta.Attributes["name"].Value))
                                 select meta;
 
-        StructuredMetadata lastElement = null;
+        StructuredMetadata? lastElement = null;
         foreach (HtmlNode metaTag in openGraphMetaTags)
         {
             var prefix = GetOpenGraphPrefix(metaTag);
@@ -576,7 +576,7 @@ public class OpenGraph
     /// <param name="result">The result.</param>
     /// <param name="property">The property.</param>
     /// <returns>The Uri.</returns>
-    private static Uri GetUri(OpenGraph result, string property)
+    private static Uri? GetUri(OpenGraph result, string property)
     {
         result.internalOpenGraphData.TryGetValue(property, out var url);
 

@@ -8,6 +8,7 @@
 		<CodeAnalysisRuleSet>StyleCop.ruleset</CodeAnalysisRuleSet>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<!-- nuget -->
