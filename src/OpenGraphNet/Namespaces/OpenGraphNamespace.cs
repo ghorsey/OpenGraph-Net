@@ -27,6 +27,12 @@ public class OpenGraphNamespace
     }
 
     /// <summary>
+    /// Gets an empty OpenGraph Namespace.
+    /// </summary>
+    /// <value>The empty.</value>
+    public static OpenGraphNamespace Empty => new OpenGraphNamespace(string.Empty, "schema://empty");
+
+    /// <summary>
     /// Gets the prefix.
     /// </summary>
     /// <value>

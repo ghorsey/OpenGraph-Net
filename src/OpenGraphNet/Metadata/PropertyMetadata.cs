@@ -20,16 +20,6 @@ public class PropertyMetadata : MetadataBase
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PropertyMetadata"/> class.
-    /// </summary>
-    /// <param name="name">The name.</param>
-    /// <param name="value">The value.</param>
-    public PropertyMetadata(string name, string value)
-        : this(null, null, name, value)
-    {
-    }
-
-    /// <summary>
     /// Gets the parent element.
     /// </summary>
     /// <value>

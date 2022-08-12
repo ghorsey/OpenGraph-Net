@@ -13,7 +13,7 @@ public sealed class NamespaceRegistry
     /// <summary>
     /// The instance.
     /// </summary>
-    private static NamespaceRegistry internalInstance;
+    private static NamespaceRegistry internalInstance = null!;
 
     /// <summary>
     /// Prevents a default instance of the <see cref="NamespaceRegistry"/> class from being created.

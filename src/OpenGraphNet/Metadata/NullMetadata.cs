@@ -10,7 +10,7 @@ public sealed class NullMetadata : StructuredMetadata
     /// Initializes a new instance of the <see cref="NullMetadata"/> class.
     /// </summary>
     public NullMetadata()
-        : base(null, string.Empty, string.Empty)
+        : base(OpenGraphNamespace.Empty, string.Empty, string.Empty)
     {
     }
 }

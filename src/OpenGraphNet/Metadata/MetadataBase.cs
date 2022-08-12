@@ -51,7 +51,7 @@ public abstract class MetadataBase
     /// </returns>
     public static implicit operator string(MetadataBase element)
     {
-        return element?.Value;
+        return element?.Value ?? string.Empty;
     }
 
     /// <summary>

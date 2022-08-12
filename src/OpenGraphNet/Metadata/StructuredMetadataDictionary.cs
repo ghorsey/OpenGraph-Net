@@ -46,7 +46,7 @@ public class StructuredMetadataDictionary : IDictionary<string, IList<Structured
         get
         {
             var ns = NamespaceRegistry.DefaultNamespace;
-            if (key?.IndexOf(':') < 0)
+            if (key.IndexOf(':') < 0)
             {
                 key = string.Concat(ns.Prefix, ":", key);
             }
@@ -147,5 +147,5 @@ public class StructuredMetadataDictionary : IDictionary<string, IList<Structured
     /// <returns>
     /// true if the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"></see> contains an element with the specified key; otherwise, false.
     /// </returns>
-    public bool TryGetValue(string key, out IList<StructuredMetadata> value) => this.InternalCollection.TryGetValue(key, out value);
+    public bool TryGetValue(string key, [NotNullWhen(returnValue: true)] out IList<StructuredMetadata>? value) => this.InternalCollection.TryGetValue(key, out value);
 }

@@ -60,9 +60,6 @@ public class StructuredMetadata : MetadataBase
             throw new ArgumentNullException(nameof(element));
         }
 
-        element.ParentElement = this;
-        element.Namespace = this.Namespace;
-
         if (this.internalProperties.ContainsKey(element.Name))
         {
             this.internalProperties[element.Name].Add(element);

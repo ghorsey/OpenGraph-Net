@@ -189,7 +189,7 @@ public class OpenGraph
             var localeElement = graph.internalOpenGraphData["og:locale"].First();
             foreach (var localeAlternate in localeAlternates ?? new List<string>())
             {
-                localeElement.AddProperty(new PropertyMetadata("alternate", localeAlternate));
+                localeElement.AddProperty("alternate", localeAlternate);
             }
         }
         else

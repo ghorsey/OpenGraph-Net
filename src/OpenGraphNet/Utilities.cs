@@ -13,6 +13,6 @@ internal static class Utilities
     /// <returns>Information version.</returns>
     internal static string GetVersionString()
     {
-        return typeof(Utilities).Assembly.GetCustomAttribute<System.Reflection.AssemblyInformationalVersionAttribute>().InformationalVersion;
+        return typeof(Utilities).Assembly.GetCustomAttribute<System.Reflection.AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "v0.0.0";
     }
 }
