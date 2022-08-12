@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "fqDLXS18Wm2OOzwXNIfwZ/KfQKYEW2oyn7Gou+k70CQ="
+          "hash": "sJCMCD+rpZoCLtF3vlk5+39/1xFOutZZ4XkVgFn0oRA="
         }
       },
       "is_incremental": true,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.HttpDownloader.html",
-          "hash": "Co3WKDDmy9T4wFT+ceFYzLYufBn8cCevMtaa3cCIxRs="
+          "hash": "GhSlUDI+t7TU8tTrG4JFeKdDVCEvaUrobivzOTwaiUg="
         }
       },
       "is_incremental": true,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.InvalidSpecificationException.html",
-          "hash": "mRdBpOUaBFttoGTdjvgtEucgVap9n8M8lkMI/RtA0cU="
+          "hash": "PS9MutNlj37r4S8I7IJOyRi9TbTsMGPzeHfXnCzSWVg="
         }
       },
       "is_incremental": true,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.MetadataBase.html",
-          "hash": "tDN/ffcaJN7n9La9z83rTkIYS2Tcp8oknPygzUHNcDE="
+          "hash": "m+lUnY2UTL70uI5aEt0x1qtPWSbCRTeB9O60lPBoA2A="
         }
       },
       "is_incremental": true,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.MetadataHelperExtensions.html",
-          "hash": "v3yITh/FHcH4cd5D6nMa5Mkt9PGgwhuXUy+WdvEePLw="
+          "hash": "KO5q/d3nMxPet7OsIOeIq4bNBETRSDQJYk3+RfIJMXc="
         }
       },
       "is_incremental": true,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.NullMetadata.html",
-          "hash": "zK6JN6VCH0A5j8LLjf174hjkqrDlR7v6FupUXzNJ1lo="
+          "hash": "CQCX+z9G0A++gZQfhfXC22GxGv8LuUq36RS3+qQV210="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.PropertyMetadata.html",
-          "hash": "THfj4H1IoBzgYeFeuQW+zqsLswHRwwrOVKQMbyieGEE="
+          "hash": "btdorx+xnp01v7hlaqoOZt8RHl3bd0vSM0F8WrGlQKQ="
         }
       },
       "is_incremental": true,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadata.html",
-          "hash": "fkhNAGO6LMVw21QnvDhp2ADntf+yOsAT8SL2Qm5m6FA="
+          "hash": "evfzRkq+wGE9ZE0lYGgTafluXWB4NMoy9rEODKDSwxE="
         }
       },
       "is_incremental": true,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html",
-          "hash": "KFEZXurd10ex52fUGaOvUHFboj6H492MrmQKZdHkQdk="
+          "hash": "Pxc1ZnIG8/X7jEl29DT7gXm6I5N0G/pF8sXNm5ZIaOg="
         }
       },
       "is_incremental": true,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.html",
-          "hash": "8OWbx3v3G+Qg40nBu9/r9U2WBWMpQhaafY8/QXsf9wI="
+          "hash": "iagnEKAc7WjmebtGKfwO0zSOjBo3VH/S4TNnJR4zfD8="
         }
       },
       "is_incremental": true,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.NamespaceRegistry.html",
-          "hash": "BiMCJMJ/sqEhsDwU8hCr31ZFIbV5dAoo4xtTNb0Svgk="
+          "hash": "uKedqSkuatWg3CPVcPa83QDZg5cbz8qb3PA2ICMk+b0="
         }
       },
       "is_incremental": true,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.OpenGraphNamespace.html",
-          "hash": "xYqFPr6xBI6naAzBfo0cY5Dnm9u2tueti5bQ+3vS3nY="
+          "hash": "ZIEcoWxwFd/C5OPaiPIy7uFxrQKAD79weYbwCdsf28w="
         }
       },
       "is_incremental": true,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.RegistryNamespace.html",
-          "hash": "aR6FOIhdsAV6YfJLU76wFeKNg+gGw+4qzbtkhLLaXx8="
+          "hash": "dD+2N6H/DRrHTL3E5HQ9httg+X2Msw8JI2rGUJBHxgg="
         }
       },
       "is_incremental": true,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.html",
-          "hash": "nwZnic+RYDJuOlHa0eHZsaBeSPUZcp7ZUYwAN3qthd8="
+          "hash": "PXKWlfX1aZlHdwU2vZa5yE9X5rmSX3ssV3kRZ5RjOZ4="
         }
       },
       "is_incremental": true,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.OpenGraph.html",
-          "hash": "LsYkCnbc3ifNWTkR6wF9ptQrlYnSzFXEb3v/7/4cADg="
+          "hash": "BiCCtybmQx1vh2APU0Q2/dIgU6PpzuVN1Ag9mX933dQ="
         }
       },
       "is_incremental": true,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.html",
-          "hash": "SDkzxzgSU9ZJ496lTt5/k1bgUW1lGqVn5Hh7Kc9nu8M="
+          "hash": "IFvQW3Fq6xj1dzFM/jqOeUqLAbIVzoMYu71Wuj/84vQ="
         }
       },
       "is_incremental": true,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "PTh9LIWLnvp+Zy+0MJ4/+DE+thEZd0MB8372vT5fuNM="
+          "hash": "L5PeyK97QvJq56dZOzs4Pwp6SOh+r6jSKlGiGtCXg0s="
         }
       },
       "is_incremental": true,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/accessing-values.html",
-          "hash": "6QS4GwihN+V+VxdRcaJDIYJFrHZqlXkE3dGctxMTtWU="
+          "hash": "wCFl0DAsRvCdTijH43NBM+gi/VEkOn6/EZZVRl7F02Q="
         }
       },
       "is_incremental": true,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/complete-example.html",
-          "hash": "RWfGkmg4r3B1xpxy+HBSYS+iJZwFIisQTDaWLS/rss8="
+          "hash": "DrYR9iig54cdpLQM7YM9NtHVEALpnQbtsIWPYwzsHXg="
         }
       },
       "is_incremental": true,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/creating-graph-data.html",
-          "hash": "XAloUDo69dSvxlXPSUqR2u6ruwV4kKyrGPcJQunDscw="
+          "hash": "wrinIyXzY0/iqLNfwUnX05D0GZnsNa0qDblvRrfwWkQ="
         }
       },
       "is_incremental": true,
@@ -261,10 +261,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "yauRkHBUFgxZvHN98DQjglRWbIYwIvJMoL9MJujk0P4="
+          "hash": "YwNWN6jWzvf3aCkE4YV4Y19KhhyVwwEQbHV0kBTqWfo="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/parsing-namespaces.html",
-          "hash": "Tt9j8qlmY9wcJ3UDzZMjvuIWnXWVwNhLQf1VyVsA06E="
+          "hash": "1Kad+BAXKdAYd+Hdurc9B8vpDkhJYA0vxq/keFxfJNU="
         }
       },
       "is_incremental": true,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/parsing-url.html",
-          "hash": "Akcx/54cX7hgfTiLK/prXCb+/quK9uvFHtw612UcpNc="
+          "hash": "QadlcFgRddtR/Qa55kstbOPK9o+4XX+jTT6rYMh0E3M="
         }
       },
       "is_incremental": true,
@@ -309,10 +309,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/writing-namespaces.html",
-          "hash": "EKeMq96fGrOvzkwqrhVp1afytBXE/w/Dl3ckG+NkiZQ="
+          "hash": "KO7wfD/BkTIpySBeLtnSDBp6srBgQFw4TepF+5awJjM="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "rLrxJKSf69xHosu9gJXAWxX1YEAaJgidQhlZIkFLUYM="
+          "hash": "WltUlobhK7JITZ4ePe23j6lHnT9FjNf4YurNJ1KVuZY="
         }
       },
       "is_incremental": true,
@@ -353,7 +353,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 10,
-          "skipped_file_count": 9
+          "skipped_file_count": 10
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
