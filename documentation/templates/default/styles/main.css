@@ -96,8 +96,15 @@ code {
     background-color: var(--nord4);
 }
 
+a {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
 button, a {
-    color: var(--nord2);
+    color: var(--nord10);
 }
 
 .toc .nav > li > a {
