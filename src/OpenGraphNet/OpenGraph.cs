@@ -204,7 +204,7 @@ public class OpenGraph
     }
 
     /// <summary>
-    /// Parses the URL asynchronous.
+    /// Parses the URL asynchronously.
     /// </summary>
     /// <param name="url">The URL.</param>
     /// <param name="userAgent">The user agent.</param>
@@ -226,7 +226,7 @@ public class OpenGraph
     }
 
     /// <summary>
-    /// Parses the URL asynchronous.
+    /// Parses the URL asynchronously.
     /// </summary>
     /// <param name="url">The URL.</param>
     /// <param name="userAgent">The user agent.</param>
