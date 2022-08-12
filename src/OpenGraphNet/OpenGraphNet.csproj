@@ -25,7 +25,7 @@
 		<PackageTags>OpenGraph  OGP Parser</PackageTags>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<Product>OpenGraph.Net</Product>
-		<PackageReadmeFile>https://raw.githubusercontent.com/ghorsey/OpenGraph-Net/main/README.md</PackageReadmeFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryType>git</RepositoryType>
 		<!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -39,7 +39,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\LICENSE" Pack="true" PackagePath="LICENSE" />
+		<None Include="../../LICENSE" Pack="true" PackagePath="/" />
+		<None Include="../../README.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 
 	<ItemGroup>
