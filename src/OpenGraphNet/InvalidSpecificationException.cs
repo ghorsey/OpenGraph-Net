@@ -1,49 +1,45 @@
-﻿namespace OpenGraphNet
+﻿namespace OpenGraphNet;
+
+/// <summary>
+/// An invalid specification exception.
+/// </summary>
+[Serializable]
+[ExcludeFromCodeCoverage]
+public class InvalidSpecificationException : Exception
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InvalidSpecificationException" /> class.
+    /// </summary>
+    /// <param name="message">The message.</param>
+    public InvalidSpecificationException(string message)
+        : base(message)
+    {
+    }
 
     /// <summary>
-    /// An invalid specification exception.
+    /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
     /// </summary>
-    [Serializable]
-    [ExcludeFromCodeCoverage]
-    public class InvalidSpecificationException : Exception
+    public InvalidSpecificationException()
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InvalidSpecificationException" /> class.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        public InvalidSpecificationException(string message)
-            : base(message)
-        {
-        }
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
-        /// </summary>
-        public InvalidSpecificationException()
-        {
-        }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
+    /// </summary>
+    /// <param name="message">The error message that explains the reason for the exception.</param>
+    /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+    public InvalidSpecificationException(string message, Exception innerException)
+        : base(message, innerException)
+    {
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
-        /// </summary>
-        /// <param name="message">The error message that explains the reason for the exception.</param>
-        /// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
-        public InvalidSpecificationException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
-        /// </summary>
-        /// <param name="serializationInfo">The serialization information.</param>
-        /// <param name="streamingContext">The streaming context.</param>
-        protected InvalidSpecificationException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
-            : base(serializationInfo, streamingContext)
-        {
-        }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="InvalidSpecificationException"/> class.
+    /// </summary>
+    /// <param name="serializationInfo">The serialization information.</param>
+    /// <param name="streamingContext">The streaming context.</param>
+    protected InvalidSpecificationException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
+        : base(serializationInfo, streamingContext)
+    {
     }
 }

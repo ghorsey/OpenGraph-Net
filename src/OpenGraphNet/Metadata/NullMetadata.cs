@@ -1,17 +1,16 @@
-﻿namespace OpenGraphNet.Metadata
+﻿namespace OpenGraphNet.Metadata;
+
+/// <summary>
+/// Represents a null <see cref="MetadataBase"/>.
+/// </summary>
+/// <seealso cref="OpenGraphNet.Metadata" />
+public sealed class NullMetadata : StructuredMetadata
 {
     /// <summary>
-    /// Represents a null <see cref="MetadataBase"/>.
+    /// Initializes a new instance of the <see cref="NullMetadata"/> class.
     /// </summary>
-    /// <seealso cref="OpenGraphNet.Metadata" />
-    public sealed class NullMetadata : StructuredMetadata
+    public NullMetadata()
+        : base(null, string.Empty, string.Empty)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NullMetadata"/> class.
-        /// </summary>
-        public NullMetadata()
-            : base(null, string.Empty, string.Empty)
-        {
-        }
     }
 }
