@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<WarningsAsErrors />
@@ -26,7 +26,7 @@
 		<PackageTags>OpenGraph  OGP Parser</PackageTags>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<Product>OpenGraph.Net</Product>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReadmeFile>NUGET.md</PackageReadmeFile>
 		<RepositoryType>git</RepositoryType>
 		<!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -41,7 +41,7 @@
 
 	<ItemGroup>
 		<None Include="../../LICENSE" Pack="true" PackagePath="/" />
-		<None Include="../../README.md" Pack="true" PackagePath="/" />
+		<None Include="../../NUGET.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -147,5 +147,9 @@ public class StructuredMetadataDictionary : IDictionary<string, IList<Structured
     /// <returns>
     /// true if the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"></see> contains an element with the specified key; otherwise, false.
     /// </returns>
+#if NETSTANDARD2_1_OR_GREATER
+    public bool TryGetValue(string key, [NotNullWhen(returnValue: true)] out IList<StructuredMetadata> value) => this.InternalCollection.TryGetValue(key, out value);
+#else
     public bool TryGetValue(string key, [NotNullWhen(returnValue: true)] out IList<StructuredMetadata>? value) => this.InternalCollection.TryGetValue(key, out value);
+#endif
 }

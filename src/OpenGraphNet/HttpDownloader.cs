@@ -74,6 +74,10 @@ public class HttpDownloader
 
         var response = await client.GetAsync(this.Url, cancellationToken).ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
+#if NETSTANDARD2_1_OR_GREATER
+        return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+#else
         return await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+#endif
     }
 }

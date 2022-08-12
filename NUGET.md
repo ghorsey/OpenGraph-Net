@@ -1,13 +1,10 @@
 # OpenGraphNet
-
 [![Build](https://github.com/ghorsey/OpenGraph-Net/actions/workflows/main.yml/badge.svg)](https://github.com/ghorsey/OpenGraph-Net/actions/workflows/main.yml)
 [![Nuget V](https://img.shields.io/nuget/v/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![Nuget dl](https://img.shields.io/nuget/dt/OpenGraph-Net.svg)](http://www.nuget.org/packages/OpenGraph-Net/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/ghorsey/OpenGraph-Net/blob/main/LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://github.com/ghorsey/OpenGraph-Net/blob/main/CODE_OF_CONDUCT.md)
-[![gitter](https://badges.gitter.im/webpack/webpack.svg)](https://gitter.im/OpenGraph-Net/OpenGraph-Net)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=round-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![gitter](https://badges.gitter.im/webpack/webpack.svg)](https://gitter.im/OpenGraph-Net/OpenGraph-Net)
 
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the
 Open Graph protocol @ <http://ogp.me>.
@@ -244,24 +241,3 @@ So please don't be afraid to [fork me](https://github.com/ghorsey/OpenGraph-Net)
 3. Add your awesome code and your unit tests to cover the new feature
 4. Run all of the tests to ensure everything is still passing.
 5. Create a pull request to our `develop` branch.
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://www.geoffhorsey.com/"><img src="https://avatars.githubusercontent.com/u/448706?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Geoff</b></sub></a><br /><a href="https://github.com/ghorsey/OpenGraph-Net/commits?author=ghorsey" title="Code">💻</a> <a href="https://github.com/ghorsey/OpenGraph-Net/commits?author=ghorsey" title="Documentation">📖</a> <a href="#ideas-ghorsey" title="Ideas, Planning, & Feedback">🤔</a> <a href="#platform-ghorsey" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-ghorsey" title="Project Management">📆</a> <a href="https://github.com/ghorsey/OpenGraph-Net/commits?author=ghorsey" title="Tests">⚠️</a></td>
-    <td align="center"><a href="https://osbeck.com/"><img src="https://avatars.githubusercontent.com/u/982752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Per Osbäck</b></sub></a><br /><a href="https://github.com/ghorsey/OpenGraph-Net/commits?author=perosb" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
