@@ -23,6 +23,15 @@
         "projectManagement",
         "test"
       ]
+    },
+    {
+      "login": "perosb",
+      "name": "Per Osbäck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/982752?v=4",
+      "profile": "https://osbeck.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
