@@ -11,7 +11,7 @@ on:
     tags: 
     - 'v*'
     paths-ignore:
-    - 'documents'
+    - 'documentation'
     - '.vscode'
 
   # Allows you to run this workflow manually from the Actions tab
