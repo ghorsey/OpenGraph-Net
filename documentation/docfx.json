@@ -4,9 +4,9 @@
       "src": [
         {
           "files": [
-            "src/**.csproj"
+            "OpenGraphNet.dll"
           ],
-          "src": "../"
+          "src": "../src/OpenGraphNet/bin/Debug/net6.0"
         }
       ],
       "dest": "api",
