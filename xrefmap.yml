@@ -23,61 +23,20 @@ references:
   name: HttpDownloader
   href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader__ctor_
   commentId: Overload:OpenGraphNet.HttpDownloader.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.HttpDownloader.HttpDownloader
   nameWithType: HttpDownloader.HttpDownloader
-- uid: OpenGraphNet.HttpDownloader.Encoding
-  name: Encoding
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Encoding
-  commentId: P:OpenGraphNet.HttpDownloader.Encoding
-  fullName: OpenGraphNet.HttpDownloader.Encoding
-  nameWithType: HttpDownloader.Encoding
-- uid: OpenGraphNet.HttpDownloader.Encoding*
-  name: Encoding
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Encoding_
-  commentId: Overload:OpenGraphNet.HttpDownloader.Encoding
-  isSpec: "True"
-  fullName: OpenGraphNet.HttpDownloader.Encoding
-  nameWithType: HttpDownloader.Encoding
-- uid: OpenGraphNet.HttpDownloader.GetPage
-  name: GetPage()
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPage
-  commentId: M:OpenGraphNet.HttpDownloader.GetPage
-  fullName: OpenGraphNet.HttpDownloader.GetPage()
-  nameWithType: HttpDownloader.GetPage()
-- uid: OpenGraphNet.HttpDownloader.GetPage*
-  name: GetPage
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPage_
-  commentId: Overload:OpenGraphNet.HttpDownloader.GetPage
-  isSpec: "True"
-  fullName: OpenGraphNet.HttpDownloader.GetPage
-  nameWithType: HttpDownloader.GetPage
-- uid: OpenGraphNet.HttpDownloader.GetPageAsync
-  name: GetPageAsync()
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPageAsync
-  commentId: M:OpenGraphNet.HttpDownloader.GetPageAsync
-  fullName: OpenGraphNet.HttpDownloader.GetPageAsync()
-  nameWithType: HttpDownloader.GetPageAsync()
+- uid: OpenGraphNet.HttpDownloader.GetPageAsync(System.Threading.CancellationToken)
+  name: GetPageAsync(CancellationToken)
+  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPageAsync_System_Threading_CancellationToken_
+  commentId: M:OpenGraphNet.HttpDownloader.GetPageAsync(System.Threading.CancellationToken)
+  fullName: OpenGraphNet.HttpDownloader.GetPageAsync(System.Threading.CancellationToken)
+  nameWithType: HttpDownloader.GetPageAsync(CancellationToken)
 - uid: OpenGraphNet.HttpDownloader.GetPageAsync*
   name: GetPageAsync
   href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_GetPageAsync_
   commentId: Overload:OpenGraphNet.HttpDownloader.GetPageAsync
-  isSpec: "True"
   fullName: OpenGraphNet.HttpDownloader.GetPageAsync
   nameWithType: HttpDownloader.GetPageAsync
-- uid: OpenGraphNet.HttpDownloader.Headers
-  name: Headers
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Headers
-  commentId: P:OpenGraphNet.HttpDownloader.Headers
-  fullName: OpenGraphNet.HttpDownloader.Headers
-  nameWithType: HttpDownloader.Headers
-- uid: OpenGraphNet.HttpDownloader.Headers*
-  name: Headers
-  href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Headers_
-  commentId: Overload:OpenGraphNet.HttpDownloader.Headers
-  isSpec: "True"
-  fullName: OpenGraphNet.HttpDownloader.Headers
-  nameWithType: HttpDownloader.Headers
 - uid: OpenGraphNet.HttpDownloader.Url
   name: Url
   href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Url
@@ -88,7 +47,6 @@ references:
   name: Url
   href: api/OpenGraphNet.HttpDownloader.html#OpenGraphNet_HttpDownloader_Url_
   commentId: Overload:OpenGraphNet.HttpDownloader.Url
-  isSpec: "True"
   fullName: OpenGraphNet.HttpDownloader.Url
   nameWithType: HttpDownloader.Url
 - uid: OpenGraphNet.InvalidSpecificationException
@@ -125,7 +83,6 @@ references:
   name: InvalidSpecificationException
   href: api/OpenGraphNet.InvalidSpecificationException.html#OpenGraphNet_InvalidSpecificationException__ctor_
   commentId: Overload:OpenGraphNet.InvalidSpecificationException.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.InvalidSpecificationException.InvalidSpecificationException
   nameWithType: InvalidSpecificationException.InvalidSpecificationException
 - uid: OpenGraphNet.Metadata
@@ -150,7 +107,6 @@ references:
   name: MetadataBase
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase__ctor_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataBase.MetadataBase
   nameWithType: MetadataBase.MetadataBase
 - uid: OpenGraphNet.Metadata.MetadataBase.CreateDocument
@@ -163,7 +119,6 @@ references:
   name: CreateDocument
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase_CreateDocument_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.CreateDocument
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataBase.CreateDocument
   nameWithType: MetadataBase.CreateDocument
 - uid: OpenGraphNet.Metadata.MetadataBase.Name
@@ -176,7 +131,6 @@ references:
   name: Name
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase_Name_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.Name
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataBase.Name
   nameWithType: MetadataBase.Name
 - uid: OpenGraphNet.Metadata.MetadataBase.Namespace
@@ -189,7 +143,6 @@ references:
   name: Namespace
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase_Namespace_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.Namespace
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataBase.Namespace
   nameWithType: MetadataBase.Namespace
 - uid: OpenGraphNet.Metadata.MetadataBase.op_Implicit(OpenGraphNet.Metadata.MetadataBase)~System.String
@@ -205,7 +158,6 @@ references:
   name: Implicit
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase_op_Implicit_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.op_Implicit
-  isSpec: "True"
   name.vb: Widening
   fullName: OpenGraphNet.Metadata.MetadataBase.Implicit
   fullName.vb: OpenGraphNet.Metadata.MetadataBase.Widening
@@ -221,7 +173,6 @@ references:
   name: ToString
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase_ToString_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.ToString
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataBase.ToString
   nameWithType: MetadataBase.ToString
 - uid: OpenGraphNet.Metadata.MetadataBase.Value
@@ -234,7 +185,6 @@ references:
   name: Value
   href: api/OpenGraphNet.Metadata.MetadataBase.html#OpenGraphNet_Metadata_MetadataBase_Value_
   commentId: Overload:OpenGraphNet.Metadata.MetadataBase.Value
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataBase.Value
   nameWithType: MetadataBase.Value
 - uid: OpenGraphNet.Metadata.MetadataHelperExtensions
@@ -265,7 +215,6 @@ references:
   name: Name
   href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Name_
   commentId: Overload:OpenGraphNet.Metadata.MetadataHelperExtensions.Name
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Name
   nameWithType: MetadataHelperExtensions.Name
 - uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace(System.Collections.Generic.IList{OpenGraphNet.Metadata.PropertyMetadata})
@@ -290,7 +239,6 @@ references:
   name: Namespace
   href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Namespace_
   commentId: Overload:OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Namespace
   nameWithType: MetadataHelperExtensions.Namespace
 - uid: OpenGraphNet.Metadata.MetadataHelperExtensions.Value(System.Collections.Generic.IList{OpenGraphNet.Metadata.PropertyMetadata})
@@ -315,7 +263,6 @@ references:
   name: Value
   href: api/OpenGraphNet.Metadata.MetadataHelperExtensions.html#OpenGraphNet_Metadata_MetadataHelperExtensions_Value_
   commentId: Overload:OpenGraphNet.Metadata.MetadataHelperExtensions.Value
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.MetadataHelperExtensions.Value
   nameWithType: MetadataHelperExtensions.Value
 - uid: OpenGraphNet.Metadata.NullMetadata
@@ -334,7 +281,6 @@ references:
   name: NullMetadata
   href: api/OpenGraphNet.Metadata.NullMetadata.html#OpenGraphNet_Metadata_NullMetadata__ctor_
   commentId: Overload:OpenGraphNet.Metadata.NullMetadata.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.NullMetadata.NullMetadata
   nameWithType: NullMetadata.NullMetadata
 - uid: OpenGraphNet.Metadata.PropertyMetadata
@@ -349,17 +295,10 @@ references:
   commentId: M:OpenGraphNet.Metadata.PropertyMetadata.#ctor(OpenGraphNet.Metadata.StructuredMetadata,OpenGraphNet.Namespaces.OpenGraphNamespace,System.String,System.String)
   fullName: OpenGraphNet.Metadata.PropertyMetadata.PropertyMetadata(OpenGraphNet.Metadata.StructuredMetadata, OpenGraphNet.Namespaces.OpenGraphNamespace, System.String, System.String)
   nameWithType: PropertyMetadata.PropertyMetadata(StructuredMetadata, OpenGraphNamespace, String, String)
-- uid: OpenGraphNet.Metadata.PropertyMetadata.#ctor(System.String,System.String)
-  name: PropertyMetadata(String, String)
-  href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata__ctor_System_String_System_String_
-  commentId: M:OpenGraphNet.Metadata.PropertyMetadata.#ctor(System.String,System.String)
-  fullName: OpenGraphNet.Metadata.PropertyMetadata.PropertyMetadata(System.String, System.String)
-  nameWithType: PropertyMetadata.PropertyMetadata(String, String)
 - uid: OpenGraphNet.Metadata.PropertyMetadata.#ctor*
   name: PropertyMetadata
   href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata__ctor_
   commentId: Overload:OpenGraphNet.Metadata.PropertyMetadata.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.PropertyMetadata.PropertyMetadata
   nameWithType: PropertyMetadata.PropertyMetadata
 - uid: OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
@@ -372,7 +311,6 @@ references:
   name: CreateDocument
   href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata_CreateDocument_
   commentId: Overload:OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.PropertyMetadata.CreateDocument
   nameWithType: PropertyMetadata.CreateDocument
 - uid: OpenGraphNet.Metadata.PropertyMetadata.ParentElement
@@ -385,7 +323,6 @@ references:
   name: ParentElement
   href: api/OpenGraphNet.Metadata.PropertyMetadata.html#OpenGraphNet_Metadata_PropertyMetadata_ParentElement_
   commentId: Overload:OpenGraphNet.Metadata.PropertyMetadata.ParentElement
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.PropertyMetadata.ParentElement
   nameWithType: PropertyMetadata.ParentElement
 - uid: OpenGraphNet.Metadata.StructuredMetadata
@@ -404,7 +341,6 @@ references:
   name: StructuredMetadata
   href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata__ctor_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadata.StructuredMetadata
   nameWithType: StructuredMetadata.StructuredMetadata
 - uid: OpenGraphNet.Metadata.StructuredMetadata.AddProperty(OpenGraphNet.Metadata.PropertyMetadata)
@@ -423,7 +359,6 @@ references:
   name: AddProperty
   href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_AddProperty_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.AddProperty
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadata.AddProperty
   nameWithType: StructuredMetadata.AddProperty
 - uid: OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
@@ -436,7 +371,6 @@ references:
   name: CreateDocument
   href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_CreateDocument_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadata.CreateDocument
   nameWithType: StructuredMetadata.CreateDocument
 - uid: OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty(System.String)
@@ -449,7 +383,6 @@ references:
   name: IsMyProperty
   href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_IsMyProperty_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadata.IsMyProperty
   nameWithType: StructuredMetadata.IsMyProperty
 - uid: OpenGraphNet.Metadata.StructuredMetadata.Properties
@@ -462,7 +395,6 @@ references:
   name: Properties
   href: api/OpenGraphNet.Metadata.StructuredMetadata.html#OpenGraphNet_Metadata_StructuredMetadata_Properties_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadata.Properties
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadata.Properties
   nameWithType: StructuredMetadata.Properties
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary
@@ -471,6 +403,18 @@ references:
   commentId: T:OpenGraphNet.Metadata.StructuredMetadataDictionary
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary
   nameWithType: StructuredMetadataDictionary
+- uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.#ctor
+  name: StructuredMetadataDictionary()
+  href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary__ctor
+  commentId: M:OpenGraphNet.Metadata.StructuredMetadataDictionary.#ctor
+  fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.StructuredMetadataDictionary()
+  nameWithType: StructuredMetadataDictionary.StructuredMetadataDictionary()
+- uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.#ctor*
+  name: StructuredMetadataDictionary
+  href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary__ctor_
+  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.#ctor
+  fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.StructuredMetadataDictionary
+  nameWithType: StructuredMetadataDictionary.StructuredMetadataDictionary
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Add(System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IList{OpenGraphNet.Metadata.StructuredMetadata}})
   name: Add(KeyValuePair<String, IList<StructuredMetadata>>)
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Add_System_Collections_Generic_KeyValuePair_System_String_System_Collections_Generic_IList_OpenGraphNet_Metadata_StructuredMetadata___
@@ -493,7 +437,6 @@ references:
   name: Add
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Add_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Add
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Add
   nameWithType: StructuredMetadataDictionary.Add
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Clear
@@ -506,7 +449,6 @@ references:
   name: Clear
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Clear_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Clear
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Clear
   nameWithType: StructuredMetadataDictionary.Clear
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Contains(System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IList{OpenGraphNet.Metadata.StructuredMetadata}})
@@ -522,7 +464,6 @@ references:
   name: Contains
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Contains_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Contains
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Contains
   nameWithType: StructuredMetadataDictionary.Contains
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.ContainsKey(System.String)
@@ -535,7 +476,6 @@ references:
   name: ContainsKey
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_ContainsKey_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.ContainsKey
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.ContainsKey
   nameWithType: StructuredMetadataDictionary.ContainsKey
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.CopyTo(System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IList{OpenGraphNet.Metadata.StructuredMetadata}}[],System.Int32)
@@ -551,7 +491,6 @@ references:
   name: CopyTo
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_CopyTo_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.CopyTo
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.CopyTo
   nameWithType: StructuredMetadataDictionary.CopyTo
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Count
@@ -564,7 +503,6 @@ references:
   name: Count
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Count_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Count
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Count
   nameWithType: StructuredMetadataDictionary.Count
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.GetEnumerator
@@ -577,7 +515,6 @@ references:
   name: GetEnumerator
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_GetEnumerator_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.GetEnumerator
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.GetEnumerator
   nameWithType: StructuredMetadataDictionary.GetEnumerator
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.IsReadOnly
@@ -590,7 +527,6 @@ references:
   name: IsReadOnly
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_IsReadOnly_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.IsReadOnly
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.IsReadOnly
   nameWithType: StructuredMetadataDictionary.IsReadOnly
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Item(System.String)
@@ -606,7 +542,6 @@ references:
   name: Item
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Item_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Item
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Item
   nameWithType: StructuredMetadataDictionary.Item
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Keys
@@ -619,7 +554,6 @@ references:
   name: Keys
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Keys_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Keys
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Keys
   nameWithType: StructuredMetadataDictionary.Keys
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Remove(System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IList{OpenGraphNet.Metadata.StructuredMetadata}})
@@ -641,26 +575,8 @@ references:
   name: Remove
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Remove_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Remove
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Remove
   nameWithType: StructuredMetadataDictionary.Remove
-- uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:OpenGraphNet.Metadata.StructuredMetadataDictionary.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: StructuredMetadataDictionary.IEnumerable.GetEnumerator()
-  nameWithType.vb: StructuredMetadataDictionary.System.Collections.IEnumerable.GetEnumerator()
-- uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.System.Collections.IEnumerable.GetEnumerator
-  nameWithType: StructuredMetadataDictionary.IEnumerable.GetEnumerator
-  nameWithType.vb: StructuredMetadataDictionary.System.Collections.IEnumerable.GetEnumerator
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.TryGetValue(System.String,System.Collections.Generic.IList{OpenGraphNet.Metadata.StructuredMetadata}@)
   name: TryGetValue(String, out IList<StructuredMetadata>)
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_TryGetValue_System_String_System_Collections_Generic_IList_OpenGraphNet_Metadata_StructuredMetadata___
@@ -674,7 +590,6 @@ references:
   name: TryGetValue
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_TryGetValue_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.TryGetValue
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.TryGetValue
   nameWithType: StructuredMetadataDictionary.TryGetValue
 - uid: OpenGraphNet.Metadata.StructuredMetadataDictionary.Values
@@ -687,7 +602,6 @@ references:
   name: Values
   href: api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html#OpenGraphNet_Metadata_StructuredMetadataDictionary_Values_
   commentId: Overload:OpenGraphNet.Metadata.StructuredMetadataDictionary.Values
-  isSpec: "True"
   fullName: OpenGraphNet.Metadata.StructuredMetadataDictionary.Values
   nameWithType: StructuredMetadataDictionary.Values
 - uid: OpenGraphNet.Namespaces
@@ -715,7 +629,6 @@ references:
   name: AddNamespace
   href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_AddNamespace_
   commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.NamespaceRegistry.AddNamespace
   nameWithType: NamespaceRegistry.AddNamespace
 - uid: OpenGraphNet.Namespaces.NamespaceRegistry.DefaultNamespace
@@ -728,7 +641,6 @@ references:
   name: DefaultNamespace
   href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_DefaultNamespace_
   commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.DefaultNamespace
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.NamespaceRegistry.DefaultNamespace
   nameWithType: NamespaceRegistry.DefaultNamespace
 - uid: OpenGraphNet.Namespaces.NamespaceRegistry.Instance
@@ -741,7 +653,6 @@ references:
   name: Instance
   href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_Instance_
   commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.Instance
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.NamespaceRegistry.Instance
   nameWithType: NamespaceRegistry.Instance
 - uid: OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
@@ -754,7 +665,6 @@ references:
   name: Namespaces
   href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_Namespaces_
   commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.NamespaceRegistry.Namespaces
   nameWithType: NamespaceRegistry.Namespaces
 - uid: OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace(System.String)
@@ -767,7 +677,6 @@ references:
   name: RemoveNamespace
   href: api/OpenGraphNet.Namespaces.NamespaceRegistry.html#OpenGraphNet_Namespaces_NamespaceRegistry_RemoveNamespace_
   commentId: Overload:OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.NamespaceRegistry.RemoveNamespace
   nameWithType: NamespaceRegistry.RemoveNamespace
 - uid: OpenGraphNet.Namespaces.OpenGraphNamespace
@@ -792,9 +701,20 @@ references:
   name: OpenGraphNamespace
   href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace__ctor_
   commentId: Overload:OpenGraphNet.Namespaces.OpenGraphNamespace.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.OpenGraphNamespace.OpenGraphNamespace
   nameWithType: OpenGraphNamespace.OpenGraphNamespace
+- uid: OpenGraphNet.Namespaces.OpenGraphNamespace.Empty
+  name: Empty
+  href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace_Empty
+  commentId: P:OpenGraphNet.Namespaces.OpenGraphNamespace.Empty
+  fullName: OpenGraphNet.Namespaces.OpenGraphNamespace.Empty
+  nameWithType: OpenGraphNamespace.Empty
+- uid: OpenGraphNet.Namespaces.OpenGraphNamespace.Empty*
+  name: Empty
+  href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace_Empty_
+  commentId: Overload:OpenGraphNet.Namespaces.OpenGraphNamespace.Empty
+  fullName: OpenGraphNet.Namespaces.OpenGraphNamespace.Empty
+  nameWithType: OpenGraphNamespace.Empty
 - uid: OpenGraphNet.Namespaces.OpenGraphNamespace.Prefix
   name: Prefix
   href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace_Prefix
@@ -805,7 +725,6 @@ references:
   name: Prefix
   href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace_Prefix_
   commentId: Overload:OpenGraphNet.Namespaces.OpenGraphNamespace.Prefix
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.OpenGraphNamespace.Prefix
   nameWithType: OpenGraphNamespace.Prefix
 - uid: OpenGraphNet.Namespaces.OpenGraphNamespace.SchemaUri
@@ -818,7 +737,6 @@ references:
   name: SchemaUri
   href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace_SchemaUri_
   commentId: Overload:OpenGraphNet.Namespaces.OpenGraphNamespace.SchemaUri
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.OpenGraphNamespace.SchemaUri
   nameWithType: OpenGraphNamespace.SchemaUri
 - uid: OpenGraphNet.Namespaces.OpenGraphNamespace.ToString
@@ -831,7 +749,6 @@ references:
   name: ToString
   href: api/OpenGraphNet.Namespaces.OpenGraphNamespace.html#OpenGraphNet_Namespaces_OpenGraphNamespace_ToString_
   commentId: Overload:OpenGraphNet.Namespaces.OpenGraphNamespace.ToString
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.OpenGraphNamespace.ToString
   nameWithType: OpenGraphNamespace.ToString
 - uid: OpenGraphNet.Namespaces.RegistryNamespace
@@ -853,7 +770,6 @@ references:
   name: RegistryNamespace
   href: api/OpenGraphNet.Namespaces.RegistryNamespace.html#OpenGraphNet_Namespaces_RegistryNamespace__ctor_
   commentId: Overload:OpenGraphNet.Namespaces.RegistryNamespace.#ctor
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.RegistryNamespace.RegistryNamespace
   nameWithType: RegistryNamespace.RegistryNamespace
 - uid: OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
@@ -866,7 +782,6 @@ references:
   name: RequiredElements
   href: api/OpenGraphNet.Namespaces.RegistryNamespace.html#OpenGraphNet_Namespaces_RegistryNamespace_RequiredElements_
   commentId: Overload:OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
-  isSpec: "True"
   fullName: OpenGraphNet.Namespaces.RegistryNamespace.RequiredElements
   nameWithType: RegistryNamespace.RequiredElements
 - uid: OpenGraphNet.OpenGraph
@@ -891,7 +806,6 @@ references:
   name: AddMetadata
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_AddMetadata_
   commentId: Overload:OpenGraphNet.OpenGraph.AddMetadata
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.AddMetadata
   nameWithType: OpenGraph.AddMetadata
 - uid: OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
@@ -904,7 +818,6 @@ references:
   name: HeadPrefixAttributeValue
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_HeadPrefixAttributeValue_
   commentId: Overload:OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.HeadPrefixAttributeValue
   nameWithType: OpenGraph.HeadPrefixAttributeValue
 - uid: OpenGraphNet.OpenGraph.HtmlXmlnsValues
@@ -917,7 +830,6 @@ references:
   name: HtmlXmlnsValues
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_HtmlXmlnsValues_
   commentId: Overload:OpenGraphNet.OpenGraph.HtmlXmlnsValues
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.HtmlXmlnsValues
   nameWithType: OpenGraph.HtmlXmlnsValues
 - uid: OpenGraphNet.OpenGraph.Image
@@ -930,7 +842,6 @@ references:
   name: Image
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Image_
   commentId: Overload:OpenGraphNet.OpenGraph.Image
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Image
   nameWithType: OpenGraph.Image
 - uid: OpenGraphNet.OpenGraph.MakeGraph(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.IList{System.String},System.String)
@@ -946,7 +857,6 @@ references:
   name: MakeGraph
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_MakeGraph_
   commentId: Overload:OpenGraphNet.OpenGraph.MakeGraph
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.MakeGraph
   nameWithType: OpenGraph.MakeGraph
 - uid: OpenGraphNet.OpenGraph.Metadata
@@ -959,7 +869,6 @@ references:
   name: Metadata
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Metadata_
   commentId: Overload:OpenGraphNet.OpenGraph.Metadata
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Metadata
   nameWithType: OpenGraph.Metadata
 - uid: OpenGraphNet.OpenGraph.Namespaces
@@ -972,7 +881,6 @@ references:
   name: Namespaces
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Namespaces_
   commentId: Overload:OpenGraphNet.OpenGraph.Namespaces
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Namespaces
   nameWithType: OpenGraph.Namespaces
 - uid: OpenGraphNet.OpenGraph.OriginalHtml
@@ -985,7 +893,6 @@ references:
   name: OriginalHtml
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalHtml_
   commentId: Overload:OpenGraphNet.OpenGraph.OriginalHtml
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.OriginalHtml
   nameWithType: OpenGraph.OriginalHtml
 - uid: OpenGraphNet.OpenGraph.OriginalUrl
@@ -998,7 +905,6 @@ references:
   name: OriginalUrl
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_OriginalUrl_
   commentId: Overload:OpenGraphNet.OpenGraph.OriginalUrl
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.OriginalUrl
   nameWithType: OpenGraph.OriginalUrl
 - uid: OpenGraphNet.OpenGraph.ParseHtml(System.String,System.Boolean)
@@ -1011,39 +917,24 @@ references:
   name: ParseHtml
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseHtml_
   commentId: Overload:OpenGraphNet.OpenGraph.ParseHtml
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.ParseHtml
   nameWithType: OpenGraph.ParseHtml
-- uid: OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean,System.Int32)
-  name: ParseUrl(String, String, Boolean, Int32)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_System_String_System_String_System_Boolean_System_Int32_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrl(System.String,System.String,System.Boolean,System.Int32)
-  fullName: OpenGraphNet.OpenGraph.ParseUrl(System.String, System.String, System.Boolean, System.Int32)
-  nameWithType: OpenGraph.ParseUrl(String, String, Boolean, Int32)
-- uid: OpenGraphNet.OpenGraph.ParseUrl*
-  name: ParseUrl
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrl_
-  commentId: Overload:OpenGraphNet.OpenGraph.ParseUrl
-  isSpec: "True"
-  fullName: OpenGraphNet.OpenGraph.ParseUrl
-  nameWithType: OpenGraph.ParseUrl
-- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean,System.Int32)
-  name: ParseUrlAsync(String, String, Boolean, Int32)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_String_System_String_System_Boolean_System_Int32_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean,System.Int32)
-  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String, System.String, System.Boolean, System.Int32)
-  nameWithType: OpenGraph.ParseUrlAsync(String, String, Boolean, Int32)
-- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean,System.Int32)
-  name: ParseUrlAsync(Uri, String, Boolean, Int32)
-  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_Uri_System_String_System_Boolean_System_Int32_
-  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean,System.Int32)
-  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri, System.String, System.Boolean, System.Int32)
-  nameWithType: OpenGraph.ParseUrlAsync(Uri, String, Boolean, Int32)
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean,System.Int32,System.Threading.CancellationToken)
+  name: ParseUrlAsync(String, String, Boolean, Int32, CancellationToken)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_String_System_String_System_Boolean_System_Int32_System_Threading_CancellationToken_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.String,System.String,System.Boolean,System.Int32,System.Threading.CancellationToken)
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.String, System.String, System.Boolean, System.Int32, System.Threading.CancellationToken)
+  nameWithType: OpenGraph.ParseUrlAsync(String, String, Boolean, Int32, CancellationToken)
+- uid: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean,System.Int32,System.Threading.CancellationToken)
+  name: ParseUrlAsync(Uri, String, Boolean, Int32, CancellationToken)
+  href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_System_Uri_System_String_System_Boolean_System_Int32_System_Threading_CancellationToken_
+  commentId: M:OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri,System.String,System.Boolean,System.Int32,System.Threading.CancellationToken)
+  fullName: OpenGraphNet.OpenGraph.ParseUrlAsync(System.Uri, System.String, System.Boolean, System.Int32, System.Threading.CancellationToken)
+  nameWithType: OpenGraph.ParseUrlAsync(Uri, String, Boolean, Int32, CancellationToken)
 - uid: OpenGraphNet.OpenGraph.ParseUrlAsync*
   name: ParseUrlAsync
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ParseUrlAsync_
   commentId: Overload:OpenGraphNet.OpenGraph.ParseUrlAsync
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.ParseUrlAsync
   nameWithType: OpenGraph.ParseUrlAsync
 - uid: OpenGraphNet.OpenGraph.Title
@@ -1056,7 +947,6 @@ references:
   name: Title
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Title_
   commentId: Overload:OpenGraphNet.OpenGraph.Title
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Title
   nameWithType: OpenGraph.Title
 - uid: OpenGraphNet.OpenGraph.ToString
@@ -1069,7 +959,6 @@ references:
   name: ToString
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_ToString_
   commentId: Overload:OpenGraphNet.OpenGraph.ToString
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.ToString
   nameWithType: OpenGraph.ToString
 - uid: OpenGraphNet.OpenGraph.Type
@@ -1082,7 +971,6 @@ references:
   name: Type
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Type_
   commentId: Overload:OpenGraphNet.OpenGraph.Type
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Type
   nameWithType: OpenGraph.Type
 - uid: OpenGraphNet.OpenGraph.Url
@@ -1095,6 +983,5 @@ references:
   name: Url
   href: api/OpenGraphNet.OpenGraph.html#OpenGraphNet_OpenGraph_Url_
   commentId: Overload:OpenGraphNet.OpenGraph.Url
-  isSpec: "True"
   fullName: OpenGraphNet.OpenGraph.Url
   nameWithType: OpenGraph.Url

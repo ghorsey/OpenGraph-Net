@@ -8,7 +8,7 @@
     <title>Setup info </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Setup info ">
-    <meta name="generator" content="docfx 2.59.0.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -65,10 +65,52 @@
 
 <ol>
 <li>Issue the following git command <code>git worktree add --checkout ../gh-pages gh-pages</code> in the git root</li>
+<li><code>dotnet build</code> to build the dll for the metadata extraction.</li>
+<li><code>docfx metadata</code> to generate the latest metadata.</li>
 <li><code>docfx build</code> to build the site into the gh-pages worktree location.</li>
 <li><code>docfx --serve</code> to serve the site from the gh-pages worktree location.</li>
 <li>If it all looks good, navigate the console to <code>../gh-pages</code> and commit/push the site updates.</li>
 </ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="there-was-an-issue-building-the-metadata">There was an issue building the metadata</h3>
+<p>I had to modify the metadata section of the docfx.json file from:</p>
+<pre><code class="lang-json">{
+  &quot;metadata&quot;: [
+    {
+      &quot;src&quot;: [
+        {
+          &quot;files&quot;: [
+            &quot;src/**.csproj&quot;
+          ],
+          &quot;src&quot;: &quot;../&quot;
+        }
+      ],
+      &quot;dest&quot;: &quot;api&quot;,
+      &quot;disableGitFeatures&quot;: false
+    }
+  ],
+  // ..
+}
+</code></pre>
+<p>to</p>
+<pre><code class="lang-json">{
+  &quot;metadata&quot;: [
+    {
+      &quot;src&quot;: [
+        {
+          &quot;files&quot;: [
+            &quot;OpenGraphNet.dll&quot;
+          ],
+          &quot;src&quot;: &quot;../src/OpenGraphNet/bin/Debug/net6.0&quot;
+        }
+      ],
+      &quot;dest&quot;: &quot;api&quot;,
+      &quot;disableGitFeatures&quot;: false
+    }
+  ],
+  // ...
+}
+</code></pre>
 </article>
           </div>
           

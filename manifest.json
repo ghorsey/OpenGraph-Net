@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "sJCMCD+rpZoCLtF3vlk5+39/1xFOutZZ4XkVgFn0oRA="
+          "hash": "PxzEyKYH4vRtAOfurCjjRB6HZDwp0euDtUKX7tI4SE0="
         }
       },
       "is_incremental": true,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.HttpDownloader.html",
-          "hash": "GhSlUDI+t7TU8tTrG4JFeKdDVCEvaUrobivzOTwaiUg="
+          "hash": "buFM8D0dluuMYAn1It0AZr4FHjZw4Gq5rFLSNUxlMCE="
         }
       },
       "is_incremental": true,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.InvalidSpecificationException.html",
-          "hash": "PS9MutNlj37r4S8I7IJOyRi9TbTsMGPzeHfXnCzSWVg="
+          "hash": "od4qWQtrBldv1Ymz77XuoHI2Vm0qzSucy2f1XdglFR8="
         }
       },
       "is_incremental": true,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.MetadataBase.html",
-          "hash": "m+lUnY2UTL70uI5aEt0x1qtPWSbCRTeB9O60lPBoA2A="
+          "hash": "kpg+/vBje7GNHNC0SupJAwACPa6VWbTTs2QQulc92Fs="
         }
       },
       "is_incremental": true,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.MetadataHelperExtensions.html",
-          "hash": "KO5q/d3nMxPet7OsIOeIq4bNBETRSDQJYk3+RfIJMXc="
+          "hash": "WSIHI7rRDVpaKUC93W0Sux3l+DxHlJoR+hnb4ma941g="
         }
       },
       "is_incremental": true,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.NullMetadata.html",
-          "hash": "CQCX+z9G0A++gZQfhfXC22GxGv8LuUq36RS3+qQV210="
+          "hash": "Mgw1frgXx/y3PHvD8IVvJhgAjcxiGkYSOO8m40basyc="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.PropertyMetadata.html",
-          "hash": "btdorx+xnp01v7hlaqoOZt8RHl3bd0vSM0F8WrGlQKQ="
+          "hash": "7cgd4+gnHfR2u34h0x2PiqBSVb7jHQJnDykYfmIc+HM="
         }
       },
       "is_incremental": true,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadata.html",
-          "hash": "evfzRkq+wGE9ZE0lYGgTafluXWB4NMoy9rEODKDSwxE="
+          "hash": "UeWM3kBOuci/UWCzrJyO8C5DN/djUE6rWVe6h2DZcXw="
         }
       },
       "is_incremental": true,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.StructuredMetadataDictionary.html",
-          "hash": "Pxc1ZnIG8/X7jEl29DT7gXm6I5N0G/pF8sXNm5ZIaOg="
+          "hash": "FaAkhY9xNFXEmooWLJhxaSl+YGOAxmUZiZpQj7i0MEo="
         }
       },
       "is_incremental": true,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Metadata.html",
-          "hash": "iagnEKAc7WjmebtGKfwO0zSOjBo3VH/S4TNnJR4zfD8="
+          "hash": "uh+rfVUX3xHn5W1E1xplLlEZiBhjEizMY6qyykCTmYU="
         }
       },
       "is_incremental": true,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.NamespaceRegistry.html",
-          "hash": "uKedqSkuatWg3CPVcPa83QDZg5cbz8qb3PA2ICMk+b0="
+          "hash": "TKNMPYdAfCj1xbJJV0O5/RHFAhqdL2rFm9FEQP3PjoU="
         }
       },
       "is_incremental": true,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.OpenGraphNamespace.html",
-          "hash": "ZIEcoWxwFd/C5OPaiPIy7uFxrQKAD79weYbwCdsf28w="
+          "hash": "a0nezzuDotF3gwZw0T6LlhJAf96NXyT8idRPRpyNx6Q="
         }
       },
       "is_incremental": true,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.RegistryNamespace.html",
-          "hash": "dD+2N6H/DRrHTL3E5HQ9httg+X2Msw8JI2rGUJBHxgg="
+          "hash": "hIPt1gvVqiZCk9afeatV3B9uUKpVWq7TXIDe5wXAtWo="
         }
       },
       "is_incremental": true,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.Namespaces.html",
-          "hash": "PXKWlfX1aZlHdwU2vZa5yE9X5rmSX3ssV3kRZ5RjOZ4="
+          "hash": "hpm5lq/HrZFUtoCwbuFasfhHMCgwiQ8BIeRkNZxYivw="
         }
       },
       "is_incremental": true,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.OpenGraph.html",
-          "hash": "BiCCtybmQx1vh2APU0Q2/dIgU6PpzuVN1Ag9mX933dQ="
+          "hash": "2Aq1su/N4vf4qZiNWx79egOhCaiS2POr8VqPNDBAQ3k="
         }
       },
       "is_incremental": true,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenGraphNet.html",
-          "hash": "IFvQW3Fq6xj1dzFM/jqOeUqLAbIVzoMYu71Wuj/84vQ="
+          "hash": "pWQEia4C5r7V5bLvXhHW3JfWhlCuGrFol5MQ1PA9rfw="
         }
       },
       "is_incremental": true,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "L5PeyK97QvJq56dZOzs4Pwp6SOh+r6jSKlGiGtCXg0s="
+          "hash": "h+UejyD51NJrFA2oECSCnkEnlbDSUAU4jsqp8scVsfw="
         }
       },
       "is_incremental": true,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/accessing-values.html",
-          "hash": "wCFl0DAsRvCdTijH43NBM+gi/VEkOn6/EZZVRl7F02Q="
+          "hash": "YHbWFMrRZN3cynwoGCeW57DNH55VhKzcjtQ+shRgSNQ="
         }
       },
       "is_incremental": true,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/complete-example.html",
-          "hash": "DrYR9iig54cdpLQM7YM9NtHVEALpnQbtsIWPYwzsHXg="
+          "hash": "fz2CMUe8L8JWs/KYDYqlCv5x5eN55n27yBwRgFUEou4="
         }
       },
       "is_incremental": true,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/creating-graph-data.html",
-          "hash": "wrinIyXzY0/iqLNfwUnX05D0GZnsNa0qDblvRrfwWkQ="
+          "hash": "gifeiyREdhp1aW/lvSK6U0NpNKKopyoIUoBs/NJk8vs="
         }
       },
       "is_incremental": true,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "YwNWN6jWzvf3aCkE4YV4Y19KhhyVwwEQbHV0kBTqWfo="
+          "hash": "2dtjGZDa4KckzTH8tpZc4v/fFLL2oM3LnPKsMiTNg18="
         }
       },
       "is_incremental": true,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/parsing-namespaces.html",
-          "hash": "1Kad+BAXKdAYd+Hdurc9B8vpDkhJYA0vxq/keFxfJNU="
+          "hash": "cT2CyljP2zNUDJ0dRMaT+f6piyPUWfiKpyTAyNjW3E4="
         }
       },
       "is_incremental": true,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/parsing-url.html",
-          "hash": "QadlcFgRddtR/Qa55kstbOPK9o+4XX+jTT6rYMh0E3M="
+          "hash": "Z62PFvzAguKCvPPT3T1FB6wXXcvqP7i/e02uKbh2f0I="
         }
       },
       "is_incremental": true,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/writing-namespaces.html",
-          "hash": "KO7wfD/BkTIpySBeLtnSDBp6srBgQFw4TepF+5awJjM="
+          "hash": "5/P/Q4afjkUO0q8remZaPFUV0USzQ9H6ul5gQ5Qm3DQ="
         }
       },
       "is_incremental": true,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "WltUlobhK7JITZ4ePe23j6lHnT9FjNf4YurNJ1KVuZY="
+          "hash": "yLmlvF+Fk3ht8tNl5zlpRVkF7cbo+gcjRga/rKGvN+Y="
         }
       },
       "is_incremental": true,
