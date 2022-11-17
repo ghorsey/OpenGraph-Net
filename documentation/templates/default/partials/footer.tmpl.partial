@@ -8,7 +8,7 @@
         <a href="#top">Back to top</a>
       </span>
       {{{_appFooter}}}
-      {{^_appFooter}}<span>Copyright &copy; 2021 - Geoff Horsey</span>{{/_appFooter}}
+      {{^_appFooter}}<span>Copyright &copy; 2021 - Geoff Horsey</span> <a rel="me" href="https://techhub.social/@geoff_horsey">Mastodon</a>{{/_appFooter}}
     </div>
   </div>
 </footer>
