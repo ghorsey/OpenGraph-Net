@@ -17,10 +17,26 @@
 	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "dotnet restore"
+	"postCreateCommand": "dotnet restore",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.csharp",
+				"aaron-bond.better-comments",
+				"ms-vscode-remote.remote-containers",
+				"asvetliakov.vscode-neovim",
+				"streetsidesoftware.code-spell-checker",
+				"EditorConfig.EditorConfig",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"ms-dotnettools.vscodeintellicode-csharp",
+				"DavidAnson.vscode-markdownlint"
+			]
+		}
+	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
