@@ -210,6 +210,20 @@ public class OpenGraph
     /// <param name="userAgent">The user agent.</param>
     /// <param name="validateSpecification">if set to <c>true</c> validate minimum Open Graph specification.</param>
     /// <param name="timeout">The timeout in milliseconds.</param>
+    /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns><see cref="Task{OpenGraph}" />.</returns>
+    public static Task<OpenGraph> ParseUrlAsync(string url, string? userAgent = null, bool validateSpecification = false, int timeout = 90000, CancellationToken cancellationToken = default)
+    {
+        return ParseUrlAsync(url, userAgent, validateSpecification, timeout, null, cancellationToken);
+    }
+
+    /// <summary>
+    /// Parses the URL asynchronously.
+    /// </summary>
+    /// <param name="url">The URL.</param>
+    /// <param name="userAgent">The user agent.</param>
+    /// <param name="validateSpecification">if set to <c>true</c> validate minimum Open Graph specification.</param>
+    /// <param name="timeout">The timeout in milliseconds.</param>
     /// <param name="httpClient">An optional <see cref="HttpClient"/> to use to download the page for parsing.</param>
     /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
     /// <returns><see cref="Task{OpenGraph}" />.</returns>
@@ -224,6 +238,20 @@ public class OpenGraph
 
         Uri uri = new(url);
         return ParseUrlAsync(uri, userAgent, validateSpecification, timeout, httpClient, cancellationToken);
+    }
+
+    /// <summary>
+    /// Parses the URL asynchronously.
+    /// </summary>
+    /// <param name="url">The URL.</param>
+    /// <param name="userAgent">The user agent.</param>
+    /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
+    /// <param name="timeout">The timeout in milliseconds.</param>
+    /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns><see cref="Task{OpenGraph}" />.</returns>
+    public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "", bool validateSpecification = false, int timeout = 90000, CancellationToken cancellationToken = default)
+    {
+        return await ParseUrlAsync(url, userAgent, validateSpecification, timeout, null, cancellationToken);
     }
 
     /// <summary>
