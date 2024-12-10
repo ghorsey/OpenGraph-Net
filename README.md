@@ -8,6 +8,7 @@
 [![gitter](https://badges.gitter.im/webpack/webpack.svg)](https://gitter.im/OpenGraph-Net/OpenGraph-Net)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=round-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![Open in DevPod!](https://devpod.sh/assets/open-in-devpod.svg)](https://devpod.sh/open#https://github.com/ghorsey/OpenGraph-Net)
 
 A simple .net assembly to use to parse Open Graph information from either a URL or an HTML snippet. You can read more about the
 Open Graph protocol @ <http://ogp.me>.
