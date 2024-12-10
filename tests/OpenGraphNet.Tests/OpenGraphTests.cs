@@ -1,5 +1,7 @@
 ﻿namespace OpenGraphNet.Tests;
 
+using System.Net;
+
 /// <summary>
 /// The open graph test fixture.
 /// </summary>
@@ -509,6 +511,28 @@ public class OpenGraphTests
             referrer: "http://www.mysite.com",
             userAgent: "test",
             timeout: 100000);
+        string html = await downloader.GetPageAsync().ConfigureAwait(false);
+
+        Assert.NotEqual(string.Empty, html);
+    }
+
+    /// <summary>
+    /// Defines the test method TestDownloader. Issue #38.
+    /// </summary>
+    /// <returns>A/an <c>Task</c>.</returns>
+    [Fact]
+    public async Task TestDownloaderWithHttpClient()
+    {
+        HttpClientHandler compressionHandler = new() { AutomaticDecompression = DecompressionMethods.All };
+        var httpClient = new HttpClient(compressionHandler, disposeHandler: true);
+        httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("OpenGraphNet-test/1.0");
+
+        var downloader = new HttpDownloader(
+            new Uri("https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-extensionpack"),
+            referrer: "http://www.mysite.com",
+            userAgent: "test",
+            timeout: 100000,
+            httpClient: httpClient);
         string html = await downloader.GetPageAsync().ConfigureAwait(false);
 
         Assert.NotEqual(string.Empty, html);
