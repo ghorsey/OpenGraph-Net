@@ -210,9 +210,10 @@ public class OpenGraph
     /// <param name="userAgent">The user agent.</param>
     /// <param name="validateSpecification">if set to <c>true</c> validate minimum Open Graph specification.</param>
     /// <param name="timeout">The timeout in milliseconds.</param>
+    /// <param name="httpClient">An optional <see cref="HttpClient"/> to use to download the page for parsing.</param>
     /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
     /// <returns><see cref="Task{OpenGraph}" />.</returns>
-    public static Task<OpenGraph> ParseUrlAsync(string url, string? userAgent = null, bool validateSpecification = false, int timeout = 90000, CancellationToken cancellationToken = default)
+    public static Task<OpenGraph> ParseUrlAsync(string url, string? userAgent = null, bool validateSpecification = false, int timeout = 90000, HttpClient? httpClient = null, CancellationToken cancellationToken = default)
     {
         if (!Regex.IsMatch(url, "^https?://", RegexOptions.IgnoreCase))
         {
@@ -222,7 +223,7 @@ public class OpenGraph
         userAgent ??= $"OpenGraphNet/{Utilities.GetVersionString()}";
 
         Uri uri = new(url);
-        return ParseUrlAsync(uri, userAgent, validateSpecification, timeout, cancellationToken);
+        return ParseUrlAsync(uri, userAgent, validateSpecification, timeout, httpClient, cancellationToken);
     }
 
     /// <summary>
@@ -232,13 +233,14 @@ public class OpenGraph
     /// <param name="userAgent">The user agent.</param>
     /// <param name="validateSpecification">if set to <c>true</c> [validate specification].</param>
     /// <param name="timeout">The timeout in milliseconds.</param>
+    /// <param name="httpClient">An optional <see cref="HttpClient"/> to use to download the page for parsing.</param>
     /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
     /// <returns><see cref="Task{OpenGraph}" />.</returns>
-    public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "", bool validateSpecification = false, int timeout = 90000, CancellationToken cancellationToken = default)
+    public static async Task<OpenGraph> ParseUrlAsync(Uri url, string userAgent = "", bool validateSpecification = false, int timeout = 90000, HttpClient? httpClient = null, CancellationToken cancellationToken = default)
     {
         OpenGraph result = new() { OriginalUrl = url };
 
-        HttpDownloader downloader = new(url, null, userAgent, timeout);
+        HttpDownloader downloader = new(url, null, userAgent, timeout, httpClient);
         string html = await downloader.GetPageAsync(cancellationToken).ConfigureAwait(false);
         result.OriginalHtml = html;
 

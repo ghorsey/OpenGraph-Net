@@ -1,5 +1,9 @@
 ﻿namespace OpenGraphNet;
 
+using System.Net.Http.Headers;
+
+using System.Net.Mime;
+
 /// <summary>
 /// HTTP Downloader.
 /// </summary>
@@ -10,19 +14,35 @@
 public class HttpDownloader
 {
     /// <summary>
-    /// The referrer.
+    /// Default Http Handler, configured to support compression.
     /// </summary>
-    private readonly string? referrer;
+    private static readonly HttpClientHandler HttpClientHandler = new()
+    {
+#if NET6_OR_GREATER
+        AutomaticDecompression = DecompressionMethods.All,
+#else
+        AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip,
+#endif
+    };
 
     /// <summary>
-    /// The user agent.
+    /// Default HttpClient, used when one is not specified during construction.
+    /// Ideally this would be static to pool between all instances, but as you can set different referrers, user agents and timeouts
+    /// when creating an HttpDownloader this isn't possible.
     /// </summary>
-    private readonly string userAgent;
+    private readonly HttpClient defaultHttpClient = new(HttpClientHandler, disposeHandler: true);
 
     /// <summary>
-    /// The timeout in milliseconds.
+    /// Initializes static members of the <see cref="HttpDownloader"/> class.
     /// </summary>
-    private readonly int timeout;
+    static HttpDownloader()
+    {
+        // Configure the shared client with opinionated defaults.
+#if NET6_OR_GREATER
+        SharedHttpClient.DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher;
+        SharedHttpClient.DefaultRequestVersion = HttpVersion.Version20;
+#endif
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="HttpDownloader" /> class.
@@ -31,12 +51,27 @@ public class HttpDownloader
     /// <param name="referrer">The referrer.</param>
     /// <param name="userAgent">The user agent.</param>
     /// <param name="timeout">The timeout in milliseconds.</param>
-    public HttpDownloader(Uri url, string? referrer, string userAgent, int timeout)
+    /// <param name="httpClient">An optional <see cref="HttpClient"/> to use to download.</param>
+    public HttpDownloader(Uri url, string? referrer, string userAgent, int timeout, HttpClient? httpClient = null)
     {
         this.Url = url;
-        this.userAgent = userAgent;
-        this.referrer = referrer;
-        this.timeout = timeout;
+
+        this.HttpClient = httpClient ?? this.defaultHttpClient;
+
+        if (httpClient is null)
+        {
+            this.HttpClient.Timeout = TimeSpan.FromMilliseconds(timeout);
+
+            if (!string.IsNullOrEmpty(userAgent))
+            {
+                this.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd(userAgent);
+            }
+
+            if (!string.IsNullOrEmpty(referrer))
+            {
+                this.HttpClient.DefaultRequestHeaders.Referrer = new Uri(referrer);
+            }
+        }
     }
 
     /// <summary>
@@ -48,31 +83,18 @@ public class HttpDownloader
     public Uri Url { get; set; }
 
     /// <summary>
+    /// Gets the HttpClient to use when making requests.
+    /// </summary>
+    protected HttpClient HttpClient { get; }
+
+    /// <summary>
     /// Gets the page asynchronously.
     /// </summary>
     /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
     /// <returns>The content of the page.</returns>
     public async Task<string> GetPageAsync(CancellationToken cancellationToken = default)
     {
-        using var handler = new HttpClientHandler
-        {
-            AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip,
-        };
-
-        using HttpClient client = new(handler);
-        client.Timeout = TimeSpan.FromMilliseconds(this.timeout);
-
-        if (!string.IsNullOrWhiteSpace(this.userAgent))
-        {
-            client.DefaultRequestHeaders.UserAgent.ParseAdd(this.userAgent);
-        }
-
-        if (!string.IsNullOrWhiteSpace(this.referrer))
-        {
-            client.DefaultRequestHeaders.Referrer = new Uri(this.referrer);
-        }
-
-        var response = await client.GetAsync(this.Url, cancellationToken).ConfigureAwait(false);
+        var response = await this.HttpClient.GetAsync(this.Url, cancellationToken).ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
 #if NETSTANDARD2_1_OR_GREATER
         return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
