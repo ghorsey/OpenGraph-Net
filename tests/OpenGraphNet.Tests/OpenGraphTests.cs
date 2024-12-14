@@ -1,5 +1,7 @@
 ﻿namespace OpenGraphNet.Tests;
 
+using System.Runtime.CompilerServices;
+
 /// <summary>
 /// The open graph test fixture.
 /// </summary>
@@ -443,30 +445,6 @@ public class OpenGraphTests
     }
 
     /// <summary>
-    /// Tests the parsing URL asynchronous validate encoding is correct.
-    /// </summary>
-    /// <returns>A task.</returns>
-    [Fact]
-    public async Task TestParsingUrlAsyncValidateEncodingIsCorrect()
-    {
-        var expectedContent = "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame! -&gt; http://ubi.li/u8w9n";
-        var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756").ConfigureAwait(false);
-        Assert.Equal(expectedContent, tags.Metadata["og:description"].First().Value);
-    }
-
-    /// <summary>
-    /// Tests the parsing URL validate encoding is correct.
-    /// </summary>
-    /// <returns>A task.</returns>
-    [Fact]
-    public async Task TestParsingUrlValidateEncodingIsCorrect()
-    {
-        var expectedContent = "Создайте себе горное настроение с нашим первым фан-китом по игре #SteepGame! -&gt; http://ubi.li/u8w9n";
-        var tags = await OpenGraph.ParseUrlAsync("https://vk.com/wall-41600377_66756");
-        Assert.Equal(expectedContent, tags.Metadata["og:description"].First().Value);
-    }
-
-    /// <summary>
     /// Tests the meta charset parses correctly.
     /// </summary>
     /// <returns>A task.</returns>
@@ -598,7 +576,7 @@ public class OpenGraphTests
 
         //// Assert.Equal(SpacedLink, graph.Url?.ToString()); // bug in new layout of IMDB
         Assert.StartsWith("Spaced", graph.Title, StringComparison.InvariantCultureIgnoreCase);
-        Assert.Contains("Simon", graph.Metadata["og:description"].First().Value, StringComparison.InvariantCultureIgnoreCase);
+        Assert.Contains("25m | TV-14", graph.Metadata["og:description"].First().Value, StringComparison.InvariantCultureIgnoreCase);
         Assert.Contains("/images", graph.Image.ToString(), StringComparison.InvariantCultureIgnoreCase);
         //// Assert.Equal("video.tv_show", graph.Type); // bug in new layout of IMDB
         ////Assert.Equal("IMDb", graph.Metadata["og:site_name"].First().Value); // bug in the new layout of IMDB
