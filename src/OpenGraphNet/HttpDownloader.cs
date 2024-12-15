@@ -39,7 +39,7 @@ public class HttpDownloader
     {
         // Configure the shared client with opinionated defaults.
 #if NET6_OR_GREATER
-        SharedHttpClient.DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrHigher;
+        SharedHttpClient.DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrLower;
         SharedHttpClient.DefaultRequestVersion = HttpVersion.Version20;
 #endif
     }
