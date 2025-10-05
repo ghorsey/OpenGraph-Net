@@ -25,7 +25,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        dotnet-version: ['6.0.x']
+        dotnet-version: ['9.0.x']
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
