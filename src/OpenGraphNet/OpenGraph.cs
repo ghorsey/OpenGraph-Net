@@ -494,7 +494,17 @@ public class OpenGraph
 
         HtmlNodeCollection allMeta = document.DocumentNode.SelectNodes("//meta");
 
-        var openGraphMetaTags = from meta in allMeta ?? new HtmlNodeCollection(null)
+        if (allMeta == null && !validateSpecification)
+        {
+            return result;
+        }
+
+        if (allMeta == null && validateSpecification)
+        {
+            ValidateSpecification(result);
+        }
+
+        var openGraphMetaTags = from meta in allMeta
                                 where (meta.Attributes.Contains("property") && MatchesNamespacePredicate(meta.Attributes["property"].Value)) ||
                                 (meta.Attributes.Contains("name") && MatchesNamespacePredicate(meta.Attributes["name"].Value))
                                 select meta;

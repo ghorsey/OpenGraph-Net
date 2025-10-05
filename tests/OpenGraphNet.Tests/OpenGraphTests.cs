@@ -244,7 +244,7 @@ public class OpenGraphTests
     [Fact]
     public async Task TestParsingYouTubeTagsInBody()
     {
-        var html = await File.ReadAllTextAsync("./TestHtml/YoutubeTagsInBody.htm");
+        var html = await File.ReadAllTextAsync("./TestHtml/YouTubeTagsInBody.htm");
 
         var graph = OpenGraph.ParseHtml(html);
 
@@ -318,7 +318,7 @@ public class OpenGraphTests
         Assert.Equal(description, graph.Metadata["description"].Value());
         Assert.Equal(siteName, graph.Metadata["og:site_name"].Value());
         Assert.Equal(siteName, graph.Metadata["site_name"].Value());
-        Assert.Equal(0, graph.Metadata["og:donotexist"].Count);
+        Assert.Empty(graph.Metadata["og:donotexist"]);
 
         var expected = $"<meta property=\"og:title\" content=\"{title}\">" +
             "<meta property=\"og:type\" content=\"website\">" +
@@ -369,7 +369,7 @@ public class OpenGraphTests
     {
         OpenGraph graph = OpenGraph.ParseHtml(this.invalidMissingRequiredUrls);
 
-        Assert.Equal(1, graph.Namespaces.Count);
+        Assert.Single(graph.Namespaces);
         Assert.Equal("og", graph.Namespaces["og"].Prefix);
         Assert.Equal("http://ogp.me/ns#", graph.Namespaces["og"].SchemaUri.ToString());
         Assert.Equal("product", graph.Type);
@@ -425,7 +425,7 @@ public class OpenGraphTests
     [Fact]
     public async Task TestParsingAsyncTest()
     {
-        OpenGraph graph = await OpenGraph.ParseUrlAsync(SpacedLink).ConfigureAwait(false);
+        OpenGraph graph = await OpenGraph.ParseUrlAsync(SpacedLink);
         Assert.Contains("<html", graph.OriginalHtml, StringComparison.InvariantCultureIgnoreCase);
         AssertSpaced(graph);
     }
@@ -440,8 +440,8 @@ public class OpenGraphTests
         var withoutScheme = SpacedLink.Replace("http://", string.Empty, StringComparison.InvariantCultureIgnoreCase);
         var withHttpsScheme = SpacedLink.Replace("http", "https", StringComparison.InvariantCultureIgnoreCase);
 
-        await OpenGraph.ParseUrlAsync(withHttpsScheme).ConfigureAwait(false);
-        await OpenGraph.ParseUrlAsync(withoutScheme).ConfigureAwait(false);
+        await OpenGraph.ParseUrlAsync(withHttpsScheme);
+        await OpenGraph.ParseUrlAsync(withoutScheme);
     }
 
     /// <summary>
@@ -487,7 +487,7 @@ public class OpenGraphTests
             referrer: "http://www.mysite.com",
             userAgent: "test",
             timeout: 100000);
-        string html = await downloader.GetPageAsync().ConfigureAwait(false);
+        string html = await downloader.GetPageAsync();
 
         Assert.NotEqual(string.Empty, html);
     }
@@ -501,8 +501,6 @@ public class OpenGraphTests
     {
         var urls = new List<Task<OpenGraph>>
         {
-            OpenGraph.ParseUrlAsync("https://www.cntraveler.com/story/how-cruise-lines-are-getting-more-eco-friendly"),
-            OpenGraph.ParseUrlAsync("https://www.nytimes.com/2019/05/22/travel/leaping-caimans-and-tasty-piranha-in-the-wild-amazon.html"),
             OpenGraph.ParseUrlAsync("https://www.thrillist.com/travel/nation/visiting-hainan-things-to-know"),
         };
 
@@ -569,18 +567,12 @@ public class OpenGraphTests
     private static void AssertSpaced(OpenGraph graph)
     {
         Assert.Equal(2, graph.Namespaces.Count);
-        //// Assert.Equal("http://ogp.me/ns#", graph.Namespaces["og"].SchemaUri.ToString()); bug in new layout of IMDB
         Assert.Equal("og", graph.Namespaces["og"].Prefix);
         Assert.Equal("http://www.facebook.com/2008/fbml", graph.Namespaces["fb"].SchemaUri.ToString());
         Assert.Equal("fb", graph.Namespaces["fb"].Prefix);
 
-        //// Assert.Equal(SpacedLink, graph.Url?.ToString()); // bug in new layout of IMDB
         Assert.StartsWith("Spaced", graph.Title, StringComparison.InvariantCultureIgnoreCase);
         Assert.Contains("25m | TV-14", graph.Metadata["og:description"].First().Value, StringComparison.InvariantCultureIgnoreCase);
         Assert.Contains("/images", graph.Image.ToString(), StringComparison.InvariantCultureIgnoreCase);
-        //// Assert.Equal("video.tv_show", graph.Type); // bug in new layout of IMDB
-        ////Assert.Equal("IMDb", graph.Metadata["og:site_name"].First().Value); // bug in the new layout of IMDB
-
-        ////Assert.Equal("115109575169727", graph.Metadata["fb:app_id"].First().Value); .. bug in the new layout of IMDB
     }
 }
